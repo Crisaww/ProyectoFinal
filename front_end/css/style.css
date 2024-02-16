@@ -1,0 +1,35 @@
+body{
+margin: 0;
+padding: 0;
+background-image: url(../img/Fondo_Recuperar_contraseña.jpg);
+height: 100vh;
+}
+
+.recuperarC{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.recuperarC h1{
+    text-align: center;
+    padding-top: 30px;
+    
+}
+
+.recuperarC > p{
+    text-align: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid black;
+}
+
+.recuperarC form{
+    padding: 0 40px;
+    box-sizing: border-box;
+
+}
