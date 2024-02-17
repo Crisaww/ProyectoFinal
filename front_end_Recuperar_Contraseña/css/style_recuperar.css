@@ -1,7 +1,11 @@
 body{
 margin: 0;
 padding: 0;
-background-image: url(../img/Fondo_Recuperar_contraseña.jpg);
+justify-content: center;
+display: flex;
+align-items: center;
+background-image: url(../img/logeo.jpg);
+background-size: cover;
 height: 100vh;
 }
 
@@ -9,7 +13,7 @@ height: 100vh;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -100%);
+    transform: translate(-50%, -50%);
     width: 400px;
     height: 400px;
     background-color: white;
@@ -31,5 +35,26 @@ height: 100vh;
 .recuperarC form{
     padding: 0 40px;
     box-sizing: border-box;
-
 }
+
+form >h6{
+    text-align: center;
+}
+
+form >p{
+    text-align: center;
+}
+
+.correoE{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botonRecuperar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+}
+

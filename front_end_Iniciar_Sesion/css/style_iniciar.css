@@ -7,11 +7,11 @@
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 99vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(./css/Bienvenido.jpg);
+    background-image: url(../img/logeo.jpg);
     background-size: cover;
 }
 
