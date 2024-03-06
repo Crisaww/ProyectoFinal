@@ -4,7 +4,7 @@ padding: 0;
 justify-content: center;
 display: flex;
 align-items: center;
-background-image: url(../img/logeo.jpg);
+background-image: url(../img/fondo_iniciar.jpg);
 background-size: cover;
 height: 100vh;
 }
