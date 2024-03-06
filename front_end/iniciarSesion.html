@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login TuVooz</title>
+    <link rel="stylesheet" href="./css/style_iniciar.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <script src="./js/bootstrap.js"></script>
+    
+</head>
+
+<body>
+    <div class="login">
+        <div class="d-flex justify-content-center">
+            <img src="img/onda.png" alt="" width="50px"><p class="fs-1 text-center">TuVooz</p><img src="img/onda.png" alt="" width="50px">
+        </div>
+        <p>Una cultura que une mundos</p>
+        <div class="fs-3 d-flex justify-content-center">Iniciar Sesión</div>
+        <form method="post">
+            
+            <!-- <div class="username">
+                <input type="email" required>
+                <label>Correo electrónico:</label>
+            </div> -->
+            
+            <div class="col">
+                <label for="numero_documento" class="form-label">Correo electrónico:</label>
+                <input type="email" class="form-control" name="numero_documento" id="numero_documento"  step="1" style="background-color: #DADADA;" onfocusout="validarNumeroDocumento(this);">
+            </div>
+            <div class="col">
+                <label for="contraseña" class="form-label">Contraseña:</label>
+                <input type="password" class="form-control" name="contraseña" id="contraseña" style="background-color: #e5e4e4;"  step="1" onfocusout="validarNumeroDocumento(this);">
+            </div>
+
+            <div class="recordar">
+                <a href="recuperarContraseña.html">¿Has olvidado tu contraseña? </a>
+            </div>
+            
+
+            <div class="registro">
+                ¿No tienes una cuenta? <a href="registroUsuario.html">Registrate</a>
+            </div>
+            
+            <div class="boton">
+                <button type="submit" style="background-color: #49117A; color: white;"class="btn">Iniciar Sesion</button>
+
+            </div>
+            
+
+        </form>
+
+        <div class="aviso">
+            <h5>Descarga la app.</h5>
+        </div>
+        
+    </div>
+    
+
+
+    
+</body>
+</html>

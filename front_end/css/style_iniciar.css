@@ -19,7 +19,7 @@ body {
     width: 400px;
     background-color: white;
     border-radius: 20px;
-    height: 430px;
+    height: 468px;
 }
 
 .login h1{
@@ -53,6 +53,7 @@ form .contraseña {
     margin: 30px 0;
 
 }
+
 
 .username input{
     width: 100%;
@@ -132,6 +133,7 @@ form .contraseña {
     color: blue;
     cursor: pointer;
     text-align: center;
+    padding-top: 25px;
 }
 
 .recordar:hover{
