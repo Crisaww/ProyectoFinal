@@ -34,6 +34,7 @@ body {
     border-bottom: 1px solid black;
 }
 
+
 .login form{
     padding: 0 40px;
     box-sizing: border-box;
@@ -166,4 +167,10 @@ div.aviso{
     display: flex;
     padding-top: 60px;
     padding-left: 125px;
+}
+
+div.aviso2{
+    display: flex;
+    justify-content: center;
+
 }

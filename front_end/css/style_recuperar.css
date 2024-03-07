@@ -64,3 +64,16 @@ form >p{
     padding-top: 20px;
 }
 
+div.aviso{
+    color: white;
+    display: flex;
+    padding-top: 60px;
+    padding-left: 125px;
+}
+
+div.aviso2{
+    display: flex;
+    justify-content: center;
+
+}
+
