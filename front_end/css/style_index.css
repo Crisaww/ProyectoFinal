@@ -2,6 +2,8 @@ body {
     margin: 0;
 }
 
+
+
 .nav_menu {
     align-items: center;
     justify-content: right;
@@ -10,55 +12,87 @@ body {
     background-color: black;
     color: antiquewhite;
     padding-right: 3rem;
+    
 }
 
 .nav_menu > div{
     display: flex;
     gap: 1rem;
+   
 }
 
 .nav_menu2 {
     align-items: center;
-    justify-content: right;
-    height: 60px;
+    justify-content: left;
+    height: 70px;
     display: flex;
     background-color: rgb(73, 0, 122);
-    color: antiquewhite;
-    padding-right: 3rem;
-}
-
-.menu{
-    padding-top: 8px;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    width: 3rem;
-    height: 3rem;
-    border: 0;
-    background: transparent;
-    gap: 0.65rem;
-}
-
-.menu > div{
+    color: white;
+    position: sticky;
     
-    background: white;
-    height: 2px;
-    width: 100%;
-    border-radius: 5px;
-    transition: all 0.5s;
-    transform-origin: left;
-
 }
 
-.menu:hover div:first-child{
-    transform: rotate(45deg);
+.seccion{
+    display: flex;
+    background-color: white;
+    height: 50px;
+    border-bottom: 1px solid black;
 }
 
-.menu:hover div:nth-child(2){
-    opacity: 0;
+.seccion > ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-left: 5%;
+    padding-right: 5%;
+    
 }
 
-.menu:hover div:last-child{
-transform: rotate(-45deg);
+
+.menu>li{
+    margin: 0px 40px;
+    list-style: none;
 }
+
+.menu >li >a{
+    
+    color: #9F9F9F;
+    text-decoration: none;
+    font-size: 20px;
+    border-bottom: 10px solid transparent;
+}
+
+
+.menu >li >a:hover{
+    color: black;
+    font-size: 21px;
+    border-color: #6804CE;
+    transition: 600ms;
+}
+
+.info{
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    background-color: #9F9F9F;
+}
+
+.info >.info_text{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0px 50px 0 50px;
+    width: 900px;
+    height: 500px;
+    background-color: white;
+}
+
+.info_text > h1{
+    padding-bottom: 20px;
+}
+
+
+
 
