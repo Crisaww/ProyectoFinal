@@ -32,6 +32,10 @@ body {
     
 }
 
+.nav_menu2  .dropdown_menu{
+    padding-left: 1150px;
+}
+
 .seccion{
     display: flex;
     background-color: white;
@@ -73,9 +77,9 @@ body {
 
 .info{
     display: flex;
-    justify-content: center;
+    justify-content: left;
     height: 500px;
-    background-color: #9F9F9F;
+    background-color: black;
 }
 
 .info >.info_text{
@@ -84,10 +88,12 @@ body {
     flex-direction: column;
     text-align: center;
     padding: 0px 50px 0 50px;
-    width: 900px;
+    width: 600px;
     height: 500px;
-    background-color: white;
+    background-color: white;    
 }
+
+
 
 .info_text > h1{
     padding-bottom: 20px;
