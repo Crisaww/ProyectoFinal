@@ -10,7 +10,7 @@ body {
     height: 30px;
     display: flex;
     background-color: black;
-    color: antiquewhite;
+    color: white;
     padding-right: 3rem;
     
 }
@@ -50,8 +50,8 @@ body {
 
 .seccion{
     display: flex;
-    background-color: white;
-    height: 50px;
+    background-color: rgb(73, 0, 122);
+    height: 100%;
     border-bottom: 1px solid black;
 }
 
@@ -59,9 +59,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 50px;
-    padding-left: 5%;
-    padding-right: 5%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
     
 }
 
@@ -72,7 +72,7 @@ body {
     align-items: center;
     display: flex;
     justify-content: center;
-    height: 50px;
+    height: 100%;
     list-style: none;
     width: 200px;
 }
@@ -86,11 +86,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: black;
+    color: white;
     text-decoration: none;
-    font-size: 20px;
-    height: 50px;
-    width: 200px;
+    font-size: 15px;
+    height: 100%;
+    width: 100%;
 }
 
 
