@@ -209,7 +209,6 @@ body {
   .navbar .getstarted:focus {
     display: flex;
     padding: 8px 25px;
-    margin-left: 30px;
     border-radius: 5px;
     color: #fff;
     transition: 0.3s;
