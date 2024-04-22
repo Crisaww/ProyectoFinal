@@ -118,13 +118,13 @@ h6 {
 #header {
   transition: all 0.5s;
   z-index: 997;
-  padding: 20px 0;
+  /* padding: 20px 0; */
 }
 
 #header.header-scrolled,
 #header.header-inner-pages {
   background: black;
-  padding: 12px 0;
+  /* padding: 12px 0; */
 }
 
 #header .logo {
@@ -143,7 +143,7 @@ h6 {
 }
 
 #header .logo img {
-  max-height: 40px;
+  max-height: 100px;
 }
 
 /*--------------------------------------------------------------
