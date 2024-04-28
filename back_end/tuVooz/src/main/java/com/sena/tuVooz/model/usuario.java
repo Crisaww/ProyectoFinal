@@ -22,4 +22,9 @@ public class usuario {
 
     @Column(name="contrasena_usuario", nullable = false, length = 30)
     private String contrasena_usuario;
+
+
+    
 }
+
+
