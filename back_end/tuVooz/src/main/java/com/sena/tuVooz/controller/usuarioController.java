@@ -28,7 +28,29 @@ public class usuarioController {
     private IusuarioService usuarioService;
 
     @PostMapping("/")
-	public ResponseEntity<Object> save(@ModelAttribute("usuario") usuario usuario){
+	public ResponseEntity<Object> save(
+        @ModelAttribute("usuario") usuario usuario
+        ){
+            if (usuario.getNombre_usuario().equals("")) {
+				return new ResponseEntity<>("Los nombres son obligatorios", HttpStatus.BAD_REQUEST);
+			
+			}
+			if (usuario.getCorreo_electronico().equals("")) {
+				return new ResponseEntity<>("El correo es obligatorio", HttpStatus.BAD_REQUEST);
+			}
+			if (usuario.getContrasena_usuario().equals("")) {
+				return new ResponseEntity<>("La contraseña es obligatoria", HttpStatus.BAD_REQUEST);
+			}
+			if (usuario.getConfirmacion_contrasena().equals("")) {
+				return new ResponseEntity<>("La confirmación de contraseña es obligatoria", HttpStatus.BAD_REQUEST);
+			}
+
+			if (usuario.getRol().equals("")) {
+				return new ResponseEntity<>("El rol es obligatorio", HttpStatus.BAD_REQUEST);
+			}
+			if (usuario.getEstado().equals("")) {
+				return new ResponseEntity<>("El estado es obligatorio", HttpStatus.BAD_REQUEST);
+			}
 		usuarioService.save(usuario);
 		return new ResponseEntity<>(usuario,HttpStatus.OK);
 	}
@@ -55,7 +77,7 @@ public class usuarioController {
 
     //ELIMINADO LÓGICO:
     @DeleteMapping("/id_usuario")
-    public ResponseEntity<Object> dlete (@PathVariable String id_usuario){
+    public ResponseEntity<Object> delete (@PathVariable String id_usuario){
         usuarioService.delete(id_usuario);
         return new ResponseEntity<>("Registro Eliminado", HttpStatus.OK);
     }
