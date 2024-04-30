@@ -86,9 +86,12 @@ public class usuarioController {
     public ResponseEntity<Object> update(@PathVariable String id_usuario, @ModelAttribute("usuario")usuario usuarioUpdate){
         var usuario = usuarioService.findOne(id_usuario).get();
         if (usuario != null) {
-            usuario.setCorreo_electronico(usuarioUpdate.getCorreo_electronico());
             usuario.setNombre_usuario(usuarioUpdate.getNombre_usuario());
+            usuario.setCorreo_electronico(usuarioUpdate.getCorreo_electronico());
             usuario.setContrasena_usuario(usuarioUpdate.getContrasena_usuario());
+            usuario.setConfirmacion_contrasena(usuarioUpdate.getConfirmacion_contrasena());
+            usuario.setRol(usuarioUpdate.getRol());
+            usuario.setEstado(usuarioUpdate.getEstado());
             usuarioService.save(usuario);
             return new ResponseEntity<>(usuario, HttpStatus.OK);
 

@@ -1,5 +1,7 @@
 package com.sena.tuVooz.model;
 
+
+
 public enum rol {
       /*
      * ENUM: Clase abstracta que todos los tipos enumeración
@@ -10,6 +12,6 @@ public enum rol {
      * 2) User
      */
 
-     Admin,
-     User
+     Administrador,
+     Usuario
 }
