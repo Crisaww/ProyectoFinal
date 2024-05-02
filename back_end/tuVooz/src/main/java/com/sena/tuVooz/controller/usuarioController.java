@@ -61,7 +61,7 @@ public class usuarioController {
         return new ResponseEntity<>(listaUsuario, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id_usuario}")
     public ResponseEntity<Object> findOne(@PathVariable String id_usuario){
         var usuario=usuarioService.findOne(id_usuario);
         return new ResponseEntity<>(usuario, HttpStatus.OK);
@@ -82,7 +82,7 @@ public class usuarioController {
         return new ResponseEntity<>("Registro Eliminado", HttpStatus.OK);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{id_usuario}")
     public ResponseEntity<Object> update(@PathVariable String id_usuario, @ModelAttribute("usuario")usuario usuarioUpdate){
         var usuario = usuarioService.findOne(id_usuario).get();
         if (usuario != null) {
