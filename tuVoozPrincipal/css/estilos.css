@@ -162,6 +162,7 @@ h4{
 /*** Carousel End ***/
 
 /* menu lateral  frases Start */
+
 .logout_btn:hover{
   background: rgb(140, 154, 155);
 }
@@ -177,12 +178,7 @@ h4{
    transition-property: left;
    
 }
-.sidebar .profile_image{
-   width: 100px;
-   height: 100px;
-   border-radius: 100px;
-   margin-bottom: 10px;
-}
+
 .sidebar h4{
    color: #ccc;
    margin-top: 0;
@@ -201,13 +197,14 @@ h4{
 }
 
 .sidebar a:hover{
-   background: #19B3D3;
+   background: #c2a1bc;
 }
 
 .sidebar i{
 padding-right: 10px;
 }
 
+/* boton de abrir y cerrar el menu lateral */
 label #sidebar_btn{
    z-index: 1;
    color: #fff;
@@ -221,23 +218,43 @@ label #sidebar_btn{
 }
 
 label #sidebar_btn:hover{
- color: #19B3D3;
+ color: #e6bff1;
 
 }
 
+/* es la accion que cirrar el sidebar menu lateral  */
 #check:checked ~ .sidebar{
    left: -190px;
 }
+
+
 
 #check:checked ~ .sidebar a span{
 display: none;
 }
 
 #check:checked ~ .sidebar a{
-   font-size: 20px;
-   margin-left: 170px;
-   width: 80px;
+   font-size: 100%;
+   margin-left: 70%;
+   width: 30%;
 }
+
+#check:checked ~ iframe{
+ margin-left: 5%;
+}
+
+/* es la accion que cirrar  menu lateral  */
+iframe{
+  margin-left: 20%;
+}
+
+.a-selecionado{
+  background-color: #e6bff1;
+}
+
+
+
+/* boton de abrir y cerrar el menu lateral */
 .linea-lateral {
   position: absolute;
   top: 0;
@@ -247,4 +264,7 @@ display: none;
   background-color: #6a1581; /* Change color to your preference */
 }
 /* menu lateral  frases end */
+
+
+
 
