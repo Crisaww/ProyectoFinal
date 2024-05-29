@@ -1,21 +1,17 @@
 package com.sena.tuVooz.controller;
 
-import java.nio.file.Paths;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.api.gax.core.FixedCredentialsProvider;
-import com.google.auth.oauth2.GoogleCredentials;
 import com.google.auth.oauth2.ServiceAccountCredentials;
 import com.google.cloud.texttospeech.v1.*;
 import com.google.protobuf.ByteString;
 
 import java.io.FileInputStream;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+
 
 @RestController
 @RequestMapping("/api/v1/voz")
@@ -58,4 +54,5 @@ public class vozController {
             System.out.println("Audio content written to file \"output.wav\"");
         }
     }
+}
 }
