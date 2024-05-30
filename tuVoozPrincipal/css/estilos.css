@@ -246,11 +246,20 @@ display: none;
 
 /*es para cuando este abierto*/
 iframe{
-  margin-left: 23%;  
+  margin-left: 23%;   
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90%;
+  z-index: 1;
 }
-
 .a-selecionado{
   background-color: #e6bff1;
+}
+/*estilo del body de frases recientes*/
+#dobyIframe{
+  margin-top: 9%;
 }
 
 /********** boton de abrir y cerrar el menu lateral **********/
@@ -279,9 +288,24 @@ iframe{
   color: #aa43c7;
   
 }
-.btnfrases{
-  border-radius:9%; 
-  
+
+.btnfrases {
+  width: 18%; /* Ancho del botón */
+  height: 20%; /* Alto del botón */
+  background-color: #dba1d8; /* Color de fondo v */
+  color: rgb(8, 8, 8); /* Color de texto  */
+   /* Elimina el borde predeterminado */
+  border-radius: 10px; /* Botón circular */
+  text-align: center; /* Centra el texto horizontalmente */
+  line-height: 30px; /* Altura de la línea igual al alto del botón */
+  font-size: 14px; /* Tamaño de la fuente */
+  margin: 10px 5px; /* Margen entre botones */
+  cursor: pointer; /* Indicador de cursor en forma de mano */
+  transition: background-color 0.3s ease; /* Animación de cambio de color al pasar el cursor */
+}
+
+.btnfrases:hover { /* Estilo al pasar el cursor sobre el botón */
+  background-color: #ea94f1; /* Color de fondo verde más oscuro */
 }
 
 

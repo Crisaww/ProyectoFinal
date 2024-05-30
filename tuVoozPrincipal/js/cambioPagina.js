@@ -4,7 +4,7 @@ function cambioPagina(page,etiqueta){
     /*aqui se crea un array llamado list para almacenar todos lo elementos que tengan el tipo de clase 
     a_seleccionado */
     var list=document.getElementsByClassName("a-selecionado")
-    /*este ciclo lo que hace es quitarle el seleccionado/ el tipo de clase a un elemento qeu lo tenia */
+    /*este ciclo lo que hace es quitarle el seleccionado/ el tipo de clase a un elemento que lo tenia */
     for (index = 0; index < list.length; ++index) {
         list[index].setAttribute("class","");
     }
