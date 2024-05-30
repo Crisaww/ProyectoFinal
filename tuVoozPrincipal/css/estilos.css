@@ -28,7 +28,7 @@
 
 /* estilos del logo end */
 
-/*** Navbar Start ***/
+/**********Navbar Start ************/
 .nav{
   background-color: #6a1581; /*color de la barra superior*/
 }
@@ -90,10 +90,10 @@
 #searchModal .modal-content {
   background: rgba(250, 250, 250, .6);
 }
-/*** Navbar End ***/
+/********** Navbar End **********/
 
 
-/*** Carousel Start ***/
+/**********Carousel Start **********/
 h1{
   color: #6a1581;
   font-weight: bold;
@@ -159,10 +159,10 @@ h4{
   border-right: 15px solid var(--bs-primary);
   border-left: 15px solid var(--bs-primary);
 }
-/*** Carousel End ***/
+/********** Carousel End**********/
 
-/* menu lateral  frases Start */
 
+/********** menu lateral  frases Start**********/
 .logout_btn:hover{
   background: rgb(140, 154, 155);
 }
@@ -204,7 +204,7 @@ h4{
 padding-right: 10px;
 }
 
-/* boton de abrir y cerrar el menu lateral */
+/** boton de abrir y cerrar el menu lateral**/
 label #sidebar_btn{
    z-index: 1;
    color: #fff;
@@ -222,48 +222,86 @@ label #sidebar_btn:hover{
 
 }
 
-/* es la accion que cirrar el sidebar menu lateral  */
+/**es la accion que cirrar el sidebar menu lateral **/
 #check:checked ~ .sidebar{
    left: -190px;
 }
-
-
 
 #check:checked ~ .sidebar a span{
 display: none;
 }
 
+/**es la accion que cirrar la etiquetas que son las opciones del menu lateral**/
 #check:checked ~ .sidebar a{
    font-size: 100%;
    margin-left: 70%;
    width: 30%;
 }
 
+/**es la accion para que el contenido del frente del menu lateral se adpte
+    ya sea cuando el este cerrado (se encuentre coon el check)**/
 #check:checked ~ iframe{
- margin-left: 5%;
+ margin-left: 9%;
 }
 
-/* es la accion que cirrar  menu lateral  */
+/*es para cuando este abierto*/
 iframe{
-  margin-left: 20%;
+  margin-left: 23%;  
 }
 
 .a-selecionado{
   background-color: #e6bff1;
 }
 
-
-
-/* boton de abrir y cerrar el menu lateral */
+/********** boton de abrir y cerrar el menu lateral **********/
 .linea-lateral {
   position: absolute;
   top: 0;
   right: 0;
   height: 100%; /* Adjust height if needed */
   width: 2px;
-  background-color: #6a1581; /* Change color to your preference */
+  background-color: #6a1581; 
 }
-/* menu lateral  frases end */
+/********** menu lateral  frases end **********/
+
+/********** estilos de frases Recientes star **********/
+#tituloFrase{
+
+  text-align: left; 
+  font-family: Arial Black; 
+  font-weight: bold; font-size: 30px; 
+  background: #202020; 
+  -webkit-background-clip: text; 
+  -moz-background-clip: text; 
+  background-clip: text; 
+  color: transparent; 
+  text-shadow: 0px 3px 3px rgba(255,255,255,0.4),0px -1px 1px rgba(0,0,0,0.3);
+  color: #aa43c7;
+  
+}
+.btnfrases{
+  border-radius:9%; 
+  
+}
+
+
+
+/********** 
+el selector de la etiqueta aplica  para mas de un elemento que tenga una etiqueta 
+sin nada solo el nombre de la etiquetas llama directamente a alas etiquetas que estoy selecionando ejeplo:
+a{
+  color=  #2345
+}
+
+selector para llamar por el id es para un elemento es espesifico 
+#titulo{
+  color=  #2345
+}
+
+selector para llamar por class es para aplicar estilos a mas de un elemento 
+.containerInicio{
+} 
+ **********/
 
 
 
