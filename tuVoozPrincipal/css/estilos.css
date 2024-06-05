@@ -1,29 +1,18 @@
-/* .back-to-top {
-  position: fixed;
-  right: 30px;
-  bottom: 30px;
-  display: flex;
-  width: 45px;
-  height: 45px;
-  align-items: center;
-  justify-content: center;
-  transition: 0.5s;
-  z-index: 99;
-} */
 
-/*** Topbar Start ***/
+/***Topbar Start ****/
 .sticky-top {
   transition: 0.5s;
   background: var(--bs-white);
 }
+/***Topbar end ****/
 
-/*** Topbar End ***/
 
 /* estilos del logo start*/
 .navbar-light .navbar-brand img {
   max-height: 82px;
-  margin-left: 45px;
-  transition: .5s;
+   margin-left: 1px;
+  transition: .5s; 
+
 }
 
 /* estilos del logo end */
@@ -34,7 +23,7 @@
 }
 .navbar .navbar-nav .nav-link {
   padding: 10px 15px;
-  font-size: 21px;
+  font-size: 150%;
   transition: .5s;
   color: #f8f9fa;
 }
@@ -200,21 +189,23 @@ h4{
    background: #c2a1bc;
 }
 
-.sidebar i{
-padding-right: 10px;
+/* estilos de los iconos de barras del menu */
+.sidebar i{ 
+padding-right: 10%;
+font-size: 120%;
 }
 
-/** boton de abrir y cerrar el menu lateral**/
+/********** boton de abrir y cerrar el menu lateral end **********/
 label #sidebar_btn{
    z-index: 1;
-   color: #fff;
+   color: #ffffff;
    position: fixed;
    cursor: pointer;
-   left: 300px;
-   font-size: 20px;
-   margin: 5px 0;
+   left: 12%; /*margen de las barras de abrir y cerrar el modal*/
+   font-size: 130%; /*el tamaño de las barras de abrir y cerrar modal*/
    transition: 0.5s;
    transition-property:color;
+   margin: 5px 0;
 }
 
 label #sidebar_btn:hover{
@@ -241,12 +232,13 @@ display: none;
 /**es la accion para que el contenido del frente del menu lateral se adpte
     ya sea cuando el este cerrado (se encuentre coon el check)**/
 #check:checked ~ iframe{
- margin-left: 9%;
+ margin-left: 6%;
 }
 
-/*es para cuando este abierto*/
+/*es para cuando este ifreme abierto se ajuste*/
 iframe{
-  margin-left: 23%;   
+  margin-left: 15%; 
+  margin-top: 8%;  
   position: fixed;
   top: 0;
   left: 0;
@@ -258,17 +250,15 @@ iframe{
   background-color: #e6bff1;
 }
 /*estilo del body de frases recientes*/
-#dobyIframe{
-  margin-top: 9%;
-}
 
-/********** boton de abrir y cerrar el menu lateral **********/
+/********** boton de abrir y cerrar el menu lateral end **********/
+
 .linea-lateral {
   position: absolute;
   top: 0;
   right: 0;
-  height: 100%; /* Adjust height if needed */
-  width: 2px;
+  height: 100%; /* largo de la linea que separa el menu del iframe */
+  width: 1%;
   background-color: #6a1581; 
 }
 /********** menu lateral  frases end **********/
@@ -288,13 +278,23 @@ iframe{
   color: #aa43c7;
   
 }
+/*estilos del los botones star*/
+.contenedor-botones {
+  display: flex;
+  flex-direction: column;
+ 
+  width: 84.9%;  /*Ancho fijo para cada botón */
+ 
+}
 
-.btnfrases {
-  width: 18%; /* Ancho del botón */
+.contenedor-botones button {
+  margin-bottom: 2%; /* Agrega espacio entre los botones */
+}
+/* estilo de los botones */
+.btnfrases{
   height: 20%; /* Alto del botón */
   background-color: #dba1d8; /* Color de fondo v */
   color: rgb(8, 8, 8); /* Color de texto  */
-   /* Elimina el borde predeterminado */
   border-radius: 10px; /* Botón circular */
   text-align: center; /* Centra el texto horizontalmente */
   line-height: 30px; /* Altura de la línea igual al alto del botón */
@@ -307,6 +307,8 @@ iframe{
 .btnfrases:hover { /* Estilo al pasar el cursor sobre el botón */
   background-color: #ea94f1; /* Color de fondo verde más oscuro */
 }
+/*estilos del los botones end*/
+
 
 
 
@@ -330,8 +332,8 @@ selector para llamar por class es para aplicar estilos a mas de un elemento
 
  /* NOSOTROS */
 
- /* ---------------------------------------------
-Team Style
+ /*---------------------------------------------
+  Team Style
 --------------------------------------------- 
 */ 
 
