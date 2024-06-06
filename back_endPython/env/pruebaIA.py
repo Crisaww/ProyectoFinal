@@ -3,7 +3,7 @@
 from google.cloud import texttospeech
 
 client = texttospeech.TextToSpeechClient()
-input_text = texttospeech.SynthesisInput(text="Que onda crack")
+input_text = texttospeech.SynthesisInput(text="Buenas tardes señores")
 
 # Note: the voice can also be specified by name.
 # Names of voices can be retrieved with client.list_voices().
