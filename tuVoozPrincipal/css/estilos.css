@@ -161,7 +161,7 @@ h4{
    padding-top: 30px;
    position: fixed;
    left: 0;
-   width: 250px;
+   width: 15%;
    height: 100%;
    transition: 0.5s;
    transition-property: left;
@@ -201,7 +201,7 @@ label #sidebar_btn{
    color: #ffffff;
    position: fixed;
    cursor: pointer;
-   left: 12%; /*margen de las barras de abrir y cerrar el modal*/
+   left: 13%; /*margen de las barras de abrir y cerrar el modal*/
    font-size: 130%; /*el tamaño de las barras de abrir y cerrar modal*/
    transition: 0.5s;
    transition-property:color;
@@ -229,7 +229,7 @@ display: none;
    width: 30%;
 }
 
-/**es la accion para que el contenido del frente del menu lateral se adpte
+/**es la accion para que el contenido del frente del menu lateral se adapte
     ya sea cuando el este cerrado (se encuentre coon el check)**/
 #check:checked ~ iframe{
  margin-left: 6%;
@@ -265,8 +265,8 @@ iframe{
 
 /********** estilos de frases Recientes star **********/
 #tituloFrase{
-  text-align: left; 
-  font-family: Arial Black; 
+  /* text-align: left;  
+  /* font-family: Arial Black;  */
   font-weight: bold;
   font-size: 230%; 
   background: #202020; 
@@ -277,7 +277,7 @@ iframe{
   text-shadow: 0px 3px 3px rgba(255,255,255,0.4),0px -1px 1px rgba(0,0,0,0.3);
   color: #aa43c7;
   padding: 1%; /* separa el titulo de la barra superior  */
- padding-left: 32%;  /* corre el titulo  */
+  padding-left: 32%;  /* corre el titulo  */
 }
 /*estilos del los botones star*/
 .contenedor-botones {
@@ -306,6 +306,18 @@ iframe{
   background-color: #eaa6f0; /* Color de fondo más oscuro */
 }
 /*estilos del los botones end*/
+
+#favorito{
+  display: none;
+
+}
+.btnfrases:hover #favorito{
+  display: inline;
+}
+.fa-solid{
+  color: #fc0000;
+}
+
 
 
 
