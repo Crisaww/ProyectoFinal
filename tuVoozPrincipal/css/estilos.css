@@ -10,7 +10,7 @@
 /* estilos del logo start*/
 .navbar-light .navbar-brand img {
   max-height: 82px;
-   margin-left: 1px;
+  margin-left: 1px;
   transition: .5s; 
 
 }
@@ -265,10 +265,10 @@ iframe{
 
 /********** estilos de frases Recientes star **********/
 #tituloFrase{
-
   text-align: left; 
   font-family: Arial Black; 
-  font-weight: bold; font-size: 30px; 
+  font-weight: bold;
+  font-size: 230%; 
   background: #202020; 
   -webkit-background-clip: text; 
   -moz-background-clip: text; 
@@ -276,36 +276,34 @@ iframe{
   color: transparent; 
   text-shadow: 0px 3px 3px rgba(255,255,255,0.4),0px -1px 1px rgba(0,0,0,0.3);
   color: #aa43c7;
-  
+  padding: 1%; /* separa el titulo de la barra superior  */
+ padding-left: 32%;  /* corre el titulo  */
 }
 /*estilos del los botones star*/
 .contenedor-botones {
   display: flex;
   flex-direction: column;
- 
-  width: 84.9%;  /*Ancho fijo para cada botón */
- 
+  width: 84.9%;  /*Ancho  para cada botón */
 }
-
 .contenedor-botones button {
-  margin-bottom: 2%; /* Agrega espacio entre los botones */
+  margin-bottom: 1%; /* Agrega espacio debajo o entre los botones */
 }
 /* estilo de los botones */
 .btnfrases{
   height: 20%; /* Alto del botón */
-  background-color: #dba1d8; /* Color de fondo v */
+  background-color: #dba1d8; /* Color de fondo  */
   color: rgb(8, 8, 8); /* Color de texto  */
   border-radius: 10px; /* Botón circular */
   text-align: center; /* Centra el texto horizontalmente */
-  line-height: 30px; /* Altura de la línea igual al alto del botón */
-  font-size: 14px; /* Tamaño de la fuente */
+  line-height: 100%; /* Altura de la línea igual al alto del botón */
+  font-size: 95%; /* Tamaño de la fuente */
   margin: 10px 5px; /* Margen entre botones */
   cursor: pointer; /* Indicador de cursor en forma de mano */
   transition: background-color 0.3s ease; /* Animación de cambio de color al pasar el cursor */
 }
 
 .btnfrases:hover { /* Estilo al pasar el cursor sobre el botón */
-  background-color: #ea94f1; /* Color de fondo verde más oscuro */
+  background-color: #eaa6f0; /* Color de fondo más oscuro */
 }
 /*estilos del los botones end*/
 
