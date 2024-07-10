@@ -302,7 +302,7 @@ label #sidebar_btn:hover{
 
 /**es la accion que cirrar el sidebar menu lateral **/
 #check:checked ~ .sidebar{
-   left: -190px;
+   left: -160px;
 }
 
 #check:checked ~ .sidebar a span{
@@ -312,7 +312,7 @@ display: none;
 /**es la accion que cirrar la etiquetas que son las opciones del menu lateral**/
 #check:checked ~ .sidebar a{
    font-size: 100%;
-   margin-left: 70%;
+   margin-left: 65%;
    width: 30%;
 }
 
