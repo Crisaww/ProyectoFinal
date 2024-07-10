@@ -48,6 +48,37 @@
    </div>
    <!-- Navbar End -->
 
+   <!-- <h1>Reproducir texto</h1>
+  <textarea id="texto" cols="30" rows="10"></textarea>
+  <button onclick="reproducirTexto()">Reproducir texto</button>
+
+  <script src="./js/texto.js"></script> -->
+
+  <h1>Text to Speech</h1>
+    <textarea id="texto" rows="4" cols="50"></textarea><br>
+    <button onclick="reproducirTexto()">Reproducir Texto</button>
+    <script>
+        async function reproducirTexto() {
+            const texto = document.getElementById("texto").value;
+            const response = await fetch('http://localhost:5000/synthesize', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ text: texto }),
+            });
+
+            if (response.ok) {
+                const audioBlob = await response.blob();
+                const audioUrl = URL.createObjectURL(audioBlob);
+                const audio = new Audio(audioUrl);
+                audio.play();
+            } else {
+                alert('Error en la síntesis de texto a voz.');
+            }
+        }
+    </script>
+
 
     
   </body>
