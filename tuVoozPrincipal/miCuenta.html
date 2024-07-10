@@ -13,7 +13,6 @@
 
 
     <link rel="stylesheet" href="css/estilos.css">
-    <script src="./js/texto.js"></script>
 
     <title>Tu vooz</title>
     <link rel="icon" type="image/png" href="img/logotipo.png">
@@ -34,12 +33,10 @@
             <div class="collapse navbar-collapse  py-3" id="navbarCollapse">
               <div class="navbar-nav mx-auto border-top">
                 <a href="index.html" class="nav-item nav-link ">Inicio</a>
-                <a href="texto.html" class="nav-item nav-link active">Texto</a>
+                <a href="texto.html" class="nav-item nav-link">Texto</a>
                 <a href="frases.html" class="nav-item nav-link">Frases y Palabras</a>
                 <a href="nosotros.html" class="nav-item nav-link">Quienes Somos</a>
-                <a href="comoUsarTuVooz.html" class="nav-item nav-link">Como Usar tu Vooz</a>
-
-
+                <a href="comoUsarTuVooz.html" class="nav-item nav-link active">Como Usar tu Vooz</a>
                 <div class="dropdown">
                   <a href="#" class="dropdown text-light" data-bs-toggle="dropdown"><small><i class="fa-solid fa-bars" id="#Menu "></i></small></a>
                   <div class="dropdown-menu rounded">
@@ -49,7 +46,6 @@
                       <a href="#" class="dropdown-item"><i class="fas fa-power-off me-2"></i>Cerrar sesión</a>
                   </div>
                 </div>
-              
              </div>
               <div class="d-flex align-items-center flex-nowrap pt-xl-0">
                <!-- espacion para  menu de los ajustes  -->
@@ -60,17 +56,49 @@
      </div>
    </div>
    <!-- Navbar End -->
-
-
    <h1 class="tituloTexto">
-    Digite su texto
+   Mi cuenta
    </h1>
 
-  <div class="textarea-container">
-    <i class="fa-solid fa-circle-xmark" id="iEliminarTexto" onclick="limpiarTexto()"></i>
-    <textarea id="multiLine" name="multiLine" rows="4" cols="50" placeholder="Escriba aquí...  "></textarea>
-  </div>
+   <div class="form-overlay">
+    <div class="row">  
+        <div class="col-md-4">
 
-   <button class="btn btn-custom-purple"><i class="fa-solid fa-volume-high"></i> Reproducir texto</button>
+            <label for="nombreUsuario" class="form-label">Nombre de usuario actual</label>
+            <input type="text" class="form-control" name="nombreUsuario" id="nombreUsuario" step="1">
+
+            <label for="nombreUsuario" class="form-label">Nombre de usuario Nuevo</label>
+            <input type="text" class="form-control" name="nombreUsuario" id="nombreUsuario" step="1">
+        </div>
+
+        <div class="col-md-4">
+
+            <label for="correo" class="form-label">Correo electronico Actual</label>
+            <input type="correo" class="form-control" name="correo" id="correo">
+
+            <label for="correo" class="form-label">Correo electronico nuevo</label>
+            <input type="correo" class="form-control" name="correo" id="correo" >
+
+        </div>
+
+        <div class="col-md-4">
+
+            <label for="correo" class="form-label">Correo electronico</label>
+            <input type="correo" class="form-control" name="correo" id="correo" >
+            <label for="nombreUsuario" class="form-label">Nombre de usuario </label>
+            <input type="text" class="form-control" name="nombreUsuario" id="nombreUsuario" step="1">
+
+
+        </div>
+        <div class="col-12" id="buttonRegistrolibro" style=" display: flex;justify-content: center;">
+            <button class="btn btn-warning" type="button" style="width: 200px; margin-left:3">Registrar cambios </button>
+             
+            <button class="btn btn-warning" type="button" style="width: 200px; margin-left:3">Eliminar cuenta</button>
+     
+    </div>
+</div>
+
+
+    
   </body>
 </html>
