@@ -12,3 +12,4 @@ function cambioPagina(page,etiqueta){
     etiqueta.setAttribute("class","a-selecionado");
 
 }
+

@@ -9,8 +9,8 @@
 
 /* estilos del logo start*/
 .navbar-light .navbar-brand img {
-  max-height: 82px;
-   margin-left: 1px;
+  max-height: 70px;
+  margin-left: 150px;
   transition: .5s; 
 
 }
@@ -69,7 +69,7 @@
 }
 .navbar .navbar-nav .nav-link {
   padding: 10px 15px;
-  font-size: 150%;
+  font-size: 120%;
   transition: .5s;
   color: #f8f9fa;
 }
@@ -86,7 +86,7 @@
   font-family: "Font Awesome 5 Free";
   font-weight: 700;
   vertical-align: middle;
-  margin-left: 8px;
+  margin-left: 8px; 
 }
 
 @media (min-width: 1200px) {
@@ -248,7 +248,7 @@ h4{
    padding-top: 30px;
    position: fixed;
    left: 0;
-   width: 250px;
+   width: 15%;
    height: 100%;
    transition: 0.5s;
    transition-property: left;
@@ -288,7 +288,7 @@ label #sidebar_btn{
    color: #ffffff;
    position: fixed;
    cursor: pointer;
-   left: 12%; /*margen de las barras de abrir y cerrar el modal*/
+   left: 13%; /*margen de las barras de abrir y cerrar el modal*/
    font-size: 130%; /*el tamaño de las barras de abrir y cerrar modal*/
    transition: 0.5s;
    transition-property:color;
@@ -316,7 +316,7 @@ display: none;
    width: 30%;
 }
 
-/**es la accion para que el contenido del frente del menu lateral se adpte
+/**es la accion para que el contenido del frente del menu lateral se adapte
     ya sea cuando el este cerrado (se encuentre coon el check)**/
 #check:checked ~ iframe{
  margin-left: 6%;
@@ -352,10 +352,10 @@ iframe{
 
 /********** estilos de frases Recientes star **********/
 #tituloFrase{
-
-  text-align: left; 
-  font-family: Arial Black; 
-  font-weight: bold; font-size: 30px; 
+  /* text-align: left;  
+  /* font-family: Arial Black;  */
+  font-weight: bold;
+  font-size: 230%; 
   background: #202020; 
   -webkit-background-clip: text; 
   -moz-background-clip: text; 
@@ -363,38 +363,61 @@ iframe{
   color: transparent; 
   text-shadow: 0px 3px 3px rgba(255,255,255,0.4),0px -1px 1px rgba(0,0,0,0.3);
   color: #aa43c7;
-  
-}
-/*estilos del los botones star*/
-.contenedor-botones {
-  display: flex;
-  flex-direction: column;
- 
-  width: 84.9%;  /*Ancho fijo para cada botón */
- 
+  padding: 1%; /* separa el titulo de la barra superior  */
+  padding-left: 32%;  /* corre el titulo  */
 }
 
-.contenedor-botones button {
-  margin-bottom: 2%; /* Agrega espacio entre los botones */
+/*estilos del los botones star*/
+.contenedor-botones {
+  /* display: flex;
+  flex-direction: column;
+  width: 84.9%;  Ancho  para cada botón */
+
+  /* columns: 50px 1; 
+  column-gap: 5px;
+  padding: 5px; */
+
+  display: flex;
+} 
+
+.botonesFrases{
+  display: flex; 
+  justify-content:center; 
+  width:10%;
 }
+
+/* .contenedor-botones button {
+  margin-bottom: 1%;  Agrega espacio debajo o entre los botones 
+} */
 /* estilo de los botones */
 .btnfrases{
-  height: 20%; /* Alto del botón */
-  background-color: #dba1d8; /* Color de fondo v */
+  background-color: #dba1d8; /* Color de fondo  */
   color: rgb(8, 8, 8); /* Color de texto  */
   border-radius: 10px; /* Botón circular */
   text-align: center; /* Centra el texto horizontalmente */
-  line-height: 30px; /* Altura de la línea igual al alto del botón */
-  font-size: 14px; /* Tamaño de la fuente */
+  line-height: 100%; /* Altura de la línea igual al alto del botón */
+  font-size: 95%; /* Tamaño de la fuente */
   margin: 10px 5px; /* Margen entre botones */
   cursor: pointer; /* Indicador de cursor en forma de mano */
   transition: background-color 0.3s ease; /* Animación de cambio de color al pasar el cursor */
 }
 
 .btnfrases:hover { /* Estilo al pasar el cursor sobre el botón */
-  background-color: #ea94f1; /* Color de fondo verde más oscuro */
+  background-color: #eaa6f0; /* Color de fondo más oscuro */
 }
 /*estilos del los botones end*/
+
+#favorito{
+  display: none;
+
+}
+.btnfrases:hover #favorito{
+  display: inline;
+}
+.fa-solid{
+  color: #fc0000;
+}
+
 
 
 

@@ -35,7 +35,7 @@
               <div class="navbar-nav mx-auto border-top">
                 <a href="index.html" class="nav-item nav-link ">Inicio</a>
                 <a href="texto.html" class="nav-item nav-link active">Texto</a>
-                <a href="frases.html" class="nav-item nav-link">Frases y Palabras</a>
+                <a href="indexFrases.html" class="nav-item nav-link">Frases y Palabras</a>
                 <a href="nosotros.html" class="nav-item nav-link">Quienes Somos</a>
                 <a href="comoUsarTuVooz.html" class="nav-item nav-link">Como Usar tu Vooz</a>
 
@@ -60,6 +60,37 @@
      </div>
    </div>
    <!-- Navbar End -->
+
+   <!-- <h1>Reproducir texto</h1>
+  <textarea id="texto" cols="30" rows="10"></textarea>
+  <button onclick="reproducirTexto()">Reproducir texto</button>
+
+  <script src="./js/texto.js"></script> -->
+
+  <h1>Text to Speech</h1>
+    <textarea id="texto" rows="4" cols="50"></textarea><br>
+    <button onclick="reproducirTexto()">Reproducir Texto</button>
+    <script>
+        async function reproducirTexto() {
+            const texto = document.getElementById("texto").value;
+            const response = await fetch('http://localhost:5000/synthesize', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ text: texto }),
+            });
+
+            if (response.ok) {
+                const audioBlob = await response.blob();
+                const audioUrl = URL.createObjectURL(audioBlob);
+                const audio = new Audio(audioUrl);
+                audio.play();
+            } else {
+                alert('Error en la síntesis de texto a voz.');
+            }
+        }
+    </script>
 
 
    <h1 class="tituloTexto">

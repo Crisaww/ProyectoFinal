@@ -1,4 +1,4 @@
-function limpiarTexto(){
-    document.getElementById("multiLine").className="texto"
-    document.getElementById("multiLine").value="";
-}
+function reproducirTexto() {
+    var texto = document.getElementById("texto").value;
+    speechSynthesis.speak(new SpeechSynthesisUtterance(texto));
+  }
