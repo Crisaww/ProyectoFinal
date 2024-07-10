@@ -9,8 +9,8 @@
 
 /* estilos del logo start*/
 .navbar-light .navbar-brand img {
-  max-height: 82px;
-  margin-left: 1px;
+  max-height: 70px;
+  margin-left: 150px;
   transition: .5s; 
 
 }
@@ -23,7 +23,7 @@
 }
 .navbar .navbar-nav .nav-link {
   padding: 10px 15px;
-  font-size: 150%;
+  font-size: 120%;
   transition: .5s;
   color: #f8f9fa;
 }
@@ -40,7 +40,7 @@
   font-family: "Font Awesome 5 Free";
   font-weight: 700;
   vertical-align: middle;
-  margin-left: 8px;
+  margin-left: 8px; 
 }
 
 @media (min-width: 1200px) {
@@ -279,18 +279,31 @@ iframe{
   padding: 1%; /* separa el titulo de la barra superior  */
   padding-left: 32%;  /* corre el titulo  */
 }
+
 /*estilos del los botones star*/
 .contenedor-botones {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  width: 84.9%;  /*Ancho  para cada botón */
+  width: 84.9%;  Ancho  para cada botón */
+
+  /* columns: 50px 1; 
+  column-gap: 5px;
+  padding: 5px; */
+
+  display: flex;
+} 
+
+.botonesFrases{
+  display: flex; 
+  justify-content:center; 
+  width:10%;
 }
-.contenedor-botones button {
-  margin-bottom: 1%; /* Agrega espacio debajo o entre los botones */
-}
+
+/* .contenedor-botones button {
+  margin-bottom: 1%;  Agrega espacio debajo o entre los botones 
+} */
 /* estilo de los botones */
 .btnfrases{
-  height: 20%; /* Alto del botón */
   background-color: #dba1d8; /* Color de fondo  */
   color: rgb(8, 8, 8); /* Color de texto  */
   border-radius: 10px; /* Botón circular */
