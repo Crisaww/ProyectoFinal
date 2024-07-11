@@ -23,5 +23,5 @@ urlpatterns = [
     path("api/v1/", include(router_usuarios.urls)),
     path("api/v1/", include(router_categoria.urls)),
     path("api/v1/", include(router_palabraCategoria.urls)),
-    path("api/v1/", include(router_palabraCategoria.urls)),
+    path("api/v1/", include(router_palabraFavorita.urls)),
 ]

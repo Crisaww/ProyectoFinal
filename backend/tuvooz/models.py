@@ -44,10 +44,12 @@ class palabraCategoria(models.Model):
     estado_palabraCategoria = models.CharField(choices=estado_tipo_palabraCategoria, max_length=60)
     
     def __str__(self):
-        return self.palabras
+        return self.texto_palabras
     
 class palabrasFavoritas(models.Model):
     
     usuario = models.ForeignKey(Usuario, related_name='palabrasFavoritas', on_delete=models.PROTECT)
     palabra_categoria = models.ForeignKey(palabraCategoria, related_name='palabrasFavoritas', on_delete=models.PROTECT)
     
+    def __str__(self):
+        return self.palabra_categoria
