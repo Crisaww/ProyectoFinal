@@ -24,8 +24,30 @@ class Categoria(models.Model):
         (activo, 'Activo'),
         (inactivo, 'inactivo'),   
     ]
-    estado_cetegoria = models.CharField(choices=estado_tipo_categoria, max_length=60)
+    estado_categoria = models.CharField(choices=estado_tipo_categoria, max_length=60)
     
     def __str__(self):
         return self.nombre_categoria
+
+class palabraCategoria(models.Model):
+    palabras = models.CharField(max_length=40)
+    #Se relaciona con categoria pq cada palabra es de una categoria diferente
+    Categoria = models.ForeignKey(Categoria, related_name='palabraCategoria', on_delete=models.PROTECT)
+    
+    activo = 'Activo'
+    inactivo = 'Inactivo'
+    
+    estado_tipo_palabraCategoria = [
+        (activo, 'Activo'),
+        (inactivo, 'inactivo'),   
+    ]
+    estado_palabraCategoria = models.CharField(choices=estado_tipo_palabraCategoria, max_length=60)
+    
+    def __str__(self):
+        return self.palabras
+    
+class palabrasFavoritas(models.Model):
+    
+    Usuario = models.ForeignKey(Usuario, related_name='palabrasFavoritas', on_delete=models.PROTECT)
+    palabraCategoria = models.ForeignKey(palabraCategoria, related_name='palabrasFavoritas', on_delete=models.PROTECT)
     
