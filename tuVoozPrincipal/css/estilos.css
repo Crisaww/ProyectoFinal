@@ -50,7 +50,7 @@
             display: block;
         }
         .menu-content a:hover {
-            background-color: #5b0a71;
+            background-color: #d56bf3;
         }
         .close-button {
             position: absolute;
@@ -62,7 +62,12 @@
             border: none;
             cursor: pointer;
         }
-
+        #menuDespliegue{
+          background-color: #5b0a71;
+        }
+        .dropdown-item{
+          color: #fffeff;
+        }
 /* estilos del logo end */
 
 /**********Navbar Start ************/
@@ -155,7 +160,7 @@ left: 2%;
 }
 
 .dropdown .dropdown-menu a:hover {
-  background:#5b0a71;
+  background:#6804CE;
   color: #ffffff;
 }
 
@@ -601,6 +606,7 @@ Texto
   font-family: "Poppins", sans-serif;
   text-align: center;
   padding-top:8%;
+  color: #5b0a71;
 
 }
 #multiLine{
