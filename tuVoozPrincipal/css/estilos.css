@@ -10,8 +10,9 @@
 /* estilos del logo start*/
 .navbar-light .navbar-brand img {
   max-height: 70px;
-  margin-left: 150px;
+  margin-left: 120px;
   transition: .5s;
+  margin-top: -19%;
 
 }
 /* menu de ajuestes  */
@@ -67,6 +68,7 @@
 /**********Navbar Start ************/
 .nav{
   background-color: #6a1581; /*color de la barra superior*/
+  height: 60px;
 }
 .navbar .navbar-nav .nav-link {
   padding: 10px 15px;
@@ -102,7 +104,9 @@
       opacity: 0;
   }
 }
-
+#navbarCollapse{
+  margin-top: -1%;
+}
 .dropdown .dropdown-menu a:hover {
   background: var(--bs-secondary);
   color: var(--bs-primary);
@@ -589,7 +593,7 @@ fin de como utilizar tu voz
 */
 /*
 -----------------
-Texto
+Texto 
 -----------------
 */
 
@@ -671,4 +675,19 @@ Mi cuenta
 }
 .form-overlay{
   margin-left: 13%;
+}
+#btnCambios{
+  background: #5b0a71;
+  margin-left:5%;
+  margin-top: 2%;
+  height: 65%;
+  border-radius: 10px;
+  color: #ffffff;
+}
+#btnEliminar{
+background-color: #ef2626;
+margin-left:34%;
+margin-top: 2%;
+height: 65%;
+border-radius: 10px;
 }
