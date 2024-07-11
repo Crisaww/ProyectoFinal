@@ -30,9 +30,9 @@ class Categoria(models.Model):
         return self.nombre_categoria
 
 class palabraCategoria(models.Model):
-    palabras = models.CharField(max_length=40)
+    texto_palabras = models.CharField(max_length=40)
     #Se relaciona con categoria pq cada palabra es de una categoria diferente
-    Categoria = models.ForeignKey(Categoria, related_name='palabraCategoria', on_delete=models.PROTECT)
+    categoria = models.ForeignKey(Categoria, related_name='palabraCategoria', on_delete=models.PROTECT)
     
     activo = 'Activo'
     inactivo = 'Inactivo'
@@ -48,6 +48,6 @@ class palabraCategoria(models.Model):
     
 class palabrasFavoritas(models.Model):
     
-    Usuario = models.ForeignKey(Usuario, related_name='palabrasFavoritas', on_delete=models.PROTECT)
-    palabraCategoria = models.ForeignKey(palabraCategoria, related_name='palabrasFavoritas', on_delete=models.PROTECT)
+    usuario = models.ForeignKey(Usuario, related_name='palabrasFavoritas', on_delete=models.PROTECT)
+    palabra_categoria = models.ForeignKey(palabraCategoria, related_name='palabrasFavoritas', on_delete=models.PROTECT)
     
