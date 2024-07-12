@@ -74,6 +74,7 @@
 .nav{
   background-color: #6a1581; /*color de la barra superior*/
   height: 60px;
+  padding: 0;
 }
 .navbar .navbar-nav .nav-link {
   padding: 10px 15px;
@@ -85,7 +86,12 @@
 .navbar .navbar-nav .nav-link.active,
 .sticky-top.bg-white .navbar .navbar-nav .nav-link:hover,
 .sticky-top.bg-white .navbar .navbar-nav .nav-link.active {
-  color: rgb(140, 154, 155);
+  color: #ffffff;
+  background-color: #6804CE;
+  height: 100%;
+  
+ 
+  
 }
 
 .navbar .dropdown-toggle::after {

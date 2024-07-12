@@ -21,37 +21,41 @@
 
   <body>
     <!-- Navbar start -->
-    <div class="container-fluid sticky-top px-0"  >
-      <div class="container-fluid nav" >
-        <div class="container px-0">
-          <nav class="navbar navbar-light navbar-expand-xl" >
-            <a href="./index.html" class="navbar-brand" >
-              <img src="img/LogoTuVooz-removebg-preview (1) (1) (1).png" alt="Logo">
+   <div class="container-fluid sticky-top px-0"  >
+    <div class="container-fluid nav" >
+      <div class="container px-0" style="height: 100%;">
+        <nav class="navbar navbar-light navbar-expand-xl" style="padding: 0; height: 100%;">
+          <a href="./index.html" class="navbar-brand" style="margin: 0;padding: 0; height: 100%; width: 10%; display: flex; justify-content: center;">
+              <img src="img/LogoTuVooz-removebg-preview (1) (1) (1).png" alt="Logo" style="margin: 0;height: 100%;">
               <!-- <h1 class="text-primary display-4">Tu Vooz</h1> -->
-              <label for="check">
-                <i class="fas fa-bars" id="sidebar_btn"></i> 
-              </label>
-            </a>
-            <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="fa fa-bars text-primary"></span>
-            </button>
-
-            <div class="collapse navbar-collapse  py-3" id="navbarCollapse">
-              <div class="navbar-nav mx-auto border-top">
-                <a href="index.html" class="nav-item nav-link ">Inicio</a>
-                <a href="texto.html" class="nav-item nav-link">Texto</a>
-                <a href="indexFrases.html" class="nav-item nav-link active">Frases y Palabras</a>
-                <a href="nosotros.html" class="nav-item nav-link">Quienes Somos</a>
-                <a href="./comoUsarTuvooz.html" class="nav-item nav-link">Como Usar tu Vooz</a>
-             </div>
-              <div class="d-flex align-items-center flex-nowrap pt-xl-0">
-               <!-- espacion para  menu de los ajustes  -->
+          </a>
+          <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+              <span class="fa fa-bars text-primary"></span>
+          </button>
+          <div class="collapse navbar-collapse " id="navbarCollapse" style="height: 100%; margin-top: 0;justify-content: center; ">
+            <div class="navbar-nav mx-auto border-top" style="margin: 0; height: 100%; background-color: #6a1581; ">
+              <a href="index.html" class="nav-item nav-link " style="display: flex; align-items: center;">Inicio</a>
+              <a href="texto.html" class="nav-item nav-link " style="display: flex; align-items: center;">Texto</a>
+              <a href="indexFrases.html" class="nav-item nav-link active" style="display: flex; align-items: center;">Frases y Palabras</a>
+              <a href="nosotros.html" class="nav-item nav-link" style="display: flex; align-items: center;">Quienes Somos</a>
+              <a href="comoUsarTuvooz.html" class="nav-item nav-link" style="display: flex; align-items: center;">Como Usar tu Vooz</a>
+              <div class="dropdown">
+                <a href="#" class="dropdow text-light" data-bs-toggle="dropdown"><small><i class="fa-solid fa-bars" id="#Menu "></i></small></a>
+                <div class="dropdown-menu rounded" id="menuDespliegue">
+                    <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> Mi cuenta</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-comment-alt me-2"></i> Accesibilidad</a>
+                    <a href="contraseña.html" class="dropdown-item"><i class="fas fa-bell me-2"></i>Contraseña</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-power-off me-2"></i>Cerrar sesión</a>
+                </div>
               </div>
+           </div>
             </div>
           </nav>
-        </div>
-     </div>
+          </div>
+      </div>
    </div>
+ </div>
+ <!-- Navbar End -->
     <!-- sidebar End -->
     <div class="sidebar">
       <a onclick="cambioPagina('frasesRecientes.html',this)"><i class="fas fa-house" style="color: #6a1581;"></i><span>Recientes</span></a>
