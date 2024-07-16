@@ -63,9 +63,24 @@
 
   <script src="./js/texto.js"></script> -->
 
-  <h1>Text to Speech</h1>
-    <textarea id="texto" rows="4" cols="50"></textarea><br>
-    <button onclick="reproducirTexto()">Reproducir Texto</button>
+ 
+  <h1 style="text-align: center;">Texto a voz</h1>
+
+
+
+  <div class="textarea-container">
+    <i class="fa-solid fa-circle-xmark"  onclick="limpiarTexto()"></i>
+    <textarea class="multiLine" name="multiLine" rows="4" cols="50" placeholder="Escriba aquí...  "></textarea>
+  </div>
+
+  <div class="contenedor_boton"> 
+    <button class="botonReproducirTexto" onclick="reproducirTexto()">
+      <i class="fa-solid fa-volume-high"></i>
+      <p class="text">Reproducir Texto</p>
+    </button>
+  </div>
+
+
     <script>
         async function reproducirTexto() {
             const texto = document.getElementById("texto").value;
@@ -93,10 +108,7 @@
     Digite su texto
    </h1>
 
-  <div class="textarea-container">
-    <i class="fa-solid fa-circle-xmark" id="iEliminarTexto" onclick="limpiarTexto()"></i>
-    <textarea id="multiLine" name="multiLine" rows="4" cols="50" placeholder="Escriba aquí...  "></textarea>
-  </div>
+  
 
    <button class="btn btn-custom-purple"><i class="fa-solid fa-volume-high"></i> Reproducir texto</button>
   </body>

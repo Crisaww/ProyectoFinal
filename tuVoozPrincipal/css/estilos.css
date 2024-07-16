@@ -619,7 +619,7 @@ Texto
   color: #5b0a71;
 
 }
-#multiLine{
+.multiLine{
 
 margin-top: 2%;
 margin-left: 35%;
@@ -707,3 +707,58 @@ margin-top: 2%;
 height: 65%;
 border-radius: 10px;
 }
+
+.cuadro_textoarea {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.contenedor_boton {
+  display: flex;
+  justify-content: center;
+}
+
+.botonReproducirTexto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 15px;
+  gap: 15px;
+  background-color: #181717;
+  outline: 3px #181717 solid;
+  outline-offset: -3px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.botonReproducirTexto .text {
+  color: white;
+  font-weight: 700;
+  font-size: 1em;
+  transition: 400ms;
+  margin: 0;
+}
+
+.botonReproducirTexto i {
+  color: white;
+  transition: 400ms;
+}
+
+.botonReproducirTexto:hover {
+  background-color: transparent;
+}
+
+.botonReproducirTexto:hover .text {
+  color: #181717;
+}
+
+.botonReproducirTexto:hover i {
+  color: #181717;
+}
+
+
+
+
