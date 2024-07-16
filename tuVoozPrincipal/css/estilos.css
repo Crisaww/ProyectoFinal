@@ -615,14 +615,14 @@ Texto
 .tituloTexto{
   font-family: "Poppins", sans-serif;
   text-align: center;
-  padding-top:8%;
+  padding-top: 20px;
   color: #5b0a71;
-
+  text-align: center;
 }
 .multiLine{
 
-margin-top: 2%;
-margin-left: 35%;
+display: flex;
+justify-content: center;
 background-color: #aa43c782;
 color: #000000;
 border: 1px solid #ccc;
@@ -630,6 +630,7 @@ border-radius: 4px;
 border-color: #aa43c7d7;
 }
 .textarea-container .fa-solid.fa-xmark {
+  
   position: absolute;
   left: 63%;
   top: 56%;
@@ -646,19 +647,7 @@ border-color: #aa43c7d7;
 /* } */
 
 
-.btn-custom-purple {
-  margin-left: 44%;
-  margin-top: 2%;
-  border-radius: 20px;
-  color: #ffffffd0; /* Color del texto */
-  background-color: #5b0a71; /* Color de fondo morado */
-  border-color: #5b0a71; /* Color del borde */
-}
-.btn-custom-purple:hover {
-  color: #060606;
-  background-color: #aa43c782; /* Color de fondo en hover */
-  border-color: #aa43c782; /* Color del borde en hover */
-}
+
 
 #iEliminarTexto{
   margin-left: 67%;
@@ -717,6 +706,8 @@ border-radius: 10px;
 .contenedor_boton {
   display: flex;
   justify-content: center;
+  padding: 10px 10px 0 10px;
+
 }
 
 .botonReproducirTexto {
@@ -725,7 +716,7 @@ border-radius: 10px;
   align-items: center;
   padding: 10px 15px;
   gap: 15px;
-  background-color: #181717;
+  background-color: #5b0a71;
   outline: 3px #181717 solid;
   outline-offset: -3px;
   border-radius: 5px;
@@ -748,16 +739,28 @@ border-radius: 10px;
 }
 
 .botonReproducirTexto:hover {
-  background-color: transparent;
+  
+  background-color: #ff0000d0;
 }
 
 .botonReproducirTexto:hover .text {
   color: #181717;
+  
 }
 
 .botonReproducirTexto:hover i {
   color: #181717;
+  
+  
 }
+
+.textarea-container{
+  display: flex;
+  justify-content: center;
+  padding: 0 10px 0 10px;
+}
+
+
 
 
 
