@@ -1,13 +1,21 @@
 
-/***Topbar Start ****/
+/*
+------------------------------
+  INICIO TOBAR
+------------------------------
+
+ */
 .sticky-top {
   transition: 0.5s;
   background: var(--bs-white);
 }
-/***Topbar end ****/
+/*
+------------------------------
+  FIN TOBAR
+------------------------------
 
+ */
 
-/* estilos del logo start*/
 .navbar-light .navbar-brand img {
   max-height: 70px;
   margin-left: 120px;
@@ -70,7 +78,13 @@
         }
 /* estilos del logo end */
 
-/**********Navbar Start ************/
+
+/*
+------------------------------
+  INICIO NAVBAR
+------------------------------
+
+ */
 .nav{
   background-color: #6a1581; /*color de la barra superior*/
   height: 60px;
@@ -134,7 +148,7 @@
       border-top: none !important;
   }
 }
-/* menu de barra*/
+/*** menu de barra****/
 .dropdown{
 margin-top: 2%;
 left: 2%;
@@ -178,10 +192,19 @@ left: 2%;
 #searchModal .modal-content {
   background: rgba(250, 250, 250, .6);
 }
-/********** Navbar End **********/
+/*
+------------------------------
+  FIN NAVBAR
+------------------------------
+ */
 
 
-/**********Carousel Start **********/
+/*
+------------------------------
+  INICIO CAROUSEL
+------------------------------
+
+ */
 .textoCarrusel1{
   color: #fbf9fc;
   letter-spacing: 3px;
@@ -198,7 +221,6 @@ left: 2%;
   min-height: 100vh
 
 }
-
 
 .carousel-item img {
   position: absolute;
@@ -252,7 +274,12 @@ left: 2%;
   border-right: #5b0a71;
   border-left: #5b0a71;
 }
-/********** Carousel End**********/
+/*
+------------------------------
+  FIN CAROUSEL 
+------------------------------
+
+ */
 
 
 /**********
@@ -368,12 +395,12 @@ color: #0a0a0a;
  font-style: oblique;
 }
 
-
 /*
 -----------------------------
 fin de nosotros
 -----------------------------
 */
+
 /*
 ---------------------------
  como usar tu vooz
@@ -415,6 +442,7 @@ fin de nosotros
 fin de como utilizar tu voz
 ------------------------------
 */
+
 /*
 -----------------
 Texto 
@@ -454,9 +482,6 @@ border-color: #aa43c7d7;
   cursor: pointer; /* Indicador de cursor en forma de mano */
   /* transition: background-color 0.2s ease; Animación de cambio de color al pasar el cursor  */
 /* } */
-
-
-
 
 #iEliminarTexto{
   margin-left: 67%;
