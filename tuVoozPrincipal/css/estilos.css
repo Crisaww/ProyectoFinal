@@ -306,19 +306,18 @@ font-size: 120%;
 label #sidebar_btn{
    z-index: 1;
    color: #ffffff;
-   position: fixed;
    cursor: pointer;
-   left: 13%; /*margen de las barras de abrir y cerrar el modal*/
-   font-size: 130%; /*el tamaño de las barras de abrir y cerrar modal*/
+   /* left: 13%; 
+   font-size: 130%;  */
    transition: 0.5s;
    transition-property:color;
    margin: 5px 0; 
 }
 
-label #sidebar_btn:hover{
+/* label #sidebar_btn:hover{
  color: #e6bff1;
 
-}
+} */
 
 /**es la accion que cirrar el sidebar menu lateral **/
 #check:checked ~ .sidebar{
