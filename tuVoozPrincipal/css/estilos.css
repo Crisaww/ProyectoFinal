@@ -255,104 +255,101 @@ left: 2%;
 /********** Carousel End**********/
 
 
-/********** menu lateral  frases Start**********/
-.logout_btn:hover{
+/********** menu lateral  frases Start **********/
+.logout_btn:hover {
   background: rgb(140, 154, 155);
 }
-.sidebar{
-   background: #f6f6f7;
-   /* margin-top: 90px; */
-   padding-top: 30px;
-   position: fixed;
-   left: 0;
-   width: 15%;
-   height: 100%;
-   transition: 0.5s;
-   transition-property: left;
 
+.sidebar {
+  background: #f6f6f7;
+  padding-top: 30px;
+  position: fixed;
+  left: 0;
+  width: 15%;
+  height: 100%;
+  transition: 0.5s;
+  transition-property: left;
 }
 
-.sidebar h4{
-   color: #ccc;
-   margin-top: 0;
-   margin-bottom: 20px;
-}
-.sidebar a{
-   color: #0a0a0a;
-   display: block;
-   width: 100%;
-   line-height: 60px;
-   text-decoration: none;
-   padding-left: 40px;
-   box-sizing: border-box;
-   transition: 0.5s;
-   transition-property: background;
+.sidebar h4 {
+  color: #ccc;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
-.sidebar a:hover{
-   background: #c2a1bc;
+.sidebar a {
+  color: #0a0a0a;
+  display: block;
+  width: 100%;
+  line-height: 60px;
+  text-decoration: none;
+  padding-left: 40px;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transition-property: background;
+}
+
+.sidebar a:hover {
+  background: #c2a1bc;
 }
 
 /* estilos de los iconos de barras del menu */
-.sidebar i{
-padding-right: 10%;
-font-size: 120%;
+.sidebar i {
+  padding-right: 10%;
+  font-size: 120%;
 }
 
 /********** boton de abrir y cerrar el menu lateral end **********/
-label #sidebar_btn{
-   z-index: 1;
-   color: #ffffff;
-   cursor: pointer;
-   /* left: 13%; 
-   font-size: 130%;  */
-   transition: 0.5s;
-   transition-property:color;
-   margin: 5px 0; 
+label #sidebar_btn {
+  z-index: 1;
+  color: #ffffff;
+  cursor: pointer;
+  transition: 0.5s;
+  transition-property: color;
+  margin: 5px 0;
 }
 
-/* label #sidebar_btn:hover{
+/* label #sidebar_btn:hover {
  color: #e6bff1;
-
 } */
 
-/**es la accion que cirrar el sidebar menu lateral **/
-#check:checked ~ .sidebar{
-   left: -160px;
+/** es la accion que cierra el sidebar menu lateral **/
+#check:checked ~ .sidebar {
+  left: -160px;
 }
 
-#check:checked ~ .sidebar a span{
-display: none;
+#check:checked ~ .sidebar a span {
+  display: none;
 }
 
-/**es la accion que cirrar la etiquetas que son las opciones del menu lateral**/
-#check:checked ~ .sidebar a{
-   font-size: 100%;
-   margin-left: 65%;
-   width: 30%;
+/** es la accion que cierra las etiquetas que son las opciones del menu lateral **/
+#check:checked ~ .sidebar a {
+  font-size: 100%;
+  margin-left: 65%;
+  width: 30%;
 }
 
-/**es la accion para que el contenido del frente del menu lateral se adapte
-    ya sea cuando el este cerrado (se encuentre coon el check)**/
-#check:checked ~ iframe{
- margin-left: 6%;
+/** es la accion para que el contenido del frente del menu lateral se adapte
+    ya sea cuando este cerrado (se encuentre con el check) **/
+#check:checked ~ iframe {
+  margin-left: 6%;
 }
 
-/*es para cuando este ifreme abierto se ajuste*/
-iframe{
+/* es para cuando este iframe abierto se ajuste */
+iframe {
   margin-left: 15%;
   margin-top: 8%;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height:85%;
+  height: 85%;
   z-index: 1;
 }
-.a-selecionado{
+
+.a-seleccionado {
   background-color: #e6bff1;
 }
-/*estilo del body de frases recientes*/
 
 /********** boton de abrir y cerrar el menu lateral end **********/
 
@@ -364,7 +361,9 @@ iframe{
   width: 1%;
   background-color: #6a1581;
 }
-/********** menu lateral  frases end **********/
+
+/********** menu lateral frases end **********/
+
 
 /********** estilos de frases Recientes star **********/
 #tituloFrase{
