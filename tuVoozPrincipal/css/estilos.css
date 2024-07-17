@@ -6,15 +6,6 @@
 }
 /***Topbar end ****/
 
-
-/* estilos del logo start*/
-.navbar-light .navbar-brand img {
-  max-height: 70px;
-  margin-left: 120px;
-  transition: .5s;
-  margin-top: -19%;
-
-}
 /* menu de ajuestes  */
        body {
             font-family: Arial, sans-serif;
@@ -547,6 +538,13 @@ font-family: "Poppins", sans-serif;
 text-align: center;
 padding-top:8%;
 }
+.texto-h2{
+  padding-top:4%;
+  margin-left: 3%;
+  font-family: "Poppins", sans-serif;
+  color: #6a1581;
+
+}
 
 .nombre{
 color: #0a0a0a;
@@ -756,9 +754,45 @@ border-radius: 10px;
   justify-content: center;
   padding: 0 10px 0 10px;
 }
+/*
+ACCESIBILIDAD 
+*/
 
+.imgModos{
+  border-radius: 17px;
+  height: 100%;
+  width: 110%;
+} 
+  
+.card {
+  box-sizing: border-box;
+  width: 23%;
+  height: 110px;
+  background: rgba(217, 217, 217, 0.58);
+  border: 1px solid white;
+  box-shadow: 12px 17px 51px #5b0a7169;
+  backdrop-filter: blur(6px);
+  border-radius: 17px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  font-weight: bolder;
+  color: #5b0a71;
+  margin-left: 4%;
+}
 
+.card:hover {
+  border: 1px solid #4c065f;
+  transform: scale(1.05);
+}
 
-
-
-
+.card:active {
+  transform: scale(0.95) rotateZ(1.7deg);
+}
+.dark{
+  background-color: #4c065f;
+}
