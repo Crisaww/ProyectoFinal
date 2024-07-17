@@ -1,0 +1,181 @@
+/********** menu lateral  frases Start **********/
+.logout_btn:hover {
+    background: rgb(140, 154, 155);
+  }
+  
+  .sidebar {
+    background: #f6f6f7;
+    padding-top: 30px;
+    position: fixed;
+    left: 0;
+    width: 15%;
+    height: 100%;
+    transition: 0.5s;
+    transition-property: left;
+  }
+  
+  .sidebar h4 {
+    color: #ccc;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar a {
+    color: #0a0a0a;
+    display: block;
+    width: 100%;
+    line-height: 60px;
+    text-decoration: none;
+    padding-left: 40px;
+    box-sizing: border-box;
+    transition: 0.5s;
+    transition-property: background;
+  }
+  
+  .sidebar a:hover {
+    background: #c2a1bc;
+  }
+  
+  /* estilos de los iconos de barras del menu */
+  .sidebar i {
+    padding-right: 10%;
+    font-size: 120%;
+  }
+  
+  /********** boton de abrir y cerrar el menu lateral end **********/
+  label #sidebar_btn {
+    z-index: 1;
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.5s;
+    transition-property: color;
+    margin: 5px 0;
+  }
+  
+  /* label #sidebar_btn:hover {
+   color: #e6bff1;
+  } */
+  
+  /** es la accion que cierra el sidebar menu lateral **/
+  #check:checked ~ .sidebar {
+    left: -160px;
+  }
+  
+  #check:checked ~ .sidebar a span {
+    display: none;
+  }
+  
+  /** es la accion que cierra las etiquetas que son las opciones del menu lateral **/
+  #check:checked ~ .sidebar a {
+    font-size: 100%;
+    margin-left: 65%;
+    width: 30%;
+  }
+  
+  /** es la accion para que el contenido del frente del menu lateral se adapte
+      ya sea cuando este cerrado (se encuentre con el check) **/
+  #check:checked ~ iframe {
+    margin-left: 6%;
+  }
+  
+  /* es para cuando este iframe abierto se ajuste */
+  iframe {
+    margin-left: 15%;
+    margin-top: 8%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 85%;
+    z-index: 1;
+  }
+  
+  .a-seleccionado {
+    background-color: #e6bff1;
+  }
+  
+  /********** boton de abrir y cerrar el menu lateral end **********/
+  
+  .linea-lateral {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%; /* largo de la linea que separa el menu del iframe */
+    width: 1%;
+    background-color: #6a1581;
+  }
+  
+  /********** menu lateral frases end **********/
+  
+  
+  /********** estilos de frases Recientes star **********/
+  #tituloFrase{
+    /* text-align: left;
+    /* font-family: Arial Black;  */
+    font-weight: bold;
+    font-size: 230%;
+    background: #202020;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0px 3px 3px rgba(255,255,255,0.4),0px -1px 1px rgba(0,0,0,0.3);
+    color: #aa43c7;
+    padding: 1%; /* separa el titulo de la barra superior  */
+    padding-left: 32%;  /* corre el titulo  */
+  }
+  .contenedor-Secciones{
+    margin: 0; 
+    height: 100%; 
+    padding-bottom: 60%; /*este es para que el scroll en los botones baje */
+  }
+  /*estilos del los botones star*/
+  .contenedor-botones {
+    /* display: flex;
+    flex-direction: column;
+    width: 84.9%;  Ancho  para cada botón */
+  
+    /* columns: 50px 1;
+    column-gap: 5px;
+    padding: 5px; */
+  
+    display: flex;
+  }
+  
+  .botonesFrases{
+    display: flex;
+    justify-content:center;
+    width:10%;
+  }
+  
+  /* .contenedor-botones button {
+    margin-bottom: 1%;  Agrega espacio debajo o entre los botones
+  } */
+  /* estilo de los botones */
+  .btnfrases{
+    background-color: #dba1d8; /* Color de fondo  */
+    color: rgb(8, 8, 8); /* Color de texto  */
+    border-radius: 10px; /* Botón circular */
+    text-align: center; /* Centra el texto horizontalmente */
+    line-height: 100%; /* Altura de la línea igual al alto del botón */
+    font-size: 95%; /* Tamaño de la fuente */
+    margin: 10px 5px; /* Margen entre botones */
+    cursor: pointer; /* Indicador de cursor en forma de mano */
+    transition: background-color 0.3s ease; /* Animación de cambio de color al pasar el cursor */
+  }
+  
+  .btnfrases:hover { /* Estilo al pasar el cursor sobre el botón */
+    background-color: #eaa6f0; /* Color de fondo más oscuro */
+  }
+  /*estilos del los botones end*/
+  
+  #favorito{
+    display: none;
+  
+  }
+  .btnfrases:hover #favorito{
+    display: inline;
+  }
+  .fa-solid{
+      color: #ffffff;
+  }
