@@ -1,4 +1,8 @@
-/********** menu lateral  frases Start **********/
+/*
+-------------------------------------
+INICIO MENU LATERAL IZQUIERDO FRASES 
+-------------------------------------
+*/
 .logout_btn:hover {
     background: rgb(140, 154, 155);
   }
@@ -42,7 +46,7 @@
     font-size: 120%;
   }
   
-  /********** boton de abrir y cerrar el menu lateral end **********/
+  /* boton de abrir y cerrar el menu lateral end */
   label #sidebar_btn {
     z-index: 1;
     color: #ffffff;
@@ -78,6 +82,11 @@
     margin-left: 6%;
   }
   
+  /*
+------------------------------
+IFRAME 
+------------------------------
+*/
   /* es para cuando este iframe abierto se ajuste */
   iframe {
     margin-left: 15%;
@@ -104,11 +113,18 @@
     width: 1%;
     background-color: #6a1581;
   }
-  
-  /********** menu lateral frases end **********/
-  
-  
-  /********** estilos de frases Recientes star **********/
+
+  /*
+------------------------------
+FIN MENU LATERAL FRASES 
+------------------------------
+*/
+
+/*
+------------------------------
+INICIO FRASES RECIENTE   
+------------------------------
+*/ 
   #tituloFrase{
     /* text-align: left;
     /* font-family: Arial Black;  */
@@ -129,7 +145,12 @@
     height: 100%; 
     padding-bottom: 60%; /*este es para que el scroll en los botones baje */
   }
-  /*estilos del los botones star*/
+
+  /*
+------------------------------
+INICIO ESTILOS DE LOS BOTONES  
+------------------------------
+*/ 
   .contenedor-botones {
     /* display: flex;
     flex-direction: column;
@@ -151,6 +172,7 @@
   /* .contenedor-botones button {
     margin-bottom: 1%;  Agrega espacio debajo o entre los botones
   } */
+
   /* estilo de los botones */
   .btnfrases{
     background-color: #dba1d8; /* Color de fondo  */
@@ -167,8 +189,17 @@
   .btnfrases:hover { /* Estilo al pasar el cursor sobre el botón */
     background-color: #eaa6f0; /* Color de fondo más oscuro */
   }
-  /*estilos del los botones end*/
+/*
+------------------------------
+FIN ESTILOS DE LOS BOTONES  
+------------------------------
+*/ 
   
+/*
+------------------------------
+INICIO DE FAVORITOS BOTONES  
+------------------------------
+*/ 
   #favorito{
     display: none;
   
@@ -179,3 +210,9 @@
   .fa-solid{
       color: #ffffff;
   }
+
+/*
+------------------------------
+FIN DE FAVORITOS BOTONES  
+------------------------------
+*/ 
