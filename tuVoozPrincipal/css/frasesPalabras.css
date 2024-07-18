@@ -324,20 +324,9 @@ INICIO TARJETAS SELECCION
 }
 
 
-
-<<<<<<< HEAD
-/* estilos de iconos */
-.fa-house{
-  
-}
-=======
-
-
-
 .container, .container-lg, .container-md, .container-sm, .container-xl {
     max-width: 100%;
     height: 100%;
-<<<<<<< HEAD
     justify-content: center;
 }
 
@@ -356,10 +345,7 @@ INICIO TARJETAS SELECCION
   align-items: start;
   
 }
-=======
-  }
->>>>>>> 67f1d2421dad1921b1b15351d8142aaad19ca151
->>>>>>> 79a2a853dd6f6b17e01c70b62f2960e72015876d
+
 
 /*
 ------------------------------
