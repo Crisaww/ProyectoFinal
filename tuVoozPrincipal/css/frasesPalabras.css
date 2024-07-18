@@ -3,6 +3,7 @@
 INICIO MENU LATERAL IZQUIERDO FRASES 
 -------------------------------------
 */
+
 .logout_btn:hover {
     background: rgb(140, 154, 155);
   }
@@ -322,7 +323,16 @@ INICIO TARJETAS SELECCION
 }
 .containerTarjeta{
   display: flex;
+  padding: 0;
 }
+
+
+
+
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 100%;
+    height: 100%;
+  }
 
 /*
 ------------------------------

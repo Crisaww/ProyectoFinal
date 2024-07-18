@@ -26,6 +26,7 @@
 /* menu de ajuestes  */
        body {
             font-family: Arial, sans-serif;
+            height: 100vh;
         }
         .menu-container {
             position: relative;
@@ -164,15 +165,7 @@ left: 2%;
 
 @media (min-width: 1200px) {
   .navbar .nav-item .dropdown-menu {
-      display: block;
-      visibility: hidden;
-      top: 100%;
-      transform: rotateX(-75deg);
-      transform-origin: 0% 0%;
-      border: 0;
-      border-radius: 10px;
-      transition: .5s;
-      opacity: 0;
+      
   }
 }
 
@@ -642,3 +635,4 @@ ACCESIBILIDAD
 .dark{
   background-color: #4c065f;
 }
+
