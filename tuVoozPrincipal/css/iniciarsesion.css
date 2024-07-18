@@ -79,6 +79,12 @@ input[type="password"] {
     align-items: center;
 }
 
+.boton2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 button[type="submit"] {
     background-color: rgba(86, 58, 250, 0.9);
     color: #fff;
@@ -89,6 +95,17 @@ button[type="submit"] {
     align-items: center;
     display: flex;
     font-size: 18px;
+}
+
+.boton2 a{
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.boton2 a:hover{
+    text-align: center;
+    color: #e2e2e2;
 }
 
 a {
