@@ -1,11 +1,28 @@
 
-/***Topbar Start ****/
+/*
+------------------------------
+  INICIO TOBAR
+------------------------------
+
+ */
 .sticky-top {
   transition: 0.5s;
   background: var(--bs-white);
 }
-/***Topbar end ****/
+/*
+------------------------------
+  FIN TOBAR
+------------------------------
 
+
+/* estilos del logo start*/
+.navbar-light .navbar-brand img {
+  max-height: 70px;
+  margin-left: 120px;
+  transition: .5s;
+  margin-top: -19%;
+
+}
 /* menu de ajuestes  */
        body {
             font-family: Arial, sans-serif;
@@ -61,7 +78,13 @@
         }
 /* estilos del logo end */
 
-/**********Navbar Start ************/
+
+/*
+------------------------------
+  INICIO NAVBAR
+------------------------------
+
+ */
 .nav{
   background-color: #6a1581; /*color de la barra superior*/
   height: 60px;
@@ -125,7 +148,7 @@
       border-top: none !important;
   }
 }
-/* menu de barra*/
+/*** menu de barra****/
 .dropdown{
 margin-top: 2%;
 left: 2%;
@@ -169,10 +192,19 @@ left: 2%;
 #searchModal .modal-content {
   background: rgba(250, 250, 250, .6);
 }
-/********** Navbar End **********/
+/*
+------------------------------
+  FIN NAVBAR
+------------------------------
+ */
 
 
-/**********Carousel Start **********/
+/*
+------------------------------
+  INICIO CAROUSEL
+------------------------------
+
+ */
 .textoCarrusel1{
   color: #fbf9fc;
   letter-spacing: 3px;
@@ -189,7 +221,6 @@ left: 2%;
   min-height: 100vh
 
 }
-
 
 .carousel-item img {
   position: absolute;
@@ -243,195 +274,12 @@ left: 2%;
   border-right: #5b0a71;
   border-left: #5b0a71;
 }
-/********** Carousel End**********/
+/*
+------------------------------
+  FIN CAROUSEL 
+------------------------------
 
-
-/********** menu lateral  frases Start**********/
-.logout_btn:hover{
-  background: rgb(140, 154, 155);
-}
-.sidebar{
-   background: #f6f6f7;
-   /* margin-top: 90px; */
-   padding-top: 30px;
-   position: fixed;
-   left: 0;
-   width: 15%;
-   height: 100%;
-   transition: 0.5s;
-   transition-property: left;
-
-}
-
-.sidebar h4{
-   color: #ccc;
-   margin-top: 0;
-   margin-bottom: 20px;
-}
-.sidebar a{
-   color: #0a0a0a;
-   display: block;
-   width: 100%;
-   line-height: 60px;
-   text-decoration: none;
-   padding-left: 40px;
-   box-sizing: border-box;
-   transition: 0.5s;
-   transition-property: background;
-}
-
-.sidebar a:hover{
-   background: #c2a1bc;
-}
-
-/* estilos de los iconos de barras del menu */
-.sidebar i{
-padding-right: 10%;
-font-size: 120%;
-}
-
-/********** boton de abrir y cerrar el menu lateral end **********/
-label #sidebar_btn{
-   z-index: 1;
-   color: #ffffff;
-   position: fixed;
-   cursor: pointer;
-   left: 13%; /*margen de las barras de abrir y cerrar el modal*/
-   font-size: 130%; /*el tamaño de las barras de abrir y cerrar modal*/
-   transition: 0.5s;
-   transition-property:color;
-   margin: 5px 0; 
-}
-
-label #sidebar_btn:hover{
- color: #e6bff1;
-
-}
-
-/**es la accion que cirrar el sidebar menu lateral **/
-#check:checked ~ .sidebar{
-   left: -160px;
-}
-
-#check:checked ~ .sidebar a span{
-display: none;
-}
-
-/**es la accion que cirrar la etiquetas que son las opciones del menu lateral**/
-#check:checked ~ .sidebar a{
-   font-size: 100%;
-   margin-left: 65%;
-   width: 30%;
-}
-
-/**es la accion para que el contenido del frente del menu lateral se adapte
-    ya sea cuando el este cerrado (se encuentre coon el check)**/
-#check:checked ~ iframe{
- margin-left: 6%;
-}
-
-/*es para cuando este ifreme abierto se ajuste*/
-iframe{
-  margin-left: 15%;
-  margin-top: 8%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height:85%;
-  z-index: 1;
-}
-.a-selecionado{
-  background-color: #e6bff1;
-}
-/*estilo del body de frases recientes*/
-
-/********** boton de abrir y cerrar el menu lateral end **********/
-
-.linea-lateral {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%; /* largo de la linea que separa el menu del iframe */
-  width: 1%;
-  background-color: #6a1581;
-}
-/********** menu lateral  frases end **********/
-
-/********** estilos de frases Recientes star **********/
-#tituloFrase{
-  /* text-align: left;
-  /* font-family: Arial Black;  */
-  font-weight: bold;
-  font-size: 230%;
-  background: #202020;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-shadow: 0px 3px 3px rgba(255,255,255,0.4),0px -1px 1px rgba(0,0,0,0.3);
-  color: #aa43c7;
-  padding: 1%; /* separa el titulo de la barra superior  */
-  padding-left: 32%;  /* corre el titulo  */
-}
-.contenedor-Secciones{
-  margin: 0; 
-  height: 100%; 
-  padding-bottom: 60%; /*este es para que el scroll en los botones baje */
-}
-/*estilos del los botones star*/
-.contenedor-botones {
-  /* display: flex;
-  flex-direction: column;
-  width: 84.9%;  Ancho  para cada botón */
-
-  /* columns: 50px 1;
-  column-gap: 5px;
-  padding: 5px; */
-
-  display: flex;
-}
-
-.botonesFrases{
-  display: flex;
-  justify-content:center;
-  width:10%;
-}
-
-/* .contenedor-botones button {
-  margin-bottom: 1%;  Agrega espacio debajo o entre los botones
-} */
-/* estilo de los botones */
-.btnfrases{
-  background-color: #dba1d8; /* Color de fondo  */
-  color: rgb(8, 8, 8); /* Color de texto  */
-  border-radius: 10px; /* Botón circular */
-  text-align: center; /* Centra el texto horizontalmente */
-  line-height: 100%; /* Altura de la línea igual al alto del botón */
-  font-size: 95%; /* Tamaño de la fuente */
-  margin: 10px 5px; /* Margen entre botones */
-  cursor: pointer; /* Indicador de cursor en forma de mano */
-  transition: background-color 0.3s ease; /* Animación de cambio de color al pasar el cursor */
-}
-
-.btnfrases:hover { /* Estilo al pasar el cursor sobre el botón */
-  background-color: #eaa6f0; /* Color de fondo más oscuro */
-}
-/*estilos del los botones end*/
-
-#favorito{
-  display: none;
-
-}
-.btnfrases:hover #favorito{
-  display: inline;
-}
-.fa-solid{
-    color: #ffffff;
-}
-
-
-
+ */
 
 
 /**********
@@ -554,12 +402,12 @@ color: #0a0a0a;
  font-style: oblique;
 }
 
-
 /*
 -----------------------------
 fin de nosotros
 -----------------------------
 */
+
 /*
 ---------------------------
  como usar tu vooz
@@ -601,6 +449,7 @@ fin de nosotros
 fin de como utilizar tu voz
 ------------------------------
 */
+
 /*
 -----------------
 Texto 
@@ -640,9 +489,6 @@ border-color: #aa43c7d7;
   cursor: pointer; /* Indicador de cursor en forma de mano */
   /* transition: background-color 0.2s ease; Animación de cambio de color al pasar el cursor  */
 /* } */
-
-
-
 
 #iEliminarTexto{
   margin-left: 67%;
