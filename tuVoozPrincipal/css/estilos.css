@@ -163,11 +163,7 @@ left: 2%;
   margin-left: 8px;
 }
 
-@media (min-width: 1200px) {
-  .navbar .nav-item .dropdown-menu {
-      
-  }
-}
+
 
 .dropdown .dropdown-menu a:hover {
   background:#6804CE;
