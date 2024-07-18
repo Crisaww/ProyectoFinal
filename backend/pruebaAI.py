@@ -3,7 +3,7 @@ from google.cloud import texttospeech
 
 client = texttospeech.TextToSpeechClient()
 
-input_text = texttospeech.SynthesisInput(text="Buenas tardes, un gusto en conocerte, un placer señor")
+input_text = texttospeech.SynthesisInput(text="Buenas tardes compañeros, se preguntarán porqué estan escuchando a una maquina hablar, pues verán.... Cristian cambia de pantalla porfavor. Todo esto se debe a la Inteligencia Artificial de Google Cloud")
 
 # Note: the voice can also be specified by name.
 # Names of voices can be retrieved with client.list_voices().
