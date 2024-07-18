@@ -58,6 +58,7 @@
  <h1 class="tituloTexto">Accesibilidad </h1>
 <div class="container">
   <div class="row">
+      <!-- inicio de temas -->
         <h2 class="texto-h2">Tema</h2>
         <!--Modo claro-->
         <div class="card">
@@ -72,7 +73,35 @@
         <div class="card">
             <img src="./img/modoPredeterminado.png" alt="imgModos" class="imgModos">
         </div>
-    
+        <!-- fin de temas -->
+         <!-- inicio de elegir tu vooz -->
+        <hr class="linea" size="1"> 
+        <h2 class="texto-h2">Salida de voz</h2>
+        <div class="elegirvoz">
+        <label class="custom-checkbox">
+          <input name="dummy" type="checkbox" onclick="selectOnlyThis()">
+          <span class="checkmark"></span>
+          <i class="fa-solid fa-person-dress" style="font-size: 25px;"></i>
+        </label>
+        <label class="custom-checkbox">
+          <input name="dummy" type="checkbox" onclick="selectOnlyThis()">
+          <span class="checkmark"></span>
+          <i class="fa-solid fa-person"style="font-size: 25px;"></i>
+          <script>
+            function selectOnlyThis(checkbox) {
+                var checkboxes = document.getElementsByName('option');
+                checkboxes.forEach((item) => {
+                    if (item !== checkbox) {
+                        item.checked = false;
+                        item.disabled = checkbox.checked; // Deshabilita los otros checkboxes si este está seleccionado
+                    }
+                });
+            }
+        </script>
+        </label>
+      </div>
+      <!-- fin de salida de voz -->
+
     </div>
 </div>
 
