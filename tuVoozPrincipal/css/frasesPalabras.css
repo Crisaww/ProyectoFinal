@@ -316,7 +316,9 @@ INICIO TARJETAS SELECCION
 .containerGeneralTarjeta{
   display: flex;
   justify-content:center;
-  width:250%;
+  width:100%;
+  margin: 0;
+  padding: 0;
 }
 .containerTarjeta{
   display: flex;
