@@ -246,7 +246,7 @@ INICIO TARJETAS SELECCION
   top: 0;
   margin-left: -50%;
   margin-top: -70%;
-  background: linear-gradient(744deg,#af40ff,#5b42f3 60%,#00ddeb);
+  background: linear-gradient(744deg,#af40ff,#9c45d6 60%,#00ddeb);
 }
 
 .icon {
@@ -333,7 +333,7 @@ INICIO TARJETAS SELECCION
 .containerTarjeta{
   display: flex;
   padding: 0;
-  height: 42%;
+  height: 60%;
   align-items: end;
   
 }
@@ -344,6 +344,12 @@ INICIO TARJETAS SELECCION
   height: 58%;
   align-items: start;
   
+}
+
+/* estilos de iconos */
+.icono{
+  font-size: 50px;
+  color: #fbfbfc;
 }
 
 
