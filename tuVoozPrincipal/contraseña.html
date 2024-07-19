@@ -41,8 +41,8 @@
 
 
                 <div class="dropdown">
-                  <a href="#" class="dropdown text-light" data-bs-toggle="dropdown"><small><i class="fa-solid fa-gear" id="#Menu "></i></small></a>
-                  <div class="dropdown-menu rounded">
+                  <a href="#" class="dropdow text-light" data-bs-toggle="dropdown"><small><i class="fa-solid fa-gear" id="#Menu "></i></</small></a>
+                  <div class="dropdown-menu rounded" id="menuDespliegue">
                       <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> Mi cuenta</a>
                       <a href="accesibilidad.html" class="dropdown-item"><i class="fas fa-comment-alt me-2"></i> Accesibilidad</a>
                       <a href="contraseña.html" class="dropdown-item"><i class="fas fa-bell me-2"></i>Contraseña</a>
@@ -60,5 +60,27 @@
      </div>
    </div>
    <!-- Navbar End -->
+   <h1 class="tituloTexto" style="margin-top: 2%;">Contraseña</h1>
+   <h2 class="texto-h2" style="margin-left: 12%;">Cambio de contraseña</h2>
+
+  <div class="form-overlay" style="margin-top: 3%;">
+    <div class="row">  
+       <div class="col-md-4">
+          <label for="nombreUsuario" class="form-label">Contraseña actual</label>
+          <input type="text" class="form-control" name="nombreUsuario" id="nombreUsuario" step="1">
+        </div>
+        <div class="col-md-4">
+          <label for="nombreUsuario" class="form-label">Contraseña Nueva</label>
+          <input type="text" class="form-control" name="nombreUsuario" id="nombreUsuario" step="1">
+        </div>
+        <div class="col-md-4">
+          <label for="nombreUsuario" class="form-label">Confirmacion de la Contraseña nueva</label>
+          <input type="text" class="form-control" name="nombreUsuario" id="nombreUsuario" step="1">
+        </div>
+        <button class="btn btn-purple" id="btnCambios" type="button" style="width: 200px; margin-left:35%; margin-top:3%">Registrar cambios </button>
+
+    </div>
+  </div>
+
   </body>
   </html>
