@@ -13,6 +13,7 @@
 
 
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="./js/accesibilidad.js">
 
     <title>Tu vooz</title>
     <link rel="icon" type="image/png" href="img/logotipo.png">
@@ -39,7 +40,7 @@
               <a href="nosotros.html" class="nav-item nav-link " style="display: flex; align-items: center;">¿Quiénes sómos?</a>
               <a href="comoUsarTuvooz.html" class="nav-item nav-link active" style="display: flex; align-items: center;">¿Cómo usar TuVooz?</a>
               <div class="dropdown">
-                <a href="#" class="dropdow text-light" data-bs-toggle="dropdown"><small><i class="fa-solid fa-gear" id="#Menu "></i></small></a>
+                <a href="#" class="dropdow text-light" data-bs-toggle="dropdown"><small><i class="fa-solid fa-gear" id="#Menu "></i></</small></a>
                 <div class="dropdown-menu rounded" id="menuDespliegue">
                     <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> Mi cuenta</a>
                     <a href="accesibilidad.html" class="dropdown-item"><i class="fas fa-comment-alt me-2"></i> Accesibilidad</a>
@@ -53,11 +54,11 @@
           </div>
       </div>
    </div>
- </div>
- <!-- Navbar End -->
- <h1 class="tituloTexto">Accesibilidad </h1>
-<div class="container">
-  <div class="row">
+    </div>
+    <!-- Navbar End -->
+    <h1 class="tituloTexto">Accesibilidad </h1>
+  <div class="container">
+      <div class="row">
       <!-- inicio de temas -->
         <h2 class="texto-h2">Tema</h2>
         <!--Modo claro-->
@@ -75,37 +76,49 @@
             <img src="./img/modoAltoContraste.png" alt="imgModos"class="imgModos">
         </div>
         <!-- fin de temas -->
+
          <!-- inicio de elegir tu vooz -->
+
         <hr class="linea" size="1"> 
         <h2 class="texto-h2">Salida de voz</h2>
-        <div class="elegirvoz">
+
+        <div class="vozFemenina">
         <label class="custom-checkbox">
-          <input name="dummy" type="checkbox" onclick="selectOnlyThis()">
+          <input name="dummy" type="checkbox">
           <span class="checkmark"></span>
-          <i class="fa-solid fa-person-dress" style="font-size: 25px;"></i>
+          <i class="fa-solid fa-person-dress" id="iconosSeleccionarVoz" style="font-size: 25px; "></i>
+          <p id="vozFemenina">Voz femenina</p>
         </label>
+      </div>
+
+      <div class="vozMasculina">
         <label class="custom-checkbox">
-          <input name="dummy" type="checkbox" onclick="selectOnlyThis()">
+          <input name="dummy" type="checkbox">
           <span class="checkmark"></span>
-          <i class="fa-solid fa-person"style="font-size: 25px;"></i>
-          <script>
-            function selectOnlyThis(checkbox) {
-                var checkboxes = document.getElementsByName('option');
-                checkboxes.forEach((item) => {
-                    if (item !== checkbox) {
-                        item.checked = false;
-                        item.disabled = checkbox.checked; // Deshabilita los otros checkboxes si este está seleccionado
-                    }
-                });
-            }
-        </script>
+          <i class="fa-solid fa-person" id="iconosSeleccionarVoz"style="font-size: 25px;"></i>
+          <p id="vozMasculina">Voz masculina</p>
         </label>
       </div>
       <!-- fin de salida de voz -->
-
+    <!--inicio Tamaño de texto -->
+      <hr class="linea" size="1"> 
+      <h2 class="texto-h2">Tamaño de texto</h2>
+      <div class="text-size-container">
+        <div class="text-size-buttons" id="botonTamañoTexto">
+            <button class="text-size-button selected" id="smallText">Pequeña aA</button>
+            <button class="text-size-button " id="mediumText">Mediana aA</button>
+            <button class="text-size-button" id="largeText">Grande aA</button>
+        </div>
     </div>
-</div>
+    <div class="content" id="content">
+      <p style="margin-top: 2%; margin-left:3%">Este es un texto de ejemplo. Cambia el tamaño del texto seleccionando uno de los botones anteriores.</p>
+    </div>
+    <!-- fin de tamaño de texto -->
+    <button class="btn btn-purple" id="btnCambios" type="button" style="width: 200px; margin-left:45%">Registrar cambios </button>
 
+ </div>
+</div>
+<script src="./js/accesibilidad.js"></script>
      
   </body>
 </html>
