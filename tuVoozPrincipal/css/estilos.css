@@ -72,7 +72,7 @@
             cursor: pointer;
         }
         #menuDespliegue{
-          background-color: #5b0a71;
+          background-color: #3b0f7c;
         }
         .dropdown-item{
           color: #fffeff;
@@ -749,6 +749,14 @@ margin-left: 8%;
 }
 #botonTamañoTexto{
   margin-left: 3%;
+}
+
+.fa-gear::before {
+  font-size: 25px;
+}
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  margin: 0;
 }
   /* fin de tamaño de texto */
 /* botones cambios */

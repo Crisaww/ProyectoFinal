@@ -54,10 +54,10 @@
 
       <nav id="navbar" class="navbar">
         <ul style="padding: 0px 40px 0px 0px;">
-          <li><a class="nav-link scrollto active" href="">Texto</a></li>
-          <li><a class="nav-link scrollto" href="">Frases y palabras</a></li>
-          <li><a class="nav-link scrollto" href="">¿Quiénes sómos?</a></li>
-          <li><a class="nav-link scrollto" href="">¿Cómo usar TuVooz?</a></li>
+          <li><a class="nav-link scrollto active" href="./paginaPrincipal.html">Texto</a></li>
+          <li><a class="nav-link scrollto" href="./indexFrasesPalabras.html">Frases y palabras</a></li>
+          <li><a class="nav-link scrollto" href="./nosotros.html">¿Quiénes sómos?</a></li>
+          <li><a class="nav-link scrollto" href="./comoUsarTuvooz.html">¿Cómo usar TuVooz?</a></li>
           <div class="dropdown">
             <a href="#" class="dropdow text-light" data-bs-toggle="dropdown"><i class="fa-solid fa-gear" id="#Menu "></i></a>
             <div class="dropdown-menu rounded" id="menuDespliegue">
@@ -81,7 +81,7 @@
   
 
     <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center" ">
+  <section id="hero" class="d-flex align-items-center" >
 
     <div class="container-fluid" data-aos="fade-up">
       <div class="row ">
@@ -91,6 +91,45 @@
     </div>
 
   </section><!-- End Hero -->
+
+  <h1 class="tituloTexto">Texto a voz</h1>
+
+<div class="textarea-container">
+  <textarea class="multiLine" name="multiLine" rows="4" cols="50" id="texto" placeholder="Escriba aquí... "></textarea>
+</div>
+
+<div class="contenedor_boton"> 
+  <button class="botonReproducirTexto" onclick="convertirTexto()">
+    <i class="fa-solid fa-volume-high"></i>
+    <p class="text">Convertir Texto</p>
+  </button>
+</div>
+
+
+
+<script>
+  async function convertirTexto() {
+    const texto = document.getElementById("texto").value;
+
+    // Send the text to the backend for processing (replace with your backend URL)
+    const response = await fetch('http://localhost:5000/synthesize', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ text: texto }),
+    });
+
+    if (response.ok) {
+      const audioBlob = await response.blob();
+      const audioUrl = URL.createObjectURL(audioBlob);
+      const audio = new Audio(audioUrl);
+      audio.play();
+    } else {
+      alert('Error en la conversión de texto a voz.');
+    }
+  }
+</script>
 
   
 
