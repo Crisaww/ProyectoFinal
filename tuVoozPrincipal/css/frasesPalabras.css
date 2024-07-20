@@ -325,7 +325,7 @@ INICIO TARJETAS SELECCION
 
 
 .container, .container-lg, .container-md, .container-sm, .container-xl {
-    max-width: 100%;
+    
     height: 100%;
     justify-content: center;
 }

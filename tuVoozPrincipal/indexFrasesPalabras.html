@@ -33,6 +33,7 @@
   <link href="../TuVooz/Ajustes/css/style.css" rel="stylesheet">
   <link href="./css/style.css" rel="stylesheet">
   <link href="./css/estilos.css" rel="stylesheet">
+  <link href="./css/frasesPalabras.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Techie
@@ -46,40 +47,31 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top ">
-    <div class="container d-flex align-items-center justify-content-between" style="margin-left: 70px; margin-right: 0px; padding-right: 80px;">
-      <!-- <h1 class="logo"><a href="index.html">TuVooz</a></h1> -->
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <a href="index.html" class="logo"><img src="/TuVooz/Ajustes/img/LogoTuVooz-removebg-preview (1) (1) (1).png" alt="" class="img-fluid"></a>
+  <header id="header" class="fixed-top" >
+    <div class="container d-flex align-items-center justify-content-between" style="width: 100%; margin: 0; padding: 0 0 0 50px;">
+      <div class="logoAjuste">
+        <a href="./paginaPrincipal.html" class="logo"><img src="/TuVooz/Ajustes/img/LogoTuVooz-removebg-preview (1) (1) (1).png" alt="" class="img-fluid"></a>
+
+      </div>
 
       <nav id="navbar" class="navbar">
         <ul style="padding: 0px 40px 0px 0px;">
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">Sobre nosotros</a></li>
-          <li><a class="nav-link scrollto" href="#services">Servicios</a></li>
-          <!-- <li><a class="nav-link scrollto" href="#team">Team</a></li> -->
-          <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li> -->
-          <li><a class="nav-link scrollto" href="#contact">Contactos</a></li>
+          <li><a class="nav-link scrollto " href="./paginaPrincipal.html">Texto</a></li>
+          <li><a class="nav-link scrollto active" href="./indexFrasesPalabras.html">Frases y palabras</a></li>
+          <li><a class="nav-link scrollto" href="./nosotros.html">¿Quiénes sómos?</a></li>
+          <li><a class="nav-link scrollto" href="./comoUsarTuvooz.html">¿Cómo usar TuVooz?</a></li>
+          <div class="dropdown">
+            <a href="#" class="dropdow text-light" data-bs-toggle="dropdown"><i class="fa-solid fa-gear" id="#Menu "></i></a>
+            <div class="dropdown-menu rounded" id="menuDespliegue">
+                <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> Mi cuenta</a>
+                <a href="#" class="dropdown-item"><i class="fas fa-comment-alt me-2"></i> Accesibilidad</a>
+                <a href="contraseña.html" class="dropdown-item"><i class="fas fa-bell me-2"></i>Contraseña</a>
+                <a href="#" class="dropdown-item"><i class="fas fa-power-off me-2"></i>Cerrar sesión</a>
+            </div>
+          </div>
+          
         </ul>
 
-        <!-- <li style="display: flex;"><a class="getstarted scrollto" style="margin-left: 0px;" href="../front_end/registroUsuario.html">Registrate</a></li> -->
-        <li style="display: flex;"><a class="getstarted scrollto" style="margin-left: 0px;" href="../tuVoozPrincipal/iniciarSesion.html">Iniciar Sesión</a></li>
 
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -88,20 +80,10 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
+  <section id="hero" class="d-flex align-items-center" >
 
     <div class="container-fluid" data-aos="fade-up">
       <div class="row justify-content-center">
-        <div class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1>La mejor experiencia la encuentras en TuVooz</h1>
-          <h2>Somos un equipo que busca la comunicación sin importar el tipo de barreras.</h2>
-          <div><a href="#hero" class="btn-get-started scrollto">Descargar App</a>
-          <h5 style="color: #ffffff; padding-top: 1px; font-size: 15px;">-No disponible para IOS</h5>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="150">
-          <img src="./Ajustes/img/CeluAndroid.png" class="img-fluid animated" alt="">
-        </div>
       </div>
     </div>
 
@@ -110,29 +92,10 @@
   <main id="main">
 
     <!-- ======= About Section ======= -->
-    <section id="about" class="about">
+    <section id="about" class="about" style="display: flex; justify-content: center;">
       <div class="container">
 
-        <div class="row">
-          <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="150">
-            <img src="./Ajustes/img/sobre_nosotros.png" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
-            <h3>¡Conoce más sobre nosotros!</h3>
-            <p class="fst-italic">
-              Somos la unión de jóvenes que tiene como objetivo:
-            </p>
-            <ul>
-              <li><i class="bi bi-check-circle"></i> Ayudar a toda persona que tenga la dificultad de comunicarse verbalmente.</li>
-              <li><i class="bi bi-check-circle"></i> Ser la mejor aplicación inclusiva a nivel nacional.</li>
-              <li><i class="bi bi-check-circle"></i> Apoyar la comunidad con deficit del habla y motivarla a usar TuVooz.</li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End About Section -->
-   <!-- tarjetas de seleccion -->
+          <!-- tarjetas de seleccion -->
    <div class="container containerGeneralTarjeta">
     <div class="container containerTarjeta" >
          
@@ -260,12 +223,24 @@
 
      
 </div>
+
+      </div>
+    </section><!-- End About Section -->
+ 
 </div>
 
 
      
 
     <!-- <script src="./js/botones.js"></script> -->
-       
+     
+        <!-- Vendor JS Files -->
+  <script src="../TuVooz/Ajustes/vendor/aos/aos.js"></script>
+  <script src="../TuVooz/Ajustes/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../TuVooz/Ajustes/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../TuVooz/Ajustes/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../TuVooz/Ajustes/js/main.js"></script>
     </body>
 </html>
