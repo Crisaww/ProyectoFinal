@@ -206,7 +206,7 @@ INICIO DE FAVORITOS BOTONES
   .btnfrases:hover #favorito{
     display: inline;
   }
-  .fa-solid{
+  .fa-regular, .fa-heart{
       color: #ff0000;
   }
 
