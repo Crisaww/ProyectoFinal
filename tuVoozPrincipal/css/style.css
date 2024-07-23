@@ -114,6 +114,7 @@ h6 {
 #header {
   transition: all 0.5s;
   z-index: 997;
+  height: 12.5%;
   /* padding: 20px 0; */
 }
 
