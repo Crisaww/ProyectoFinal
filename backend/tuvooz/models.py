@@ -8,7 +8,7 @@ class Usuario(models.Model):
     correo = models.CharField(max_length=200)
     contrasenna = models.CharField(max_length=13)
     confirmacion_contrasenna = models.CharField(max_length=13)
-    rol = models.IntegerField()
+   # rol = models.IntegerField()
     #estado = models.IntegerField()
 
     def __str__(self):
