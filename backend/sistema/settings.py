@@ -146,3 +146,11 @@ REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
+
+# Configuración de email
+from decouple import config
+EMAIL_HOST = 'smtp.googlemail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'tuvoozsoporte@gmail.com'
+EMAIL_HOST_PASSWORD = config('USER_MAIL_PASSWORD')
+EMAIL_USE_TLS = True
