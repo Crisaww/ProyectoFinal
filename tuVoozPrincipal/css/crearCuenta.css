@@ -16,12 +16,12 @@ html {
 
 .toggle-password {
     position: absolute;
+    z-index: 10;
     top: 50%;
     right: 4px;
     transform: translateY(-50%);
     cursor: pointer;
     font-size: 16px;
-    pointer-events: none;
 }
 
 /*Estilo para el contenedor principal*/
@@ -103,13 +103,12 @@ input[type="password"] {
     padding-top: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; Innecesario, tiene propiedad de box*/
 }
 
 .boton [type="submit"] {
     background-color: rgba(86, 58, 250, 0.9);
     color: #fff;
-    padding: 15px 25px;
     border: none;
     border-radius: 15px;
     /* Añade estas propiedades para centrar el contenido del botón */
@@ -118,6 +117,21 @@ input[type="password"] {
     display: flex;
     font-size: 18px;
     /*tamaño de la letra del boton*/
+}
+
+/* Dentro del botón */
+.boton .btn {
+    cursor: pointer;
+    width: 70%;
+    border-radius: 4px;
+    border: none;
+    padding: 8px 14px;
+}
+
+/* Hover del botón */
+.btn:hover {
+    background-color: rgba(86, 58, 250, 0.9);
+    color: #fff;
 }
 
 /*Estilos para el enlace de registro*/
