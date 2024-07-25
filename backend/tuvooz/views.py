@@ -31,7 +31,7 @@ def registro(request):
     
     # Verificar si el usuario ya existe por email
     if User.objects.filter(email=request.data.get('email')).exists():
-        return Response({'error': 'El usuario ya se encuentra registrado'}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({'error': 'El usuario ya se encuentra registrado'}, status=status.HTTP_401_UNAUTHORIZED)
     
     if serializer.is_valid():
         user = serializer.save()

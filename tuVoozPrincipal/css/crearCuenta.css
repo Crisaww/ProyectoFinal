@@ -8,6 +8,19 @@ html {
     background-size: cover;
     position: relative;
 }
+.password-container {
+    position: relative;
+}
+.password-container input {
+    padding-right: 30px;
+}
+.password-container .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
 
 /*Estilo para el contenedor principal*/
 .container {

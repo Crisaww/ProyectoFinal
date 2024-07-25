@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./bootstrap-5.3.2-dist/bootstrap-5.3.2-dist/css/bootstrap.min.css"></script>
     <script src="./bootstrap-5.3.2-dist/bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
-    <script src="../js/cuenta/registro.js"></script> <!--JavaScript-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/crearCuenta.css"> <!--Estilos del CSS-->
 </head>
 
@@ -16,22 +16,23 @@
     <div class="container">
         <div class="left-column">
             <div class="fauguet">
-                <h1>Crear Cuenta</h1>
+                <h1>Crear cuenta</h1>
                 <form>
                     <div class="col">
                         <label for="username" class="form-label">Nombre de usuario:</label>
                         <input type="text" class="form-control" name="username" id="username" step="1"
-                            style="background-color: #e5e4e4;"  onfocusout="validarusername(this);">
+                            style="background-color: #e5e4e4;"  onfocusout="validarUsername(this);">
                     </div><br>
                     <div class="col">
                         <label for="email" class="form-label">Correo electrónico:</label>
                         <input type="email" class="form-control" name="email" id="email"
-                            step="1" style="background-color: #e5e4e4;" onfocusout="validaremail(this);">
+                            step="1" style="background-color: #e5e4e4;" onfocusout="validarEmail(this);">
                     </div><br>
-                    <div class="col">
+                    <div class="col password-container">
                         <label for="password" class="form-label">Contraseña:</label>
-                        <input type="password" class="form-control" name="password" id="password"
-                            style="background-color: #e5e4e4;" step="1" onfocusout="validarpassword(this);">
+                        <input type="password" class="form-control" name="password" id="password"style="background-color: #e5e4e4;" step="1" onfocusout="validarPassword(this);">
+                        <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+                        
                     </div>
                     
                     <!-- <div class="col">
@@ -61,5 +62,6 @@
         </div>
     </div>
 </body>
+<script src="../js/cuenta/registro.js"></script> <!--JavaScript-->
 
 </html>

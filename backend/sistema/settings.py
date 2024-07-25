@@ -26,7 +26,9 @@ SECRET_KEY = 'django-insecure-(txe3%0876b*)5*ws9_t(=*jl%4mh^pzg7#3q3iqh&)n=t!=28
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:5502",  # Reemplaza con el origen de tu frontend
+]
 
 # Application definition
 
@@ -46,9 +48,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -81,11 +83,22 @@ WSGI_APPLICATION = 'sistema.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
+    
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'tuvoozdb',
+        'USER': 'root',
+        'PASSWORD': 'root123',# se debe cambiar esto de acuerdo a la DB que van a utilizar
+        'HOST': 'localhost',  # o la dirección IP de tu servidor MySQL
+        'PORT': '3306',       
     }
 }
+
+
 
 
 # Password validation
