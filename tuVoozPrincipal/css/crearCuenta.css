@@ -98,6 +98,12 @@ input[type="password"] {
     border-radius: 10px;
 }
 
+/* Cambio de color externo input */
+input:focus {
+    outline: none;
+    border-color: #563afae6;
+}
+
 /*Estilos para el boton*/
 .boton {
     padding-top: 20px;
@@ -107,7 +113,7 @@ input[type="password"] {
 }
 
 .boton [type="submit"] {
-    background-color: rgba(86, 58, 250, 0.9);
+    background-color: #563afae6;
     color: #fff;
     border: none;
     border-radius: 15px;
