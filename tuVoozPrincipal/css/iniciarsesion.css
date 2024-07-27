@@ -6,6 +6,8 @@ html {
     background: linear-gradient(45deg, rgba(86, 58, 250, 0.9) 100%, rgba(86, 58, 250, 0.9) 0%), url("../img/Onda3.jpg");
     background-size: cover;
     position: relative;
+
+    font-family: "Poppins", sans-serif;
 }
 
 .container {
@@ -36,22 +38,26 @@ html {
 }
 
 form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
     border-radius: 2px;
     border-bottom: 2px;
-    padding: 15px;
+    padding: 20px;
 }
 
-.col {
+/* No existe? */
+/* .col {
     margin-bottom: 2px;
-}
+} */
 
 .form-label {
-    display: block;
-    margin-bottom: 5px;
+    display: flex;
+    margin-bottom: 10px;
 }
 
 .form-control {
-    width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -64,40 +70,65 @@ h1 {
     margin-bottom: 1rem;
 }
 
+.input-group {
+    padding-top: 12px;
+    padding-bottom: 18px;
+}
+/* Segundo input */
+.input-group:nth-child(2){
+    padding-bottom: 0;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-    max-width: 100%;
+    align-self: center;
+    width: 95%;
     padding: 8px;
     border: 1px solid #ffffff;
+    background-color: #e5e4e4;
     border-radius: 10px;
 }
 
-.boton {
+/* Border externo al hacer click */
+input:focus {
+    outline: none;
+    border-color: #563afae6;
+}
+
+/* No existe ⬇️*/
+/* .boton {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 .boton2 {
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; Innecesario */
+    padding-top: 24px;
 }
 
+button.btn {
+    flex: 1; /*Hace que ocupe todo el espacio de su contendor padre (boton2)*/
+    padding: 8px;
+}
+
+/* No debería ser Submit ⬇️ */
 button[type="submit"] {
     background-color: rgba(86, 58, 250, 0.9);
     color: #fff;
-    padding: 15px 25px;
     border: none;
     border-radius: 15px;
     justify-content: center;
     align-items: center;
     display: flex;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .boton2 a{
+    font-family: "Poppins", sans-serif;
     text-align: center;
     text-decoration: none;
     color: #ffffff;
@@ -151,18 +182,28 @@ a:hover {
 }
 
 .recordar {
-    text-align: center;
-    margin-bottom: 20px;
-    /* Agregamos margen inferior para separarlo del siguiente elemento */
+    text-align: end;
+    font-weight: 300;
+    font-size: small;
 }
 
-.aviso {
+.registro {
+    text-align: center;
+    font-size: small;
+}
+
+.text_light {
+    font-weight: 300;
+}
+
+/* No existe? ⬇️ */
+/* .aviso {
     text-align: center;
 }
 
 .aviso img {
     max-width: 150px;
-}
+} */
 
 .right-column{
     flex: 1;

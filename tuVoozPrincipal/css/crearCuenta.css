@@ -7,6 +7,8 @@ html {
     background: linear-gradient(45deg, rgba(86, 58, 250, 0.9) 100%, rgba(86, 58, 250, 0.9) 0%), url("../img/Onda3.jpg");
     background-size: cover;
     position: relative;
+
+    font-family: "Poppins", sans-serif;
 }
 
 .wrapper {
@@ -112,6 +114,7 @@ input:focus {
     /* align-items: center; Innecesario, tiene propiedad de box*/
 }
 
+/* ⬇️ Esto no funciona */
 .boton [type="submit"] {
     background-color: #563afae6;
     color: #fff;
