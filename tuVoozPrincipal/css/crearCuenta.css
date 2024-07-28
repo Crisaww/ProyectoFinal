@@ -94,6 +94,12 @@ h1 {
     margin-top: 0;
     margin-bottom: 1rem;
     /* O usan px o usan rem no mezlcados */
+}  
+.is-valid {
+    border-color: #28a745;
+}
+.is-invalid {
+    border-color: #dc3545;
 }
 
 input[type="text"],
