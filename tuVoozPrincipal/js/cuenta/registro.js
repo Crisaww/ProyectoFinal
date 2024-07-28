@@ -89,36 +89,39 @@ function validarUsername(username) {
 }
 
 function validarPassword(password) {
-    if (!password || !password.value) {
-        password.className = "form-control is-invalid";
-        return false;
-    }
-
+    let errorDiv = document.getElementById('password-error');
     let valor = password.value.trim();
     let valido = true;
+    let mensajeError = "";
 
-    // Longitud mínima de 8 caracteres y máxima de 20 caracteres
-    valido = valor.length >= 8 && valor.length <= 20;
-
-    // Al menos una letra mayúscula
-    valido = valido && /[A-Z]/.test(valor);
-
-    // Al menos una letra minúscula
-    valido = valido && /[a-z]/.test(valor);
-
-    // Al menos un número
-    valido = valido && /[0-9]/.test(valor);
-
-    // Al menos un carácter especial
-    valido = valido && /[!@#$%^&*(),.?":{}|<>]/.test(valor);
+    if (valor.length < 8 || valor.length > 20) {
+        valido = false;
+        mensajeError = "La contraseña debe tener entre 8 y 20 caracteres.";
+    } else if (!/[A-Z]/.test(valor)) {
+        valido = false;
+        mensajeError = "La contraseña debe tener al menos una letra mayúscula.";
+    } else if (!/[a-z]/.test(valor)) {
+        valido = false;
+        mensajeError = "La contraseña debe tener al menos una letra minúscula.";
+    } else if (!/[0-9]/.test(valor)) {
+        valido = false;
+        mensajeError = "La contraseña debe tener al menos un número.";
+    } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(valor)) {
+        valido = false;
+        mensajeError = "La contraseña debe tener al menos un carácter especial.";
+    }
 
     password.className = valido ? "form-control is-valid" : "form-control is-invalid";
+    errorDiv.textContent = mensajeError;
+    errorDiv.style.display = valido ? 'none' : 'block';
     return valido;
 }
 
 function validarEmail(email) {
+    let errorDiv = document.getElementById('email-error');
     if (!email || !email.value) {
         email.className = "form-control is-invalid";
+        errorDiv.style.display = 'block';
         return false;
     }
 
@@ -133,6 +136,7 @@ function validarEmail(email) {
     valido = valido && re.test(valor);
 
     email.className = valido ? "form-control is-valid" : "form-control is-invalid";
+    errorDiv.style.display = valido ? 'none' : 'block';
     return valido;
 }
 
