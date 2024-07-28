@@ -48,7 +48,7 @@ html {
     border-radius: 20px;
     max-width: 100%;
     padding: 8%;
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd;  esto interfiere con el is_valid form*/
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     /* Fondo blanco */
@@ -77,16 +77,16 @@ form {
     /* Espacio inferior entre etiquetas y campos */
 }
 
-.form-control {
+/* .form-control {
     width: 100%;
-    /* Opcional: Ajusta el ancho de los campos */
+    /* Opcional: Ajusta el ancho de los campos 
     padding: 8px;
     /* Opcional: Ajusta el relleno de los campos */
-    border: 1px solid #ccc;
-    /* Opcional: Estilo de borde */
+    /* border: 1px solid #ccc; esto impide el is_valid form*/
+    /* Opcional: Estilo de borde
     border-radius: 5px;
-    /* Opcional: Borde redondeado */
-}
+    /* Opcional: Borde redondeado 
+} */
 
 h1 {
     text-align: center;
@@ -95,11 +95,20 @@ h1 {
     margin-bottom: 1rem;
     /* O usan px o usan rem no mezlcados */
 }  
-.is-valid {
-    border-color: #28a745;
+.form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #fff; /* Borde blanco por defecto */
+    border-radius: 10px;
+    background-color: #e5e4e4;
 }
+
+.is-valid {
+    border-color: #28a745 !important; /* Verde para válido */
+}
+
 .is-invalid {
-    border-color: #dc3545;
+    border-color: #dc3545 !important; /* Rojo para inválido */
 }
 
 input[type="text"],
@@ -107,12 +116,23 @@ input[type="email"],
 input[type="password"] {
     align-self: center;
     max-width: 95%;
-    padding: 8px;
-    border: 1px solid #ffffff;
+    border: 1px solid #ffffff; /* Borde blanco por defecto */
     border-radius: 10px;
     background-color: #e5e4e4;
 }
 
+/* Asegurarse de que las clases de validación sobrescriban el borde */
+input[type="text"].is-valid,
+input[type="email"].is-valid,
+input[type="password"].is-valid {
+    border-color: #28a745 !important; /* Verde para válido */
+}
+
+input[type="text"].is-invalid,
+input[type="email"].is-invalid,
+input[type="password"].is-invalid {
+    border-color: #dc3545 !important; /* Rojo para inválido */
+}
 /* Cambio de color externo input */
 input:focus {
     outline: none;
