@@ -104,27 +104,31 @@
 
 
 <script>
-  async function convertirTexto() {
-    const texto = document.getElementById("texto").value;
+ async function convertirTexto() {
+        const texto = document.getElementById("texto").value;
 
-    // Send the text to the backend for processing (replace with your backend URL)
-    const response = await fetch('http://localhost:5000/synthesize', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ text: texto }),
-    });
+        try {
+            const response = await fetch('http://127.0.0.1:5502/synthesize/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ text: texto }),
+            });
 
-    if (response.ok) {
-      const audioBlob = await response.blob();
-      const audioUrl = URL.createObjectURL(audioBlob);
-      const audio = new Audio(audioUrl);
-      audio.play();
-    } else {
-      alert('Error en la conversión de texto a voz.');
+            if (response.ok) {
+                const audioBlob = await response.blob();
+                const audioUrl = URL.createObjectURL(audioBlob);
+                const audio = new Audio(audioUrl);
+                audio.play();
+            } else {
+                alert('Error en la conversión de texto a voz.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error en la conversión de texto a voz.');
+        }
     }
-  }
 </script>
 
   

@@ -23,5 +23,6 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('tuvooz/', include('tuvooz.urls')),
+    path('', include('tuvooz.urls')),
     
 ]
