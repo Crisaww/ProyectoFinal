@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 CORS_ALLOWED_ORIGINS = [
-    "http://127.0.0.1:5502",  # Reemplaza con el origen de tu frontend
+    "http://127.0.0.1:5502",
+    "http://127.0.0.1:8000"# Reemplaza con el origen de tu frontend
 ]
 
 # Application definition
@@ -92,7 +93,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tuvoozdb',
         'USER': 'root',
-        'PASSWORD': 'root123',# se debe cambiar esto de acuerdo a la DB que van a utilizar
+        'PASSWORD': '123456',
+        #'PASSWORD': 'root123',# se debe cambiar esto de acuerdo a la DB que van a utilizar
         'HOST': 'localhost',  # o la dirección IP de tu servidor MySQL
         'PORT': '3306',       
     }
