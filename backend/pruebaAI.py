@@ -9,7 +9,7 @@ input_text = texttospeech.SynthesisInput(text="Buenas tardes compañeros, se pre
 # Names of voices can be retrieved with client.list_voices().
 voice = texttospeech.VoiceSelectionParams(
     language_code="es-US",
-    name="es-US-Standard-B",
+    name="es-US-Wavenet-A",
 )
 
 audio_config = texttospeech.AudioConfig(
