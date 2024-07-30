@@ -342,18 +342,19 @@ Texto
   font-family: "Poppins", sans-serif;
   text-align: center;
   padding-top: 120px;
-  color: #5b0a71;
+  color: #814bff;
   text-align: center;
 }
 .multiLine{
 
 display: flex;
 justify-content: center;
-background-color: #aa43c782;
+background-color: #5947ff82;
 color: #000000;
 border: 1px solid #ccc;
 border-radius: 4px;
 border-color: #aa43c7d7;
+width: 35%;
 }
 .textarea-container .fa-solid.fa-xmark {
   
@@ -426,14 +427,8 @@ border-radius: 10px;
   padding-bottom: 10px;
 }
 
-.contenedor_boton {
-  display: flex;
-  justify-content: center;
-  padding: 10px 10px 0 10px;
 
-}
-
-.botonReproducirTexto {
+/* .botonReproducirTexto {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -475,7 +470,7 @@ border-radius: 10px;
   color: #181717;
   
   
-}
+} */
 
 .textarea-container{
   display: flex;
@@ -729,3 +724,124 @@ margin-left: 8%;
 }
   /* fin de tamaño de texto */
 /* botones cambios */
+
+.contenedor_boton {
+  display: flex;
+  justify-content: center;
+  padding: 10px 10px 0 10px;
+
+}
+/* boton reproducir sonido */
+button {
+  font-family: inherit;
+  font-size: 18px;
+  background: linear-gradient(to bottom, #7c65ff 0%,#66a6ff 100%);
+  color: white;
+  padding: 0.8em 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+  transform: scale(0.95);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button span {
+  display: block;
+  margin-left: 0.4em;
+  transition: all 0.3s;
+}
+
+button svg {
+  width: 18px;
+  height: 18px;
+  fill: white;
+  transition: all 0.3s;
+}
+
+button .svg-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-right: 0.5em;
+  transition: all 0.3s;
+}
+
+button:hover .svg-wrapper {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+button:hover svg {
+  transform: rotate(45deg);
+}
+
+
+/* fin boton reproducir sonido */
+/* boton de recarga en tts  */
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.slider {
+  overflow: hidden;
+  background-color: white;
+  margin: 0 15px;
+  height: 80px;
+  width: 20px;
+  border-radius: 30px;
+  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.1), -15px -15px 30px #fff,
+    inset -5px -5px 10px rgba(0, 0, 255, 0.1),
+    inset 5px 5px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 70px;
+  border-radius: 100%;
+  box-shadow: inset 0px 0px 0px rgba(0, 0, 0, 0.3), 0px 420px 0 400px #2697f3,
+    inset 0px 0px 0px rgba(0, 0, 0, 0.1);
+  animation: animate_2 2.5s ease-in-out infinite;
+  animation-delay: calc(-0.09s * var(--i));
+}
+
+@keyframes animate_2 {
+  0% {
+    transform: translateY(250px) rotate(-80deg);
+    filter: hue-rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(250px) rotate(80deg);
+    filter: hue-rotate(180deg);
+  }
+}
+.hidden {
+  display: none;
+}
