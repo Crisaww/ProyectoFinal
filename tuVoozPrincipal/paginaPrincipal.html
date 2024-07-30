@@ -50,9 +50,9 @@
 
       <nav id="navbar" class="navbar">
         <ul style="padding: 0px 40px 0px 0px;">
-          <li><a class="nav-link scrollto" href="./paginaPrincipal.html">Texto</a></li>
+          <li><a class="nav-link scrollto active" href="./paginaPrincipal.html">Texto</a></li>
           <li><a class="nav-link scrollto" href="./indexFrasesPalabras.html">Frases y palabras</a></li>
-          <li><a class="nav-link scrollto active" href="./nosotros.html">¿Quiénes sómos?</a></li>
+          <li><a class="nav-link scrollto " href="./nosotros.html">¿Quiénes sómos?</a></li>
           <li><a class="nav-link scrollto" href="./comoUsarTuvooz.html">¿Cómo usar TuVooz?</a></li>
           <div class="dropdown">
             <a href="#" class="dropdow text-light" data-bs-toggle="dropdown"><i class="fa-solid fa-gear" id="#Menu "></i></a>
@@ -90,7 +90,7 @@
   
   <h1 class="tituloTexto">Texto a voz</h1>
   <div class="textarea-container">
-  <textarea class="multiLine" name="multiLine" rows="4" cols="50" id="texto" placeholder="Escriba aquí... "></textarea>
+  <textarea class="multiLine" name="texto" rows="4" cols="50" id="texto" placeholder="Escriba aquí... "></textarea>
 </div>
 
 <div class="contenedor_boton"> 
@@ -104,31 +104,35 @@
 
 
 <script>
- async function convertirTexto() {
-        const texto = document.getElementById("texto").value;
+  async function convertirTexto() {
+    const texto = document.getElementById("texto").value;
 
-        try {
-            const response = await fetch('http://127.0.0.1:5502/synthesize/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ text: texto }),
-            });
+    try {
+        const response = await fetch('http://127.0.0.1:8000/synthesize/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ text: texto }),
+        });
 
-            if (response.ok) {
-                const audioBlob = await response.blob();
-                const audioUrl = URL.createObjectURL(audioBlob);
-                const audio = new Audio(audioUrl);
-                audio.play();
-            } else {
-                alert('Error en la conversión de texto a voz.');
-            }
-        } catch (error) {
-            console.error('Error:', error);
+        if (response.ok) {
+            const audioBlob = await response.blob();
+            const audioUrl = URL.createObjectURL(audioBlob);
+            const audio = new Audio(audioUrl);
+            audio.play();
+            audio.oncanplaythrough = () => {
+                console.log("Audio is ready to play.");
+            };
+        } else {
             alert('Error en la conversión de texto a voz.');
         }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error en la conversión de texto a voz.');
     }
+}
+
 </script>
 
   
