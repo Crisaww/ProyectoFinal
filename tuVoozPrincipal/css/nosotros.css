@@ -1,0 +1,192 @@
+/* .card {
+    position: relative;
+    width: 190px;
+    height: 254px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 12px;
+    gap: 12px;
+    border-radius: 15px;
+    cursor: pointer;
+    color: #ffffff;
+  }
+  
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    left: -5px;
+    margin: auto;
+    width: 200px;
+    height: 264px;
+    border-radius: 15px;
+    background: linear-gradient(-45deg, #1cc2ff 0%, #ff261b 100%);
+    z-index: -10;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .card::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(-45deg, #1cffa4 0%, #ff01aee6 100%);
+    transform: translate3d(0, 0, 0) scale(0.95);
+    filter: blur(40px);
+  }
+  
+  .heading {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+  
+  .card p:not(.heading) {
+    font-size: 20px;
+    color: #000000;
+  }
+  
+  .card p:not(:after) {
+    font-size: 0px;
+    color: #ffffff;
+  }
+  
+  .card p:last-child {
+    color: #ffffff;
+  }
+  
+  .card:hover::after {
+    filter: blur(50px);
+  }
+  
+  .card:hover::before {
+    transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
+  }
+  
+  .card:hover {
+    transform: scale(1);
+  }
+   */
+
+/*
+
+  ------------------------------
+  NOSOTROS
+------------------------------
+
+ */
+
+ .team {
+  height: 100%;
+  width: 100%;
+ 
+ }
+ 
+ 
+ 
+ @media (min-width: 100px) {
+   .container, .container-lg, .container-md, .container-sm, .container-xl {
+     max-width: 100%;
+     }
+   }
+ 
+ 
+ 
+ .team-member {
+ position: relative;
+ height: 16%;
+ width: 100%;
+ }
+ 
+ .team-member:hover img {
+ top: -90px;
+ }
+ 
+ .team-member img {
+ max-width: 220px;
+ border-radius: 50%;
+ position: absolute;
+ top: -81px;
+ left: 65%;
+ transform: translateX(-110px);
+ transition: all .3s;
+ }
+ 
+ .team-member .main-content {
+ border-radius: 25%;
+ padding: 35% 6% 10% 2%;
+ background-color: #f1f0fe;
+ text-align: center;
+ 
+ }
+ 
+ .team-member .main-content span.category {
+ color: #6a1581;
+ font-size: 15px;
+ }
+ 
+ .team-member .main-content h4 {
+ font-size: 22px;
+ font-weight: 600;
+ margin-top: 8px;
+ margin-bottom: 15px;
+ }
+ 
+ .team-member .main-content ul li {
+ display: inline-block;
+ margin: 0px 2px;
+ }
+ 
+ .team-member .main-content ul li a {
+ background-color: #ffffff4a;
+ color: #6a1581;
+ display: inline-block;
+ text-align: center;
+ line-height: 35px;
+ font-size: 130%;
+ width: 40px;
+ height: 40px;
+ border-radius: 50%;
+ transition: all .3s;
+ }
+ 
+ .team-member .main-content ul li a:hover {
+ background-color: #6a1581;
+ color: #fff;
+ }
+ .team-member img {
+   width: 140px; /* Ajusta el ancho de la imagen */
+   height: 140px; /* Ajusta la altura de la imagen */
+   object-fit: cover; /* Asegura que la imagen cubra completamente el espacio asignado */
+   border-radius: 50%; /* Hace la imagen redonda */
+   margin-bottom: 10px;
+ }
+ .titulo-h1{
+ font-family: "Poppins", sans-serif;
+ text-align: center;
+ padding-top:8%;
+ }
+ .texto-h2{
+   padding-top:4%;
+   margin-left: 3%;
+   font-family: "Poppins", sans-serif;
+   color: #6a1581;
+ 
+ }
+ 
+ .nombre{
+ color: #0a0a0a;
+ }
+ 
+ .category{
+  font-style: oblique;
+ }
+ 
+ /*
+ -----------------------------
+ fin de nosotros
+ -----------------------------
+ */
