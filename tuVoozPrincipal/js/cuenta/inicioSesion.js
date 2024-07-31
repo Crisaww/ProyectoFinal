@@ -26,6 +26,7 @@ function iniciarSesion() {
                 'X-CSRFToken': getCookie('csrftoken')
             },
             body: JSON.stringify(formData)
+            
         })
         .then(response => {
             if (response.status === 401) {
@@ -33,11 +34,7 @@ function iniciarSesion() {
                     Swal.fire({
                         title: "Advertencia",
                         text: "Credenciales incorrectas.",
-                        icon: "warning",
-                        allowOutsideClick: false,
-                        allowEscapeKey: false,
-                        allowEnterKey: false,
-                        showConfirmButton: true
+                        icon: "warning"
                     });
                     return Promise.reject('Credenciales incorrectas');
                 });
@@ -48,13 +45,10 @@ function iniciarSesion() {
             return response.json();
         })
         .then(data => {
-            Swal.fire({
-                title: "Excelente",
-                text: "Inicio de sesión exitoso",
-                icon: "success"
-            });
+           
+            localStorage.setItem('showLoginMessage', 'true'); 
             localStorage.setItem('authToken', data.token); // Almacenar el token en localStorage
-            // window.location.href = "http://192.168.140.176:5500/front_end/home.html";
+            window.location.href = "http://127.0.0.1:5502/tuVoozPrincipal/paginaPrincipal.html";
         })
         .catch(error => {
             if (error !== 'Credenciales incorrectas') {

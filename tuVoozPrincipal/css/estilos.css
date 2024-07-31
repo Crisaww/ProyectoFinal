@@ -13,13 +13,19 @@ html{
   font-family: "Poppins", sans-serif;
   
 }
-/*
-------------------------------
-  FIN TOBAR
-------------------------------
-
+.login-message {
+  position: fixed;
+  top: 11%;
+  right: 10px;
+  background-color: #28a745;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1000;
+}
 
 /* estilos del logo start*/
+
 .navbar-light .navbar-brand img {
   max-height: 70px;
   margin-left: 120px;

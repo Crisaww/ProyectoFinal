@@ -5,7 +5,20 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+document.addEventListener('DOMContentLoaded', function() {
+  // Verifica si el mensaje de inicio de sesión está en el localStorage
+  if (localStorage.getItem('showLoginMessage')) {
+      let messageDiv = document.getElementById('login-message');
+      messageDiv.style.display = 'block';
 
+      // Oculta el aviso después de 3 segundos
+      setTimeout(() => {
+          messageDiv.style.display = 'none';
+          // Elimina el ítem del localStorage
+          localStorage.removeItem('showLoginMessage');
+      }, 3000);
+  }
+});
 (function() {
   "use strict";
 

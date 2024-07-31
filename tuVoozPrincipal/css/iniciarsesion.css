@@ -9,6 +9,7 @@ html {
 
     font-family: "Poppins", sans-serif;
 }
+
 .wrapper {
     position: relative;
     width: 100%;
@@ -155,7 +156,7 @@ button.btn {
 }
 
 /* No debería ser Submit ⬇️ */
-button[type="submit"] {
+button {
     background-color: rgba(86, 58, 250, 0.9);
     color: #fff;
     border: none;
