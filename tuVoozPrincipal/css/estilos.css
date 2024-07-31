@@ -878,9 +878,9 @@ button:hover svg {
 .loading {
   --speed-of-animation: 0.9s;
   --gap: 6px;
-  --first-color: #91C4F2;
-  --second-color: #8CA0D7;
-  --third-color: #9D79BC;
+  --first-color: #597cf1;
+  --second-color: #613edd;
+  --third-color: #9c8cd6;
   --fourth-color: #A14DA0;
   --fifth-color: #7E1F86;
   display: flex;
