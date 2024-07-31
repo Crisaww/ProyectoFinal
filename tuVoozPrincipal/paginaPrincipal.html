@@ -92,13 +92,16 @@
   <div class="textarea-container">
   <textarea class="multiLine" name="texto" rows="4" cols="50" id="texto" placeholder="Escriba aquí... "></textarea>
 </div>
-<section class="loader hidden">
-  <div style="--i:0" class="slider"></div>
-  <div style="--i:1" class="slider"></div>
-  <div style="--i:2" class="slider"></div>
-  <div style="--i:3" class="slider"></div>
-  <div style="--i:4" class="slider"></div>
-</section>
+<div class="containerLoading hidden">
+  <div class="loading">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
 <!-- <div class="contenedor_boton"> 
   <button class="botonReproducirTexto" onclick="convertirTexto()">
     <i class="fa-solid fa-volume-high"></i>

@@ -15,7 +15,7 @@ async function convertirTexto() {
   document.querySelector('.botonReproducirTexto').classList.add('hidden');
   
   // Muestra la sección del loader
-  document.querySelector('.loader').classList.remove('hidden');
+  document.querySelector('.containerLoading').classList.remove('hidden');
 
   try {
     // Realiza la solicitud de conversión de texto a voz
@@ -48,7 +48,7 @@ async function convertirTexto() {
         });
   } finally {
     // Oculta la sección del loader y muestra el botón nuevamente
-    document.querySelector('.loader').classList.add('hidden');
+    document.querySelector('.containerLoading').classList.add('hidden');
     document.querySelector('.botonReproducirTexto').classList.remove('hidden');
   }
 }
