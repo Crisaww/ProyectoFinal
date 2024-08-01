@@ -50,6 +50,7 @@ def perfil(request):
     
     return Response("Usted está iniciando sesión con {}".format(request.user.email), status=status.HTTP_200_OK)
 
+
 class UsuarioView(viewsets.ModelViewSet):
     serializer_class = UsuarioSerializer
     queryset = Usuario.objects.all()

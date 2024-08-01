@@ -13,10 +13,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Oculta el aviso después de 3 segundos
       setTimeout(() => {
-          messageDiv.style.display = 'none';
-          // Elimina el ítem del localStorage
-          localStorage.removeItem('showLoginMessage');
-      }, 3000);
+        messageDiv.classList.add('fade-out');
+        // Elimina el aviso del DOM después de la transición
+        setTimeout(() => {
+            messageDiv.style.display = 'none';
+            messageDiv.classList.remove('fade-out'); // Limpieza de clases
+            localStorage.removeItem('showLoginMessage');
+        }, 500); // Tiempo de la transición en milisegundos (debe coincidir con el tiempo en CSS)
+    }, 2000);
   }
 });
 (function() {
