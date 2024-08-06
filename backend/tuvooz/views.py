@@ -8,7 +8,14 @@ from rest_framework import viewsets, filters, status
 from .serializer import CategoriaSerializer, UserSerializer, UsuarioSerializer, palabraCategoriaSerializer, palabrasFavoritasSerializer
 from rest_framework.authtoken.models import Token
 from django.contrib.auth.models import User
-
+from django.template.loader import render_to_string
+# from django.core.mail import EmailMessage
+#librerías para correos electronicos
+from django.conf import settings
+#correo basico
+# from django.core.mail import send_mail
+#correo avanzado
+from django.core.mail import EmailMultiAlternatives
 
 # Create your views here.
 
@@ -27,21 +34,36 @@ def iniciarSesion(request):
 #registro de usuario
 @api_view(['POST'])
 def registro(request):
-    serializer = UserSerializer(data=request.data)
-    
-    # Verificar si el usuario ya existe por email
-    if User.objects.filter(email=request.data.get('email')).exists():
-        return Response({'error': 'El usuario ya se encuentra registrado'}, status=status.HTTP_401_UNAUTHORIZED)
-    
-    if serializer.is_valid():
-        user = serializer.save()
-        user.set_password(serializer.validated_data['password'])
-        user.save()
-        token = Token.objects.create(user=user)
-       #aqui se genera el token
-        return Response({'token': token.key}, status=status.HTTP_201_CREATED)
-    
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    if request.method == 'POST':
+        serializer = UserSerializer(data=request.data)
+        print(request.data)
+        # Verificar si el usuario ya existe por email
+        if User.objects.filter(email=request.data.get('email')).exists():
+            return Response({'error': 'El usuario ya se encuentra registrado'}, status=status.HTTP_401_UNAUTHORIZED)
+        
+        if serializer.is_valid():
+            user = serializer.save()
+            user.set_password(serializer.validated_data['password'])
+            user.save()
+            token = Token.objects.create(user=user)
+            
+            def send_email():
+                subject = 'Bienvenid@ a tu Vooz'
+                from_email = settings.EMAIL_HOST_USER
+                to = request.data.get('email')
+                text_content = 'Este es el contenido del correo en texto plano.'
+                html_content = render_to_string('correoRegistro.html', {'subject': subject, 'message': text_content})
+
+                email = EmailMultiAlternatives(subject, text_content, from_email, [to])
+                email.attach_alternative(html_content, "text/html")
+                email.send()
+            
+            send_email()
+            
+            return Response({'token': token.key}, status=status.HTTP_201_CREATED)
+        
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 #acceso al perfil
 @api_view(['POST'])
 @authentication_classes([TokenAuthentication])

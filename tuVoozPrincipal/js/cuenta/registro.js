@@ -1,6 +1,6 @@
-let url="http://127.0.0.1:8000/tuvooz/api/v1/registro";
+let url = "http://127.0.0.1:8000/tuvooz/api/v1/registro";
 
-//para el ojito de la contraseña
+// Para el ojito de la contraseña
 document.getElementById('togglePassword').addEventListener('click', function () {
     const passwordField = document.getElementById('password');
     const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
@@ -8,6 +8,7 @@ document.getElementById('togglePassword').addEventListener('click', function () 
     this.classList.toggle('fa-eye');
     this.classList.toggle('fa-eye-slash');
 });
+
 function registrarUsuario() {
     let username = document.getElementById("username").value;
     let email = document.getElementById("email").value;
@@ -18,28 +19,25 @@ function registrarUsuario() {
         "email": email,
         "password": password
     };
-    console.log(formData);
-    if (validarCampos()) {
-        let token = localStorage.getItem('authToken'); // Recuperar el token de localStorage
 
-        fetch(url, { 
+    if (validarCampos()) {
+        fetch(url, {
             method: 'POST',
             headers: {
-                'Authorization': 'Token '+token, 
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken')
             },
             body: JSON.stringify(formData)
         })
         .then(response => {
             if (response.status === 401) {
-                // El usuario ya está registrado
                 return response.json().then(data => {
                     Swal.fire({
                         title: "Advertencia",
                         text: "El usuario ya está registrado.",
                         icon: "warning"
                     });
-                    return Promise.reject('Usuario ya registrado'); // Rechazar la promesa para detener el flujo
+                    return Promise.reject('Usuario ya registrado');
                 });
             } else if (!response.ok) {
                 throw new Error('La respuesta de la red no fue correcta');
@@ -52,11 +50,12 @@ function registrarUsuario() {
                 text: "Se ha registrado exitosamente",
                 icon: "success"
             });
+            // Redirigir al usuario a otra página si es necesario
             // window.location.href = "http://192.168.140.176:5500/front_end/listacliente.html";
         })
         .catch(error => {
             if (error !== 'Usuario ya registrado') {
-                Swal.fire("Error", "Error al guardar: " + error, "error");
+                Swal.fire("Error", "Error al registrar: " + error, "error");
             }
         });
     } else {
@@ -67,11 +66,12 @@ function registrarUsuario() {
         });
     }
 }
+
 function validarCampos() {
     var username = document.getElementById("username");
     var email = document.getElementById("email");
-    var password = document.getElementById("password"); 
-   
+    var password = document.getElementById("password");
+
     return validarUsername(username) && validarPassword(password) && validarEmail(email);
 }
 
@@ -140,3 +140,17 @@ function validarEmail(email) {
     return valido;
 }
 
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}

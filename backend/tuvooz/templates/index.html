@@ -7,7 +7,9 @@
 </head>
 <body>
     <h1>formulario</h1>
-    <input type="text" placeholder="ingrese el correo" name="email">
+    <form action="#" method="post"></form>
+    {% csrf_token %}
+    <input type="text" placeholder="ingrese el correo" name='email'>
     <button type="submit" value="Enviar">enviar</button>
 </body>
 </html>
