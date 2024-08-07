@@ -142,7 +142,8 @@ h6 {
 }
 
 #header .logo img {
-  max-height: 80px;
+  max-height: 135px;
+  padding-top: 20px;
 }
 
 /*--------------------------------------------------------------
