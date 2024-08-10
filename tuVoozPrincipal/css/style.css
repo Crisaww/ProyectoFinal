@@ -1949,7 +1949,8 @@ INICIO TARJETAS SELECCION
 FIN TARJETAS SELECCION   
 ------------------------------
 */
- 
- 
 
-
+.miCuentaSection{
+  width: 100%;
+  height: 100%;
+}
