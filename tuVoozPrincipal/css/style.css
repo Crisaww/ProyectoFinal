@@ -1906,7 +1906,7 @@ INICIO TARJETAS SELECCION
 }
 
 /* botones de tarjetas */
-.btn {
+.btnCartas {
   width: 6.5em;
   height: 2.3em;
   margin: 0.5em;
@@ -1922,11 +1922,11 @@ INICIO TARJETAS SELECCION
   overflow: hidden;
  }
  
- button:hover {
+ .btnCartas:hover {
   color: black;
  }
  
- button:after {
+ .btnCartas:after {
   content: "";
   background: rgba(255, 255, 255, 0.658);
   position: absolute;
@@ -1939,7 +1939,7 @@ INICIO TARJETAS SELECCION
   transition: all 0.5s;
  }
  
- button:hover:after {
+ .btnCartas:hover:after {
   transform: skewX(-45deg) scale(1, 1);
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
