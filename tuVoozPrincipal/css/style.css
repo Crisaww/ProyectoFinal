@@ -180,7 +180,7 @@ h6 {
 .navbar a:focus {
   display: flex;
   align-items: center;
-  justify-content: space-center;
+  justify-content: start;
   padding: 0 3px;
   font-family: "Poppins", sans-serif;
   font-size: 15px;
@@ -1777,7 +1777,7 @@ INICIO TARJETAS SELECCION
   top: 0;
   margin-left: -50%;
   margin-top: -70%;
-  background: linear-gradient(744deg,#af40ff,#9c45d6 60%,#00ddeb);
+  background: linear-gradient(744deg, #7440ff, #7255eb 60%, #0297ef);
 }
 
 .icon {
@@ -1888,8 +1888,8 @@ INICIO TARJETAS SELECCION
   width: 6.5em;
   height: 2.3em;
   margin: 0.5em;
-  background: rgb(131, 57, 141);
-  color: white;
+  background: rgb(191 182 255);
+  color: #303041;
   border: none;
   border-radius: 0.625em;
   font-size: 15px;

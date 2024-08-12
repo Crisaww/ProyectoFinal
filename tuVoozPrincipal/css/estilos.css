@@ -747,7 +747,7 @@ margin-left: 8%;
   align-items: center;
   border-radius: 20px;
   background: var(--bg-color);
-  box-shadow: 12px 17px 51px #5b0a7169;
+  box-shadow: 12px 17px 51px #4927ff40;
   cursor: pointer;
   transition: all 0.5s;
 }
