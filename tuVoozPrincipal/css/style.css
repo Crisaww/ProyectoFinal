@@ -1986,3 +1986,15 @@ Boton Dropdown del menú de la tuerca
   .col-md-3 label{
     margin-top: 20px;
   }
+
+  .col-md-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    
+  }
+
+  .col-md-2 label{
+    margin-top: 20px;
+  }
