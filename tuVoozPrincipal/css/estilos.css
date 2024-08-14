@@ -255,7 +255,7 @@ padding-left: 10px;
 
 
 .dropdown .dropdown-menu a:hover {
-  background:#10021e5e;
+  background:#8f19f7;
   color: #ffffff;
 }
 
@@ -380,47 +380,7 @@ selector para llamar por class es para aplicar estilos a mas de un elemento
 /*
 
 
-/*
----------------------------
- como usar tu vooz
----------------------------
 
-  */
-
-.tituloComoUsarTuVooz{
-  font-family: "Poppins", sans-serif;
-  text-align: center;
-  padding-top:8%;
-}
-.libroTuVooz{
- position: relative;
- margin-top: 5%;
-  margin-left: 40%;
-  width: 20%;
-  height: 24%;
-
-}
-.parrafoComoTV{
-  position: relative;
-  margin-top: 3%;
-   margin-left: 30%;
-   width: 50%;
-   height: 24%;
-
-}
-
-.linkTuVoozMU{
-  position: relative;
-  margin-top: 26%;
-   margin-left: 23%;
-   width: 10%;
-   height: 24%;
-}
-/*
-------------------------------
-fin de como utilizar tu voz
-------------------------------
-*/
 
 /*
 -----------------

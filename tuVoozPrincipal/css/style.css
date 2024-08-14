@@ -1932,3 +1932,57 @@ FIN TARJETAS SELECCION
   width: 100%;
   height: 100%;
 }
+
+/*
+Boton Dropdown del menú de la tuerca
+*/
+
+.dropdown-item.active, .dropdown-item:active{
+  background-color: #8f19f7;
+}
+
+.manualTuVooz{
+  height: 100%;
+  width: 100%;
+}
+
+/*
+---------------------------
+ como usar tu vooz
+---------------------------
+
+  */
+
+
+
+  .linkTuVoozMU{
+    position: relative;
+    margin-top: 26%;
+    margin-left: 23%;
+    width: 10%;
+    height: 24%;
+  }
+  /*
+  ------------------------------
+  fin de como utilizar tu voz
+  ------------------------------
+  */
+
+
+  /* Para los row */
+  .row{
+    margin-right: 0;
+    
+  }
+
+  .col-md-3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    
+  }
+
+  .col-md-3 label{
+    margin-top: 20px;
+  }
