@@ -2,4 +2,4 @@
 .env
 \credencialesGoogleCloud
 \__pycache__
-\migations
+\migrations
