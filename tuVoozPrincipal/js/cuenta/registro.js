@@ -1,5 +1,5 @@
-// let url = "http://127.0.0.1:8000/tuvooz/api/v1/registro";
-let url = "http://10.192.66.56:8000/tuvooz/api/v1/registro";
+ let url = "http://127.0.0.1:8000/tuvooz/api/v1/registro";
+//let url = "http://10.192.66.56:8000/tuvooz/api/v1/registro";
 
 // Para el ojito de la contraseña
 document.getElementById('togglePassword').addEventListener('click', function () {
@@ -10,7 +10,8 @@ document.getElementById('togglePassword').addEventListener('click', function () 
     this.classList.toggle('fa-eye-slash');
 });
 
-function registrarUsuario() {
+
+    function registrarUsuario() {
     let username = document.getElementById("username").value;
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
@@ -22,6 +23,7 @@ function registrarUsuario() {
     };
 
     if (validarCampos()) {
+        document.querySelector('.loader').style.display = 'block';
         fetch(url, {
             method: 'POST',
             headers: {
@@ -46,6 +48,7 @@ function registrarUsuario() {
             return response.json();
         })
         .then(data => {
+           
             Swal.fire({
                 title: "Excelente",
                 text: "Se ha registrado exitosamente",
@@ -58,6 +61,9 @@ function registrarUsuario() {
             if (error !== 'Usuario ya registrado') {
                 Swal.fire("Error", "Error al registrar: " + error, "error");
             }
+        }).finally(() => {
+            // Ocultar el loader independientemente del resultado
+            document.querySelector('.loader').style.display = 'none';
         });
     } else {
         Swal.fire({
