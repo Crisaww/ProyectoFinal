@@ -1951,17 +1951,17 @@ Boton Dropdown del menú de la tuerca
  como usar tu vooz
 ---------------------------
 
-  */
+*/
 
 
 
-  .linkTuVoozMU{
-    position: relative;
-    margin-top: 26%;
-    margin-left: 23%;
-    width: 10%;
-    height: 24%;
-  }
+.linkTuVoozMU{
+  position: relative;
+  margin-top: 26%;
+  margin-left: 23%;
+  width: 10%;
+  height: 24%;
+}
   /*
   ------------------------------
   fin de como utilizar tu voz
@@ -1970,32 +1970,63 @@ Boton Dropdown del menú de la tuerca
 
 
   /* Para los row */
-  .row{
-    margin-right: 0;
-    
-  }
+.row{
+  margin-right: 0;
+  
+}
 
-  .col-md-3{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-    
-  }
+.col-md-3{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  
+}
 
-  .col-md-3 label{
-    margin-top: 20px;
-  }
+.col-md-3 label{
+  margin-top: 20px;
+}
 
-  .col-md-2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin-top: 20px;
-    
-  }
+.col-md-2{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin-top: 20px;
+  
+}
 
-  .col-md-2 label{
-    margin-top: 20px;
+.col-md-2 label{
+  margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .col-md-2 {
+    flex: 0 0 auto;
+    width: 25%;
   }
+}
+
+@media (min-width: 768px) {
+  .col-md-3 {
+    flex: 0 0 auto;
+    width: 35%;
+  }
+}
+
+.hr1{
+  border: none;
+  border-bottom: 1px solid black;
+  height: 1px;
+  margin: 0;
+}
+
+.tituloTexto2{
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  color: #5128b3;
+  text-align: center;
+  font-weight: bold;
+}
+

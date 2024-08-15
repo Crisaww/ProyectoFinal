@@ -396,6 +396,7 @@ Texto
   text-align: center;
   font-weight: bold;
 }
+
 .multiLine{
 
   display: flex;
@@ -473,17 +474,19 @@ Mi cuenta
   margin-left: 13%;
 }
 #btnCambios{
+  width: 60%;
   background: #5b0a71;
   border-radius: 10px;
   color: #ffffff;
 }
+
 #btnEliminar{
-background-color: #ef2626;
-margin-left:34%;
-margin-top: 2%;
-height: 65%;
-border-radius: 10px;
+  width: 60%;
+  background: #970202;
+  border-radius: 10px;
+  color: #ffffff;
 }
+
 
 .cuadro_textoarea {
   display: flex;
@@ -562,8 +565,12 @@ ACCESIBILIDAD
 }
 
 .linea{
-  border: 2px solid black;
-  margin-top: 3%;
+  border: none;
+  margin-top: 20px;
+  border-bottom: 1px solid #000000;
+  width: 100%;
+
+  
 }
 /* elegir tu vooz */
 
@@ -974,3 +981,4 @@ margin-left: 8%;
  .hidden {
   display: none;
 }
+

@@ -1,3 +1,5 @@
 \venv
 .env
 \credencialesGoogleCloud
+\__pycache__
+\migrations
