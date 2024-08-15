@@ -657,7 +657,7 @@ ACCESIBILIDAD
 
 .vozFemenina{
   display: flex;
-  width: 10%;
+  width: 20%;
   justify-content: center;
   margin-top: 1rem;
 }
@@ -672,7 +672,7 @@ ACCESIBILIDAD
 
 .vozMasculina{
   display: flex;
-  width: 10%;
+  width: 20%;
   justify-content: center;
   margin-top: 1rem; 
 }
