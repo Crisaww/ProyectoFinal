@@ -31,6 +31,7 @@ def iniciarSesion(request):
     serializer = UserSerializer(instance=user)
      #aqui retorna el token
     return Response({"token": token.key}, status=status.HTTP_200_OK)
+
 #registro de usuario
 @api_view(['POST'])
 def registro(request):
@@ -45,13 +46,14 @@ def registro(request):
             user = serializer.save()
             user.set_password(serializer.validated_data['password'])
             user.save()
+            #crea el token y lo guarda
             token = Token.objects.create(user=user)
             
             def send_email():
                 subject = 'Bienvenid@ a tu Vooz'
                 from_email = settings.EMAIL_HOST_USER
                 to = request.data.get('email')
-                text_content = 'Este es el contenido del correo en texto plano.'
+                text_content = 'Gracias por registrarte en TuVooz.'
                 html_content = render_to_string('correoRegistro.html', {'subject': subject, 'message': text_content})
 
                 email = EmailMultiAlternatives(subject, text_content, from_email, [to])
