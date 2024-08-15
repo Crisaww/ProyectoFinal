@@ -1,0 +1,11 @@
+/*variables*/
+:root {
+    --background-color: #ffffff;
+    --coloFondoBarraNavegacion:rgb(106, 21, 129);
+    --colorIconos:#ffffff;
+    --colorNavegacion:#010101;
+}
+body{
+    background-color:var(--background-color) ;
+    
+}
