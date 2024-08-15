@@ -2030,3 +2030,8 @@ Boton Dropdown del menú de la tuerca
   font-weight: bold;
 }
 
+.row>* {
+  padding-right: 0;
+  
+}
+

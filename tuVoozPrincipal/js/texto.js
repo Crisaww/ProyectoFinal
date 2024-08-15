@@ -19,7 +19,7 @@ async function convertirTexto() {
 
   try {
     // Realiza la solicitud de conversión de texto a voz
-    const response = await fetch('http://127.0.0.1:8000/synthesize/', {
+    const response = await fetch('http://10.192.66.56:8000/synthesize/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

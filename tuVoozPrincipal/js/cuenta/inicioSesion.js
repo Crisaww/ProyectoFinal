@@ -1,4 +1,5 @@
-let loginUrl = "http://127.0.0.1:8000/tuvooz/api/v1/iniciarSesion";
+//let loginUrl = "http://127.0.0.1:8000/tuvooz/api/v1/iniciarSesion";
+let loginUrl = "http://10.192.66.56:8000/tuvooz/api/v1/iniciarSesion";
 
 // Para el ojito de la contraseña
 document.getElementById('togglePassword').addEventListener('click', function () {
