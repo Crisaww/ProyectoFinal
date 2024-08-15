@@ -650,23 +650,33 @@ ACCESIBILIDAD
 .custom-checkbox input[type="checkbox"]:checked + .checkmark {
   transition: background-color 1.3s, border-color 1.3s, color 1.3s, transform 0.3s;
 }
+
 .elegirvoz{
   margin-left: 4%;
 }
+
 .vozFemenina{
-  margin-left: 3%;
-  margin-top: 1%;
+  display: flex;
+  width: 10%;
+  justify-content: center;
+  margin-top: 1rem;
 }
+
 #vozFemenina{
-margin-left: 8%;
-}
-.vozMasculina{
-  margin-top: -64px;
-  margin-left: 30%; 
+  margin: 0;
 }
 #vozMasculina{
-  margin-left: 8%;
+  margin: 0;
 }
+
+
+.vozMasculina{
+  display: flex;
+  width: 10%;
+  justify-content: center;
+  margin-top: 1rem; 
+}
+
 /* Tamaño de texto */
 .text-size-container {
   display: flex;
