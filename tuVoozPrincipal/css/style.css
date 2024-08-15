@@ -1972,7 +1972,7 @@ Boton Dropdown del menú de la tuerca
   /* Para los row */
 .row{
   margin-right: 0;
-  
+  --bs-gutter-x: 0;
 }
 
 .col-md-3{
@@ -2026,12 +2026,19 @@ Boton Dropdown del menú de la tuerca
   font-family: "Poppins", sans-serif;
   text-align: center;
   color: #5128b3;
-  text-align: center;
   font-weight: bold;
+}
+
+.texto-h2{
+  font-family: "Poppins", sans-serif;
+  color: #000000;
+  padding-left: 3rem;
 }
 
 .row>* {
   padding-right: 0;
   
 }
+
+
 
