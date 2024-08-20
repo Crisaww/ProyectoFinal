@@ -1985,6 +1985,7 @@ Boton Dropdown del menú de la tuerca
 
 .col-md-3 label{
   margin-top: 20px;
+  text-align: center;
 }
 
 .col-md-2{
@@ -2004,9 +2005,18 @@ Boton Dropdown del menú de la tuerca
 @media (min-width: 768px) {
   .col-md-2 {
     flex: 0 0 auto;
-    width: 25%;
+    width: 39%;
   }
 }
+
+@media (min-width: 1117px) {
+  .col-md-2 {
+    flex: 0 0 auto;
+    width: 30%;
+  }
+}
+
+
 
 @media (min-width: 768px) {
   .col-md-3 {
@@ -2014,6 +2024,10 @@ Boton Dropdown del menú de la tuerca
     width: 35%;
   }
 }
+
+
+
+
 
 .hr1{
   border: none;
