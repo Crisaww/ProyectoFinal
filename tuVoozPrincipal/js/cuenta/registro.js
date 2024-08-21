@@ -1,4 +1,4 @@
- let url = "http://127.0.0.1:8000/tuvooz/api/v1/registro";
+ //let url = "http://127.0.0.1:8000/tuvooz/api/v1/registro";
 //let url = "http://10.192.66.56:8000/tuvooz/api/v1/registro";
 
 // Para el ojito de la contraseña
@@ -24,7 +24,7 @@ document.getElementById('togglePassword').addEventListener('click', function () 
 
     if (validarCampos()) {
         document.querySelector('.loader').style.display = 'block';
-        fetch(url, {
+        fetch(urlRegistro, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
