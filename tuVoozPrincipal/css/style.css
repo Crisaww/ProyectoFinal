@@ -1630,38 +1630,6 @@ label #sidebar_btn {
 
 /*
 ------------------------------
-IFRAME 
-------------------------------
-*/
-/* es para cuando este iframe abierto se ajuste */
-iframe {
-  margin-left: 15%;
-  padding-top: 70px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.a-seleccionado {
-  background-color: #e6bff1;
-}
-
-/********** boton de abrir y cerrar el menu lateral end **********/
-
-.linea-lateral {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%; /* largo de la linea que separa el menu del iframe */
-  width: 1%;
-  background-color: #6a1581;
-}
-
-/*
-------------------------------
 FIN MENU LATERAL FRASES 
 ------------------------------
 */
@@ -1884,7 +1852,7 @@ INICIO TARJETAS SELECCION
 }
 
 /* botones de tarjetas */
-.btnCartas {
+ .btnCartas {
   width: 6.5em;
   height: 2.3em;
   margin: 0.5em;
@@ -1902,7 +1870,7 @@ INICIO TARJETAS SELECCION
  
  .btnCartas:hover {
   color: black;
- }
+ } 
  
  .btnCartas:after {
   content: "";
