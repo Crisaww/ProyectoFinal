@@ -1,4 +1,5 @@
 async function convertirTexto() {
+  //let url = urlGenerarTexto
   // Obtén el valor del campo de texto
   const texto = document.getElementById("texto").value.trim();;
   // Validar si el campo de texto está vacío
@@ -19,7 +20,7 @@ async function convertirTexto() {
 
   try {
     // Realiza la solicitud de conversión de texto a voz
-    const response = await fetch('http://10.192.66.56:8000/synthesize/', {
+    const response = await fetch(urlGenerarTexto, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
