@@ -47,8 +47,35 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'tuvooz',
     'coreapi',
-    'django_filters'
+    'django_filters',
+    
+    
+   # Configuración de Django-allauth
+    'django.contrib.sites', 
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 ]
+
+# Remover en producción
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
+
+# Provider specific settings
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+        'OAUTH_PKCE_ENABLED': True,
+    }
+}
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -57,26 +84,17 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'sistema.urls'
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 WSGI_APPLICATION = 'sistema.wsgi.application'
@@ -96,7 +114,7 @@ DATABASES = {
         'NAME': 'tuvoozdb',
         'USER': 'root',
        # 'PASSWORD': '123456',
-        'PASSWORD': '',# se debe cambiar esto de acuerdo a la DB que van a utilizar
+        'PASSWORD': 'root123',# se debe cambiar esto de acuerdo a la DB que van a utilizar
         'HOST': 'localhost',  # o la dirección IP de tu servidor MySQL
         'PORT': '3306',       
     }
@@ -145,6 +163,36 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Configuraciones adicionales de Django-Allauth
+# Creo el servidor de correo por consola
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'MI CONFIGURACION DE CORREO'
+
+# Redirección del usuario cuando es autenticado (logueado)
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
+
+# Ruta adonde va a parar el usuario logueado
+LOGIN_REDIRECT_URL = 'home'
+
+# Sistema de autenticación que permite que el usuario ingrese el nombre de usuario o el email con el que se registró
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+
+# Determina que el registro necesita si o si de un email
+ACCOUNT_EMAIL_REQUIRED = True
+
+# Se puede registrar un unico email por usuario (no se puede repetir)
+ACCOUNT_UNIQUE_EMAIL = True
+
+# Hace que sea obligatorio verificar la cuenta haciendo clic en el link que se envía por correo
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+
+# Cantidad de días en los que se puede hacer click en el link de autenticación
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 7
+
+# Hacer que al cerrar la sesión, no se pase a una ventana de verificación de cierre de sesión
+ACCOUNT_LOGOUT_ON_GET = True
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',

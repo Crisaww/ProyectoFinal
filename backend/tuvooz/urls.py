@@ -32,4 +32,5 @@ urlpatterns = [
     re_path('api/v1/registro', views.registro),
     re_path('api/v1/perfil', views.perfil),
     path('synthesize/', synthesize, name='synthesize'),
+    path('api/v1/accounts/',include('allauth.urls')),
 ]
