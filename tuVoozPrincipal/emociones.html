@@ -4,536 +4,89 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Frases recientes</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-        <link rel="stylesheet" href="./css/estilos.css">
-        <link rel="stylesheet" href="./css/frasesPalabras.css">
+        <!-- Favicons -->
+        <link href="../tuVoozPrincipal/img/logosolo.png" rel="icon">
+        <script src="https://kit.fontawesome.com/b5603bc3b7.js" crossorigin="anonymous"></script>
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+        <!-- Vendor CSS Files -->
+        <link href="../TuVooz/Ajustes/vendor/aos/aos.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link href="../TuVooz/Ajustes/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../TuVooz/Ajustes/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+        <link href="../TuVooz/Ajustes/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="../TuVooz/Ajustes/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+        <link href="../TuVooz/Ajustes/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../front_end/css/bootstrap.css">
+        <link rel="stylesheet" href="../TuVooz/Ajustes/fontawesome/css/all.css">
+
+
+
+        <!-- Template Main CSS File -->
+        <link href="../TuVooz/Ajustes/css/style.css" rel="stylesheet">
+        <link href="./css/style.css" rel="stylesheet">
+        <link href="./css/estilos.css" rel="stylesheet">
+        <link href="./css/frasesPalabras.css" rel="stylesheet">
+
+        <!-- =======================================================
+        * Template Name: Techie
+        * Template URL: https://bootstrapmade.com/techie-free-skin-bootstrap-3/
+        * Updated: Mar 17 2024 with Bootstrap v5.3.3
+        * Author: BootstrapMade.com
+        * License: https://bootstrapmade.com/license/
+        ======================================================== -->
         <script src="./js/favorito.js"></script>
     </head>
     <body>
-        <!-- Navbar start -->
-        <div class="container-fluid sticky-top px-0"  >
-            <div class="container-fluid nav" >
-                <div class="container px-0" style="height: 100%;">
-                    <nav class="navbar navbar-light navbar-expand-xl" style="padding: 0; height: 100%;">
-                        <a href="./index.html" class="navbar-brand" style="margin: 0;padding: 0; height: 100%; width: 10%; display: flex; justify-content: center;">
-                            <img src="img/LogoTuVooz-removebg-preview (1) (1) (1).png" alt="Logo" style="margin: 0;height: 100%;">
-                            <!-- <h1 class="text-primary display-4">Tu Vooz</h1> -->
-                        </a>
-                        <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                            <span class="fa fa-bars text-light"></span>
-                        </button>
-                        <div class="collapse navbar-collapse " id="navbarCollapse" style="height: 100%; margin-top: 0;justify-content: center; ">
-                            <div class="navbar-nav mx-auto border-top" style="margin: 0; height: 100%; background-color: #6a1581;">
-                                <a href="index.html" class="nav-item nav-link active" style="display: flex; align-items: center;">Inicio</a>
-                                <a href="texto.html" class="nav-item nav-link" style="display: flex; align-items: center;">Texto</a>
-                                <a href="indexFrases.html" class="nav-item nav-link" style="display: flex; align-items: center;">Frases y palabras</a>
-                                <a href="nosotros.html" class="nav-item nav-link" style="display: flex; align-items: center;">¿Quiénes Somos?</a>
-                                <a href="comoUsarTuvooz.html" class="nav-item nav-link" style="display: flex; align-items: center;">¿Cómo usar TuVooz?</a>
-                                <div class="dropdown">
-                                    <a href="#" class="dropdow text-light" data-bs-toggle="dropdown"><small><i class="fa-solid fa-gear" id="#Menu "></i></small></a>
-                                    <div class="dropdown-menu rounded" id="menuDespliegue">
-                                        <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> Mi cuenta</a>
-                                        
-                                        <a href="#" class="dropdown-item"><i class="fas fa-power-off me-2"></i>Cerrar sesión</a>
-                                    </div>
-                                </div>
+        <!-- ======= Header ======= -->
+        <header id="header" class="fixed-top" >
+            <div class="container d-flex align-items-center justify-content-between" style="width: 100%; margin: 0; padding: 0 0 0 50px;">
+                <div class="logoAjuste">
+                    <a href="./paginaPrincipal.html" class="logo"><img src="../tuVoozPrincipal/img/solidolado.png" alt="" class="img-fluid"></a>
+                </div>
+
+                <nav id="navbar" class="navbar">
+                    <ul style="padding: 0px 40px 0px 0px;">
+                        <li><a class="nav-link scrollto " href="./paginaPrincipal.html">Texto</a></li>
+                        <li><a class="nav-link scrollto active" href="indexPalabrasComunes.html">Palabras más comunes</a></li>
+                        <li><a class="nav-link scrollto" href="./comoUsarTuvooz.html">¿Cómo usar TuVooz?</a></li>
+                        <div class="dropdown">
+                            <a href="#" class="dropdow text-light" data-bs-toggle="dropdown"><i class="fa-solid fa-gear" id="#Menu "></i></a>
+                            <div class="dropdown-menu rounded" id="menuDespliegue">
+                                <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> Mi cuenta</a>
+                            
+                                <a href="#" class="dropdown-item"><i class="fas fa-power-off me-2"></i>Cerrar sesión</a>
                             </div>
                         </div>
-                    </nav>
-                </div>
-           </div>
-        </div>
-        <!-- Navbar End -->
-        <h1 id="tituloFrase">Emociones</h1>
-        <div class="container contenedor-Secciones" >
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav><!-- .navbar -->
+          </div>
+       </header><!-- End Header -->
 
-            <div class="contenedor-botones" style="display: flex;">
-        
-                <div class="botonesFrases" >
-                    <button type="button" class="btn  btnfrases">admiración<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">admiro <i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">admira<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">admiran <i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">admiramos<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">diversión<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">divertido<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">divertirse<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">ansiedad<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">asombro<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">asombraron<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">asombramos<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-                      
+        <!-- ======= Hero Section ======= -->
+        <section id="hero" class="d-flex align-items-center" >
+            <div class="container-fluid" data-aos="fade-up">
+                <div class="row justify-content-center"></div>
             </div>
-        
-            <div class="contenedor-botones" style="display: flex;">
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn  btnfrases">asombran<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">asombra<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">asombradas<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">incomodidad<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">incomodo<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">incomoda<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">incomodos<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">incomodas<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">aburrimiento<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">aburrido<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">aburrida<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">aburridos<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
+        </section><!-- End Hero -->
+            <h1 class="tituloTexto">Emociones</h1>
+            <div class="container contenedor-Secciones" >
+                <div class="contenedor-botones" style="display: flex;">
                 </div>
             </div>
-    
-            <div class="contenedor-botones" style="display: flex;">
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn  btnfrases">aburridas<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">calma<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">calmado<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">calmadas<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">calmados<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">confusión<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">confundido<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">incomodas<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">confundidos<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">anhelo<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">anhela<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">anhelamos<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-            </div>
-    
-            <div class="contenedor-botones" style="display: flex;">
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn  btnfrases">anhelan<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">envidia<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">envidian<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">emoción<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">emocionado<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">emocionada<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">emocionadas<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">emocionados<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">horror<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">interés<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">interesado<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">interesada<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-            </div>
-            <div class="contenedor-botones" style="display: flex;">
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn  btnfrases">interesados<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">interesadas<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">nostalgia<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">Alegría<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">alegre<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">alegres<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">Tristeza<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">triste<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">tristes<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">Ira<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">enojado<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">enojo<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-            </div>
-            <div class="contenedor-botones" style="display: flex;">
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn  btnfrases">interesados<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">interesadas<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">nostalgia<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">Alegría<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">alegre<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">alegres<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">Tristeza<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">triste<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">tristes<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">Ira<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">enojado<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">enojo<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-            </div>
-            
-            <div class="contenedor-botones" style="display: flex;">
-                
-                <div class="botonesFrases">
-                    <button type="button" class="btn  btnfrases">enojados<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">enojada<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">enojadas<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">Miedo<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">Sorpresa<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">Asco<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">Amor<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">Odio<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">odian<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">odiamos<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">odia<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">celos<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-            </div>
-            
-        
-            <div class="contenedor-botones" style="display: flex;">
-                
-                <div class="botonesFrases">
-                    <button type="button" class="btn  btnfrases">vergüenza<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">culpa<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">empatía<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">compasión<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">respeto<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">respeta<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">respetan<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">respetamos<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">desprecio<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">despreciamos<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">desprecia<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">desprecian<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-            </div>
-            
-            <div class="contenedor-botones" style="display: flex;">
-                
-                <div class="botonesFrases">
-                    <button type="button" class="btn  btnfrases">antipatía<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">antipáticos<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">feliz<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">felices<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">contento<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">contenta<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">contentos<i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases">esperanza <i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <!-- <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases"><i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases"><i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases"><i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div>
-        
-                <div class="botonesFrases">
-                    <button type="button" class="btn   btnfrases"><i id="favorito" class="fa-regular fa-heart" onclick="marcarComoFavorito(this)"></i></button>
-                </div> -->
-           </div>
-          
-        </div>
+            <!-- Vendor JS Files -->
+        <script src="../TuVooz/Ajustes/vendor/aos/aos.js"></script>
+        <script src="../TuVooz/Ajustes/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../TuVooz/Ajustes/vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="../TuVooz/Ajustes/vendor/swiper/swiper-bundle.min.js"></script>
 
-       
-        
-                
-            
-            
-        
-        
+        <!-- Template Main JS File -->
+        <script src="../TuVooz/Ajustes/js/main.js"></script>
     </body>
 </html>
-
-
-
-
-
-
-    
-
-    
-
-
-
-    <script src="./js/favorito.js"></script>
-
 
 
    
