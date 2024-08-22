@@ -1,11 +1,19 @@
-/*variables*/
+Definición de variables CSS
 :root {
+    --background-color: #131313;
     --background-color: #ffffff;
-    --coloFondoBarraNavegacion:rgb(106, 21, 129);
-    --colorIconos:#ffffff;
-    --colorNavegacion:#010101;
+    --color-h1: #ffffff;
+
+
+}
+
+/* Estilos para el modo claro */
+body.oscuro{
+
+    background-color:var(--background-color) ;
+    --color-h1:var(var(--color-h1));
+     
 }
 body{
     background-color:var(--background-color) ;
-    
 }

@@ -29,6 +29,7 @@
     <!-- Template Main CSS File -->
     <link href="./css/style.css" rel="stylesheet">
     <link  href="./css/estilos.css" rel="stylesheet" >
+    <link  href="./css/modoOscuro.css" rel="stylesheet">
   
   
     <!-- =======================================================
@@ -40,6 +41,7 @@
     ======================================================== -->
   </head>
 
+  <body class="oscuro"> 
   <body>
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top" >
@@ -154,12 +156,12 @@
 
         <!--Modo claro-->
           <div class="card2">
-              <img src="./img/modoClaro.png" alt="imgModos" class="imgModos">
+              <img src="./img/modoClaro.png" alt="imgModos" class="imgModos" onclick="modoClaro()">
           </div>
 
         <!--Modo oscuro-->
           <div class="card2">
-            <img src="./img/modoOscuro.png" alt="imgModos" class="imgModos">
+            <img src="./img/modoOscuro.png" alt="imgModos" class="imgModos" onclick="modoOscuro()">
           </div>
 
           
@@ -210,10 +212,6 @@
             <button class="text-size-button selected" id="smallText">Pequeña aA</button>
         </div>
 
-        <div class="botonSize2">
-            <button class="text-size-button " id="mediumText">Mediana aA</button>
-        </div>
-
         <div class="botonSize3">
             <button class="text-size-button" id="largeText">Grande aA</button>
         </div>
@@ -248,6 +246,7 @@
   <script src="../TuVooz/Ajustes/js/main.js"></script>
 
   <script src="./js/accesibilidad.js"></script>
+  <script src="./js/modoOscuro.js"></script>
     
   </body>
 </html>
