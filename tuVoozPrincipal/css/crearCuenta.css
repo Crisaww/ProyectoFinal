@@ -34,26 +34,29 @@ html {
 }
 
 /* Estilo para las columnas */
-.left-column, .right-column {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    flex-grow: 1; /* Hacer que las columnas ocupen todo el espacio disponible */
+.left-column {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-column {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 /*Estilo para el contenido*/
 .fauguet {
-    border-radius: 20px;
-    max-width: 100%;
-    padding: 8%;
+  width: 50%;
+  height: 75%;
+   border-radius: 20px;
     /* border: 1px solid #ddd;  esto interfiere con el is_valid form*/
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+  background-color: #fff;
     /* Fondo blanco */
-    text-align: justify;
-    font-size: 100%;
 }
 
 /*Estilos para el formulario y sus elemntos*/
@@ -260,13 +263,11 @@ a:hover {
     display: flex;
     justify-content: center; /*centra horizontalmete la imagen*/
     align-items: center; /*centra verticalmentela imagen*/
-    padding: 20px; /*se agrega espacio alrededor de la imagen*/
 }
 
 .site-logo {
     max-width: 50%;
     height: auto; /*se ajusta la altura de la imagen automaticamente*/
-    padding-right: 15%;
 }
 /* estilos para el loader */
 .loader {
@@ -395,3 +396,21 @@ a:hover {
     }
   }
 /* fin loader   */
+/* crea mi cuenta  */
+@media (max-width: 768px) {
+  .container {
+      flex-direction:column-reverse;
+  }
+
+  .site-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 320px; /* Reduce el tamaño del logo en pantallas pequeñas */
+  }
+
+  .fauguet {
+      width: 100%;
+      max-width: 90%; /* Aumenta el tamaño del formulario en pantallas pequeñas */
+  }
+}

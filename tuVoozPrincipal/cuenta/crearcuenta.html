@@ -21,11 +21,13 @@
     <div class="container">
         <div class="left-column">
             <div class="fauguet">
-                <h1>Crear cuenta</h1>
-                
+                <div>
+                    <h1>Crear cuenta</h1>
+                </div>
                     <div class="col">
                         <label for="username" class="form-label">Nombre de usuario:</label>
                         <input type="text" class="form-control" name="username" id="username" step="1" onfocusout="validarUsername(this);">
+                        <div id="username-error" class="error-message"></div>
                         <!-- style="background-color: #e5e4e4;" NUEVAMENTE ERROR DE ESPECIFICIDAD,
                         SI NO USAN BOOTSTRAP NO PONGAN STYLE PARA ESO ESTÁ CSS -->
                     </div><br>
