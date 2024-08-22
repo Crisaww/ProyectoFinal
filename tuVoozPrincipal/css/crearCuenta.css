@@ -12,18 +12,13 @@ html {
 }
 
 .wrapper {
-    position: relative;
-    width: 100%;
+  position: relative;
+  width: 100%;
 }
 
 .toggle-password {
-    position: absolute;
-    z-index: 10;
-    top: 50%;
-    right: 4px;
-    transform: translateY(-50%);
-    cursor: pointer;
-    font-size: 16px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 /*Estilo para el contenedor principal*/
@@ -52,11 +47,21 @@ html {
 /*Estilo para el contenido*/
 .fauguet {
   width: 50%;
-  height: 75%;
-   border-radius: 20px;
-    /* border: 1px solid #ddd;  esto interfiere con el is_valid form*/
+  height: 45%;
+  border-radius: 20px;
   background-color: #fff;
-    /* Fondo blanco */
+}
+
+.tituloCrearCuenta{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 15%;
+}
+
+.tituloCrearCuenta > h1{
+  margin: 0;
 }
 
 /*Estilos para el formulario y sus elemntos*/
@@ -70,36 +75,34 @@ form {
     padding: 20px;
 }
 
-.col {
-    margin-bottom: 2px;
+.formularioCrearCuenta{
+  display: flex;
+  width: 100%;
 }
 
-.form-label {
-    display: block;
-    margin-bottom: 5px;
-    /* Espacio inferior entre etiquetas y campos */
+.labelFormulario{
+  display: flex;
+  width: 100%;
 }
 
-/* .form-control {
-    width: 100%;
-    /* Opcional: Ajusta el ancho de los campos 
-    padding: 8px;
-    /* Opcional: Ajusta el relleno de los campos */
-    /* border: 1px solid #ccc; esto impide el is_valid form*/
-    /* Opcional: Estilo de borde
-    border-radius: 5px;
-    /* Opcional: Borde redondeado 
-} */
+.inputFormulario{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 
-h1 {
-    text-align: center;
-    font-size: 3rem;
-    margin-top: 0;
-    margin-bottom: 1rem;
-    /* O usan px o usan rem no mezlcados */
-}  
+input[type="password"] {
+  align-self: center;
+  width: 65%;
+  border: 1px solid #ffffff; /* Borde blanco por defecto */
+  border-radius: 10px;
+  background-color: #e5e4e4;
+}
+
+
+
 .form-control {
-    width: 100%;
+    width: 70%;
     padding: 8px;
     border: 1px solid #fff; /* Borde blanco por defecto */
     border-radius: 10px;
@@ -107,6 +110,7 @@ h1 {
 }
 /* incompleto las validaciones */
 .error-message {
+  justify-content: center;
     color: #dc3545;
     font-size: 0.875em;
     display: none;
@@ -120,15 +124,7 @@ h1 {
     border-color: #dc3545 !important; /* Rojo para inválido */
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    align-self: center;
-    max-width: 95%;
-    border: 1px solid #ffffff; /* Borde blanco por defecto */
-    border-radius: 10px;
-    background-color: #e5e4e4;
-}
+
 
 /* Asegurarse de que las clases de validación sobrescriban el borde */
 input[type="text"].is-valid,
@@ -150,10 +146,9 @@ input:focus {
 
 /*Estilos para el boton -- Esto es afuera .boton es el padre .btn es el interior*/
 .boton {
-    padding-top: 28px;
     display: flex;
     justify-content: center;
-    /* align-items: center; Innecesario, tiene propiedad de box*/
+  
 }
 
 /* ⬇️ Esto no funciona */
@@ -174,7 +169,6 @@ input:focus {
 .boton .btn {
     font-family: "Poppins", sans-serif;
     font-size: 16px;
-    flex: 1;
     cursor: pointer;
     width: 70%;
     border-radius: 15px;
