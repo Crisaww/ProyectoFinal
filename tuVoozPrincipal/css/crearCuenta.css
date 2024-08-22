@@ -34,26 +34,29 @@ html {
 }
 
 /* Estilo para las columnas */
-.left-column, .right-column {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    flex-grow: 1; /* Hacer que las columnas ocupen todo el espacio disponible */
+.left-column {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-column {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 /*Estilo para el contenido*/
 .fauguet {
-    border-radius: 20px;
-    max-width: 100%;
-    padding: 8%;
+  width: 50%;
+  height: 75%;
+   border-radius: 20px;
     /* border: 1px solid #ddd;  esto interfiere con el is_valid form*/
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+  background-color: #fff;
     /* Fondo blanco */
-    text-align: justify;
-    font-size: 100%;
 }
 
 /*Estilos para el formulario y sus elemntos*/
