@@ -3,6 +3,7 @@ Definición de variables CSS
     --background-color: #131313;
     --background-color: #ffffff;
     --color-h1: #ffffff;
+    --color-h2:#ffffff;
 
 
 }
@@ -11,7 +12,7 @@ Definición de variables CSS
 body.oscuro{
 
     background-color:var(--background-color) ;
-    --color-h1:var(var(--color-h1));
+    color:var(var(--color-h1));
      
 }
 body{
