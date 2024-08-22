@@ -1636,87 +1636,9 @@ FIN MENU LATERAL FRASES
 
 /*
 ------------------------------
-INICIO FRASES RECIENTE   
+INICIO PALABRAS COMUNES  
 ------------------------------
 */ 
-
-.contenedor-Secciones{
-  margin: 0; 
-  height: 100%; 
-  
-}
-
-/*
-------------------------------
-INICIO ESTILOS DE LOS BOTONES  
-------------------------------
-*/ 
-.contenedor-botones {
-  /* display: flex;
-  flex-direction: column;
-  width: 84.9%;  Ancho  para cada botón */
-
-  /* columns: 50px 1;
-  column-gap: 5px;
-  padding: 5px; */
-
-  display: flex;
-}
-
-.botonesFrases{
-  display: flex;
-  justify-content:center;
-  width:10%;
-}
-
-/* .contenedor-botones button {
-  margin-bottom: 1%;  Agrega espacio debajo o entre los botones
-} */
-
-/* estilo de los botones */
-.btnfrases{
-  background-color: #dba1d8; /* Color de fondo  */
-  color: rgb(8, 8, 8); /* Color de texto  */
-  border-radius: 10px; /* Botón circular */
-  text-align: center; /* Centra el texto horizontalmente */
-  line-height: 100%; /* Altura de la línea igual al alto del botón */
-  font-size: 95%; /* Tamaño de la fuente */
-  margin: 10px 5px; /* Margen entre botones */
-  cursor: pointer; /* Indicador de cursor en forma de mano */
-  transition: background-color 0.3s ease; /* Animación de cambio de color al pasar el cursor */
-}
-
-.btnfrases:hover { /* Estilo al pasar el cursor sobre el botón */
-  background-color: #eaa6f0; /* Color de fondo más oscuro */
-}
-/*
-------------------------------
-FIN ESTILOS DE LOS BOTONES  
-------------------------------
-*/ 
-
-/*
-------------------------------
-INICIO DE FAVORITOS BOTONES  
-------------------------------
-*/ 
-#favorito{
-  display: none;
-
-}
-.btnfrases:hover #favorito{
-  display: inline;
-}
-.fa-regular, .fa-heart{
-    color: #ff0000;
-}
-
-/*
-------------------------------
-FIN DE FAVORITOS BOTONES  
-------------------------------
-*/ 
-
 
 /*
 ------------------------------
@@ -1729,7 +1651,8 @@ INICIO TARJETAS SELECCION
   background: transparent;
   box-shadow: 0px 8px 28px -9px rgba(0,0,0,0.45);
   position: relative;
-  width: 240px;
+  /* width: 240px; */
+  width:90%;
   height: 330px;
   border-radius: 16px;
   overflow: hidden;
@@ -1814,37 +1737,6 @@ INICIO TARJETAS SELECCION
   }
 }
 
-.containerGeneralTarjeta{
-  display: flow-root;
-  justify-content:end;
-  width:100%;
-  margin: 0;
-  padding: 0;
-}
-
-
-.container, .container-lg, .container-md, .container-sm, .container-xl {
-    
-    height: 100%;
-    justify-content: center;
-}
-
-.containerTarjeta{
-  display: flex;
-  padding: 0;
-  height: 60%;
-  align-items: end;
-  
-}
-
-.containerTarjeta2{
-  display: flex;
-  padding: 0;
-  height: 58%;
-  align-items: start;
-  
-}
-
 /* estilos de iconos */
 .icono{
   font-size: 30px;
@@ -1896,6 +1788,68 @@ FIN TARJETAS SELECCION
 ------------------------------
 */
 
+/*
+-----------------------------------------------------
+INICIO TARJETAS-INTERNAS-SECCIONADAS PALABRAS COMUNES 
+------------------------------------------------------
+*/
+.cardPalabrasComunes {
+  --font-color: #323232;
+  --font-color-sub: #666;
+  --bg-color: #fff;
+  --main-color: #7872ab;
+  --main-focus: #2d8cf0;
+  width:13rem;
+  height:12rem;
+  background: var(--bg-color);
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 5px;
+  gap: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.card:last-child {
+  justify-content: flex-end;
+}
+
+.contenedor_botonTarjeta {
+  display: flex;
+  justify-content: center;
+  padding: 8px 8px 0 8px;
+
+}
+
+.botonReproducirTextoTarjeta {
+  font-family: inherit;
+  font-size: 16px;
+  background: linear-gradient(to bottom, #563afae6 0%, #6195e1 100%);
+  color: white;
+  /* padding: 0.8em 1.2em; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.582);
+  transition: all 0.7s;
+}
+.cartasPalabras{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+
+/*
+-----------------------------------------------------
+FIN TARJETAS-INTERNAS-SECCIONADAS PALABRAS COMUNES 
+------------------------------------------------------
+*/
+
 .miCuentaSection{
   width: 100%;
   height: 100%;
@@ -1916,13 +1870,9 @@ Boton Dropdown del menú de la tuerca
 
 /*
 ---------------------------
- como usar tu vooz
+ INICIO COMO USAR TU VOOZ
 ---------------------------
-
 */
-
-
-
 .linkTuVoozMU{
   position: relative;
   margin-top: 26%;
@@ -1930,14 +1880,13 @@ Boton Dropdown del menú de la tuerca
   width: 10%;
   height: 24%;
 }
-  /*
-  ------------------------------
-  fin de como utilizar tu voz
-  ------------------------------
-  */
+/*
+------------------------------
+FIN COMO USAR TU VOOZ
+------------------------------
+*/
 
-
-  /* Para los row */
+/* Para los row */
 .row{
   margin-right: 0;
   --bs-gutter-x: 0;
@@ -1984,18 +1933,12 @@ Boton Dropdown del menú de la tuerca
   }
 }
 
-
-
 @media (min-width: 768px) {
   .col-md-3 {
     flex: 0 0 auto;
-    width: 35%;
+    width: 25%;
   }
 }
-
-
-
-
 
 .hr1{
   border: none;

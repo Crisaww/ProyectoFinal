@@ -252,8 +252,6 @@ padding-left: 10px;
   margin-left: 8px;
 }
 
-
-
 .dropdown .dropdown-menu a:hover {
   background:#8f19f7;
   color: #ffffff;
@@ -275,90 +273,6 @@ padding-left: 10px;
   FIN NAVBAR
 ------------------------------
  */
-
-
-/*
-------------------------------
-  INICIO CAROUSEL
-------------------------------
-
- */
-.textoCarrusel1{
-  color: #fbf9fc;
-  letter-spacing: 3px;
-  
-}
-.textoCarrusel2{
-  color: #fbf9fc;
-}
-.textoCarrusel3{
-  color: rgb(206, 203, 203);
-}
-.carousel-item {
-  position: relative;
-  min-height: 100vh
-
-}
-
-.carousel-item img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.carousel-item .carousel-caption {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  /* background: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, 0.5)); estilo para ponerle capa a el carrusel*/
-  background-size: cover;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-  opacity: 0;
-}
-
-.carousel-control-prev .carousel-control-prev-icon,
-.carousel-control-next .carousel-control-next-icon {
-  background: transparent;
-}
-
-#carouselId .carousel-indicators {
-  padding-bottom: 30px;
-  color: #5b0a71;
-}
-
-#carouselId .carousel-indicators li {
-  border-top: 10px solid var(--bs-white);
-  border-bottom: 10px solid var(--bs-white);
-  border-right: 5px solid var(--bs-white);
-  border-left: 5px solid var(--bs-white);
-  margin-right: 10%;
-  border-radius: 10px;
-  transition: 0.5s;
-}
-
-#carouselId .carousel-indicators li.active {
-  background:#5b0a71;
-  border-color: #5b0a71;
-  border-right: #5b0a71;
-  border-left: #5b0a71;
-}
-/*
-------------------------------
-  FIN CAROUSEL 
-------------------------------
-
- */
-
 
 /**********
 el selector de la etiqueta aplica  para mas de un elemento que tenga una etiqueta
