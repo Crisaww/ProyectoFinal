@@ -227,6 +227,12 @@ a:hover {
     border: 1px solid #a7a7a7;
     background-color: #ffffff;
     display: flex;
+    cursor: pointer;
+}
+
+.google-login button:hover{
+  background-color: #eeecec;
+  transition: 0.5s;
 }
 
 .google-login button img{

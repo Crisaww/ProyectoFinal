@@ -136,48 +136,39 @@ input:focus {
     border-color: #563afae6;
 }
 
-/* No existe ⬇️*/
-/* .boton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 
-.boton2 {
+
+.boton {
+    padding-top: 28px;
     display: flex;
     justify-content: center;
-    /* align-items: center; Innecesario */
-    padding-top: 24px;
+    /* align-items: center; Innecesario, tiene propiedad de box*/
 }
 
-button.btn {
-    flex: 1; /*Hace que ocupe todo el espacio de su contendor padre (boton2)*/
+
+
+
+
+/* Dentro del botón */
+.boton .btn {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    flex: 1;
+    cursor: pointer;
+    width: 70%;
+    border-radius: 15px;
+    border: none;
     padding: 8px;
-}
 
-/* No debería ser Submit ⬇️ */
-button {
     background-color: rgba(86, 58, 250, 0.9);
     color: #fff;
-    border: none;
-    border-radius: 15px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    font-size: 16px;
 }
 
-.boton2 a{
-    font-family: "Poppins", sans-serif;
-    text-align: center;
-    text-decoration: none;
-    color: #ffffff;
+.btn:hover{
+    color: #d6d6d6;
 }
 
-.boton2 a:hover{
-    text-align: center;
-    color: #e2e2e2;
-}
+
 
 a {
     text-align: center;
@@ -208,6 +199,12 @@ a:hover {
     border: 1px solid #a7a7a7;
     background-color: #ffffff;
     display: flex;
+    cursor: pointer;
+}
+
+.google-login button:hover{
+  background-color: #eeecec;
+  transition: 0.5s;
 }
 
 .google-login button img{
