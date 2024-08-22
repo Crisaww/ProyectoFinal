@@ -260,13 +260,11 @@ a:hover {
     display: flex;
     justify-content: center; /*centra horizontalmete la imagen*/
     align-items: center; /*centra verticalmentela imagen*/
-    padding: 20px; /*se agrega espacio alrededor de la imagen*/
 }
 
 .site-logo {
     max-width: 50%;
     height: auto; /*se ajusta la altura de la imagen automaticamente*/
-    padding-right: 15%;
 }
 /* estilos para el loader */
 .loader {
@@ -395,3 +393,21 @@ a:hover {
     }
   }
 /* fin loader   */
+/* crea mi cuenta  */
+@media (max-width: 768px) {
+  .container {
+      flex-direction:column-reverse;
+  }
+
+  .site-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 320px; /* Reduce el tamaño del logo en pantallas pequeñas */
+  }
+
+  .fauguet {
+      width: 100%;
+      max-width: 90%; /* Aumenta el tamaño del formulario en pantallas pequeñas */
+  }
+}

@@ -83,46 +83,120 @@ function validarCampos() {
 }
 
 function validarUsername(username) {
-    if (!username || !username.value) {
-        username.className = "form-control is-invalid";
+    let errorDiv = document.getElementById('username-error');  
+    let valido = true;
+    let mensajesError = []; 
+
+    if (!username || !username.value.trim()) {
+        username.classList.add("is-invalid");
+        username.classList.remove("is-valid");
+        errorDiv.textContent = "El nombre de usuario no puede estar vacío.";
+        errorDiv.style.display = 'block';
         return false;
-    }
+    } 
 
     let valor = username.value.trim();
-    let valido = valor.length > 0 && valor.length <= 100;
 
-    username.className = valido ? "form-control is-valid" : "form-control is-invalid";
+    // Verifica si el nombre contiene espacios
+    if (/\s/.test(valor)) {
+        valido = false;
+        mensajesError.push("no debe contener espacios");
+    }
+
+    // Verifica si el nombre contiene caracteres especiales
+    if (/[^a-zA-Z0-9]/.test(valor)) {
+        valido = false;
+        mensajesError.push("no debe contener caracteres especiales");
+    }
+
+    if (!valido) {
+        let mensajeError = "El nombre de usuario " + mensajesError.join(' y ') + ".";
+        errorDiv.textContent = mensajeError;
+        errorDiv.style.display = 'block';
+        username.classList.add("is-invalid");
+        username.classList.remove("is-valid");
+    } else {
+        errorDiv.textContent = "";
+        errorDiv.style.display = 'none';
+        username.classList.add("is-valid");
+        username.classList.remove("is-invalid");
+    }
+
     return valido;
 }
+
+    
+
+// function validarPassword(password) {
+//     let errorDiv = document.getElementById('password-error');
+//     let valor = password.value.trim();
+//     let valido = true;
+//     let mensajeError = "";
+
+//     if (valor.length < 8 || valor.length > 20) {
+//         valido = false;
+//         mensajeError = "La contraseña debe tener entre 8 y 20 caracteres.";
+//     } else if (!/[A-Z]/.test(valor)) {
+//         valido = false;
+//         mensajeError = "La contraseña debe tener al menos una letra mayúscula.";
+//     } else if (!/[a-z]/.test(valor)) {
+//         valido = false;
+//         mensajeError = "La contraseña debe tener al menos una letra minúscula.";
+//     } else if (!/[0-9]/.test(valor)) {
+//         valido = false;
+//         mensajeError = "La contraseña debe tener al menos un número.";
+//     } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(valor)) {
+//         valido = false;
+//         mensajeError = "La contraseña debe tener al menos un carácter especial.";
+//     }
+
+//     password.className = valido ? "form-control is-valid" : "form-control is-invalid";
+//     errorDiv.textContent = mensajeError;
+//     errorDiv.style.display = valido ? 'none' : 'block';
+//     return valido;
+// }
 
 function validarPassword(password) {
     let errorDiv = document.getElementById('password-error');
     let valor = password.value.trim();
     let valido = true;
-    let mensajeError = "";
+    let mensajesError = [];
 
     if (valor.length < 8 || valor.length > 20) {
         valido = false;
-        mensajeError = "La contraseña debe tener entre 8 y 20 caracteres.";
-    } else if (!/[A-Z]/.test(valor)) {
+        mensajesError.push("entre 8 y 20 caracteres");
+    }
+    if (!/[A-Z]/.test(valor)) {
         valido = false;
-        mensajeError = "La contraseña debe tener al menos una letra mayúscula.";
-    } else if (!/[a-z]/.test(valor)) {
+        mensajesError.push("una letra mayúscula");
+    }
+    if (!/[a-z]/.test(valor)) {
         valido = false;
-        mensajeError = "La contraseña debe tener al menos una letra minúscula.";
-    } else if (!/[0-9]/.test(valor)) {
+        mensajesError.push("una letra minúscula");
+    }
+    if (!/[0-9]/.test(valor)) {
         valido = false;
-        mensajeError = "La contraseña debe tener al menos un número.";
-    } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(valor)) {
+        mensajesError.push("tambien debe tener al menos un número");
+    }
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(valor)) {
         valido = false;
-        mensajeError = "La contraseña debe tener al menos un carácter especial.";
+        mensajesError.push("y un carácter especial");
+    }
+
+    if (!valido) {
+        let mensajeError = "La contraseña debe tener " + mensajesError.join(', ') + ".";
+        errorDiv.textContent = mensajeError;
+        errorDiv.style.display = 'block';
+    } else {
+        errorDiv.textContent = "";
+        errorDiv.style.display = 'none';
     }
 
     password.className = valido ? "form-control is-valid" : "form-control is-invalid";
-    errorDiv.textContent = mensajeError;
-    errorDiv.style.display = valido ? 'none' : 'block';
     return valido;
 }
+
+
 
 function validarEmail(email) {
     let errorDiv = document.getElementById('email-error');
