@@ -48,7 +48,7 @@ html {
 /*Estilo para el contenido*/
 /*Estilos para el formulario y sus elemntos*/
 .fauguet {
-  width: 50%;
+  width: 30rem;
   border-radius: 20px;
   background-color: #fff;
 }
@@ -128,7 +128,7 @@ html {
 @media (min-width: 768px) and (max-width: 1023px) {
   .container {
     width: 100%;
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
   .left-column,
   .right-column {
@@ -144,7 +144,7 @@ html {
     }
 
   .fauguet {
-    width: 40%; /* Ajustar el tamaño del formulario */
+    width: 30rem; /* Ajustar el tamaño del formulario */
   }
 }
 
