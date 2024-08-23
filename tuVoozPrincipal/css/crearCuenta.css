@@ -11,6 +11,8 @@ html {
     font-family: "Poppins", sans-serif;
 }
 
+
+/*Estilo para el contenedor principal*/
 .wrapper {
   position: relative;
   width: 100%;
@@ -21,7 +23,6 @@ html {
   font-size: 16px;
 }
 
-/*Estilo para el contenedor principal*/
 .container {
     display: flex;
     width: 100%;
@@ -45,9 +46,9 @@ html {
 }
 
 /*Estilo para el contenido*/
+/*Estilos para el formulario y sus elemntos*/
 .fauguet {
   width: 50%;
-  height: 45%;
   border-radius: 20px;
   background-color: #fff;
 }
@@ -62,17 +63,6 @@ html {
 
 .tituloCrearCuenta > h1{
   margin: 0;
-}
-
-/*Estilos para el formulario y sus elemntos*/
-form {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-
-    border-radius: 2px;
-    border-bottom: 2px;
-    padding: 20px;
 }
 
 .formularioCrearCuenta{
@@ -119,10 +109,73 @@ form {
 }
 /* incompleto las validaciones */
 .error-message {
+  text-align: center;
   justify-content: center;
-    color: #dc3545;
-    font-size: 0.875em;
-    display: none;
+  color: #dc3545;
+  font-size: 0.875em;
+  display: flex;
+}
+
+/* Medidas para pantallas grandes (desktops) */
+@media (min-width: 1024px) {
+  .left-column,
+  .right-column {
+    width: 50%;
+  }
+}
+
+/* Medidas para tablets y pantallas medianas */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    width: 100%;
+    flex-direction: column;
+  }
+  .left-column,
+  .right-column {
+    width: 100%;
+    height: 50%;
+  }
+}
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .right-column {
+      width: 100%;
+      height: 50%;
+    }
+
+  .fauguet {
+    width: 40%; /* Ajustar el tamaño del formulario */
+  }
+}
+
+/* Medidas para pantallas pequeñas (celulares) */
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .right-column {
+    order: 2; /* Mueve el right-column arriba */
+  }
+
+  .left-column {
+    order: 1; /* Mueve el left-column abajo */
+  }
+
+  .left-column,
+  .right-column {
+    width: 100%;
+  }
+
+  .fauguet {
+    width: 90%; /* Ajustar el tamaño del formulario para móviles */
+  }
+
+  #username,
+  #email,
+  #password {
+    width: 90%;
+  }
 }
 
 .is-valid {
@@ -261,15 +314,10 @@ a:hover {
     max-width: 150px;
 }
 
-.right-column{
-    flex: 1;
-    display: flex;
-    justify-content: center; /*centra horizontalmete la imagen*/
-    align-items: center; /*centra verticalmentela imagen*/
-}
+
 
 .site-logo {
-    max-width: 50%;
+    width: 40%;
     height: auto; /*se ajusta la altura de la imagen automaticamente*/
 }
 /* estilos para el loader */
@@ -412,8 +460,3 @@ a:hover {
       max-width: 320px; /* Reduce el tamaño del logo en pantallas pequeñas */
   }
 
-  .fauguet {
-      width: 100%;
-      max-width: 90%; /* Aumenta el tamaño del formulario en pantallas pequeñas */
-  }
-}

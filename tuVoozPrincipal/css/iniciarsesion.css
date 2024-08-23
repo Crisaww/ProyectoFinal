@@ -145,10 +145,6 @@ input:focus {
     /* align-items: center; Innecesario, tiene propiedad de box*/
 }
 
-
-
-
-
 /* Dentro del botón */
 .boton .btn {
     font-family: "Poppins", sans-serif;
