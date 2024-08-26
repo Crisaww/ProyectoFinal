@@ -177,43 +177,6 @@ a:hover {
     color: #aaaaaa;
 }
 
-/*Estilos del boton de Iniciar Sesion con Google*/
-.google-login {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.google-login button {
-    position: relative;
-    padding: 5px 8px;
-    border: none;
-    border-radius: 15px;
-    /* Añade estas propiedades para centrar el contenido del botón */
-    justify-content: center;
-    align-items: center;
-    font-size: 13px;
-    border: 1px solid #a7a7a7;
-    background-color: #ffffff;
-    display: flex;
-    cursor: pointer;
-}
-
-.google-login button:hover{
-  background-color: #eeecec;
-  transition: 0.5s;
-}
-
-.google-login button img{
-   width: 30px;
-   height: auto;
-   margin-right: 10px;
-}
-
-.google-login button span{
-    flex: 1;
-    text-align: center;
-}
-
 .recordar {
     text-align: end;
     font-weight: 300;

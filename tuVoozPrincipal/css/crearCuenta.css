@@ -116,6 +116,11 @@ html {
   display: flex;
 }
 
+.site-logo {
+  width: 40%;
+  height: auto; /*se ajusta la altura de la imagen automaticamente*/
+}
+
 /* Medidas para pantallas grandes (desktops) */
 @media (min-width: 1024px) {
   .left-column,
@@ -130,21 +135,28 @@ html {
     width: 100%;
     flex-direction: column-reverse;
   }
-  .left-column,
-  .right-column {
+  .left-column {
     width: 100%;
-    height: 50%;
+    height: 70%;
+    display: flex;
+    align-items: start;
   }
 }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .right-column {
-      width: 100%;
-      height: 50%;
-    }
+@media (min-width: 768px) and (max-width: 1023px) {
+  .site-logo{
+    max-width: 20%;
+  }
+}
 
-  .fauguet {
-    width: 30rem; /* Ajustar el tamaño del formulario */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .right-column {
+      width: 100%;
+      height: 30%;
+}
+
+.fauguet {
+    width: 30rem; 
   }
 }
 
@@ -152,6 +164,10 @@ html {
 @media (max-width: 767px) {
   .container {
     flex-direction: column;
+  }
+
+  .site-logo{
+    max-width: 20%;
   }
 
   .right-column {
@@ -165,10 +181,6 @@ html {
   .left-column,
   .right-column {
     width: 100%;
-  }
-
-  .fauguet {
-    width: 90%; /* Ajustar el tamaño del formulario para móviles */
   }
 
   #username,
@@ -268,58 +280,8 @@ a:hover {
     color: #aaaaaa;
 }
 
-/*Estilos del boton de Iniciar Sesion con Google*/
-.google-login {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.google-login button {
-    position: relative;
-    padding: 5px 8px;
-    border: none;
-    border-radius: 15px;
-    /* Añade estas propiedades para centrar el contenido del botón */
-    justify-content: center;
-    align-items: center;
-    font-size: 13px;
-    border: 1px solid #a7a7a7;
-    background-color: #ffffff;
-    display: flex;
-    cursor: pointer;
-}
-
-.google-login button:hover{
-  background-color: #eeecec;
-  transition: 0.5s;
-}
-
-.google-login button img{
-   width: 30px;
-   height: auto;
-   margin-right: 10px;
-}
-
-.google-login button span{
-    flex: 1;
-    text-align: center;
-}
-
-/*Estilos para el aviso de descarga*/
-.aviso {
-    text-align: center;
-}
-
-.aviso img {
-    max-width: 150px;
-}
 
 
-
-.site-logo {
-    width: 40%;
-    height: auto; /*se ajusta la altura de la imagen automaticamente*/
-}
 /* estilos para el loader */
 .loader {
     display: none;
@@ -447,16 +409,3 @@ a:hover {
     }
   }
 /* fin loader   */
-/* crea mi cuenta  */
-@media (max-width: 768px) {
-  .container {
-      flex-direction:column-reverse;
-  }
-
-  .site-logo {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      max-width: 320px; /* Reduce el tamaño del logo en pantallas pequeñas */
-  }
-}
