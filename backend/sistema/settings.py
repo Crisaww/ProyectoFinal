@@ -204,8 +204,8 @@ TEMPLATES = [
         },
     },
 ]
-# Configuración de email
 
+# Configuración de email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.googlemail.com'
 EMAIL_PORT = 587

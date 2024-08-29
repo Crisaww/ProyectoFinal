@@ -17,6 +17,7 @@ class Usuario(models.Model):
 class Categoria(models.Model):
     
     nombre_categoria = models.CharField(max_length=40)
+    
     activo = 'Activo'
     inactivo = 'Inactivo'
     
