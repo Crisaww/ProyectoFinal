@@ -81,9 +81,6 @@ html {
   width: 100%;
 }
 
-
-
-
 #username {
     width: 70%;
     padding: 8px;
@@ -117,7 +114,7 @@ html {
 }
 
 .site-logo {
-  width: 40%;
+  width: 400px;
   height: auto; /*se ajusta la altura de la imagen automaticamente*/
 }
 
@@ -137,7 +134,7 @@ html {
   }
   .left-column {
     width: 100%;
-    height: 70%;
+    height: 60%;
     display: flex;
     align-items: start;
   }
@@ -145,14 +142,14 @@ html {
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .site-logo{
-    max-width: 20%;
+    width: 350px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .right-column {
       width: 100%;
-      height: 30%;
+      height: 40%;
 }
 
 .fauguet {
@@ -166,8 +163,12 @@ html {
     flex-direction: column;
   }
 
+  .fauguet {
+    width: 30rem; 
+  }
+
   .site-logo{
-    max-width: 20%;
+    width: 350px;
   }
 
   .right-column {
@@ -182,18 +183,12 @@ html {
     display: flex;
     align-items: start;
     width: 100%;
-    height: 70%;
+    height: 60%;
   }
 
   .right-column {
     width: 100%;
-    height: 30%;
-  }
-
-  #username,
-  #email,
-  #password {
-    width: 90%;
+    height: 40%;
   }
 }
 
@@ -202,6 +197,22 @@ html {
       flex-direction:column-reverse;
   }
 }
+
+@media (min-width: 200px) and (max-width: 535px) {
+  .fauguet {
+      width: 20rem;
+  }
+
+  .site-logo{
+    width: 300px;
+  }
+} 
+
+@media (min-width: 200px) and (max-width: 355px) {
+  .fauguet {
+      width: 20rem;
+  }
+} 
 
 .is-valid {
     border-color: #28a745 !important; /* Verde para válido */
@@ -422,4 +433,7 @@ a:hover {
     }
   }
 /* fin loader   */
+
+
+
 
