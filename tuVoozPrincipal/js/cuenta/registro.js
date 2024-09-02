@@ -200,24 +200,37 @@ function validarPassword(password) {
 
 function validarEmail(email) {
     let errorDiv = document.getElementById('email-error');
+    
+    // Verificar si el campo de email está vacío
     if (!email || !email.value) {
         email.className = "form-control is-invalid";
         errorDiv.style.display = 'block';
+        errorDiv.textContent = "El correo no puede estar vacío.";
         return false;
     }
 
     let valor = email.value.trim();
     let valido = true;
+    let mensajeError = '';
 
-    // Longitud mínima de 1 y máxima de 100 caracteres
-    valido = valor.length > 0 && valor.length <= 100;
+    // Verificar la longitud del correo
+    if (valor.length === 0 || valor.length > 100) {
+        valido = false;
+        mensajeError = "El correo debe tener entre 1 y 100 caracteres.";
+    }
 
-    // Validar formato de correo electrónico
+    // Validar el formato del correo electrónico
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(([^<>()[\]\.,;:\s@"]+\.)+[^<>()[\]\.,;:\s@"]{2,})$/i;
-    valido = valido && re.test(valor);
+    if (!re.test(valor)) {
+        valido = false;
+        mensajeError = "El correo debe cumplir con el formato correcto (por ejemplo, usuario@dominio.com).";
+    }
 
+    // Actualizar la clase del campo y el mensaje de error
     email.className = valido ? "form-control is-valid" : "form-control is-invalid";
     errorDiv.style.display = valido ? 'none' : 'block';
+    errorDiv.textContent = valido ? '' : mensajeError;
+
     return valido;
 }
 
@@ -235,3 +248,4 @@ function getCookie(name) {
     }
     return cookieValue;
 }
+

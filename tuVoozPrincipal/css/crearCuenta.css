@@ -11,22 +11,18 @@ html {
     font-family: "Poppins", sans-serif;
 }
 
+
+/*Estilo para el contenedor principal*/
 .wrapper {
-    position: relative;
-    width: 100%;
+  position: relative;
+  width: 100%;
 }
 
 .toggle-password {
-    position: absolute;
-    z-index: 10;
-    top: 50%;
-    right: 4px;
-    transform: translateY(-50%);
-    cursor: pointer;
-    font-size: 16px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-/*Estilo para el contenedor principal*/
 .container {
     display: flex;
     width: 100%;
@@ -50,67 +46,173 @@ html {
 }
 
 /*Estilo para el contenido*/
-.fauguet {
-  width: 50%;
-  height: 75%;
-   border-radius: 20px;
-    /* border: 1px solid #ddd;  esto interfiere con el is_valid form*/
-  background-color: #fff;
-    /* Fondo blanco */
-}
-
 /*Estilos para el formulario y sus elemntos*/
-form {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-
-    border-radius: 2px;
-    border-bottom: 2px;
-    padding: 20px;
+.fauguet {
+  width: 30rem;
+  border-radius: 20px;
+  background-color: #fff;
 }
 
-.col {
-    margin-bottom: 2px;
+.tituloCrearCuenta{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 15%;
 }
 
-.form-label {
-    display: block;
-    margin-bottom: 5px;
-    /* Espacio inferior entre etiquetas y campos */
+.tituloCrearCuenta > h1{
+  margin: 0;
 }
 
-/* .form-control {
-    width: 100%;
-    /* Opcional: Ajusta el ancho de los campos 
-    padding: 8px;
-    /* Opcional: Ajusta el relleno de los campos */
-    /* border: 1px solid #ccc; esto impide el is_valid form*/
-    /* Opcional: Estilo de borde
-    border-radius: 5px;
-    /* Opcional: Borde redondeado 
-} */
+.formularioCrearCuenta{
+  display: flex;
+  width: 100%;
+}
 
-h1 {
-    text-align: center;
-    font-size: 3rem;
-    margin-top: 0;
-    margin-bottom: 1rem;
-    /* O usan px o usan rem no mezlcados */
-}  
-.form-control {
-    width: 100%;
+.labelFormulario{
+  display: flex;
+  width: 100%;
+}
+
+.inputFormulario{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#username {
+    width: 70%;
     padding: 8px;
     border: 1px solid #fff; /* Borde blanco por defecto */
     border-radius: 10px;
     background-color: #e5e4e4;
 }
+
+#email {
+  width: 70%;
+  padding: 8px;
+  border: 1px solid #fff; /* Borde blanco por defecto */
+  border-radius: 10px;
+  background-color: #e5e4e4;
+}
+
+#password {
+  width: 67%;
+  padding: 8px;
+  border: 1px solid #fff; /* Borde blanco por defecto */
+  border-radius: 10px;
+  background-color: #e5e4e4;
+}
 /* incompleto las validaciones */
 .error-message {
-    color: #dc3545;
-    font-size: 0.875em;
-    display: none;
+  text-align: center;
+  justify-content: center;
+  color: #dc3545;
+  font-size: 0.875em;
+  display: flex;
 }
+
+.site-logo {
+  width: 400px;
+  height: auto; /*se ajusta la altura de la imagen automaticamente*/
+}
+
+/* Medidas para pantallas grandes (desktops) */
+@media (min-width: 1024px) {
+  .left-column,
+  .right-column {
+    width: 50%;
+  }
+}
+
+/* Medidas para tablets y pantallas medianas */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    width: 100%;
+    flex-direction: column-reverse;
+  }
+  .left-column {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    align-items: start;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .site-logo{
+    width: 350px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .right-column {
+      width: 100%;
+      height: 40%;
+}
+
+.fauguet {
+    width: 30rem; 
+  }
+}
+
+/* Medidas para pantallas pequeñas (celulares) */
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .fauguet {
+    width: 30rem; 
+  }
+
+  .site-logo{
+    width: 350px;
+  }
+
+  .right-column {
+    order: 2; /* Mueve el right-column arriba */
+  }
+
+  .left-column {
+    order: 1; /* Mueve el left-column abajo */
+  }
+
+  .left-column{
+    display: flex;
+    align-items: start;
+    width: 100%;
+    height: 60%;
+  }
+
+  .right-column {
+    width: 100%;
+    height: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+      flex-direction:column-reverse;
+  }
+}
+
+@media (min-width: 200px) and (max-width: 535px) {
+  .fauguet {
+      width: 20rem;
+  }
+
+  .site-logo{
+    width: 300px;
+  }
+} 
+
+@media (min-width: 200px) and (max-width: 355px) {
+  .fauguet {
+      width: 20rem;
+  }
+} 
 
 .is-valid {
     border-color: #28a745 !important; /* Verde para válido */
@@ -120,15 +222,7 @@ h1 {
     border-color: #dc3545 !important; /* Rojo para inválido */
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    align-self: center;
-    max-width: 95%;
-    border: 1px solid #ffffff; /* Borde blanco por defecto */
-    border-radius: 10px;
-    background-color: #e5e4e4;
-}
+
 
 /* Asegurarse de que las clases de validación sobrescriban el borde */
 input[type="text"].is-valid,
@@ -150,10 +244,9 @@ input:focus {
 
 /*Estilos para el boton -- Esto es afuera .boton es el padre .btn es el interior*/
 .boton {
-    padding-top: 28px;
     display: flex;
     justify-content: center;
-    /* align-items: center; Innecesario, tiene propiedad de box*/
+  
 }
 
 /* ⬇️ Esto no funciona */
@@ -174,7 +267,6 @@ input:focus {
 .boton .btn {
     font-family: "Poppins", sans-serif;
     font-size: 16px;
-    flex: 1;
     cursor: pointer;
     width: 70%;
     border-radius: 15px;
@@ -212,63 +304,8 @@ a:hover {
     color: #aaaaaa;
 }
 
-/*Estilos del boton de Iniciar Sesion con Google*/
-.google-login {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.google-login button {
-    position: relative;
-    padding: 5px 8px;
-    border: none;
-    border-radius: 15px;
-    /* Añade estas propiedades para centrar el contenido del botón */
-    justify-content: center;
-    align-items: center;
-    font-size: 13px;
-    border: 1px solid #a7a7a7;
-    background-color: #ffffff;
-    display: flex;
-    cursor: pointer;
-}
 
-.google-login button:hover{
-  background-color: #eeecec;
-  transition: 0.5s;
-}
 
-.google-login button img{
-   width: 30px;
-   height: auto;
-   margin-right: 10px;
-}
-
-.google-login button span{
-    flex: 1;
-    text-align: center;
-}
-
-/*Estilos para el aviso de descarga*/
-.aviso {
-    text-align: center;
-}
-
-.aviso img {
-    max-width: 150px;
-}
-
-.right-column{
-    flex: 1;
-    display: flex;
-    justify-content: center; /*centra horizontalmete la imagen*/
-    align-items: center; /*centra verticalmentela imagen*/
-}
-
-.site-logo {
-    max-width: 50%;
-    height: auto; /*se ajusta la altura de la imagen automaticamente*/
-}
 /* estilos para el loader */
 .loader {
     display: none;
@@ -396,21 +433,7 @@ a:hover {
     }
   }
 /* fin loader   */
-/* crea mi cuenta  */
-@media (max-width: 768px) {
-  .container {
-      flex-direction:column-reverse;
-  }
 
-  .site-logo {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      max-width: 320px; /* Reduce el tamaño del logo en pantallas pequeñas */
-  }
 
-  .fauguet {
-      width: 100%;
-      max-width: 90%; /* Aumenta el tamaño del formulario en pantallas pequeñas */
-  }
-}
+
+

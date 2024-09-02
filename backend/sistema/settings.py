@@ -48,14 +48,7 @@ INSTALLED_APPS = [
     'tuvooz',
     'coreapi',
     'django_filters',
-    
-    
-   # Configuración de Django-allauth
-    'django.contrib.sites', 
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
+    'django.contrib.sites'
 ]
 
 # Remover en producción
@@ -84,7 +77,6 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'allauth.account.middleware.AccountMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -94,7 +86,6 @@ ROOT_URLCONF = 'sistema.urls'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 WSGI_APPLICATION = 'sistema.wsgi.application'
@@ -164,7 +155,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Configuraciones adicionales de Django-Allauth
+
 # Creo el servidor de correo por consola
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -213,8 +204,8 @@ TEMPLATES = [
         },
     },
 ]
-# Configuración de email
 
+# Configuración de email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.googlemail.com'
 EMAIL_PORT = 587
