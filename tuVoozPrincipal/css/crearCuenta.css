@@ -28,6 +28,12 @@ html {
     width: 100%;
     height: 100%;
 }
+.formulario{
+  height: 18rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 /* Estilo para las columnas */
 .left-column {
@@ -51,14 +57,14 @@ html {
   width: 30rem;
   border-radius: 20px;
   background-color: #fff;
+  height: 34rem;
 }
 
 .tituloCrearCuenta{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 15%;
+  padding-top: 2rem;
 }
 
 .tituloCrearCuenta > h1{
@@ -68,11 +74,14 @@ html {
 .formularioCrearCuenta{
   display: flex;
   width: 100%;
+  padding: 1rem 3px 0;
+  flex-direction: column;
 }
 
 .labelFormulario{
   display: flex;
   width: 100%;
+  padding-left: 4rem;
 }
 
 .inputFormulario{
@@ -80,16 +89,7 @@ html {
   justify-content: center;
   width: 100%;
 }
-
-#username {
-    width: 70%;
-    padding: 8px;
-    border: 1px solid #fff; /* Borde blanco por defecto */
-    border-radius: 10px;
-    background-color: #e5e4e4;
-}
-
-#email {
+.form-control{
   width: 70%;
   padding: 8px;
   border: 1px solid #fff; /* Borde blanco por defecto */
@@ -97,13 +97,8 @@ html {
   background-color: #e5e4e4;
 }
 
-#password {
-  width: 67%;
-  padding: 8px;
-  border: 1px solid #fff; /* Borde blanco por defecto */
-  border-radius: 10px;
-  background-color: #e5e4e4;
-}
+
+
 /* incompleto las validaciones */
 .error-message {
   text-align: center;
@@ -142,7 +137,7 @@ html {
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .site-logo{
-    width: 350px;
+    width: 200px;
   }
 }
 
@@ -152,9 +147,6 @@ html {
       height: 40%;
 }
 
-.fauguet {
-    width: 30rem; 
-  }
 }
 
 /* Medidas para pantallas pequeñas (celulares) */
@@ -168,7 +160,7 @@ html {
   }
 
   .site-logo{
-    width: 350px;
+    width: 200px;
   }
 
   .right-column {
@@ -185,6 +177,7 @@ html {
     width: 100%;
     height: 60%;
   }
+  
 
   .right-column {
     width: 100%;
@@ -204,7 +197,7 @@ html {
   }
 
   .site-logo{
-    width: 300px;
+    width: 200px;
   }
 } 
 
@@ -246,6 +239,7 @@ input:focus {
 .boton {
     display: flex;
     justify-content: center;
+    padding-top : 1.5rem
   
 }
 

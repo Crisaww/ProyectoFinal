@@ -51,8 +51,8 @@ function iniciarSesion() {
            
             localStorage.setItem('showLoginMessage', 'true'); 
             localStorage.setItem('authToken', data.token); // Almacenar el token en localStorage
-           // window.location.href = "http://127.0.0.1:5502/tuVoozPrincipal/paginaPrincipal.html";
-            window.location.href = "http://192.168.1.8:5502/tuVoozPrincipal/paginaPrincipal.html";
+           window.location.href = "http://127.0.0.1:5502/tuVoozPrincipal/paginaPrincipal.html";
+            //window.location.href = "http://192.168.1.8:5502/tuVoozPrincipal/paginaPrincipal.html";
         })
         .catch(error => {
             if (error !== 'Credenciales incorrectas') {

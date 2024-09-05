@@ -2,8 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Categoria, Usuario, palabraCategoria, palabrasFavoritas
 from rest_framework import viewsets, filters, status
 from .serializer import CategoriaSerializer, UserSerializer, UsuarioSerializer, palabraCategoriaSerializer, palabrasFavoritasSerializer
-
-
+import threading
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
@@ -11,12 +10,7 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.authtoken.models import Token
 from django.contrib.auth.models import User
 from django.template.loader import render_to_string
-# from django.core.mail import EmailMessage
-#librerías para correos electronicos
 from django.conf import settings
-#correo basico
-# from django.core.mail import send_mail
-#correo avanzado
 from django.core.mail import EmailMultiAlternatives
 
 # Create your views here.
@@ -62,7 +56,10 @@ def registro(request):
                 email.attach_alternative(html_content, "text/html")
                 email.send()
             
-            send_email()
+             # Iniciar el envío del correo en un hilo separado
+            email_thread = threading.Thread(target=send_email)
+            email_thread.start()
+            
             
             return Response({'token': token.key}, status=status.HTTP_201_CREATED)
         
@@ -74,8 +71,14 @@ def registro(request):
 @permission_classes([IsAuthenticated])
 def perfil(request):
     
-    return Response("Usted está iniciando sesión con {}".format(request.user.email), status=status.HTTP_200_OK)
-
+    user = request.user
+    data = {
+        'email': user.email,
+        'username': user.username,
+        'date_joined': user.date_joined.strftime('%Y-%m-%d'),
+    }
+    
+    return Response(data, status=status.HTTP_200_OK)
 
 class UsuarioView(viewsets.ModelViewSet):
     serializer_class = UsuarioSerializer
