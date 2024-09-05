@@ -83,7 +83,7 @@
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Felicidad</a>
+                                    <a onclick="soundFeliz.play()" class="btn btn-primary botonReproducirTextoTarjeta">Feliz</a>
                                 </div>
                             </div>
                         </div>
@@ -96,7 +96,7 @@
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Sorpresa</a>
+                                    <a onclick="soundSorprendido.play()" class="btn btn-primary botonReproducirTextoTarjeta">Sorprendido</a>
                                 </div>
                             </div>
                         </div>
@@ -109,7 +109,7 @@
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Confusión</a>
+                                    <a onclick="soundConfundido.play()" class="btn btn-primary botonReproducirTextoTarjeta">Confundido</a>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +122,7 @@
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Enojado</a>
+                                    <a onclick="soundEnojado.play()" class="btn btn-primary botonReproducirTextoTarjeta">Enojado</a>
                                 </div>
                             </div>
                         </div>
@@ -135,20 +135,7 @@
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Estres</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
-                            <img src="../tuVoozPrincipal/img/palabrasComunes/emociones/miedo.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title"></h5>
-                                <!-- <p class="card-text">Some quick </p> -->
-                                <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Miedo</a>
+                                    <a onclick="sounEstresado.play()" class="btn btn-primary botonReproducirTextoTarjeta">Estresado</a>
                                 </div>
                             </div>
                         </div>
@@ -161,7 +148,7 @@
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Tranquilidad</a>
+                                    <a onclick="soundTranquilo.play()" class="btn btn-primary botonReproducirTextoTarjeta">Tranquilo</a>
                                 </div>
                             </div>
                         </div>
@@ -174,7 +161,7 @@
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Trizteza</a>
+                                    <a onclick="soundTriste.play()" class="btn btn-primary botonReproducirTextoTarjeta">Triste</a>
                                 </div>
                             </div>
                         </div>
@@ -187,7 +174,46 @@
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Aburrimiento</a>
+                                    <a onclick="soundAburrido.play()" class="btn btn-primary botonReproducirTextoTarjeta">Aburrido</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
+                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                            <img src="../tuVoozPrincipal/img/palabrasComunes/emociones/Enamorado.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"></h5>
+                                <!-- <p class="card-text">Some quick </p> -->
+                                <div class=".contenedor_botonTarjeta">
+                                    <a onclick="soundEnamorado.play()" class="btn btn-primary botonReproducirTextoTarjeta">Enamorado</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
+                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                            <img src="../tuVoozPrincipal/img/palabrasComunes/emociones/Malo.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"></h5>
+                                <!-- <p class="card-text">Some quick </p> -->
+                                <div class=".contenedor_botonTarjeta">
+                                    <a onclick="soundMalo.play()" class="btn btn-primary botonReproducirTextoTarjeta">Malo</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
+                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                            <img src="../tuVoozPrincipal/img/palabrasComunes/emociones/Enfermo.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"></h5>
+                                <!-- <p class="card-text">Some quick </p> -->
+                                <div class=".contenedor_botonTarjeta">
+                                    <a onclick="soundEnfermo.play()" class="btn btn-primary botonReproducirTextoTarjeta">Enfermo</a>
                                 </div>
                             </div>
                         </div>
@@ -203,6 +229,7 @@
         <!-- Template Main JS File -->
         <script src="../TuVooz/Ajustes/js/main.js"></script>
         <script src="./js/modoOscuro.js"></script>
+        <script src="./js/audios.js"></script>
     </body>
 </html>
 
