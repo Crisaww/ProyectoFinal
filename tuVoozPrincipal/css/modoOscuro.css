@@ -1,20 +1,30 @@
-Definición de variables CSS
+/* DEFINICION DE VARIABLES DE CSS  */
 :root {
-    --background-color: #131313;
+    --background-color: #000000;
     --background-color: #ffffff;
-    --color-h1: #ffffff;
-    --color-h2:#ffffff;
-
+    --h1-color:#ffffff;
+    --h2-color:#ffffff;
+    --h1-color:#000000;
+    --h2-color:#000000;
+    /* --color-h1: #ffffff;
+    --color-h1: #000000;
+    --color-h2:#000000;
+    --color-h2:#ffffff; */
 
 }
 
-/* Estilos para el modo claro */
+/* Estilos para el modo oscuro */
 body.oscuro{
 
     background-color:var(--background-color) ;
-    color:var(var(--color-h1));
+
+    color:var(--h1-color);
+    color: var(--h2-color);
+    /* color: var(--color-p); */
      
 }
+/* Estilos para el modo claro */
+
 body{
     background-color:var(--background-color) ;
 }
