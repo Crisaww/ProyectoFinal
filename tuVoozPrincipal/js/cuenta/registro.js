@@ -9,9 +9,56 @@ document.getElementById('togglePassword').addEventListener('click', function () 
     this.classList.toggle('fa-eye');
     this.classList.toggle('fa-eye-slash');
 });
+// Para el campo de confirmar contraseña
+document.getElementById('toggleConfirmPassword').addEventListener('click', function () {
+    const confirmPasswordField = document.getElementById('confirmPassword');
+    const type = confirmPasswordField.getAttribute('type') === 'password' ? 'text' : 'password';
+    confirmPasswordField.setAttribute('type', type);
+    this.classList.toggle('fa-eye');
+    this.classList.toggle('fa-eye-slash');
+});
+// Inicializa los tippy para ambos campos
+const confirmPasswordInput = document.getElementById('confirmPassword');
+let tippyInstanceConfirm = tippy(confirmPasswordInput, {
+    content: '',
+    trigger: 'manual',  // Control manual del tooltip
+    placement: 'right', // Ubicación del tooltip
+    theme: 'material',  // Tema visual del tooltip
+});
 
+function validarPasswordIguales() {
+    const passwordField = document.getElementById('password');
+    const confirmPasswordField = document.getElementById('confirmPassword');
 
-    function registrarUsuario() {
+    let passwordValue = passwordField.value.trim();
+    let confirmPasswordValue = confirmPasswordField.value.trim();
+
+    // Verificar si las contraseñas coinciden
+    if (passwordValue !== confirmPasswordValue) {
+        // Mostrar el tooltip si las contraseñas no coinciden
+        tippyInstanceConfirm.setContent("Las contraseñas no coinciden.");
+        tippyInstanceConfirm.show();
+        confirmPasswordField.classList.add("is-invalid");
+        confirmPasswordField.classList.remove("is-valid");
+        return false;
+    } else {
+        // Ocultar el tooltip si las contraseñas coinciden
+        tippyInstanceConfirm.hide();
+        confirmPasswordField.classList.add("is-valid");
+        confirmPasswordField.classList.remove("is-invalid");
+        return true;
+    }
+}
+
+// Escucha el evento 'input' para validar en tiempo real si las contraseñas son iguales
+confirmPasswordInput.addEventListener('input', validarPasswordIguales);
+
+// Listener para ocultar el tippy si el usuario cambia la contraseña principal
+document.getElementById('password').addEventListener('input', function() {
+    tippyInstanceConfirm.hide();
+});
+
+function registrarUsuario() {
     let username = document.getElementById("username").value;
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
@@ -23,7 +70,7 @@ document.getElementById('togglePassword').addEventListener('click', function () 
     };
 
     if (validarCampos()) {
-        document.querySelector('.loader').style.display = 'block';
+        
         fetch(urlRegistro, {
             method: 'POST',
             headers: {
@@ -51,7 +98,7 @@ document.getElementById('togglePassword').addEventListener('click', function () 
            
             Swal.fire({
                 title: "Excelente",
-                text: "Se ha registrado exitosamente",
+                text: "Se ha registrado exitosamente, \npor favor, revisa tu correo electrónico",
                 icon: "success"
             });
             // Redirigir al usuario a otra página si es necesario
@@ -61,15 +108,13 @@ document.getElementById('togglePassword').addEventListener('click', function () 
             if (error !== 'Usuario ya registrado') {
                 Swal.fire("Error", "Error al registrar: " + error, "error");
             }
-        }).finally(() => {
-            // Ocultar el loader independientemente del resultado
-            document.querySelector('.loader').style.display = 'none';
+        
         });
     } else {
         Swal.fire({
-            title: "Error!",
+            title: "¡Atención!",
             text: "Complete los campos correctamente",
-            icon: "error"
+            icon: "warning"
         });
     }
 }
@@ -81,17 +126,25 @@ function validarCampos() {
 
     return validarUsername(username) && validarPassword(password) && validarEmail(email);
 }
+// Inicializa tippy.js en el campo de nombre de usuario
+const usernameInput = document.getElementById('username');
+let tippyInstanceUsername = tippy(usernameInput, {
+    content: '',
+    trigger: 'manual',
+    placement: 'right',
+    theme: 'light',
+});
 
 function validarUsername(username) {
-    let errorDiv = document.getElementById('username-error');  
     let valido = true;
-    let mensajesError = []; 
+    let mensajesError = [];
 
+    // Verifica si el campo está vacío
     if (!username || !username.value.trim()) {
         username.classList.add("is-invalid");
         username.classList.remove("is-valid");
-        errorDiv.textContent = "El nombre de usuario no puede estar vacío.";
-        errorDiv.style.display = 'block';
+        tippyInstanceUsername.setContent("El nombre de usuario no puede estar vacío.");
+        tippyInstanceUsername.show();
         return false;
     } 
 
@@ -109,15 +162,15 @@ function validarUsername(username) {
         mensajesError.push("no debe contener caracteres especiales");
     }
 
+    // Mostrar u ocultar el tooltip en función de la validez del campo
     if (!valido) {
         let mensajeError = "El nombre de usuario " + mensajesError.join(' y ') + ".";
-        errorDiv.textContent = mensajeError;
-        errorDiv.style.display = 'block';
+        tippyInstanceUsername.setContent(mensajeError);
+        tippyInstanceUsername.show();
         username.classList.add("is-invalid");
         username.classList.remove("is-valid");
     } else {
-        errorDiv.textContent = "";
-        errorDiv.style.display = 'none';
+        tippyInstanceUsername.hide();
         username.classList.add("is-valid");
         username.classList.remove("is-invalid");
     }
@@ -125,93 +178,111 @@ function validarUsername(username) {
     return valido;
 }
 
-    
+// Escuchar el evento 'input' para validar en tiempo real
+usernameInput.addEventListener('input', function() {
+    validarUsername(usernameInput);
+});
 
-// function validarPassword(password) {
-//     let errorDiv = document.getElementById('password-error');
-//     let valor = password.value.trim();
-//     let valido = true;
-//     let mensajeError = "";
-
-//     if (valor.length < 8 || valor.length > 20) {
-//         valido = false;
-//         mensajeError = "La contraseña debe tener entre 8 y 20 caracteres.";
-//     } else if (!/[A-Z]/.test(valor)) {
-//         valido = false;
-//         mensajeError = "La contraseña debe tener al menos una letra mayúscula.";
-//     } else if (!/[a-z]/.test(valor)) {
-//         valido = false;
-//         mensajeError = "La contraseña debe tener al menos una letra minúscula.";
-//     } else if (!/[0-9]/.test(valor)) {
-//         valido = false;
-//         mensajeError = "La contraseña debe tener al menos un número.";
-//     } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(valor)) {
-//         valido = false;
-//         mensajeError = "La contraseña debe tener al menos un carácter especial.";
-//     }
-
-//     password.className = valido ? "form-control is-valid" : "form-control is-invalid";
-//     errorDiv.textContent = mensajeError;
-//     errorDiv.style.display = valido ? 'none' : 'block';
-//     return valido;
-// }
+// Inicializa el tippy.js en el campo de contraseña
+const passwordInput = document.getElementById('password');
+let tippyInstance = tippy(passwordInput, {
+    content: '',
+    trigger: 'manual',  // Control manual del tooltip
+    placement: 'right', // Ubicación del tooltip
+    theme: 'material',  // Tema visual del tooltip
+});
 
 function validarPassword(password) {
-    let errorDiv = document.getElementById('password-error');
-    let valor = password.value.trim();
     let valido = true;
     let mensajesError = [];
+    
+    // Verifica si el campo está vacío
+    if (!password || !password.value.trim()) {
+        password.classList.add("is-invalid");
+        password.classList.remove("is-valid");
+        tippyInstance.setContent("La contraseña no puede estar vacía.");
+        tippyInstance.show(); // Muestra el tooltip
+        return false;
+    } 
 
+    let valor = password.value.trim();
+
+    // Validar la longitud de la contraseña
     if (valor.length < 8 || valor.length > 20) {
         valido = false;
         mensajesError.push("entre 8 y 20 caracteres");
     }
+    // Verificar si tiene al menos una letra mayúscula
     if (!/[A-Z]/.test(valor)) {
         valido = false;
         mensajesError.push("una letra mayúscula");
     }
+    // Verificar si tiene al menos una letra minúscula
     if (!/[a-z]/.test(valor)) {
         valido = false;
         mensajesError.push("una letra minúscula");
     }
+    // Verificar si tiene al menos un número
     if (!/[0-9]/.test(valor)) {
         valido = false;
-        mensajesError.push("tambien debe tener al menos un número");
+        mensajesError.push("al menos un número");
     }
+    // Verificar si tiene al menos un carácter especial
     if (!/[!@#$%^&*(),.?":{}|<>]/.test(valor)) {
         valido = false;
         mensajesError.push("y un carácter especial");
     }
 
     if (!valido) {
+        // Si no es válido, mostrar los mensajes de error en el tooltip
         let mensajeError = "La contraseña debe tener " + mensajesError.join(', ') + ".";
-        errorDiv.textContent = mensajeError;
-        errorDiv.style.display = 'block';
+        tippyInstance.setContent(mensajeError);
+        tippyInstance.show();
     } else {
-        errorDiv.textContent = "";
-        errorDiv.style.display = 'none';
+        // Si es válida, ocultar el tooltip
+        tippyInstance.hide();
     }
 
+    // Cambia las clases del input para mostrar la validez visualmente
     password.className = valido ? "form-control is-valid" : "form-control is-invalid";
     return valido;
 }
 
+// Agregar un listener para que la validación ocurra en tiempo real
+passwordInput.addEventListener('input', function() {
+    validarPassword(passwordInput);
+});
 
+
+// Escucha el evento 'input' para validar en tiempo real
+passwordInput.addEventListener('input', function() {
+    validarPassword(passwordInput);
+});
+
+
+// Inicializa tippy.js en el campo de correo electrónico
+const emailInput = document.getElementById('email');
+let tippyInstanceEmail = tippy(emailInput, {
+    content: '',
+    trigger: 'manual',
+    placement: 'right',
+    theme: 'light',
+});
 
 function validarEmail(email) {
-    let errorDiv = document.getElementById('email-error');
-    
+    let valido = true;
+    let mensajeError = '';
+
     // Verificar si el campo de email está vacío
     if (!email || !email.value) {
         email.className = "form-control is-invalid";
-        errorDiv.style.display = 'block';
-        errorDiv.textContent = "El correo no puede estar vacío.";
+        mensajeError = "El correo no puede estar vacío.";
+        tippyInstanceEmail.setContent(mensajeError);
+        tippyInstanceEmail.show();
         return false;
     }
 
     let valor = email.value.trim();
-    let valido = true;
-    let mensajeError = '';
 
     // Verificar la longitud del correo
     if (valor.length === 0 || valor.length > 100) {
@@ -226,13 +297,24 @@ function validarEmail(email) {
         mensajeError = "El correo debe cumplir con el formato correcto (por ejemplo, usuario@dominio.com).";
     }
 
-    // Actualizar la clase del campo y el mensaje de error
-    email.className = valido ? "form-control is-valid" : "form-control is-invalid";
-    errorDiv.style.display = valido ? 'none' : 'block';
-    errorDiv.textContent = valido ? '' : mensajeError;
+    // Mostrar u ocultar el tooltip en función de la validez del correo
+    if (!valido) {
+        email.className = "form-control is-invalid";
+        tippyInstanceEmail.setContent(mensajeError);
+        tippyInstanceEmail.show();
+    } else {
+        email.className = "form-control is-valid";
+        tippyInstanceEmail.hide();
+    }
 
     return valido;
 }
+
+// Escuchar el evento 'input' para validar en tiempo real
+emailInput.addEventListener('input', function() {
+    validarEmail(emailInput);
+});
+
 
 function getCookie(name) {
     let cookieValue = null;
