@@ -141,66 +141,73 @@ soundPollo.src = "./sonido/Pollo.wav";
 var soundPez = new Audio(); 
 soundPez.src = "./sonido/Pez.wav"; 
 
+var soundPescado = new Audio(); 
+soundPescado.src = "./sonido/Pescado.wav"; 
+
 //<<<<<<<<<<<<<< Fin animales <<<<<<<<<<<<<<<<<<<<
 
 //<<<<<<<<<<<<<<Inicio Preguntas <<<<<<<<<<<<<<<<<<<<
 
-var sound = new Audio(); 
-sound.src = "./sonido/Pez.wav";
+var soundComoEstas = new Audio(); 
+soundComoEstas.src = "./sonido/como_estas.wav";
 
-var sound = new Audio(); 
-sound.src = "./sonido/Pez.wav";
+var soundAQueTeDedicas = new Audio(); 
+soundAQueTeDedicas.src = "./sonido/a_que_te_dedicas.wav";
 
-var sound = new Audio(); 
-sound.src = "./sonido/Pez.wav";
+var soundTodoBien = new Audio(); 
+soundTodoBien.src = "./sonido/todo_bien.wav";
 
-var sound = new Audio(); 
-sound.src = "./sonido/Pez.wav";
+var soundQueTalTuDia = new Audio(); 
+soundQueTalTuDia.src = "./sonido/que_tal_tu_dia.wav";
 
-var sound = new Audio(); 
-sound.src = "./sonido/Pez.wav";
+var soundTeGusta = new Audio(); 
+soundTeGusta.src = "./sonido/te_gusta.wav";
 
-var sound = new Audio(); 
-sound.src = "./sonido/Pez.wav";
+var soundTeGusto = new Audio(); 
+soundTeGusto.src = "./sonido/te_gusto.wav";
 
-var sound = new Audio(); 
-sound.src = "./sonido/Pez.wav";
+var soundTeDisgusta = new Audio(); 
+soundTeDisgusta.src = "./sonido/te_disgusta.wav";
 
-var sound = new Audio(); 
-sound.src = "./sonido/Pez.wav";
+var soundComoVaTodo = new Audio(); 
+soundComoVaTodo.src = "./sonido/como_va_todo.wav";
 
-var sound = new Audio(); 
-sound.src = "./sonido/Pez.wav";
+var soundEstasFeliz = new Audio(); 
+soundEstasFeliz.src = "./sonido/estas_feliz.wav";
 
-var sound = new Audio(); 
-sound.src = "./sonido/Pez.wav";
+var soundHasViajado = new Audio(); 
+soundHasViajado.src = "./sonido/has_viajado.wav";
 
-var sound = new Audio(); 
-sound.src = "./sonido/Pez.wav";
+var soundEstasEnojado = new Audio(); 
+soundEstasEnojado.src = "./sonido/estas_enojado.wav";
 
-var sound = new Audio(); 
-sound.src = "./sonido/Pez.wav";
+var soundEstasEnojada = new Audio(); 
+soundEstasEnojada.src = "./sonido/estas_enojada.wav";
 
-var sound = new Audio(); 
-sound.src = "./sonido/Pez.wav";
+var soundQueEsLoQueNoTeGusta = new Audio(); 
+soundQueEsLoQueNoTeGusta.src = "./sonido/que_es_lo_que_no_te_gusta.wav";
 
-var sound = new Audio(); 
-sound.src = "./sonido/Pez.wav";
+var soundQuePasa = new Audio(); 
+soundQuePasa.src = "./sonido/que_pasa.wav";
 
-var sound = new Audio(); 
-sound.src = "./sonido/Pez.wav";
+var soundTienesAlgunPasatiempo = new Audio(); 
+soundTienesAlgunPasatiempo.src = "./sonido/tienes_algun_pasatiempo.wav";
 
-var sound = new Audio(); 
-sound.src = "./sonido/Pez.wav";
+var soundQueMusicaTeGusta = new Audio(); 
+soundQueMusicaTeGusta.src = "./sonido/que_musica_te_gusta.wav";
 
-var sound = new Audio(); 
-sound.src = "./sonido/Pez.wav";
+var soundAQueLeTienesMiedo = new Audio(); 
+soundAQueLeTienesMiedo.src = "./sonido/a_que_le_tienes_miedo.wav";
 
-var sound = new Audio(); 
-sound.src = "./sonido/Pez.wav";
+var soundEstasTriste = new Audio(); 
+soundEstasTriste.src = "./sonido/estas_triste.wav";
 
-var sound = new Audio(); 
-sound.src = "./sonido/Pez.wav";
+var soundPorque = new Audio(); 
+soundPorque.src = "./sonido/porque.wav";
+
+var soundDondeEstas = new Audio(); 
+soundDondeEstas.src = "./sonido/donde_estas.wav";
+//<<<<<<<<<<<<<< Fin Inicio Preguntas <<<<<<<<<<<<<<<<<<<<
 
 
 
