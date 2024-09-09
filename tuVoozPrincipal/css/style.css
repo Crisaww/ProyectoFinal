@@ -1760,8 +1760,8 @@ INICIO TARJETAS-INTERNAS-SECCIONADAS PALABRAS COMUNES
   --bg-color: #fff;
   --main-color: #7872ab;
   --main-focus: #2d8cf0;
-  width:13rem;
-  height:12rem;
+  width:15rem;
+  height:13rem;
   background: var(--bg-color);
   border: 2px solid var(--main-color);
   border-radius: 5px;
