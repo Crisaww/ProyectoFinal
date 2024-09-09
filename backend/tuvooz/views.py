@@ -1,20 +1,17 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework import  status
 from .serializer import UserSerializer
 import threading
-from rest_framework.decorators import api_view, authentication_classes, permission_classes
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.authentication import TokenAuthentication
-from rest_framework.authtoken.models import Token
 from django.contrib.auth.models import User
 from django.template.loader import render_to_string
 from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
-from django.shortcuts import render
 
 # Create your views here.
 
@@ -32,7 +29,17 @@ def iniciarSesion(request):
         'access': str(refresh.access_token),
     }, status=status.HTTP_200_OK)
 
-#registro de usuario
+# Definir send_email fuera de la vista
+def send_email(email, from_email):
+    subject = 'Bienvenid@ a Tu Vooz'
+    text_content = 'Gracias por registrarte en Tu Vooz.'
+    html_content = render_to_string('correoRegistro.html', {'subject': subject, 'message': text_content})
+
+    email_message = EmailMultiAlternatives(subject, text_content, from_email, [email])
+    email_message.attach_alternative(html_content, "text/html")
+    email_message.send()
+
+# Vista de registro de usuario
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def registro(request):
@@ -56,20 +63,9 @@ def registro(request):
             # Imprimir los tokens en la consola
             print(f"Access Token: {access_token}")
             print(f"Refresh Token: {refresh_token}")
-            
-            def send_email():
-                subject = 'Bienvenid@ a Tu Vooz'
-                from_email = settings.EMAIL_HOST_USER
-                to = request.data.get('email')
-                text_content = 'Gracias por registrarte en Tu Vooz.'
-                html_content = render_to_string('correoRegistro.html', {'subject': subject, 'message': text_content})
 
-                email = EmailMultiAlternatives(subject, text_content, from_email, [to])
-                email.attach_alternative(html_content, "text/html")
-                email.send()
-            
             # Iniciar el envío del correo en un hilo separado
-            email_thread = threading.Thread(target=send_email)
+            email_thread = threading.Thread(target=send_email, args=(request.data.get('email'), settings.EMAIL_HOST_USER))
             email_thread.start()
    
             # Devolver el token JWT

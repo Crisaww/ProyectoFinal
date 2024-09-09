@@ -15,9 +15,9 @@ urlpatterns = [
     path('docs/', include_docs_urls(title="TuVooz API")),
     
     # Rutas para tu API personalizada
-    re_path('api/v1/iniciarSesion', views.iniciarSesion),
-    re_path('api/v1/registro', views.registro),
-    re_path('api/v1/perfil', views.perfil),
+    re_path('api/v1/registro', views.registro, name='registroUsuario'),
+    re_path('api/v1/iniciarSesion', views.iniciarSesion, name='iniciarSesion'),
+    re_path('api/v1/perfil', views.perfil, name='accesoPerfil'),
     
     # Ruta para sintetizar audio
     path('synthesize/', synthesize, name='synthesize'),
@@ -33,5 +33,5 @@ urlpatterns = [
     path('tuVoozPrincipal/miCuenta/', views.miCuenta, name='miCUenta'),
     
     # Ruta para el login de la cuenta
-    path('cuenta/iniciarSesion.html', LoginView.as_view(template_name='tuVoozPrincipal/cuenta/iniciarSesion.html'), name='login'),
+    # path('cuenta/iniciarSesion.html', LoginView.as_view(template_name='tuVoozPrincipal/cuenta/iniciarSesion.html'), name='login'),
 ]
