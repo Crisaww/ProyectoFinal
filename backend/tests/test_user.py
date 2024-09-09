@@ -53,8 +53,7 @@ def test_send_email(mock_send_email, settings):
     data = {
         'username': 'Dylan',
         'email': 'cristianfns11@gmail.com',
-        'password': 'Crisaww11*',
-        'password2': 'Crisaww11*'
+        'password': 'Crisaww11'
     }
 
     # Realizar la solicitud de registro

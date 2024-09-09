@@ -29,17 +29,8 @@ def iniciarSesion(request):
         'access': str(refresh.access_token),
     }, status=status.HTTP_200_OK)
 
-# Definir send_email fuera de la vista
-def send_email(email, from_email):
-    subject = 'Bienvenid@ a Tu Vooz'
-    text_content = 'Gracias por registrarte en Tu Vooz.'
-    html_content = render_to_string('correoRegistro.html', {'subject': subject, 'message': text_content})
-
-    email_message = EmailMultiAlternatives(subject, text_content, from_email, [email])
-    email_message.attach_alternative(html_content, "text/html")
-    email_message.send()
-
-# Vista de registro de usuario
+    
+#registro de usuario
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def registro(request):
@@ -63,9 +54,20 @@ def registro(request):
             # Imprimir los tokens en la consola
             print(f"Access Token: {access_token}")
             print(f"Refresh Token: {refresh_token}")
+            
+            def send_email():
+                subject = 'Bienvenid@ a Tu Vooz'
+                from_email = settings.EMAIL_HOST_USER
+                to = request.data.get('email')
+                text_content = 'Gracias por registrarte en Tu Vooz.'
+                html_content = render_to_string('correoRegistro.html', {'subject': subject, 'message': text_content})
 
+                email = EmailMultiAlternatives(subject, text_content, from_email, [to])
+                email.attach_alternative(html_content, "text/html")
+                email.send()
+            
             # Iniciar el envío del correo en un hilo separado
-            email_thread = threading.Thread(target=send_email, args=(request.data.get('email'), settings.EMAIL_HOST_USER))
+            email_thread = threading.Thread(target=send_email)
             email_thread.start()
    
             # Devolver el token JWT
