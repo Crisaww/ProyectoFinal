@@ -50,7 +50,8 @@ function iniciarSesion() {
         .then(data => {
            
             localStorage.setItem('showLoginMessage', 'true'); 
-            localStorage.setItem('authToken', data.token); // Almacenar el token en localStorage
+            localStorage.setItem('access_token', data.access);//guerda el token
+            localStorage.setItem('refresh_token', data.refresh);//lo actualiza
            window.location.href = "http://127.0.0.1:5502/tuVoozPrincipal/paginaPrincipal.html";
             //window.location.href = "http://192.168.1.8:5502/tuVoozPrincipal/paginaPrincipal.html";
         })
