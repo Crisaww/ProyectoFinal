@@ -169,8 +169,8 @@ REST_FRAMEWORK = {
     ),
 }
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=1),  # Tiempo de vida del token de acceso
-    'REFRESH_TOKEN_LIFETIME': timedelta(minutes=1),  # Tiempo de vida del token de refresco
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),  # Tiempo de vida del token de acceso
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),  # Tiempo de vida del token de refresco
     'ROTATE_REFRESH_TOKENS': True,  # Rotar tokens de refresco
     'BLACKLIST_AFTER_ROTATION': True,  # Invalidar tokens antiguos después de rotar
     'ALGORITHM': 'HS256',  # Algoritmo de encriptación
