@@ -107,10 +107,15 @@ function VistasProtegidas(url) {
 
 function redirigirSiNoEnSesion() {
     const { access_token } = obtenerTokens();
-    if (!access_token && window.location.pathname !== "/tuVoozPrincipal/cuenta/iniciarSesion.html") {
+    const rutaActual = window.location.pathname;
+
+    // Verifica si el usuario tiene un token de acceso
+    if (!access_token && rutaActual !== "/tuVoozPrincipal/cuenta/iniciarSesion.html" && rutaActual !== "/tuVoozPrincipal/cuenta/crearcuenta.html") {
+        // Redirige al usuario a la página de inicio de sesión si no tiene un token y no está en la página de iniciar sesión o crear cuenta
         window.location.href = "http://127.0.0.1:5502/tuVoozPrincipal/cuenta/iniciarSesion.html";
     }
 }
+
 
         
 
