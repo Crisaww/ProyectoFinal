@@ -9,7 +9,6 @@ html {
     position: relative;
     font-family: "Poppins", sans-serif;
 }
-
 /*Estilo para el contenedor principal*/
 .container {
     display: flex;

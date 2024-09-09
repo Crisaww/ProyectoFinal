@@ -10,20 +10,7 @@ html {
     font-family: "Poppins", sans-serif;
 }
 
-.wrapper {
-    position: relative;
-    width: 100%;
-}
 
-.toggle-password {
-    position: absolute;
-    z-index: 10;
-    top: 50%;
-    right: 4px;
-    transform: translateY(-50%);
-    cursor: pointer;
-    font-size: 16px;
-}
 .container {
     display: flex;
     width: 100%;
@@ -40,96 +27,72 @@ html {
 }
 
 .fauguet {
-    border-radius: 20px;
+    /* border-radius: 20px;
     max-width: 100%;
     padding: 9%;
     border: 1px solid #ddd;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     /* Fondo blanco */
-    text-align: justify;
-    font-size: 100%;
+   /* text-align: justify;
+    font-size: 100%; */
+    width: 30rem;
+    border-radius: 20px;
+    background-color: #fff;
+    height: 34rem;
 }
-
-form {
+.tituloCrearCuenta{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2rem;
+  }
+  
+  .tituloCrearCuenta > h1{
+    margin: 0;
+  }
+.formularioCrearCuenta{
+    display: flex;
+  width: 100%;
+  padding-top: 20px;
+  flex-direction: column;  
+}
+.formulario{
+    height: 18rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.labelFormulario{
+    display: flex;
+    width: 100%;
+    padding-left: 3rem;
+}
+.inputFormulario {
     display: flex;
     justify-content: center;
-    flex-direction: column;
-
-    border-radius: 2px;
-    border-bottom: 2px;
-    padding: 20px;
-}
-
-/* No existe? */
-/* .col {
-    margin-bottom: 2px;
-} */
-
-.form-label {
-    display: flex;
-    margin-bottom: 10px;
-}
-.form-control {
     width: 100%;
-    padding: 8px;
+    position: relative; /* Asegura que el contenedor sea relativo para el posicionamiento absoluto del ícono */
+}
+
+.form-control {
+    width: 70%;
+    padding: 8px 40px 8px 8px; /* Ajusta el padding derecho para dar espacio al ícono */
     border: 1px solid #fff; /* Borde blanco por defecto */
     border-radius: 10px;
     background-color: #e5e4e4;
 }
-/* incompleto las validaciones */
-.error-message {
-    color: #dc3545;
-    font-size: 0.875em;
-    display: none;
+
+.toggle-password {
+    cursor: pointer;
+    font-size: 16px;
+    position: absolute;
+    top: 50%; /* Alinea verticalmente en el centro */
+    right: 60px; /* Ajusta la distancia desde el borde derecho del input */
+    transform: translateY(-50%); /* Ajusta para que esté centrado verticalmente */
+    color: #000; /* Color del ícono */
 }
 
-.is-valid {
-    border-color: #28a745 !important; /* Verde para válido */
-}
-
-.is-invalid {
-    border-color: #dc3545 !important; /* Rojo para inválido */
-}
-
-h1 {
-    text-align: center;
-    font-size: 3rem;
-    margin-top: 0;
-    margin-bottom: 1rem;
-}
-
-.input-group {
-    padding-top: 12px;
-    padding-bottom: 18px;
-}
-/* Segundo input */
-.input-group:nth-child(2){
-    padding-bottom: 0;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    align-self: center;
-    width: 95%;
-    padding: 8px;
-    border: 1px solid #ffffff;
-    background-color: #e5e4e4;
-    border-radius: 10px;
-}
-/* Asegurarse de que las clases de validación sobrescriban el borde */
-input[type="text"].is-valid,
-input[type="email"].is-valid,
-input[type="password"].is-valid {
-    border-color: #28a745 !important; /* Verde para válido */
-}
-
-input[type="text"].is-invalid,
-input[type="email"].is-invalid,
-input[type="password"].is-invalid {
-    border-color: #dc3545 !important; /* Rojo para inválido */
-}
 /* Border externo al hacer click */
 input:focus {
     outline: none;
@@ -139,17 +102,16 @@ input:focus {
 
 
 .boton {
-    padding-top: 28px;
     display: flex;
     justify-content: center;
-    /* align-items: center; Innecesario, tiene propiedad de box*/
+    
+  
 }
 
 /* Dentro del botón */
 .boton .btn {
     font-family: "Poppins", sans-serif;
     font-size: 16px;
-    flex: 1;
     cursor: pointer;
     width: 70%;
     border-radius: 15px;
@@ -178,9 +140,10 @@ a:hover {
 }
 
 .recordar {
-    text-align: end;
-    font-weight: 300;
-    font-size: small;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    display: flex;
 }
 
 .registro {
@@ -192,14 +155,6 @@ a:hover {
     font-weight: 300;
 }
 
-/* No existe? ⬇️ */
-/* .aviso {
-    text-align: center;
-}
-
-.aviso img {
-    max-width: 150px;
-} */
 
 .right-column{
     flex: 1;
@@ -210,24 +165,95 @@ a:hover {
 }
 
 .site-logo {
-    max-width: 50%;
+    width: 400px;
     height: auto; /*se ajusta la altura de la imagen automaticamente*/
-}
+  }
 
-@media (max-width: 768px) {
+/* Medidas para pantallas grandes (desktops) */
+@media (min-width: 1024px) {
+    .left-column,
+    .right-column {
+      width: 50%;
+    }
+  }
+  
+  /* Medidas para tablets y pantallas medianas */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .container {
+      width: 100%;
+      flex-direction: column-reverse;
+    }
+    .left-column {
+      width: 100%;
+      height: 60%;
+      display: flex;
+      align-items: start;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .site-logo{
+      width: 200px;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .right-column {
+        width: 100%;
+        height: 40%;
+  }
+  
+  }
+  
+  /* Medidas para pantallas pequeñas (celulares) */
+  @media (max-width: 767px) {
+    .container {
+      flex-direction: column;
+    }
+  
+    .fauguet {
+      width: 30rem; 
+    }
+  
+    .site-logo{
+      width: 200px;
+    }
+  
+    .right-column {
+      order: 2; /* Mueve el right-column arriba */
+    }
+  
+    .left-column {
+      order: 1; /* Mueve el left-column abajo */
+    }
+  
+    .left-column{
+      display: flex;
+      align-items: start;
+      width: 100%;
+      height: 60%;
+    }
+    
+  
+    .right-column {
+      width: 100%;
+      height: 40%;
+    }
+  }
+  
+  @media (max-width: 768px) {
     .container {
         flex-direction:column-reverse;
     }
-
-    .site-logo {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        max-width: 120px; /* Reduce el tamaño del logo en pantallas pequeñas */
-    }
-
+  }
+  
+  @media (min-width: 200px) and (max-width: 535px) {
     .fauguet {
-        width: 100%;
-        max-width: 90%; /* Aumenta el tamaño del formulario en pantallas pequeñas */
+        width: 20rem;
     }
-}
+  
+    .site-logo{
+      width: 200px;
+    }
+  } 
+  
