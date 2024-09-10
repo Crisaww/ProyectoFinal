@@ -302,7 +302,7 @@ Texto
   font-family: "Poppins", sans-serif;
   text-align: center;
   padding-top: 120px;
-  color: #5128b3 var();
+  color: #5128b3 var(--h1-color);
   text-align: center;
   font-weight: bold;
 }
