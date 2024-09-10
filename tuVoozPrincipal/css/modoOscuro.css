@@ -1,11 +1,12 @@
 /* DEFINICION DE VARIABLES DE CSS  */
 :root {
+    /* modo predeterminado */
     --background-color: #000000;
-    --background-color: #ffffff;
     --h1-color:#ffffff;
+    --h1-color:#5128b3;
     --h2-color:#ffffff;
-    --h1-color:#000000;
     --h2-color:#000000;
+
     
     /* --color-h1: #ffffff;
     --color-h1: #000000;
@@ -14,18 +15,20 @@
 
 }
 
-/* Estilos para el modo oscuro */
+/* Estilos para el modo claro */
 body.oscuro{
 
     background-color:var(--background-color) ;
-
-    color:var(--h1-color);
+    color: var(--h1-color);
     color: var(--h2-color);
+
     /* color: var(--color-p); */
      
 }
-/* Estilos para el modo claro */
-
 body{
     background-color:var(--background-color) ;
+    color: var(--h1-color);
+    color: var(--h2-color);
+
+
 }

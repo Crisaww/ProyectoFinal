@@ -4,16 +4,17 @@ function modoOscuro(){
     root.classList.add('oscuro');
     localStorage.setItem('modo', 'oscuro');
     root.style.setProperty('--background-color', '#000000');
-    root.style.setProperty('--h1-color','#ffffff')
-    root.style.setProperty('--h2-color','#ffffff')
+    root.style.setProperty('--h1-color','#ffffff');
+    root.style.setProperty('--h2-color', '#ffffff');
     // root.style.setProperty('--color-p')
 }
 function modoClaro(){
     root.classList.remove('oscuro');
     localStorage.setItem('modo', 'claro');
     root.style.setProperty('--background-color', '#ffffff');
-    root.style.setProperty('--h1-color','#000000')
-    root.style.setProperty('--h1-color','#000000')
+    root.style.setProperty('--h1-color','#5128b3');
+    root.style.setProperty('--h2-color','#000000')
+
 
     
 }
