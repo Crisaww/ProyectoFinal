@@ -1696,46 +1696,7 @@ INICIO TARJETAS SELECCION
   text-transform: lowercase;
 }
 
-.wave:nth-child(2),
-.wave:nth-child(3) {
-  top: 210px;
-}
 
-.playing .wave {
-  border-radius: 40%;
-  animation: wave 3000ms infinite linear;
-}
-
-.wave {
-  border-radius: 40%;
-  animation: wave 55s infinite linear;
-}
-
-.playing .wave:nth-child(2) {
-  animation-duration: 4000ms;
-}
-
-.wave:nth-child(2) {
-  animation-duration: 50s;
-}
-
-.playing .wave:nth-child(3) {
-  animation-duration: 5000ms;
-}
-
-.wave:nth-child(3) {
-  animation-duration: 45s;
-}
-
-@keyframes wave {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
 
 /* estilos de iconos */
 .icono{
@@ -1799,8 +1760,8 @@ INICIO TARJETAS-INTERNAS-SECCIONADAS PALABRAS COMUNES
   --bg-color: #fff;
   --main-color: #7872ab;
   --main-focus: #2d8cf0;
-  width:13rem;
-  height:12rem;
+  width:15rem;
+  height:13rem;
   background: var(--bg-color);
   border: 2px solid var(--main-color);
   border-radius: 5px;

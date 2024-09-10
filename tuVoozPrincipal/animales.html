@@ -19,7 +19,6 @@
         <link href="../TuVooz/Ajustes/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
         <link href="../TuVooz/Ajustes/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
         <link href="../TuVooz/Ajustes/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="../front_end/css/bootstrap.css">
         <link rel="stylesheet" href="../TuVooz/Ajustes/fontawesome/css/all.css">
 
 
@@ -28,8 +27,7 @@
         <link href="../TuVooz/Ajustes/css/style.css" rel="stylesheet">
         <link href="./css/style.css" rel="stylesheet">
         <link href="./css/estilos.css" rel="stylesheet">
-        <link href="./css/frasesPalabras.css" rel="stylesheet">
-        <link rel="stylesheet" href="./css/modoOscuro.css">
+        <link  href="./css/modoOscuro.css" rel="stylesheet">
 
 
         <!-- =======================================================
@@ -39,9 +37,6 @@
         * Author: BootstrapMade.com
         * License: https://bootstrapmade.com/license/
         ======================================================== -->
-        <script src="./js/favorito.js"></script>
-        <script src="./js/modoOscuro.js"></script>
-
     </head>
     <body class="oscuro"> 
     <body>
@@ -61,8 +56,9 @@
                             <a href="#" class="dropdow text-light" data-bs-toggle="dropdown"><i class="fa-solid fa-gear" id="#Menu "></i></a>
                             <div class="dropdown-menu rounded" id="menuDespliegue">
                                 <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> Mi cuenta</a>
-                            
-                                <a href="#" class="dropdown-item"><i class="fas fa-power-off me-2"></i>Cerrar sesión</a>
+                                <!-- la funcion logout viene de js config -->
+                                <button class="dropdown-item" onclick="logout()"><i class="fas fa-power-off me-2"></i>Logout</button>
+
                             </div>
                         </div>
                     </ul>
@@ -81,273 +77,286 @@
             <div class="container">
                 <div class="row">
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/perro.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Perro</a>
+                                    <a onclick="soundPerro.play()" class="btn btn-primary botonReproducirTextoTarjeta">Perro</a>
                                 </div>
                             </div>
                         </div>
                     </div>    
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/gato.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Gato</a>
+                                    <a onclick="soundGato.play()" class="btn btn-primary botonReproducirTextoTarjeta">Gato</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/elefante.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Elefante</a>
+                                    <a onclick="soundElefante.play()" class="btn btn-primary botonReproducirTextoTarjeta">Elefante</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/leon.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">León</a>
+                                    <a onclick="soundLeon.play()" class="btn btn-primary botonReproducirTextoTarjeta">León</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/tigre.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Tigre</a>
+                                    <a onclick="soundTigre.play()" class="btn btn-primary botonReproducirTextoTarjeta">Tigre</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/oso.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Oso</a>
+                                    <a onclick="soundOso.play()" class="btn btn-primary botonReproducirTextoTarjeta">Oso</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/caballo.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Caballo</a>
+                                    <a onclick="soundCaballo.play()" class="btn btn-primary botonReproducirTextoTarjeta">Caballo</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/delfin.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Delfín</a>
+                                    <a onclick="soundDelfin.play()" class="btn btn-primary botonReproducirTextoTarjeta">Delfín</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/aguila.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Águila</a>
+                                    <a onclick="soundAguila.play()" class="btn btn-primary botonReproducirTextoTarjeta">Águila</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/pinguino.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Pingüino</a>
+                                    <a onclick="soundPinguino.play()" class="btn btn-primary botonReproducirTextoTarjeta">Pingüino</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/cebra.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Cebra</a>
+                                    <a onclick="soundCebra.play()" class="btn btn-primary botonReproducirTextoTarjeta">Cebra</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/jirafa.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Jirafa</a>
+                                    <a onclick="soundJirafa.play()" class="btn btn-primary botonReproducirTextoTarjeta">Jirafa</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/lobo.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Lobo </a>
+                                    <a onclick="soundLobo.play()" class="btn btn-primary botonReproducirTextoTarjeta">Lobo </a>
                                 </div>
                             </div>
                         </div>
                     </div>
     
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/koala.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Koala</a>
+                                    <a onclick="soundKoala.play()" class="btn btn-primary botonReproducirTextoTarjeta">Koala</a>
                                 </div>
                             </div>
                         </div>
                     </div>
     
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/panda.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Panda</a>
+                                    <a onclick="soundPanda.play()" class="btn btn-primary botonReproducirTextoTarjeta">Panda</a>
                                 </div>
                             </div>
                         </div>
                     </div>
     
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/loro.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Loro</a>
+                                    <a onclick="soundLoro.play()" class="btn btn-primary botonReproducirTextoTarjeta">Loro</a>
                                 </div>
                             </div>
                         </div>
                     </div>
     
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/tortuga.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Tortuga</a>
+                                    <a onclick="soundTortuga.play()" class="btn btn-primary botonReproducirTextoTarjeta">Tortuga</a>
                                 </div>
                             </div>
                         </div>
                     </div>
     
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/pato.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Pato</a>
+                                    <a onclick="soundPato.play()" class="btn btn-primary botonReproducirTextoTarjeta">Pato</a>
                                 </div>
                             </div>
                         </div>
                     </div>
     
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/gallina.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Gallina</a>
+                                    <a onclick="soundGallina.play()" class="btn btn-primary botonReproducirTextoTarjeta">Gallina</a>
                                 </div>
                             </div>
                         </div>
                     </div>
     
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/pollo.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Pollo</a>
+                                    <a onclick="soundPollo.play()" class="btn btn-primary botonReproducirTextoTarjeta">Pollo</a>
                                 </div>
                             </div>
                         </div>
                     </div>
     
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/pescados.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">pescado</a>
+                                    <a onclick="soundPez.play()" class="btn btn-primary botonReproducirTextoTarjeta">Pez</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
+                        <div class="cardPalabrasComunes" >
+                            <img src="../tuVoozPrincipal/img/palabrasComunes/animales/pescados.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"></h5>
+                                <!-- <p class="card-text">Some quick </p> -->
+                                <div class=".contenedor_botonTarjeta">
+                                    <a onclick="soundPescado.play()" class="btn btn-primary botonReproducirTextoTarjeta">Pescado</a>
                                 </div>
                             </div>
                         </div>
@@ -365,6 +374,8 @@
         <!-- Template Main JS File -->
         <script src="../TuVooz/Ajustes/js/main.js"></script>
         <script src="./js/modoOscuro.js"></script>
+        <script src="./js/audios.js"></script>
+        <script src="./js/cuenta/config.js"></script>
     </body>
 </html>
 

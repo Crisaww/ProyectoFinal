@@ -21,7 +21,6 @@
     <link href="../TuVooz/Ajustes/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="../TuVooz/Ajustes/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="../TuVooz/Ajustes/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../">
     <link rel="stylesheet" href="../TuVooz/Ajustes/fontawesome/css/all.css">
   
   
@@ -55,13 +54,12 @@
           <ul style="padding: 0px 40px 0px 0px;">
             <li><a class="nav-link scrollto " href="./paginaPrincipal.html">Texto</a></li>
             <li><a class="nav-link scrollto" href="./indexPalabrasComunes.html">Palabras comunes</a></li>
-            <li><a class="nav-link scrollto " href="./nosotros.html">¿Quiénes sómos?</a></li>
             <li><a class="nav-link scrollto" href="./comoUsarTuvooz.html">¿Cómo usar TuVooz?</a></li>
             <div class="dropdown">
               <a href="#" class="dropdow text-light" data-bs-toggle="dropdown"><i class="fa-solid fa-gear" id="#Menu "></i></a>
               <div class="dropdown-menu rounded" id="menuDespliegue">
                   <a href="miCuenta.html" class="dropdown-item active"><i class="fas fa-user-alt me-2"></i> Mi cuenta</a>
-                  
+                  <button class="dropdown-item" onclick="logout()"><i class="fas fa-power-off me-2"></i>Logout</button>
                   <a href="#" class="dropdown-item"><i class="fas fa-power-off me-2"></i>Cerrar sesión</a>
               </div>
             </div>
@@ -180,21 +178,23 @@
 
         <div class="vozFemenina">
           <label class="custom-checkbox">
-            <input name="dummy" type="checkbox">
+            <input id="checkboxVoiceA" name="dummy" type="checkbox" value="es-US-Wavenet-A">
+            <!-- <input id="checkboxVoiceA" name="dummy" type="checkbox" value="es-US-Neural2-A"> Siento que esa voz es como más natural pero decidí dejarla por si quieren cambiar -->
             <span class="checkmark"></span>
-            <i class="fa-solid fa-person-dress" id="iconosSeleccionarVoz" style="font-size: 25px; "></i>
+            <i class="fa-solid fa-person-dress" id="iconosSeleccionarVoz" style="font-size: 25px;"></i>
             <p id="vozFemenina">Voz femenina</p>
           </label>
         </div>
-
+        
         <div class="vozMasculina">
           <label class="custom-checkbox">
-            <input name="dummy" type="checkbox">
+            <input id="checkboxVoiceB" name="dummy" type="checkbox" value="es-US-Wavenet-B">
             <span class="checkmark"></span>
-            <i class="fa-solid fa-person" id="iconosSeleccionarVoz"style="font-size: 25px;"></i>
+            <i class="fa-solid fa-person" id="iconosSeleccionarVoz" style="font-size: 25px;"></i>
             <p id="vozMasculina">Voz masculina</p>
           </label>
         </div>
+        
 
       </div>
 
@@ -247,6 +247,6 @@
 
   <script src="./js/accesibilidad.js"></script>
   <script src="./js/modoOscuro.js"></script>
-    
+  <script src="./js/cuenta/config.js"></script>  
   </body>
 </html>

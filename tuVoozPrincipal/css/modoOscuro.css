@@ -3,10 +3,12 @@
     /* modo predeterminado */
     --background-color: #ffffff;
     --h1-color:#000000;
-    /* modo oscuro  */
-    --background-color: #000000;
-    --h1-color:#b91414;
-
+    --h2-color:#000000;
+    
+    /* --color-h1: #ffffff;
+    --color-h1: #000000;
+    --color-h2:#000000;
+    --color-h2:#ffffff; */
 
 }
 

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Saludos-Despedidas Comunes</title>
+        <title>Saludos-despedidas Comunes</title>
         <!-- Favicons -->
         <link href="../tuVoozPrincipal/img/logosolo.png" rel="icon">
         <script src="https://kit.fontawesome.com/b5603bc3b7.js" crossorigin="anonymous"></script>
@@ -19,7 +19,6 @@
         <link href="../TuVooz/Ajustes/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
         <link href="../TuVooz/Ajustes/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
         <link href="../TuVooz/Ajustes/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="../front_end/css/bootstrap.css">
         <link rel="stylesheet" href="../TuVooz/Ajustes/fontawesome/css/all.css">
 
 
@@ -28,10 +27,7 @@
         <link href="../TuVooz/Ajustes/css/style.css" rel="stylesheet">
         <link href="./css/style.css" rel="stylesheet">
         <link href="./css/estilos.css" rel="stylesheet">
-        <link href="./css/frasesPalabras.css" rel="stylesheet">
-        <link rel="stylesheet" href="./css/modoOscuro.css">
-
-
+        <link  href="./css/modoOscuro.css" rel="stylesheet">
         <!-- =======================================================
         * Template Name: Techie
         * Template URL: https://bootstrapmade.com/techie-free-skin-bootstrap-3/
@@ -39,9 +35,6 @@
         * Author: BootstrapMade.com
         * License: https://bootstrapmade.com/license/
         ======================================================== -->
-        <script src="./js/favorito.js"></script>
-        <script src="./js/modoOscuro.js"></script>
-
     </head>
     <body class="oscuro"> 
     <body>
@@ -61,7 +54,7 @@
                             <a href="#" class="dropdow text-light" data-bs-toggle="dropdown"><i class="fa-solid fa-gear" id="#Menu "></i></a>
                             <div class="dropdown-menu rounded" id="menuDespliegue">
                                 <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> Mi cuenta</a>
-                            
+                                <button class="dropdown-item" onclick="logout()"><i class="fas fa-power-off me-2"></i>Logout</button>
                                 <a href="#" class="dropdown-item"><i class="fas fa-power-off me-2"></i>Cerrar sesión</a>
                             </div>
                         </div>
@@ -77,186 +70,173 @@
                 <div class="row justify-content-center"></div>
             </div>
         </section><!-- End Hero -->
-            <h1 class="tituloTexto">Saludo-Despedidas comunes</h1>
+            <h1 class="tituloTexto">Saludos y despedidas</h1>
             <div class="container" >
                 <div class="row">
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/Saludos-Despedidas/Hola.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Hola</a>
+                                    <a onclick="soundHola.play()"class="btn btn-primary botonReproducirTextoTarjeta">Hola</a>
                                 </div>
                             </div>
                         </div>
                     </div>    
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/Saludos-Despedidas/buenos dias.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Buenos días</a>
+                                    <a onclick="soundBuenosDias.play()" class="btn btn-primary botonReproducirTextoTarjeta">Buenos días</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/Saludos-Despedidas/BuenasTardes.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Buenas tardes</a>
+                                    <a onclick="soundBuenasTardes.play()" class="btn btn-primary botonReproducirTextoTarjeta">Buenas tardes</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/Saludos-Despedidas/BuenasNoches.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Buenas noches</a>
+                                    <a onclick="soundBuenasNoches.play()" class="btn btn-primary botonReproducirTextoTarjeta">Buenas noches</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
-                            <img src="../tuVoozPrincipal/img/palabrasComunes/Saludos-Despedidas/Buenas.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title"></h5>
-                                <!-- <p class="card-text">Some quick </p> -->
-                                <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Buenas</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/Saludos-Despedidas/saludoFormales.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Encantado de conocerle</a>
+                                    <a onclick="soundEncantadoDeConocerte.play()" class="btn btn-primary botonReproducirTextoTarjeta">Encantado de conocerte</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/Saludos-Despedidas/saludoFormales.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Que gusto verle</a>
+                                    <a onclick="soundQueGustoVerte.play()" class="btn btn-primary botonReproducirTextoTarjeta">Que gusto verte</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/Saludos-Despedidas/saludoFormales.png"class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Es un placer conocerle</a>
+                                    <a onclick="soundEsUnPlacerConocerte.play()" class="btn btn-primary botonReproducirTextoTarjeta">Es un placer conocerte</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/Saludos-Despedidas/despedida1.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Adiós</a>
+                                    <a onclick="soundAdios.play()" class="btn btn-primary botonReproducirTextoTarjeta">Adiós</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/Saludos-Despedidas/despedida2.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Hasta pronto</a>
+                                    <a onclick="soundHastaPronto.play()" class="btn btn-primary botonReproducirTextoTarjeta">Hasta pronto</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/Saludos-Despedidas/despedida3.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Hasta Luego</a>
+                                    <a onclick="soundHastaLuego.play()" class="btn btn-primary botonReproducirTextoTarjeta">Hasta Luego</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/Saludos-Despedidas/despedida4.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Hasta Mañana</a>
+                                    <a onclick="soundHastaMañana.play()" class="btn btn-primary botonReproducirTextoTarjeta">Hasta Mañana</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/Saludos-Despedidas/despedida5.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Nos vemos</a>
+                                    <a onclick="soundNosVemos.play()" class="btn btn-primary botonReproducirTextoTarjeta">Nos vemos</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasComunes" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/Saludos-Despedidas/despedida6.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a href="#" class="btn btn-primary botonReproducirTextoTarjeta">Chao</a>
+                                    <a onclick="soundChao.play()" class="btn btn-primary botonReproducirTextoTarjeta">Chao</a>
                                 </div>
                             </div>
                         </div>
@@ -273,6 +253,8 @@
         <!-- Template Main JS File -->
         <script src="../TuVooz/Ajustes/js/main.js"></script>
         <script src="./js/modoOscuro.js"></script>
+        <Script src="./js/audios.js"></Script>
+        <script src="./js/cuenta/config.js"></script>
     </body>
 </html>
 
