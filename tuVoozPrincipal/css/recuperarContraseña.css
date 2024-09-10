@@ -91,21 +91,22 @@ input[type="password"] {
 .boton {
     display: flex;
     justify-content: center;
-    align-items: center;
+    
+  
 }
 
-.boton [type="submit"] {
+/* Dentro del botón */
+.boton .btn {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    width: 70%;
+    border-radius: 15px;
+    border: none;
+    padding: 8px;
+
     background-color: rgba(86, 58, 250, 0.9);
     color: #fff;
-    padding: 12px 6px;
-    border: none;
-    border-radius: 15px;
-    /* Añade estas propiedades para centrar el contenido del botón */
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    font-size: 18px;
-    /*tamaño de la letra del boton*/
 }
 
 /*Estilos para el aviso de descarga*/
