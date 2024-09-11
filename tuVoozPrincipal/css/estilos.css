@@ -33,14 +33,7 @@ html{
   left: 76%;
   transition: opacity 0.5s ease-in-out; /* Añadir transición */
 }
-.wave {
-  position: absolute;
-  transform: rotate(90deg);
-  left: -31px;
-  top: 32px;
-  width: 80px;
-  fill: #04e4003a;
-}
+
 
 .icon-container {
   width: 35px;

@@ -9,10 +9,6 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-body {
-  font-family: "Open Sans", sans-serif;
-  color: #444444;
-}
 
 a {
   color: #3b26fa;
@@ -1647,29 +1643,15 @@ INICIO TARJETAS SELECCION
 */
 
 .e-card {
-  
-  background: transparent;
   box-shadow: 0px 8px 28px -9px rgba(0,0,0,0.45);
   position: relative;
-  /* width: 240px; */
   width:90%;
   height: 330px;
   border-radius: 16px;
-  overflow: hidden;
-  margin: 25px;
-}
-
-.wave {
-  position: absolute;
-  width: 540px;
-  height: 700px;
-  opacity: 0.6;
-  left: 0;
-  top: 0;
-  margin-left: -50%;
-  margin-top: -70%;
   background: linear-gradient(744deg, #7440ff, #7255eb 60%, #0297ef);
 }
+
+
 
 .icon {
   width: 3em;
@@ -1755,22 +1737,9 @@ INICIO TARJETAS-INTERNAS-SECCIONADAS PALABRAS COMUNES
 ------------------------------------------------------
 */
 .cardPalabrasComunes {
-  --font-color: #323232;
-  --font-color-sub: #666;
-  --bg-color: #fff;
-  --main-color: #7872ab;
-  --main-focus: #2d8cf0;
-  width:15rem;
-  height:13rem;
-  background: var(--bg-color);
-  border: 2px solid var(--main-color);
-  border-radius: 5px;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 5px;
-  gap: 10px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  justify-content: center;
+  padding: 20px;
 }
 
 .card:last-child {
@@ -1921,10 +1890,7 @@ FIN COMO USAR TU VOOZ
   padding-left: 2rem;
 }
 
-.row>* {
-  padding-right: 0;
-  
-}
+
 
 
 
