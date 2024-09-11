@@ -33,7 +33,14 @@ html{
   left: 76%;
   transition: opacity 0.5s ease-in-out; /* Añadir transición */
 }
-
+.wave {
+  position: absolute;
+  transform: rotate(90deg);
+  left: -31px;
+  top: 32px;
+  width: 80px;
+  fill: #04e4003a;
+}
 
 .icon-container {
   width: 35px;
@@ -213,10 +220,10 @@ html{
 #navbarCollapse{
   margin-top: -1%;
 }
-/* .dropdown .dropdown-menu a:hover {
+.dropdown .dropdown-menu a:hover {
   background: var(--bs-secondary);
   color: var(--bs-primary);
-} */
+}
 
 .navbar .nav-item:hover .dropdown-menu {
   transform: rotateX(0deg);
@@ -245,7 +252,7 @@ padding-left: 10px;
   margin-left: 8px;
 }
 
-.dropdown .dropdown-menu a:hover, .dropdown .dropdown-menu button:hover {
+.dropdown .dropdown-menu a:hover {
   background:#8f19f7;
   color: #ffffff;
 }
@@ -295,7 +302,7 @@ Texto
   font-family: "Poppins", sans-serif;
   text-align: center;
   padding-top: 120px;
-  color: #5128b3 var(--h1-color);
+  color: #5128b3 var();
   text-align: center;
   font-weight: bold;
 }
@@ -472,7 +479,6 @@ ACCESIBILIDAD
   cursor: pointer;
   box-shadow: 0px 0px 5px rgb(0, 0, 0);
 } 
-
   
 
 
