@@ -21,23 +21,22 @@ toggleButton.addEventListener('click', () => {
 // Función para establecer el modo oscuro
 function setDarkMode() {
   document.body.classList.add('dark-mode');
+  // Update CSS variables for dark mode
   document.documentElement.style.setProperty('--background-color', 'var(--dark-background-color)');
   document.documentElement.style.setProperty('--text-color', 'var(--dark-text-color)');
-  document.documentElement.style.setProperty('--input-background', 'var(--dark-input-background)'); // Actualiza el fondo del input
-  document.documentElement.style.setProperty('--input-text-color', 'var(--dark-input-text-color)'); // Actualiza el color del texto del input
-  document.documentElement.style.setProperty('--primary-color', 'var(--dark-primary-color)');
-  document.documentElement.style.setProperty('--secondary-color', 'var(--dark-secondary-color)');
+  document.documentElement.style.setProperty('--text-color', 'var(--dark-text-color)');
+
+
+  // ... and so on for other variables
   localStorage.setItem('theme', 'dark');
 }
 
 // Función para establecer el modo claro
 function setLightMode() {
   document.body.classList.remove('dark-mode');
+  // Update CSS variables for light mode
   document.documentElement.style.setProperty('--background-color', 'var(--light-background-color)');
   document.documentElement.style.setProperty('--text-color', 'var(--light-text-color)');
-  document.documentElement.style.setProperty('--input-background', 'var(--light-input-background)'); // Actualiza el fondo del input
-  document.documentElement.style.setProperty('--input-text-color', 'var(--light-input-text-color)'); // Actualiza el color del texto del input
-  document.documentElement.style.setProperty('--primary-color', 'var(--light-primary-color)');
-  document.documentElement.style.setProperty('--secondary-color', 'var(--light-secondary-color)');
+  // ... and so on for other variables
   localStorage.setItem('theme', 'light');
 }

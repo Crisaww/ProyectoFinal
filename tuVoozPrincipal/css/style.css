@@ -1844,13 +1844,13 @@ FIN COMO USAR TU VOOZ
 .tituloTexto2{
   font-family: "Poppins", sans-serif;
   text-align: center;
-  color: #5128b3 ;
+  color: #5128b3 var();
   font-weight: bold;
 }
 
 .texto-h2{
   font-family: "Poppins", sans-serif;
-  color: #000000 var(--h2-color);
+  color: #000000 var();
   padding-left: 2rem;
 }
 
