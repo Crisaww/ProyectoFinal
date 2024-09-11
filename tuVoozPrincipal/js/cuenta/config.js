@@ -163,10 +163,25 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function logout() {
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('refresh_token');
-    window.location.href = "http://127.0.0.1:5502/tuVoozPrincipal/cuenta/iniciarSesion.html";
+    Swal.fire({
+        title: "Advertencia",
+        text: "¿Estás seguro de que quieres cerrar sesión?",
+        icon: "warning",
+        showCancelButton: true, // Botón para cancelar la acción
+        confirmButtonText: "Sí, cerrar sesión",
+        cancelButtonText: "Cancelar",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Si el usuario confirma, procede a cerrar sesión
+            localStorage.removeItem('access_token');
+            localStorage.removeItem('refresh_token');
+            Swal.fire("Sesión cerrada", "Has cerrado sesión correctamente.", "success").then(() => {
+                window.location.href = "http://127.0.0.1:5502/tuVoozPrincipal/cuenta/iniciarSesion.html";
+            });
+        }
+    });
 }
+
 
 
 
