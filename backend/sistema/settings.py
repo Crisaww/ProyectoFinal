@@ -30,10 +30,11 @@ SECRET_KEY = 'django-insecure-(txe3%0876b*)5*ws9_t(=*jl%4mh^pzg7#3q3iqh&)n=t!=28
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', 'tuvooz.com', 'www.tuvooz.com', '5.183.11.147']
+ALLOWED_HOSTS = ['5.183.11.147', 'localhost', '127.0.0.1', '0.0.0.0']
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5502",
-    "http://10.192.66.56:5502"# Reemplaza con el origen de tu frontend
+    "http://10.192.66.56:5502",
+    'http://5.183.11.147:5502'# Reemplaza con el origen de tu frontend
 ]
 
 # Application definition
