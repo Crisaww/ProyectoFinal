@@ -173,7 +173,7 @@ h6 {
 }
 
 .navbar a,
-.navbar a:focus {
+.navbar a:focus, .navbar button, .navbar button:focus {
   display: flex;
   align-items: center;
   justify-content: start;
@@ -190,7 +190,7 @@ h6 {
 
 
 .navbar a i,
-.navbar a:focus i {
+.navbar a:focus i, .navbar button i, .navbar button:focus i {
   font-size: 12px;
   line-height: 0;
   margin-left: 5px;
@@ -1577,51 +1577,8 @@ INICIO MENU LATERAL IZQUIERDO FRASES
   transition: 0.5s;
   transition-property: background;
 }
-
 .sidebar a:hover {
   background: #c2a1bc;
-}
-
-/* estilos de los iconos de barras del menu */
-.sidebar i {
-  padding-right: 10%;
-  font-size: 120%;
-}
-
-/* boton de abrir y cerrar el menu lateral end */
-label #sidebar_btn {
-  z-index: 1;
-  color: #ffffff;
-  cursor: pointer;
-  transition: 0.5s;
-  transition-property: color;
-  margin: 5px 0;
-}
-
-/* label #sidebar_btn:hover {
- color: #e6bff1;
-} */
-
-/** es la accion que cierra el sidebar menu lateral **/
-#check:checked ~ .sidebar {
-  left: -160px;
-}
-
-#check:checked ~ .sidebar a span {
-  display: none;
-}
-
-/** es la accion que cierra las etiquetas que son las opciones del menu lateral **/
-#check:checked ~ .sidebar a {
-  font-size: 100%;
-  margin-left: 65%;
-  width: 30%;
-}
-
-/** es la accion para que el contenido del frente del menu lateral se adapte
-    ya sea cuando este cerrado (se encuentre con el check) **/
-#check:checked ~ iframe {
-  margin-left: 6%;
 }
 
 /*
@@ -1740,6 +1697,13 @@ INICIO TARJETAS-INTERNAS-SECCIONADAS PALABRAS COMUNES
   display: flex;
   justify-content: center;
   padding: 20px;
+}
+
+.cardPalabrasSecciones {
+    border: 2px solid #7872ab;
+    display: flex;
+    flex-direction: column;
+    height: 13rem;
 }
 
 .card:last-child {
