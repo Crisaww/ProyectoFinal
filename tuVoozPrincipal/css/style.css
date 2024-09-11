@@ -173,7 +173,7 @@ h6 {
 }
 
 .navbar a,
-.navbar a:focus {
+.navbar a:focus, .navbar button, .navbar button:focus {
   display: flex;
   align-items: center;
   justify-content: start;
@@ -190,7 +190,7 @@ h6 {
 
 
 .navbar a i,
-.navbar a:focus i {
+.navbar a:focus i, .navbar button i, .navbar button:focus i {
   font-size: 12px;
   line-height: 0;
   margin-left: 5px;
@@ -1740,6 +1740,13 @@ INICIO TARJETAS-INTERNAS-SECCIONADAS PALABRAS COMUNES
   display: flex;
   justify-content: center;
   padding: 20px;
+}
+
+.cardPalabrasSecciones {
+    border: 2px solid #7872ab;
+    display: flex;
+    flex-direction: column;
+    height: 13rem;
 }
 
 .card:last-child {
