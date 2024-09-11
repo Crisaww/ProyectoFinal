@@ -1,34 +1,46 @@
-/* DEFINICION DE VARIABLES DE CSS  */
 :root {
-    /* modo predeterminado */
-    --background-color: #000000;
-    --h1-color:#ffffff;
-    --h1-color:#5128b3;
-    --h2-color:#ffffff;
-    --h2-color:#000000;
-
-    
-    /* --color-h1: #ffffff;
-    --color-h1: #000000;
-    --color-h2:#000000;
-    --color-h2:#ffffff; */
-
-}
-
-/* Estilos para el modo claro */
-body.oscuro{
-
-    background-color:var(--background-color) ;
-    color: var(--h1-color);
-    color: var(--h2-color);
-
-    /* color: var(--color-p); */
-     
-}
-body{
-    background-color:var(--background-color) ;
-    color: var(--h1-color);
-    color: var(--h2-color);
-
-
-}
+    /* Variables de Modo Claro */
+    --light-background-color: #ffffff;
+    --light-text-color: #000000;
+    --light-input-background: #f1f1f1; /* Fondo de los campos de entrada en modo claro */
+    --light-input-text-color: #000000; /* Color de texto de los campos de entrada en modo claro */
+  
+    /* Variables de Modo Oscuro */
+    --dark-background-color: #121212;
+    --dark-text-color: #ffffff;
+    --dark-input-background: #333333; /* Fondo de los campos de entrada en modo oscuro */
+    --dark-input-text-color: #ffffff; /* Color de texto de los campos de entrada en modo oscuro */
+  
+    /* Variables de Tema Activo (Por Defecto el Modo Claro) */
+    --background-color: var(--light-background-color);
+    --text-color: var(--light-text-color);
+    --input-background: var(--light-input-background);
+    --input-text-color: var(--light-input-text-color);
+  }
+  
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  input, textarea {
+    background-color: var(--input-background);
+    color: var(--input-text-color);
+    border: 1px solid #ddd; /* Borde opcional */
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  h1, h2, h3, p {
+    color: var(--text-color);
+  }
+  
+  /* Estilo de Modo Oscuro */
+  body.dark-mode {
+    --background-color: var(--dark-background-color);
+    --text-color: var(--dark-text-color);
+    --input-background: var(--dark-input-background);
+    --input-text-color: var(--dark-input-text-color);
+  }
+  
