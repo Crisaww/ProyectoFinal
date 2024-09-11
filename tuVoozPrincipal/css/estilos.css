@@ -497,7 +497,7 @@ ACCESIBILIDAD
 .linea{
   border: none;
   margin-top: 20px;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid;
   width: 100%;
 
   

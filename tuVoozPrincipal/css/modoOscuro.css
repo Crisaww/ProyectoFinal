@@ -11,12 +11,14 @@
     --dark-text-color: #dfdada;
     --dark-input-background: #333333; /* Fondo de los campos de entrada en modo oscuro */
     --dark-h1-color: #dfdada;  /* Color específico para H1 en modo oscuro */
+    --dark-hr-linea-border-bottom:#ccc;
       
     /* Variables de Tema Activo (Por Defecto el Modo Claro) */
     --background-color: var(--light-background-color);
     --text-color: var(--light-text-color);
     --input-background: var(--light-input-background);
     --h1-color: var(--light-h1-color); /* Nueva variable para color de H1 */
+    --hr-border-bottom :var(--dark-hr-linea-border-bottom)
   }
   
   body {
@@ -48,4 +50,5 @@
     --text-color: var(--dark-text-color);
     --input-background: var(--dark-input-background);
     --h1-color: var(--dark-h1-color); /* Update H1 color for dark mode */
+    --hr-border-bottom: var(--dark-hr-linea-border-bottom)
   }

@@ -25,6 +25,7 @@ function setDarkMode() {
   document.documentElement.style.setProperty('--background-color', 'var(--dark-background-color)');
   document.documentElement.style.setProperty('--text-color', 'var(--dark-text-color)');
   document.documentElement.style.setProperty('--text-color', 'var(--dark-text-color)');
+  document.documentElement.style.setProperty('--hr-border-bottom','var(--dark-hr-linea-border-bottom)')
 
 
   // ... and so on for other variables
