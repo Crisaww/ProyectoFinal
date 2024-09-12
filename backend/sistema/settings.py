@@ -111,12 +111,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tuvoozdb',
         'USER': 'root',
-        #'PASSWORD': '',
         'PASSWORD': '123456',
-=======
-        'PASSWORD': '123456',
-        #'PASSWORD':'root123',
->>>>>>> 74539afe11cc8b1954e09e15de8797f5fec0e475
         #'PASSWORD': 'root123',# se debe cambiar esto de acuerdo a la DB que van a utilizar
         'HOST': 'localhost',  # o la dirección IP de tu servidor MySQL
         'PORT': '3306',       
