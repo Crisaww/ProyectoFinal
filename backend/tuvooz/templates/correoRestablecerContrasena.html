@@ -12,7 +12,7 @@
     {% load static %}
     <img src="{% static 'images/nuevoLogo.png' %}" alt="Logo">
     <p>Haga clic en el siguiente enlace para restablecer su contraseña:</p>
-    <p><a href="{{ frontend_url }}/reset-password/{{ token }}/">Restablecer Contraseña</a></p>
+    <a href="http://127.0.0.1:5502/tuVoozPrincipal/cuenta/recuperarContrasena.html?token={{ token }}">Restablecer Contraseña</a>
     <p>Si no solicitó este cambio, ignore este mensaje.</p>
 </body>
 </html>

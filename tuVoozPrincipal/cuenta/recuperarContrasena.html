@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear cuenta</title>
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/crearCuenta.css"> <!--Estilos del CSS-->
+
+    <!-- Font Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-column">
+            <div class="fauguet">
+                <div class="tituloRecuperarContraseña">
+                    <h1>Recuperar contraseña </h1>
+                </div>
+                <div class="formulario">
+                    <!-- si se tiene creada una clase, no es necesario poner el style dentro de la etiqueta,
+                      para eso esta css, eso es error de especificidad, corregí muchos errores de ese tipo y
+                       tambien con los tamaños, por favor, ver la documentacion que envio por el grupo, 
+                       no me mato buscando eso para que lo ignoren -->
+
+
+                    <div class="formularioRecuperarContrasena" >
+                        <div class="labelFormulario" >
+                            <label for="password" class="form-label" > Nueva Contraseña:</label>
+                        </div>
+                        <div class="inputFormulario">
+                            <input type="password" class="form-control" name="password" id="password" step="1" >
+                            <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+                        </div>
+                       
+                    </div> 
+                    <div class="formularioRecuperarContrasena" >
+                        <div class="labelFormulario" >
+                            <label for="password" class="form-label" >Confirmar Contraseña:</label>
+                        </div>
+                        <div class="inputFormulario">
+                            <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" step="1" > 
+                            <i class="fas fa-eye toggle-password" id="toggleConfirmPassword"></i>
+                            
+                        </div>
+                        
+                        
+                    </div> 
+                    
+                </div>
+               
+                <div class="boton">
+                    <button type="button" class="btn" onclick="restablecerContrasena();">Confirmar contraseña</button>
+                </div>
+                
+                <div class="registro">
+                    <p>¿Ya tienes una cuenta? <a href="./iniciarSesion.html">Iniciar Sesión</a></p>
+                </div>                
+            </div>
+        </div>
+        <div class="right-column">
+            <img src="../img/solidoGrande (1).png" alt="TuVooz" class="site-logo">
+        </div>
+    </div>
+    
+</body>
+<!-- se trae la libretia tippy -->
+ <script src="../js/cuenta/recuperarContrasena.js"></script>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script src="../js/cuenta/registro.js"></script> <!--JavaScript-->
+<script src="../js/cuenta/config.js"></script>
+
+
+
+
+</html>
