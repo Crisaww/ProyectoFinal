@@ -257,6 +257,12 @@ padding-left: 10px;
   color: #ffffff;
 }
 
+.dropdown-item:focus, .dropdown-item:hover{
+  background:#8f19f7;
+  color: white;
+
+}
+
 .navbar .nav-item:hover .dropdown-menu {
   transform: rotateX(0deg);
   visibility: visible;
