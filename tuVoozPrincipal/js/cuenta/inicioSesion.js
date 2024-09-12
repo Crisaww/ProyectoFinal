@@ -24,22 +24,20 @@ function iniciarSesion() {
                 'X-CSRFToken': getCookie('csrftoken')
             },
             body: JSON.stringify(formData)
-            
         })
         .then(response => {
-            if (response.status === 401) {
+            if (response.status === 401 ||response.status === 404) {
                 return response.json().then(data => {
                     Swal.fire({
                         title: "Advertencia",
                         text: "Credenciales incorrectas.",
                         icon: "warning"
                     });
-                    return Promise.reject('Credenciales incorrectas');
+                    throw new Error('Credenciales incorrectas');
                 });
             } else if (!response.ok) {
                 throw new Error('La respuesta de la red no fue correcta');
             }
-           
             return response.json();
         })
         .then(data => {
@@ -49,8 +47,8 @@ function iniciarSesion() {
             window.location.href = "http://127.0.0.1:5502/tuVoozPrincipal/paginaPrincipal.html";
         })
         .catch(error => {
-            if (error !== 'Credenciales incorrectas') {
-                Swal.fire("Error", "Error al iniciar sesión: " + error, "error");
+            if (error.message !== 'Credenciales incorrectas') {
+                Swal.fire("Error", "Error al iniciar sesión: " + error.message, "error");
             }
         });
     } else {
@@ -61,6 +59,8 @@ function iniciarSesion() {
         });
     }
 }
+
+
 
 function validarCamposLogin() {
     var email = document.getElementById("email");

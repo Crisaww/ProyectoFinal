@@ -73,6 +73,7 @@ function VistasProtegidas(url) {
         if (!response.ok) {
             if (response.status === 401) {
                 return refrescarToken().then(() => {
+                    
                     // Reintenta la solicitud después de refrescar el token
                     return fetch(`http://127.0.0.1:8000${url}`, {
                         method: 'GET',

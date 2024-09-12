@@ -118,6 +118,8 @@ function registrarUsuario() {
         });
     }
 }
+
+
 function validarCampos() {
     var username = document.getElementById("username");
     var email = document.getElementById("email");
