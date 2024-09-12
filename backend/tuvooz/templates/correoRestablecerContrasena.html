@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restablecer Contraseña</title>
+</head>
+<body>
+    <h1>Restablecer Contraseña</h1>
+    <p>Hola {{username}}</p>
+    {% load static %}
+    <img src="{% static 'images/nuevoLogo.png' %}" alt="Logo">
+    <p>Haga clic en el siguiente enlace para restablecer su contraseña:</p>
+    <p><a href="{{ frontend_url }}/reset-password/{{ token }}/">Restablecer Contraseña</a></p>
+    <p>Si no solicitó este cambio, ignore este mensaje.</p>
+</body>
+</html>

@@ -8,10 +8,14 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth.models import User
 from django.template.loader import render_to_string
+from django.utils.crypto import get_random_string
 from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
+import jwt
+from django.core.mail import send_mail
+
 
 # Create your views here.
 
@@ -93,6 +97,48 @@ def perfil(request):
     
     return Response(data, status=status.HTTP_200_OK)
 
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def olvide_contrasena(request):
+    email = request.data.get('email')
+
+    if not email:
+        return Response({"error": "El correo electrónico es obligatorio."}, status=400)
+
+    try:
+        user = User.objects.get(email=email)
+    except User.DoesNotExist:
+        return Response({"error": "No se encontró un usuario con ese correo electrónico."}, status=404)
+
+    # Generar un token único
+    token = get_random_string(50)
+
+    # Definir función para enviar el correo en un hilo separado
+    def send_email_task():
+        subject = 'Restablecer contraseña'
+        from_email = settings.EMAIL_HOST_USER
+        to = email
+        text_content = 'Utilice el siguiente enlace para restablecer su contraseña: {reset_url}'.format(
+            reset_url=f"{settings.FRONTEND_URL}/reset-password/{token}/"
+        )
+        html_content = render_to_string('correoRestablecerContrasena.html', {
+            'frontend_url': settings.FRONTEND_URL,
+            'token': token
+        })
+        send_mail(
+            subject,
+            text_content,
+            from_email,
+            [to],
+            html_message=html_content
+        )
+
+    # Iniciar el envío del correo en un hilo separado
+    email_thread = threading.Thread(target=send_email_task)
+    email_thread.start()
+
+    # Aquí podrías guardar el token en una base de datos o caché para validarlo después
+    return Response({"message": "Se ha enviado un enlace para restablecer la contraseña a su correo electrónico."})
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def pagina_principal(request):
