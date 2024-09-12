@@ -1855,7 +1855,53 @@ FIN COMO USAR TU VOOZ
   padding-left: 2rem;
 }
 
+/* estilos del boton ir a el inicio */
+.top-left-btn {
+  display: flex;
+  align-items: center;
+  width: 3rem;
+  height: 7%;
+  background-color: #6200ea;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  justify-content: center;
+  
+}
 
+.cajaBotonTitulo{
+  display: flex;
+  align-items: end;
+  height: 25%;
+}
+
+.volverCasa{
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  height: 100%;
+  width: 10rem;
+}
+
+.cajaTituloTexto2{
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  width: 64rem;
+  height: 100%;
+}
+.cajaTituloTexto{
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Estilos para el hover */
+.top-left-btn:hover {
+  background-color: #3700b3; /* Color más oscuro al hacer hover */
+}
 
 
 

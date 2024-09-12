@@ -301,9 +301,7 @@ Texto
 .tituloTexto{
   font-family: "Poppins", sans-serif;
   text-align: center;
-  padding-top: 120px;
   color: #5128b3 var();
-  text-align: center;
   font-weight: bold;
 }
 
