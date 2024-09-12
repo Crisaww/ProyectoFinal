@@ -21,6 +21,8 @@ urlpatterns = [
     re_path('api/v1/iniciarSesion', views.iniciarSesion, name='iniciarSesion'),
     re_path('api/v1/perfil', views.perfil, name='accesoPerfil'),
     re_path('api/v1/olvideContrasena', views.olvide_contrasena, name='olvideConatrasena'),
+    re_path('api/v1/restablecerContrasena', views.restablecerContrasena, name='restablecerContrasena'),
+    
     # Ruta para sintetizar audio
     path('synthesize/', synthesize, name='synthesize'),
     

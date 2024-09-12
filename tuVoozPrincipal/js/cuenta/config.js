@@ -5,6 +5,7 @@ let urlLogin= urlBasica+"tuvooz/api/v1/iniciarSesion";
 let urlRegistro=urlBasica+"tuvooz/api/v1/registro";
 let urlPerfil = urlBasica+"tuvooz/api/v1/perfil";
 let urlOlvideContrasena = urlBasica+"tuvooz/api/v1/olvideContrasena";
+let urlRestabkecerContrasena = urlBasica+"tuvooz/api/v1/restablecerContrasena/";
 let urlGenerarTexto=urlBasica+"synthesize/";
 
 function obtenerTokens() {

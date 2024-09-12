@@ -15,8 +15,8 @@ from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
 import jwt
 from django.core.mail import send_mail
-
-
+from datetime import datetime, timedelta
+from django.shortcuts import render
 # Create your views here.
 
 @api_view(['POST'])
@@ -97,6 +97,18 @@ def perfil(request):
     
     return Response(data, status=status.HTTP_200_OK)
 
+#genera el token
+def generate_password_reset_token(user):
+    expiration_time = datetime.utcnow() + timedelta(hours=42)  # Token válido por 1 hora
+    payload = {
+        'user_id': user.id,
+        'exp': expiration_time,
+        'iat': datetime.utcnow(),
+    }
+    token = jwt.encode(payload, settings.SECRET_KEY, algorithm='HS256')
+    return token
+
+#envia correo de olvide contraseña
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def olvide_contrasena(request):
@@ -110,8 +122,8 @@ def olvide_contrasena(request):
     except User.DoesNotExist:
         return Response({"error": "No se encontró un usuario con ese correo electrónico."}, status=404)
 
-    # Generar un token único
-    token = get_random_string(50)
+    # Generar un token JWT temporal
+    token = generate_password_reset_token(user)
 
     # Definir función para enviar el correo en un hilo separado
     def send_email_task():
@@ -119,7 +131,7 @@ def olvide_contrasena(request):
         from_email = settings.EMAIL_HOST_USER
         to = email
         text_content = 'Utilice el siguiente enlace para restablecer su contraseña: {reset_url}'.format(
-            reset_url=f"{settings.FRONTEND_URL}/reset-password/{token}/"
+            reset_url=f"{settings.FRONTEND_URL}/api/v1/restablecerContrasena/{token}/"
         )
         html_content = render_to_string('correoRestablecerContrasena.html', {
             'frontend_url': settings.FRONTEND_URL,
@@ -137,8 +149,25 @@ def olvide_contrasena(request):
     email_thread = threading.Thread(target=send_email_task)
     email_thread.start()
 
-    # Aquí podrías guardar el token en una base de datos o caché para validarlo después
     return Response({"message": "Se ha enviado un enlace para restablecer la contraseña a su correo electrónico."})
+
+#restablcer contraseña
+@api_view(['GET', 'POST'])
+def restablecerContrasena(request, token=None):
+    if request.method == 'GET':
+        # Mostrar un formulario para restablecer la contraseña
+        return render(request, 'recuperarContrasena.html', {'token': token})
+    
+    if request.method == 'POST':
+        # Procesar el restablecimiento de la contraseña
+        new_password = request.data.get('new_password')
+        if not new_password:
+            return Response({"error": "Nueva contraseña es obligatoria."}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Aquí podrías agregar la lógica para validar el token y restablecer la contraseña
+
+        return Response({"message": "Contraseña restablecida exitosamente."})
+    
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def pagina_principal(request):
