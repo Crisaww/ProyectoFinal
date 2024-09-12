@@ -1,12 +1,14 @@
+from django.conf import settings
 from django.urls import path, include, re_path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from django.contrib.auth.views import LoginView
 from rest_framework.documentation import include_docs_urls
 from .viewAI import synthesize
 from tuvooz import views
-
+from django.conf.urls.static import static
 
 urlpatterns = [
+    
      # URLs para obtener y refrescar tokens JWT
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # Para obtener el token
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),  # Para refrescar el token
@@ -18,7 +20,7 @@ urlpatterns = [
     re_path('api/v1/registro', views.registro, name='registroUsuario'),
     re_path('api/v1/iniciarSesion', views.iniciarSesion, name='iniciarSesion'),
     re_path('api/v1/perfil', views.perfil, name='accesoPerfil'),
-    
+    re_path('api/v1/olvideContrasena', views.olvide_contrasena, name='olvideConatrasena'),
     # Ruta para sintetizar audio
     path('synthesize/', synthesize, name='synthesize'),
     
@@ -34,4 +36,4 @@ urlpatterns = [
     
     # Ruta para el login de la cuenta
     # path('cuenta/iniciarSesion.html', LoginView.as_view(template_name='tuVoozPrincipal/cuenta/iniciarSesion.html'), name='login'),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

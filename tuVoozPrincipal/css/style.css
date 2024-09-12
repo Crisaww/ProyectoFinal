@@ -1700,6 +1700,7 @@ INICIO TARJETAS-INTERNAS-SECCIONADAS PALABRAS COMUNES
 }
 
 .cardPalabrasSecciones {
+  background-color: white;
     border: 2px solid #7872ab;
     display: flex;
     flex-direction: column;
@@ -1844,13 +1845,13 @@ FIN COMO USAR TU VOOZ
 .tituloTexto2{
   font-family: "Poppins", sans-serif;
   text-align: center;
-  color: #5128b3 var(--h1-color);
+  color: #5128b3 var();
   font-weight: bold;
 }
 
 .texto-h2{
   font-family: "Poppins", sans-serif;
-  color: #000000 var(--h2-color);
+  color: #000000 var();
   padding-left: 2rem;
 }
 

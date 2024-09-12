@@ -111,7 +111,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tuvoozdb',
         'USER': 'root',
-        'PASSWORD': '123456',
+        'PASSWORD': '',
         #'PASSWORD': 'root123',# se debe cambiar esto de acuerdo a la DB que van a utilizar
         'HOST': 'localhost',  # o la dirección IP de tu servidor MySQL
         'PORT': '3306',       
@@ -155,8 +155,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
 
 REST_FRAMEWORK = {
@@ -205,7 +205,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'tuvoozsoporte@gmail.com'
 EMAIL_HOST_PASSWORD = config('USER_MAIL_PASSWORD')
 EMAIL_USE_TLS = True
-
+FRONTEND_URL = 'http://127.0.0.1:5502'
 # Lee la ruta de las credenciales desde el archivo .env
 GOOGLE_APPLICATION_CREDENTIALS = config('GOOGLE_APPLICATION_CREDENTIALS')
 

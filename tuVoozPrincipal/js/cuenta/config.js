@@ -1,9 +1,10 @@
-//let urlBasica= "http://127.0.0.1:8000/"
-let urlBasica="http://5.183.11.147:8000/";//ip servidor
+let urlBasica= "http://127.0.0.1:8000/"
+// let urlBasica="http://5.183.11.147:8000/";//ip servidor
 //let urlBasica="http://192.168.17.3:8000/";
 let urlLogin= urlBasica+"tuvooz/api/v1/iniciarSesion";
 let urlRegistro=urlBasica+"tuvooz/api/v1/registro";
 let urlPerfil = urlBasica+"tuvooz/api/v1/perfil";
+let urlOlvideContrasena = urlBasica+"tuvooz/api/v1/olvideContrasena";
 let urlGenerarTexto=urlBasica+"synthesize/";
 
 function obtenerTokens() {
@@ -103,21 +104,28 @@ function VistasProtegidas(url) {
     });
 }
 
-
-
 function redirigirSiNoEnSesion() {
     const { access_token } = obtenerTokens();
     const rutaActual = window.location.pathname;
 
+    console.log('Ruta actual:', rutaActual); // Para depuración
+
+    // Rutas permitidas en las que el usuario puede estar sin token
+    const rutasPermitidas = [
+        "/tuVoozPrincipal/cuenta/iniciarSesion.html",
+        "/tuVoozPrincipal/cuenta/crearcuenta.html",
+        "/tuVoozPrincipal/cuenta/olvideContrasena.html"
+    ];
+
+    console.log('Access token:', access_token); // Para depuración
+
     // Verifica si el usuario tiene un token de acceso
-    if (!access_token && rutaActual !== "/tuVoozPrincipal/cuenta/iniciarSesion.html" && rutaActual !== "/tuVoozPrincipal/cuenta/crearcuenta.html") {
-        // Redirige al usuario a la página de inicio de sesión si no tiene un token y no está en la página de iniciar sesión o crear cuenta
+    if (!access_token && !rutasPermitidas.includes(rutaActual)) {
+        console.log('Redirigiendo a iniciar sesión'); // Para depuración
+        // Redirige al usuario a la página de inicio de sesión si no tiene un token
         window.location.href = "http://127.0.0.1:5502/tuVoozPrincipal/cuenta/iniciarSesion.html";
     }
 }
-
-
-        
 
 // Ejemplo de uso
 function cargarPaginaPrincipal() {

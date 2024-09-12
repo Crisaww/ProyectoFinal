@@ -1,41 +1,43 @@
-const root = document.documentElement;
+// Selecciona el botón de alternar modo oscuro
+const toggleButton = document.getElementById('toggle-dark-mode');
 
-function modoOscuro(){
-    root.classList.add('oscuro');
-    localStorage.setItem('modo', 'oscuro');
-    root.style.setProperty('--background-color', '#000000');
-    root.style.setProperty('--h1-color','#ffffff');
-    root.style.setProperty('--h2-color', '#ffffff');
-    // root.style.setProperty('--color-p')
+// Verifica si hay un modo guardado en el almacenamiento local
+const currentMode = localStorage.getItem('theme');
+if (currentMode === 'dark') {
+  setDarkMode();
+} else {
+  setLightMode();
 }
-function modoClaro(){
-    root.classList.remove('oscuro');
-    localStorage.setItem('modo', 'claro');
-    root.style.setProperty('--background-color', '#ffffff');
-    root.style.setProperty('--h1-color','#5128b3');
-    root.style.setProperty('--h2-color','#000000')
 
-
-    
-}
-// Apply user preference on page load (using IIFE pattern)
-(function () {
-    const modo = localStorage.getItem('modo');
-    if (modo === 'oscuro') {
-      modoOscuro();
-    } else if (modo === 'claro') {
-      modoClaro();
-    }
-  })(); // Immediately invoke the function expression
-  
-  // Event listener for a toggle button (optional)
-  const toggleButton = document.getElementById('modo-toggle'); // Assuming an element with this ID
-  if (toggleButton) {
-    toggleButton.addEventListener('click', function () {
-      if (root.classList.contains('oscuro')) {
-        modoClaro();
-      } else {
-        modoOscuro();
-      }
-    });
+// Alterna el modo oscuro al hacer clic en el botón
+toggleButton.addEventListener('click', () => {
+  if (document.body.classList.contains('dark-mode')) {
+    setLightMode();
+  } else {
+    setDarkMode();
   }
+});
+
+// Función para establecer el modo oscuro
+function setDarkMode() {
+  document.body.classList.add('dark-mode');
+  // Update CSS variables for dark mode
+  document.documentElement.style.setProperty('--background-color', 'var(--dark-background-color)');
+  document.documentElement.style.setProperty('--text-color', 'var(--dark-text-color)');
+  document.documentElement.style.setProperty('--text-color', 'var(--dark-text-color)');
+  document.documentElement.style.setProperty('--hr-border-bottom','var(--dark-hr-linea-border-bottom)')
+
+
+  // ... and so on for other variables
+  localStorage.setItem('theme', 'dark');
+}
+
+// Función para establecer el modo claro
+function setLightMode() {
+  document.body.classList.remove('dark-mode');
+  // Update CSS variables for light mode
+  document.documentElement.style.setProperty('--background-color', 'var(--light-background-color)');
+  document.documentElement.style.setProperty('--text-color', 'var(--light-text-color)');
+  // ... and so on for other variables
+  localStorage.setItem('theme', 'light');
+}
