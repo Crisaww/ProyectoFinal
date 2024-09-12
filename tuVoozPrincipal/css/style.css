@@ -16,7 +16,7 @@ a {
 }
 
 a:hover {
-  color: #5d4ee7; 
+  color: #5d4ee7;
   text-decoration: none;
 }
 
@@ -123,7 +123,7 @@ h6 {
 }
 
 #header .logo {
-  font-family:cursive;
+  font-family: cursive;
   font-size: 32px;
   margin: 0;
   padding: 0;
@@ -173,7 +173,9 @@ h6 {
 }
 
 .navbar a,
-.navbar a:focus, .navbar button, .navbar button:focus {
+.navbar a:focus,
+.navbar button,
+.navbar button:focus {
   display: flex;
   align-items: center;
   justify-content: start;
@@ -190,7 +192,9 @@ h6 {
 
 
 .navbar a i,
-.navbar a:focus i, .navbar button i, .navbar button:focus i {
+.navbar a:focus i,
+.navbar button i,
+.navbar button:focus i {
   font-size: 12px;
   line-height: 0;
   margin-left: 5px;
@@ -503,8 +507,8 @@ h6 {
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
-section { 
-  
+section {
+
   padding: 0;
   overflow: hidden;
 }
@@ -1420,17 +1424,18 @@ section {
 
 
 
-  .breadcrumbs ol {
-    display: block;
-  }
+.breadcrumbs ol {
+  display: block;
+}
 
-  .breadcrumbs ol li {
-    display: inline-block;
-  }
+.breadcrumbs ol li {
+  display: inline-block;
+}
 
 
 
-#header.header-scrolled, #header.header-inner-pages {
+#header.header-scrolled,
+#header.header-inner-pages {
   background-color: #000000;
 }
 
@@ -1443,103 +1448,114 @@ section {
 
  */
 
- .team {
+.team {
   height: 100%;
   width: 100%;
- 
- }
- 
- 
- 
- @media (min-width: 100px) {
-   .container, .container-lg, .container-md, .container-sm, .container-xl {
-     max-width: 100%;
-     }
-   }
- 
- 
- 
- .team-member {
- position: relative;
- height: 16%;
- width: 100%;
- }
- 
- .team-member:hover img {
- top: -90px;
- }
- 
- .team-member img {
- max-width: 220px;
- border-radius: 50%;
- position: absolute;
- top: -81px;
- left: 65%;
- transform: translateX(-110px);
- transition: all .3s;
- }
- 
- .team-member .main-content {
- border-radius: 25%;
- padding: 35% 6% 10% 2%;
- background-color: #f1f0fe;
- text-align: center;
- 
- }
- 
- .team-member .main-content span.category {
- color: #6a1581;
- font-size: 15px;
- }
- 
- .team-member .main-content h4 {
- font-size: 22px;
- font-weight: 600;
- margin-top: 8px;
- margin-bottom: 15px;
- }
- 
- .team-member .main-content ul li {
- display: inline-block;
- margin: 0px 2px;
- }
- 
- .team-member .main-content ul li a {
- background-color: #ffffff4a;
- color: #6a1581;
- display: inline-block;
- text-align: center;
- line-height: 35px;
- font-size: 130%;
- width: 40px;
- height: 40px;
- border-radius: 50%;
- transition: all .3s;
- }
- 
- .team-member .main-content ul li a:hover {
- background-color: #6a1581;
- color: #fff;
- }
- .team-member img {
-   width: 140px; /* Ajusta el ancho de la imagen */
-   height: 140px; /* Ajusta la altura de la imagen */
-   object-fit: cover; /* Asegura que la imagen cubra completamente el espacio asignado */
-   border-radius: 50%; /* Hace la imagen redonda */
-   margin-bottom: 10px;
- }
+
+}
 
 
- 
- .nombre{
- color: #0a0a0a;
- }
- 
- .category{
+
+@media (min-width: 100px) {
+
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 100%;
+  }
+}
+
+
+
+.team-member {
+  position: relative;
+  height: 16%;
+  width: 100%;
+}
+
+.team-member:hover img {
+  top: -90px;
+}
+
+.team-member img {
+  max-width: 220px;
+  border-radius: 50%;
+  position: absolute;
+  top: -81px;
+  left: 65%;
+  transform: translateX(-110px);
+  transition: all .3s;
+}
+
+.team-member .main-content {
+  border-radius: 25%;
+  padding: 35% 6% 10% 2%;
+  background-color: #f1f0fe;
+  text-align: center;
+
+}
+
+.team-member .main-content span.category {
+  color: #6a1581;
+  font-size: 15px;
+}
+
+.team-member .main-content h4 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 8px;
+  margin-bottom: 15px;
+}
+
+.team-member .main-content ul li {
+  display: inline-block;
+  margin: 0px 2px;
+}
+
+.team-member .main-content ul li a {
+  background-color: #ffffff4a;
+  color: #6a1581;
+  display: inline-block;
+  text-align: center;
+  line-height: 35px;
+  font-size: 130%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all .3s;
+}
+
+.team-member .main-content ul li a:hover {
+  background-color: #6a1581;
+  color: #fff;
+}
+
+.team-member img {
+  width: 140px;
+  /* Ajusta el ancho de la imagen */
+  height: 140px;
+  /* Ajusta la altura de la imagen */
+  object-fit: cover;
+  /* Asegura que la imagen cubra completamente el espacio asignado */
+  border-radius: 50%;
+  /* Hace la imagen redonda */
+  margin-bottom: 10px;
+}
+
+
+
+.nombre {
+  color: #0a0a0a;
+}
+
+.category {
   font-style: oblique;
- }
+}
+
 z
- /*
+/*
 -------------------------------------
 INICIO MENU LATERAL IZQUIERDO FRASES 
 -------------------------------------
@@ -1577,6 +1593,7 @@ INICIO MENU LATERAL IZQUIERDO FRASES
   transition: 0.5s;
   transition-property: background;
 }
+
 .sidebar a:hover {
   background: #c2a1bc;
 }
@@ -1591,7 +1608,7 @@ FIN MENU LATERAL FRASES
 ------------------------------
 INICIO PALABRAS COMUNES  
 ------------------------------
-*/ 
+*/
 
 /*
 ------------------------------
@@ -1600,9 +1617,9 @@ INICIO TARJETAS SELECCION
 */
 
 .e-card {
-  box-shadow: 0px 8px 28px -9px rgba(0,0,0,0.45);
+  box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
   position: relative;
-  width:90%;
+  width: 90%;
   height: 330px;
   border-radius: 16px;
   background: linear-gradient(744deg, #7440ff, #7255eb 60%, #0297ef);
@@ -1638,13 +1655,13 @@ INICIO TARJETAS SELECCION
 
 
 /* estilos de iconos */
-.icono{
+.icono {
   font-size: 30px;
   color: #fbfbfc;
 }
 
 /* botones de tarjetas */
- .btnCartas {
+.btnCartas {
   width: 6.5em;
   height: 2.3em;
   margin: 0.5em;
@@ -1658,13 +1675,13 @@ INICIO TARJETAS SELECCION
   position: relative;
   z-index: 1;
   overflow: hidden;
- }
- 
- .btnCartas:hover {
+}
+
+.btnCartas:hover {
   color: black;
- } 
- 
- .btnCartas:after {
+}
+
+.btnCartas:after {
   content: "";
   background: rgba(255, 255, 255, 0.658);
   position: absolute;
@@ -1675,13 +1692,14 @@ INICIO TARJETAS SELECCION
   bottom: 0;
   transform: skewX(-45deg) scale(0, 1);
   transition: all 0.5s;
- }
- 
- .btnCartas:hover:after {
+}
+
+.btnCartas:hover:after {
   transform: skewX(-45deg) scale(1, 1);
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
- }
+}
+
 /*
 ------------------------------
 FIN TARJETAS SELECCION   
@@ -1700,11 +1718,10 @@ INICIO TARJETAS-INTERNAS-SECCIONADAS PALABRAS COMUNES
 }
 
 .cardPalabrasSecciones {
-  background-color: white;
-    border: 2px solid #7872ab;
-    display: flex;
-    flex-direction: column;
-    height: 13rem;
+  border: 2px solid #7872ab;
+  display: flex;
+  flex-direction: column;
+  height: 13rem;
 }
 
 .card:last-child {
@@ -1732,7 +1749,8 @@ INICIO TARJETAS-INTERNAS-SECCIONADAS PALABRAS COMUNES
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.582);
   transition: all 0.7s;
 }
-.cartasPalabras{
+
+.cartasPalabras {
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
@@ -1745,7 +1763,7 @@ FIN TARJETAS-INTERNAS-SECCIONADAS PALABRAS COMUNES
 ------------------------------------------------------
 */
 
-.miCuentaSection{
+.miCuentaSection {
   width: 100%;
   height: 100%;
 }
@@ -1754,11 +1772,12 @@ FIN TARJETAS-INTERNAS-SECCIONADAS PALABRAS COMUNES
 Boton Dropdown del menú de la tuerca
 */
 
-.dropdown-item.active, .dropdown-item:active{
+.dropdown-item.active,
+.dropdown-item:active {
   background-color: #8f19f7;
 }
 
-.manualTuVooz{
+.manualTuVooz {
   height: 100%;
   width: 100%;
 }
@@ -1768,13 +1787,14 @@ Boton Dropdown del menú de la tuerca
  INICIO COMO USAR TU VOOZ
 ---------------------------
 */
-.linkTuVoozMU{
+.linkTuVoozMU {
   position: relative;
   margin-top: 26%;
   margin-left: 23%;
   width: 10%;
   height: 24%;
 }
+
 /*
 ------------------------------
 FIN COMO USAR TU VOOZ
@@ -1782,35 +1802,35 @@ FIN COMO USAR TU VOOZ
 */
 
 /* Para los row */
-.row{
+.row {
   margin-right: 0;
   --bs-gutter-x: 0;
 }
 
-.col-md-3{
+.col-md-3 {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0;
-  
+
 }
 
-.col-md-3 label{
+.col-md-3 label {
   margin-top: 20px;
   text-align: center;
 }
 
-.col-md-2{
+.col-md-2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 0;
   margin-top: 20px;
-  
+
 }
 
-.col-md-2 label{
+.col-md-2 label {
   margin-top: 20px;
 }
 
@@ -1835,21 +1855,21 @@ FIN COMO USAR TU VOOZ
   }
 }
 
-.hr1{
+.hr1 {
   border: none;
   border-bottom: 1px solid black;
   height: 1px;
   margin: 0;
 }
 
-.tituloTexto2{
+.tituloTexto2 {
   font-family: "Poppins", sans-serif;
   text-align: center;
   color: #5128b3 var();
   font-weight: bold;
 }
 
-.texto-h2{
+.texto-h2 {
   font-family: "Poppins", sans-serif;
   color: #000000 var();
   padding-left: 2rem;
@@ -1866,16 +1886,16 @@ FIN COMO USAR TU VOOZ
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   position: fixed;
   justify-content: center;
-  
+
 }
 
-.cajaBotonTitulo{
+.cajaBotonTitulo {
   display: flex;
   align-items: end;
   height: 25%;
 }
 
-.volverCasa{
+.volverCasa {
   display: flex;
   justify-content: center;
   align-items: end;
@@ -1883,14 +1903,15 @@ FIN COMO USAR TU VOOZ
   width: 10rem;
 }
 
-.cajaTituloTexto2{
+.cajaTituloTexto2 {
   display: flex;
   align-items: end;
   justify-content: center;
   width: 64rem;
   height: 100%;
 }
-.cajaTituloTexto{
+
+.cajaTituloTexto {
   display: flex;
   align-items: end;
   justify-content: center;
@@ -1900,10 +1921,6 @@ FIN COMO USAR TU VOOZ
 
 /* Estilos para el hover */
 .top-left-btn:hover {
-  background-color: #3700b3; /* Color más oscuro al hacer hover */
+  background-color: #3700b3;
+  /* Color más oscuro al hacer hover */
 }
-
-
-
-
-
