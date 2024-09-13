@@ -1,35 +1,37 @@
 function olvidarContrasena() {
-    let email = document.getElementById("email").value;
+    let emailElement = document.getElementById("email");
+    let email = emailElement.value;
 
-    function validarEmail(email) {
-        let tippyInstanceEmail = tippy(email, {
+    // Función para validar el email
+    function validarEmail(emailElement) {
+        let tippyInstanceEmail = tippy(emailElement, {
             content: '',
             trigger: 'manual',
             placement: 'right',
             theme: 'material',
         });
 
-        if (!email || !email.value) {
-            email.className = "form-control is-invalid";
+        // Validar si el campo de email está vacío
+        if (!emailElement.value) {
+            emailElement.className = "form-control is-invalid";
             tippyInstanceEmail.setContent('El correo electrónico es obligatorio.');
             tippyInstanceEmail.show();
             return false;
         }
 
-        let valor = email.value.trim();
-        let valido = true;
+        let valor = emailElement.value.trim();
+        let valido = valor.length > 0 && valor.length <= 100;
 
-        valido = valor.length > 0 && valor.length <= 100;
-
+        // Expresión regular para validar el formato del correo
         const re = /^(([^<>()\[\]\\.,;:\s@"]+(.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(([^<>()[\]\.,;:\s@"]+\.)+[^<>()[\]\.,;:\s@"]{2,})$/i;
         valido = valido && re.test(valor);
 
         if (!valido) {
-            email.className = "form-control is-invalid";
+            emailElement.className = "form-control is-invalid";
             tippyInstanceEmail.setContent('El correo electrónico no tiene un formato válido.');
             tippyInstanceEmail.show();
         } else {
-            email.className = "form-control is-valid";
+            emailElement.className = "form-control is-valid";
             tippyInstanceEmail.hide();
         }
 
@@ -37,7 +39,7 @@ function olvidarContrasena() {
     }
 
     // Validar el campo de correo electrónico
-    if (!validarEmail(document.getElementById("email"))) {
+    if (!validarEmail(emailElement)) {
         return;
     }
 
@@ -48,8 +50,9 @@ function olvidarContrasena() {
     fetch(urlOlvideContrasena, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
-            // No se necesita el encabezado 'X-CSRFToken' si usas JWT
+            'Content-Type': 'application/json',
+            // Si no estás usando JWT ni autenticación por token, necesitas incluir CSRF Token aquí:
+            'X-CSRFToken': getCookie('csrftoken')  // Solo si es necesario
         },
         body: JSON.stringify(formData)
     })
@@ -81,4 +84,20 @@ function olvidarContrasena() {
             Swal.fire("Error", "Error al enviar el correo: " + error, "error");
         }
     });
+}
+
+// Función para obtener el CSRF token si es necesario (solo si usas sesiones con Django)
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
 }

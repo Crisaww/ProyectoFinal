@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,11 +7,17 @@
 </head>
 <body>
     <h1>Restablecer Contraseña</h1>
-    <p>Hola {{username}}</p>
+    <p>Hola {{ user.username }},</p>
+    
     {% load static %}
     <img src="{% static 'images/nuevoLogo.png' %}" alt="Logo">
-    <p>Haga clic en el siguiente enlace para restablecer su contraseña:</p>
-    <a href="http://127.0.0.1:5502/tuVoozPrincipal/cuenta/recuperarContrasena.html?token={{ token }}">Restablecer Contraseña</a>
-    <p>Si no solicitó este cambio, ignore este mensaje.</p>
+
+    <p>Has solicitado restablecer tu contraseña. Haga clic en el siguiente enlace para proceder:</p>
+    <a href="{{ frontend_url }}/tuVoozPrincipal/cuenta/recuperarContrasena.html?token={{ token }}&uid={{ uid }}">Restablecer Contraseña</a>
+
+    <p>Si no solicitó este cambio, ignore este mensaje. Su contraseña no se modificará.</p>
+
+    <p>Atentamente,<br>
+    El equipo de Tu Vooz</p>
 </body>
 </html>
