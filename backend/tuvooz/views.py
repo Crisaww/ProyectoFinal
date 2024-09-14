@@ -1,4 +1,6 @@
 from django.shortcuts import get_object_or_404
+from django.contrib.auth import logout as django_logout
+from django.utils import timezone
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework import  status
 from .serializer import UserSerializer
@@ -15,11 +17,11 @@ from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.utils.http import urlsafe_base64_encode
 from django.utils.encoding import force_bytes
-from django.core.mail import send_mail
-from datetime import datetime, timedelta
-from django.utils.http import urlsafe_base64_decode
-from django.contrib.auth.tokens import default_token_generator
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from rest_framework.views import APIView
+from django.utils.encoding import force_str
+from django.utils.http import urlsafe_base64_decode
+
 # Create your views here.
 
 @api_view(['POST'])
@@ -86,7 +88,6 @@ def registro(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 #acceso al perfil
-
 @api_view(['POST'])
 @permission_classes([IsAuthenticated]) 
 def perfil(request):
@@ -100,125 +101,91 @@ def perfil(request):
     
     return Response(data, status=status.HTTP_200_OK)
 
-# #genera el token
-# def generate_password_reset_token(user):
-#     expiration_time = datetime.utcnow() + timedelta(hours=42)  # Token válido por 1 hora
-#     payload = {
-#         'user_id': user.id,
-#         'exp': expiration_time,
-#         'iat': datetime.utcnow(),
-#     }
-#     token = jwt.encode(payload, settings.SECRET_KEY, algorithm='HS256')
-#     return token
 
-# #envia correo de olvide contraseña
-# @api_view(['POST'])
-# @permission_classes([AllowAny])
-# def olvide_contrasena(request):
-#     email = request.data.get('email')
+@permission_classes([AllowAny])
+class olvide_contrasena(APIView):
+    def post(self, request):
+        email = request.data.get('email')
+        try:
+            user = User.objects.get(email=email)
+            token_generator = PasswordResetTokenGenerator()
+            token = token_generator.make_token(user)
+            uid = urlsafe_base64_encode(force_bytes(user.pk))
 
-#     if not email:
-#         return Response({"error": "El correo electrónico es obligatorio."}, status=400)
+            # URL del frontend con el token y uid
+            frontend_url = 'http://127.0.0.1:5502'
 
-#     try:
-#         user = User.objects.get(email=email)
-#     except User.DoesNotExist:
-#         return Response({"error": "No se encontró un usuario con ese correo electrónico."}, status=404)
+            # Renderizar la plantilla con el contexto adecuado
+            html_content = render_to_string('correoRestablecerContrasena.html', {
+                'user': user,
+                'token': token,
+                'uid': uid,
+                'frontend_url': frontend_url
+            })
+            text_content = 'Por favor, usa un cliente de correo que soporte HTML para ver el contenido.'
 
-#     # Generar un token JWT temporal
-#     token = generate_password_reset_token(user)
+            def send_email():
+                email_message = EmailMultiAlternatives(
+                    subject="Restablecer contraseña",
+                    body=text_content,
+                    from_email=settings.DEFAULT_FROM_EMAIL,
+                    to=[email]
+                )
+                email_message.attach_alternative(html_content, "text/html")
+                email_message.send()
 
-#     # Definir función para enviar el correo en un hilo separado
-#     def send_email_task():
-#         subject = 'Restablecer contraseña'
-#         from_email = settings.EMAIL_HOST_USER
-#         to = email
-#         text_content = 'Utilice el siguiente enlace para restablecer su contraseña: {reset_url}'.format(
-#             reset_url=f"{settings.FRONTEND_URL}/api/v1/restablecerContrasena/{token}/"
-#         )
-#         html_content = render_to_string('correoRestablecerContrasena.html', {
-#             'frontend_url': settings.FRONTEND_URL,
-#             'token': token
-#         })
-#         send_mail(
-#             subject,
-#             text_content,
-#             from_email,
-#             [to],
-#             html_message=html_content
-#         )
+            # Enviar el correo en un hilo separado
+            email_thread = threading.Thread(target=send_email)
+            email_thread.start()
 
-#     # Iniciar el envío del correo en un hilo separado
-#     email_thread = threading.Thread(target=send_email_task)
-#     email_thread.start()
+            return Response({"message": "Correo enviado con éxito."}, status=status.HTTP_200_OK)
 
-#     return Response({"message": "Se ha enviado un enlace para restablecer la contraseña a su correo electrónico."})
-
-# #restablcer contraseña
-# @api_view(['GET', 'POST'])
-# def restablecerContrasena(request, token=None):
-#     if request.method == 'GET':
-#         # Mostrar un formulario para restablecer la contraseña
-#         return render(request, 'recuperarContrasena.html', {'token': token})
-    
-#     if request.method == 'POST':
-#         # Procesar el restablecimiento de la contraseña
-#         new_password = request.data.get('new_password')
-#         if not new_password:
-#             return Response({"error": "Nueva contraseña es obligatoria."}, status=status.HTTP_400_BAD_REQUEST)
-
-#         # Aquí podrías agregar la lógica para validar el token y restablecer la contraseña
-
-#         return Response({"message": "Contraseña restablecida exitosamente."})@api_view(['POST'])
-
+        except User.DoesNotExist:
+            return Response({"error": "Usuario no encontrado."}, status=status.HTTP_400_BAD_REQUEST)
+        
 @api_view(['POST'])
 @permission_classes([AllowAny])
-def olvide_contrasena(request):
-    # Asegurarse de que la solicitud es POST
-    if request.method != 'POST':
-        return Response({"error": "Este endpoint solo acepta solicitudes POST."}, status=400)
-
-    # Obtener el correo del cuerpo de la solicitud
-    email = request.data.get('email')
-
-    if not email:
-        return Response({"error": "El correo electrónico es obligatorio."}, status=400)
+def restablecerContrasena(request):
+    token = request.data.get('token')
+    uidb64 = request.data.get('uid')
+    new_password = request.data.get('new_password')
 
     try:
-        user = User.objects.get(email=email)
-    except User.DoesNotExist:
-        return Response({"error": "No se encontró un usuario con ese correo electrónico."}, status=404)
-
-    # Lógica para enviar el correo con el enlace para restablecer contraseña
-    token = generate_password_reset_token(user)
-
-    # Aquí implementas la lógica para enviar el correo en segundo plano
-    send_reset_email(user, token)
-
-    return Response({"message": "Se ha enviado un enlace para restablecer la contraseña a su correo electrónico."}, status=200)
-
-@api_view(['POST'])
-def restablecerContrasena(request, uidb64, token):
-    try:
-        # Decodificar el uid
-        uid = force_text(urlsafe_base64_decode(uidb64))
+        uid = force_str(urlsafe_base64_decode(uidb64))
         user = User.objects.get(pk=uid)
     except (TypeError, ValueError, OverflowError, User.DoesNotExist):
-        return Response({"error": "El enlace es inválido o ha expirado."}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"error": "UID inválido."}, status=status.HTTP_400_BAD_REQUEST)
 
-    # Verificar si el token es válido
-    if not default_token_generator.check_token(user, token):
-        return Response({"error": "El enlace es inválido o ha expirado."}, status=status.HTTP_400_BAD_REQUEST)
+    # Verificar que el token sea válido
+    token_generator = PasswordResetTokenGenerator()
+    if not token_generator.check_token(user, token):
+        return Response({"error": "Token inválido o expirado."}, status=status.HTTP_400_BAD_REQUEST)
 
-    # Restablecer la contraseña
-    new_password = request.data.get('new_password')
-    if not new_password:
-        return Response({"error": "La nueva contraseña es obligatoria."}, status=status.HTTP_400_BAD_REQUEST)
+    # Validar la nueva contraseña si es necesario (mínimo de caracteres, etc.)
+    if len(new_password) < 8:
+        return Response({"error": "La contraseña debe tener al menos 8 caracteres."}, status=status.HTTP_400_BAD_REQUEST)
 
+    # Actualizar la contraseña del usuario
     user.set_password(new_password)
     user.save()
 
-    return Response({"message": "La contraseña ha sido restablecida exitosamente."}, status=status.HTTP_200_OK)
+    return Response({"message": "Contraseña actualizada correctamente."}, status=status.HTTP_200_OK)
+
+#cerrar sesion
+@api_view(['POST'])
+def logout(request):
+    user = request.user
+    if user.is_authenticated:
+        # Actualizar last_login antes de cerrar sesión
+        user.last_login = timezone.now()
+        user.save()
+
+        # Cerrar sesión
+        django_logout(request)
+        return Response({"message": "Sesión cerrada correctamente."}, status=status.HTTP_200_OK)
+    else:
+        return Response({"error": "No estás autenticado."}, status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])

@@ -2,7 +2,17 @@ async function restablecerContrasena() {
     // Obtener token y uid de los parámetros de la URL
     const urlParams = new URLSearchParams(window.location.search);
     const token = urlParams.get('token');
-    const uid = urlParams.get('uid'); // Captura el uid si lo necesitas
+    const uid = urlParams.get('uid'); // Captura el uid desde la URL
+
+    // Validar que se reciban los parámetros necesarios
+    if (!token || !uid) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'El enlace de restablecimiento no es válido o ha expirado.',
+        });
+        return;
+    }
 
     // Obtener los valores de las contraseñas
     const password = document.getElementById('password').value;
@@ -30,15 +40,15 @@ async function restablecerContrasena() {
 
     try {
         // Enviar la solicitud al backend
-        const response = await fetch('http://127.0.0.1:8000/api/v1/restablecerContrasena/', {
+        const response = await fetch(urlRestabkecerContrasena, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ 
                 token: token, 
-                uid: uid,  // Enviar también el uid si es necesario
-                new_password: password 
+                uid: uid,  // Enviar también el uid para identificar al usuario
+                new_password: password // Enviar la nueva contraseña
             })
         });
 
@@ -48,9 +58,9 @@ async function restablecerContrasena() {
             Swal.fire({
                 icon: 'success',
                 title: 'Éxito',
-                text: data.message,
+                text: data.message, // Mostrar el mensaje de éxito del backend
             }).then(() => {
-                window.location.href = './iniciarSesion.html'; // Redirigir al inicio de sesión
+                window.location.href = './recuperarContrasena.html'; // Redirigir a la página de recuperación de contraseña
             });
         } else {
             // Manejar errores del servidor

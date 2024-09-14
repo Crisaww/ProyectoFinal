@@ -6,6 +6,7 @@ from rest_framework.documentation import include_docs_urls
 from .viewAI import synthesize
 from tuvooz import views
 from django.conf.urls.static import static
+from .views import olvide_contrasena
 
 urlpatterns = [
     
@@ -20,8 +21,9 @@ urlpatterns = [
     re_path('api/v1/registro', views.registro, name='registroUsuario'),
     re_path('api/v1/iniciarSesion', views.iniciarSesion, name='iniciarSesion'),
     re_path('api/v1/perfil', views.perfil, name='accesoPerfil'),
-    re_path('api/v1/olvideContrasena', views.olvide_contrasena, name='olvideConatrasena'),
+    re_path('api/v1/olvideContrasena/', olvide_contrasena.as_view(), name='olvide-contrasena'),
     re_path('api/v1/restablecerContrasena', views.restablecerContrasena, name='restablecerContrasena'),
+    re_path('api/v1/logout/', views.logout, name='logout'),
     
     # Ruta para sintetizar audio
     path('synthesize/', synthesize, name='synthesize'),

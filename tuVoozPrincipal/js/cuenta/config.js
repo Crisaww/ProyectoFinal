@@ -4,8 +4,9 @@ let urlBasica= "http://127.0.0.1:8000/"
 let urlLogin= urlBasica+"tuvooz/api/v1/iniciarSesion";
 let urlRegistro=urlBasica+"tuvooz/api/v1/registro";
 let urlPerfil = urlBasica+"tuvooz/api/v1/perfil";
-let urlOlvideContrasena = urlBasica+"tuvooz/api/v1/olvideContrasena";
+let urlOlvideContrasena = urlBasica+"tuvooz/api/v1/olvideContrasena/";
 let urlRestabkecerContrasena = urlBasica+"tuvooz/api/v1/restablecerContrasena/";
+let urlCerrarSesion = urlBasica + "tuvooz/api/v1/logout/";
 let urlGenerarTexto=urlBasica+"synthesize/";
 
 function obtenerTokens() {
@@ -116,7 +117,9 @@ function redirigirSiNoEnSesion() {
     const rutasPermitidas = [
         "/tuVoozPrincipal/cuenta/iniciarSesion.html",
         "/tuVoozPrincipal/cuenta/crearcuenta.html",
-        "/tuVoozPrincipal/cuenta/olvideContrasena.html"
+        "/tuVoozPrincipal/cuenta/olvideContrasena.html",
+        "/tuVoozPrincipal/cuenta/recuperarContrasena.html"
+
     ];
 
     console.log('Access token:', access_token); // Para depuración
@@ -172,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-function logout() {
+async function logout() {
     Swal.fire({
         title: "Advertencia",
         text: "¿Estás seguro de que quieres cerrar sesión?",
@@ -180,14 +183,42 @@ function logout() {
         showCancelButton: true, // Botón para cancelar la acción
         confirmButtonText: "Sí, cerrar sesión",
         cancelButtonText: "Cancelar",
-    }).then((result) => {
+    }).then(async (result) => {
         if (result.isConfirmed) {
-            // Si el usuario confirma, procede a cerrar sesión
-            localStorage.removeItem('access_token');
-            localStorage.removeItem('refresh_token');
-            Swal.fire("Sesión cerrada", "Has cerrado sesión correctamente.", "success").then(() => {
-                window.location.href = "http://127.0.0.1:5502/tuVoozPrincipal/cuenta/iniciarSesion.html";
-            });
+            try {
+                // Enviar solicitud de cierre de sesión al backend
+                const response = await fetch(urlCerrarSesion, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + localStorage.getItem('access_token'),
+                    },
+                });
+
+                if (response.ok) {
+                    // Eliminar tokens del almacenamiento local
+                    localStorage.removeItem('access_token');
+                    localStorage.removeItem('refresh_token');
+
+                    Swal.fire("Sesión cerrada", "Has cerrado sesión correctamente.", "success").then(() => {
+                        window.location.href = "http://127.0.0.1:5502/tuVoozPrincipal/cuenta/iniciarSesion.html";
+                    });
+                } else {
+                    const errorData = await response.json();
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: errorData.error || 'Hubo un problema al cerrar sesión.',
+                    });
+                }
+            } catch (error) {
+                console.error('Error al enviar la solicitud:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Ocurrió un error al procesar la solicitud. Por favor, inténtelo nuevamente.',
+                });
+            }
         }
     });
 }

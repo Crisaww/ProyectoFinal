@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,7 +10,6 @@
     <h1>Restablecer Contraseña</h1>
     <p>Hola {{ user.username }},</p>
     
-    {% load static %}
     <img src="{% static 'images/nuevoLogo.png' %}" alt="Logo">
 
     <p>Has solicitado restablecer tu contraseña. Haga clic en el siguiente enlace para proceder:</p>

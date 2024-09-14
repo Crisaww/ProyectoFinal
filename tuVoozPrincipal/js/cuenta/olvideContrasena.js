@@ -11,7 +11,6 @@ function olvidarContrasena() {
             theme: 'material',
         });
 
-        // Validar si el campo de email está vacío
         if (!emailElement.value) {
             emailElement.className = "form-control is-invalid";
             tippyInstanceEmail.setContent('El correo electrónico es obligatorio.');
@@ -22,7 +21,6 @@ function olvidarContrasena() {
         let valor = emailElement.value.trim();
         let valido = valor.length > 0 && valor.length <= 100;
 
-        // Expresión regular para validar el formato del correo
         const re = /^(([^<>()\[\]\\.,;:\s@"]+(.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(([^<>()[\]\.,;:\s@"]+\.)+[^<>()[\]\.,;:\s@"]{2,})$/i;
         valido = valido && re.test(valor);
 
@@ -38,7 +36,6 @@ function olvidarContrasena() {
         return valido;
     }
 
-    // Validar el campo de correo electrónico
     if (!validarEmail(emailElement)) {
         return;
     }
@@ -51,7 +48,6 @@ function olvidarContrasena() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            // Si no estás usando JWT ni autenticación por token, necesitas incluir CSRF Token aquí:
             'X-CSRFToken': getCookie('csrftoken')  // Solo si es necesario
         },
         body: JSON.stringify(formData)
