@@ -22,6 +22,7 @@
     <link href="../TuVooz/Ajustes/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="../TuVooz/Ajustes/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../TuVooz/Ajustes/fontawesome/css/all.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   
   
   
@@ -40,7 +41,7 @@
     ======================================================== -->
   </head>
 
-  <body class="oscuro"> 
+  <body class="dark-mode"> 
   <body>
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top" >
@@ -59,8 +60,7 @@
               <a href="#" class="dropdow text-light" data-bs-toggle="dropdown"><i class="fa-solid fa-gear" id="#Menu "></i></a>
               <div class="dropdown-menu rounded" id="menuDespliegue">
                   <a href="miCuenta.html" class="dropdown-item active"><i class="fas fa-user-alt me-2"></i> Mi cuenta</a>
-                  
-                  <a href="#" class="dropdown-item"><i class="fas fa-power-off me-2"></i>Cerrar sesión</a>
+                  <button class="dropdown-item" onclick="logout()"><i class="fas fa-power-off me-2"></i>Cerrar sesión</button>
               </div>
             </div>
             
@@ -86,7 +86,11 @@
   </section><!-- End Hero -->
 
   <div class="miCuentaSection">
-    <h1 class="tituloTexto">Mi cuenta</h1>
+    <div class="cajaBotonTitulo">
+      <div class="cajaTituloTexto">
+          <h1 class="tituloTexto">Mi cuenta</h1>
+      </div>
+    </div>
 
     <div class="row">
       <div class="col-md-3">
@@ -154,12 +158,12 @@
 
         <!--Modo claro-->
           <div class="card2">
-              <img src="./img/modoClaro.png" alt="imgModos" class="imgModos" onclick="modoClaro()">
+              <img src="./img/modoClaro.png" alt="imgModos" class="imgModos" onclick="setLightMode()">
           </div>
 
         <!--Modo oscuro-->
           <div class="card2">
-            <img src="./img/modoOscuro.png" alt="imgModos" class="imgModos" onclick="modoOscuro()">
+            <img src="./img/modoOscuro.png" alt="imgModos" class="imgModos" onclick="setDarkMode()">
           </div>
 
           
@@ -247,6 +251,6 @@
 
   <script src="./js/accesibilidad.js"></script>
   <script src="./js/modoOscuro.js"></script>
-    
+  <script src="./js/cuenta/config.js"></script>  
   </body>
 </html>

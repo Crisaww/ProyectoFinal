@@ -1,8 +1,3 @@
-//let loginUrl = "http://127.0.0.1:8000/tuvooz/api/v1/iniciarSesion";
-//let loginUrl = "http://10.192.66.56:8000/tuvooz/api/v1/iniciarSesion";
-
-
-
 // Para el ojito de la contraseña
 document.getElementById('togglePassword').addEventListener('click', function () {
     const passwordField = document.getElementById('password');
@@ -29,34 +24,31 @@ function iniciarSesion() {
                 'X-CSRFToken': getCookie('csrftoken')
             },
             body: JSON.stringify(formData)
-            
         })
         .then(response => {
-            if (response.status === 401) {
+            if (response.status === 401 ||response.status === 404) {
                 return response.json().then(data => {
                     Swal.fire({
                         title: "Advertencia",
                         text: "Credenciales incorrectas.",
                         icon: "warning"
                     });
-                    return Promise.reject('Credenciales incorrectas');
+                    throw new Error('Credenciales incorrectas');
                 });
             } else if (!response.ok) {
                 throw new Error('La respuesta de la red no fue correcta');
             }
-           
             return response.json();
         })
         .then(data => {
-           
             localStorage.setItem('showLoginMessage', 'true'); 
-            localStorage.setItem('authToken', data.token); // Almacenar el token en localStorage
-           window.location.href = "http://127.0.0.1:5502/tuVoozPrincipal/paginaPrincipal.html";
-            //window.location.href = "http://192.168.1.8:5502/tuVoozPrincipal/paginaPrincipal.html";
+            localStorage.setItem('access_token', data.access); // guarda el token
+            localStorage.setItem('refresh_token', data.refresh); // lo actualiza
+            window.location.href = "http://127.0.0.1:5502/tuVoozPrincipal/paginaPrincipal.html";
         })
         .catch(error => {
-            if (error !== 'Credenciales incorrectas') {
-                Swal.fire("Error", "Error al iniciar sesión: " + error, "error");
+            if (error.message !== 'Credenciales incorrectas') {
+                Swal.fire("Error", "Error al iniciar sesión: " + error.message, "error");
             }
         });
     } else {
@@ -68,6 +60,8 @@ function iniciarSesion() {
     }
 }
 
+
+
 function validarCamposLogin() {
     var email = document.getElementById("email");
     var password = document.getElementById("password"); 
@@ -77,24 +71,37 @@ function validarCamposLogin() {
 
 function validarEmail(email) {
     let errorDiv = document.getElementById('email-error');
+    let tippyInstanceEmail = tippy(email, {
+        content: '',
+        trigger: 'manual',
+        placement: 'right',
+        theme: 'material',
+    });
+
     if (!email || !email.value) {
         email.className = "form-control is-invalid";
-        errorDiv.style.display = 'block';
+        tippyInstanceEmail.setContent('El correo electrónico es obligatorio.');
+        tippyInstanceEmail.show();
         return false;
     }
 
     let valor = email.value.trim();
     let valido = true;
 
-    // Longitud mínima de 1 y máxima de 100 caracteres
     valido = valor.length > 0 && valor.length <= 100;
 
-    // Validar formato de correo electrónico
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(([^<>()[\]\.,;:\s@"]+\.)+[^<>()[\]\.,;:\s@"]{2,})$/i;
     valido = valido && re.test(valor);
 
-    email.className = valido ? "form-control is-valid" : "form-control is-invalid";
-    errorDiv.style.display = valido ? 'none' : 'block';
+    if (!valido) {
+        email.className = "form-control is-invalid";
+        tippyInstanceEmail.setContent('El correo electrónico no tiene un formato válido.');
+        tippyInstanceEmail.show();
+    } else {
+        email.className = "form-control is-valid";
+        tippyInstanceEmail.hide();
+    }
+
     return valido;
 }
 
@@ -103,6 +110,13 @@ function validarPassword(password) {
     let valor = password.value.trim();
     let valido = true;
     let mensajeError = "";
+
+    let tippyInstancePassword = tippy(password, {
+        content: '',
+        trigger: 'manual',
+        placement: 'right',
+        theme: 'material',
+    });
 
     if (valor.length < 8 || valor.length > 20) {
         valido = false;
@@ -121,9 +135,15 @@ function validarPassword(password) {
         mensajeError = "La contraseña debe tener al menos un carácter especial.";
     }
 
-    password.className = valido ? "form-control is-valid" : "form-control is-invalid";
-    errorDiv.textContent = mensajeError;
-    errorDiv.style.display = valido ? 'none' : 'block';
+    if (!valido) {
+        password.className = "form-control is-invalid";
+        tippyInstancePassword.setContent(mensajeError);
+        tippyInstancePassword.show();
+    } else {
+        password.className = "form-control is-valid";
+        tippyInstancePassword.hide();
+    }
+
     return valido;
 }
 

@@ -20,6 +20,7 @@
         <link href="../TuVooz/Ajustes/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
         <link href="../TuVooz/Ajustes/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
         <link rel="stylesheet" href="../TuVooz/Ajustes/fontawesome/css/all.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 
@@ -38,7 +39,7 @@
         * License: https://bootstrapmade.com/license/
         ======================================================== -->
     </head>
-    <body class="oscuro"> 
+    <body class="dark-mode"> 
     <body>
         <!-- ======= Header ======= -->
         <header id="header" class="fixed-top" >
@@ -56,8 +57,9 @@
                             <a href="#" class="dropdow text-light" data-bs-toggle="dropdown"><i class="fa-solid fa-gear" id="#Menu "></i></a>
                             <div class="dropdown-menu rounded" id="menuDespliegue">
                                 <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> Mi cuenta</a>
-                            
-                                <a href="#" class="dropdown-item"><i class="fas fa-power-off me-2"></i>Cerrar sesión</a>
+                                <!-- la funcion logout viene de js config -->
+                                <button class="dropdown-item" onclick="logout()"><i class="fas fa-power-off me-2"></i>Logout</button>
+
                             </div>
                         </div>
                     </ul>
@@ -72,11 +74,21 @@
                 <div class="row justify-content-center"></div>
             </div>
         </section><!-- End Hero -->
-            <h1 class="tituloTexto">Animales comunes</h1>
+
+        <div class="cajaBotonTitulo">
+            <div class="volverCasa">
+                <a href="../tuVoozPrincipal/indexPalabrasComunes.html" class="top-left-btn"><i class="fa-solid fa-house" style="color: #ffffff;"></i></a>
+            </div>
+
+            <div class="cajaTituloTexto2">
+                <h1 class="tituloTexto">Animales</h1>
+            </div>
+        </div>
+
             <div class="container">
                 <div class="row">
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasSecciones" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/perro.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
@@ -89,7 +101,7 @@
                     </div>    
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasSecciones" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/gato.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
@@ -102,7 +114,7 @@
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasSecciones" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/elefante.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
@@ -115,7 +127,7 @@
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasSecciones" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/leon.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
@@ -128,7 +140,7 @@
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasSecciones" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/tigre.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
@@ -141,7 +153,7 @@
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasSecciones" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/oso.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
@@ -154,7 +166,7 @@
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasSecciones" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/caballo.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
@@ -167,7 +179,7 @@
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasSecciones" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/delfin.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
@@ -180,7 +192,7 @@
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasSecciones" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/aguila.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
@@ -193,7 +205,7 @@
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasSecciones" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/pinguino.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
@@ -206,7 +218,7 @@
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasSecciones" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/cebra.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
@@ -219,7 +231,7 @@
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasSecciones" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/jirafa.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
@@ -232,7 +244,7 @@
                     </div>
 
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasSecciones" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/lobo.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
@@ -245,7 +257,7 @@
                     </div>
     
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasSecciones" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/koala.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
@@ -258,7 +270,7 @@
                     </div>
     
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasSecciones" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/panda.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
@@ -271,7 +283,7 @@
                     </div>
     
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasSecciones" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/loro.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
@@ -284,7 +296,7 @@
                     </div>
     
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasSecciones" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/tortuga.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
@@ -297,7 +309,7 @@
                     </div>
     
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasSecciones" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/pato.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
@@ -310,7 +322,7 @@
                     </div>
     
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasSecciones" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/gallina.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
@@ -323,7 +335,7 @@
                     </div>
     
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasSecciones" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/pollo.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
@@ -336,7 +348,7 @@
                     </div>
     
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasSecciones" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/pescados.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
@@ -349,13 +361,13 @@
                     </div>
                     
                     <div class="col col-12 col-md-6 col-xl-4 cartasPalabras">
-                        <div class="cardPalabrasComunes" style="width: 15rem;">
+                        <div class="cardPalabrasSecciones" >
                             <img src="../tuVoozPrincipal/img/palabrasComunes/animales/pescados.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a onclick="soundPescado.play()" class="btn btn-primary botonReproducirTextoTarjeta">Pescado</a>
+                                    <a onclick="soundPez.play()" class="btn btn-primary botonReproducirTextoTarjeta">Pez</a>
                                 </div>
                             </div>
                         </div>
@@ -374,6 +386,7 @@
         <script src="../TuVooz/Ajustes/js/main.js"></script>
         <script src="./js/modoOscuro.js"></script>
         <script src="./js/audios.js"></script>
+        <script src="./js/cuenta/config.js"></script>
     </body>
 </html>
 

@@ -70,7 +70,6 @@ function registrarUsuario() {
     };
 
     if (validarCampos()) {
-        
         fetch(urlRegistro, {
             method: 'POST',
             headers: {
@@ -95,7 +94,9 @@ function registrarUsuario() {
             return response.json();
         })
         .then(data => {
-           
+            // Almacenar el token JWT en el localStorage
+            localStorage.setItem('accessToken', data.token);
+            
             Swal.fire({
                 title: "Excelente",
                 text: "Se ha registrado exitosamente, \npor favor, revisa tu correo electrónico",
@@ -108,7 +109,6 @@ function registrarUsuario() {
             if (error !== 'Usuario ya registrado') {
                 Swal.fire("Error", "Error al registrar: " + error, "error");
             }
-        
         });
     } else {
         Swal.fire({
@@ -118,6 +118,7 @@ function registrarUsuario() {
         });
     }
 }
+
 
 function validarCampos() {
     var username = document.getElementById("username");

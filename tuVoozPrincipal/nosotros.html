@@ -23,6 +23,7 @@
     <link href="../TuVooz/Ajustes/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../front_end/css/bootstrap.css">
     <link rel="stylesheet" href="../TuVooz/Ajustes/fontawesome/css/all.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   
   
   
@@ -40,7 +41,7 @@
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
   </head>
-  <body class="oscuro"> 
+  <body class="dark-mode"> 
   <body>
     <!-- ======= Header ======= -->
   <header id="header" class="fixed-top" >
@@ -60,8 +61,7 @@
             <a href="#" class="dropdow text-light" data-bs-toggle="dropdown"><i class="fa-solid fa-gear" id="#Menu "></i></a>
             <div class="dropdown-menu rounded" id="menuDespliegue">
                 <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> Mi cuenta</a>
-              
-                <a href="#" class="dropdown-item"><i class="fas fa-power-off me-2"></i>Cerrar sesión</a>
+                <button class="dropdown-item" onclick="logout()"><i class="fas fa-power-off me-2"></i>Cerrar sesión</button>
             </div>
           </div>
           
@@ -243,5 +243,6 @@
   <!-- Template Main JS File -->
   <script src="../TuVooz/Ajustes/js/main.js"></script>
   <script src="./js/modoOscuro.js"></script>
-  </body>
+  <script src="./js/cuenta/config.js"></script>
+ </body>
 </html>

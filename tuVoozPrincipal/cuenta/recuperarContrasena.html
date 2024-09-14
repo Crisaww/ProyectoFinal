@@ -21,38 +21,19 @@
     <div class="container">
         <div class="left-column">
             <div class="fauguet">
-                <div class="tituloCrearCuenta">
-                    <h1>Crear cuenta</h1>
+                <div class="tituloRecuperarContraseña">
+                    <h1>Recuperar contraseña </h1>
                 </div>
                 <div class="formulario">
                     <!-- si se tiene creada una clase, no es necesario poner el style dentro de la etiqueta,
                       para eso esta css, eso es error de especificidad, corregí muchos errores de ese tipo y
                        tambien con los tamaños, por favor, ver la documentacion que envio por el grupo, 
                        no me mato buscando eso para que lo ignoren -->
-                    <div class="formularioCrearCuenta" >
-                        <div class="labelFormulario" >
-                            <label for="username" class="form-label"  >Nombre de usuario:</label>
-                        </div>
-                        <div class="inputFormulario">
-                            <input type="text" class="form-control" name="username" id="username" step="1" onfocusout="validarUsername(this);">
-                        </div>
-                       
-                    </div>
 
-                    <div class="formularioCrearCuenta" >
-                        <div class="labelFormulario" >
-                            <label for="email" class="form-label"  >Correo electrónico:</label>
-                        </div>
 
-                        <div class="inputFormulario">
-                            <input type="email" class="form-control" name="email" id="email" step="1" onfocusout="validarEmail(this);">
-                        </div>
-                       
-                    </div>
-
-                    <div class="formularioCrearCuenta" >
+                    <div class="formularioRecuperarContrasena" >
                         <div class="labelFormulario" >
-                            <label for="password" class="form-label" >Contraseña:</label>
+                            <label for="password" class="form-label" > Nueva Contraseña:</label>
                         </div>
                         <div class="inputFormulario">
                             <input type="password" class="form-control" name="password" id="password" step="1" >
@@ -60,7 +41,7 @@
                         </div>
                        
                     </div> 
-                    <div class="formularioCrearCuenta" >
+                    <div class="formularioRecuperarContrasena" >
                         <div class="labelFormulario" >
                             <label for="password" class="form-label" >Confirmar Contraseña:</label>
                         </div>
@@ -76,7 +57,7 @@
                 </div>
                
                 <div class="boton">
-                    <button type="button" class="btn" onclick="registrarUsuario();">Crear Cuenta</button>
+                    <button type="button" class="btn" onclick="restablecerContrasena();">Confirmar contraseña</button>
                 </div>
                 
                 <div class="registro">
@@ -91,6 +72,7 @@
     
 </body>
 <!-- se trae la libretia tippy -->
+ <script src="../js/cuenta/recuperarContrasena.js"></script>
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script src="https://unpkg.com/tippy.js@6"></script>
 <script src="../js/cuenta/registro.js"></script> <!--JavaScript-->

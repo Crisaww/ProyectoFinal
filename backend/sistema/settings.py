@@ -12,7 +12,10 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import sys
 from decouple import config
+from datetime import timedelta
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +30,7 @@ SECRET_KEY = 'django-insecure-(txe3%0876b*)5*ws9_t(=*jl%4mh^pzg7#3q3iqh&)n=t!=28
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'tuvooz.com', 'www.tuvooz.com', '5.183.11.147']
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5502",
     "http://10.192.66.56:5502"# Reemplaza con el origen de tu frontend
@@ -44,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
+    'rest_framework_simplejwt',
     'rest_framework.authtoken',
     'tuvooz',
     'coreapi',
@@ -67,6 +71,9 @@ SOCIALACCOUNT_PROVIDERS = {
         'OAUTH_PKCE_ENABLED': True,
     }
 }
+#login_required, redirecciona al login en caso de no estar registrado o logeado
+LOGIN_URL = '/tuVoozPrincipal/cuenta/iniciarSesion.html'
+LOGIN_REDIRECT_URL = '/tuVoozPrincipal/paginaPrincipal.html'
 
 SITE_ID = 1
 
@@ -104,8 +111,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tuvoozdb',
         'USER': 'root',
-       # 'PASSWORD': '123456',
-        'PASSWORD': 'root123',# se debe cambiar esto de acuerdo a la DB que van a utilizar
+        #'PASSWORD': '',
+        #'PASSWORD': '123456',
+        'PASSWORD': 'root123',
         'HOST': 'localhost',  # o la dirección IP de tu servidor MySQL
         'PORT': '3306',       
     }
@@ -148,47 +156,31 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 
-# Creo el servidor de correo por consola
-if DEBUG:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# EMAIL_BACKEND = 'MI CONFIGURACION DE CORREO'
-
-# Redirección del usuario cuando es autenticado (logueado)
-ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
-
-# Ruta adonde va a parar el usuario logueado
-LOGIN_REDIRECT_URL = 'home'
-
-# Sistema de autenticación que permite que el usuario ingrese el nombre de usuario o el email con el que se registró
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
-
-# Determina que el registro necesita si o si de un email
-ACCOUNT_EMAIL_REQUIRED = True
-
-# Se puede registrar un unico email por usuario (no se puede repetir)
-ACCOUNT_UNIQUE_EMAIL = True
-
-# Hace que sea obligatorio verificar la cuenta haciendo clic en el link que se envía por correo
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-
-# Cantidad de días en los que se puede hacer click en el link de autenticación
-ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 7
-
-# Hacer que al cerrar la sesión, no se pase a una ventana de verificación de cierre de sesión
-ACCOUNT_LOGOUT_ON_GET = True
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
 }
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),  # Tiempo de vida del token de acceso
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),  # Tiempo de vida del token de refresco
+    'ROTATE_REFRESH_TOKENS': True,  # Rotar tokens de refresco
+    'BLACKLIST_AFTER_ROTATION': True,  # Invalidar tokens antiguos después de rotar
+    'ALGORITHM': 'HS256',  # Algoritmo de encriptación
+    'SIGNING_KEY': SECRET_KEY,
+    'AUTH_HEADER_TYPES': ('Bearer',),
+}
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -205,14 +197,19 @@ TEMPLATES = [
     },
 ]
 
+
 # Configuración de email
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+if 'test' in sys.argv:
+    EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
 EMAIL_HOST = 'smtp.googlemail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'tuvoozsoporte@gmail.com'
 EMAIL_HOST_PASSWORD = config('USER_MAIL_PASSWORD')
 EMAIL_USE_TLS = True
-
+FRONTEND_URL = 'http://127.0.0.1:5502'
 # Lee la ruta de las credenciales desde el archivo .env
 GOOGLE_APPLICATION_CREDENTIALS = config('GOOGLE_APPLICATION_CREDENTIALS')
 

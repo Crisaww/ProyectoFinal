@@ -27,7 +27,7 @@
   <link href="../TuVooz/Ajustes/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="../TuVooz/Ajustes/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../TuVooz/Ajustes/fontawesome/css/all.css">
-  <link rel="stylesheet" href="./css/modoOscuro.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 
@@ -35,6 +35,8 @@
   <link href="../TuVooz/Ajustes/css/style.css" rel="stylesheet">
   <link href="./css/estilos.css" rel="stylesheet">
   <link href="./css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/modoOscuro.css">
+
 
 
 
@@ -46,7 +48,7 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
-<body class="oscuro"> 
+<body class="dark-mode"> 
 <body>
 
   <!-- ======= Header ======= -->
@@ -62,7 +64,7 @@
       <nav id="navbar" class="navbar">
         <ul style="padding: 0px 40px 0px 0px;">
           <li><a class="nav-link scrollto " href="./paginaPrincipal.html">Texto</a></li>
-          <li><a class="nav-link scrollto active" href="./indexFrasesPalabras.html">Palabras Comunes</a></li>
+          <li><a class="nav-link scrollto active" href="./indexFrasesPalabras.html">Palabras comunes</a></li>
           <!-- <li><a class="nav-link scrollto" href="./nosotros.html">¿Quiénes sómos?</a></li> -->
           <li><a class="nav-link scrollto" href="./comoUsarTuvooz.html">¿Cómo usar TuVooz?</a></li>
           <div class="dropdown">
@@ -70,8 +72,7 @@
                 id="#Menu "></i></a>
             <div class="dropdown-menu rounded" id="menuDespliegue">
               <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> Mi cuenta</a>
-
-              <a href="#" class="dropdown-item"><i class="fas fa-power-off me-2"></i>Cerrar sesión</a>
+              <button class="dropdown-item" onclick="logout()"><i class="fas fa-power-off me-2"></i>Cerrar sesión</button>
             </div>
           </div>
 
@@ -94,19 +95,18 @@
 
   </section><!-- End Hero -->
 
-  <main id="main">
+  <!-- <main id="main"> -->
     <!-- tarjetas de seleccion -->
-    <h1 class="tituloTexto">Palabras comunes</h1>
+    <div class="cajaBotonTitulo">
+      <div class="cajaTituloTexto">
+          <h1 class="tituloTexto">Palabras comunes</h1>
+      </div>
+    </div>
+
     <div class="container">
       <div class="row">
-        <div class="col col-12 col-md-4 col-xl-3">
+        <div class="col col-12 col-md-4 col-xl-3 cardPalabrasComunes">
           <div class="e-card playing">
-            <div class="image"></div>
-
-            <div class="wave"></div>
-            <div class="wave"></div>
-            <div class="wave"></div>
-
             <div class="infotop">
               <i class="fas fa-comments icono"></i>
               <br>
@@ -116,7 +116,7 @@
             </div>
           </div>
         </div>
-        <div class="col col-12 col-md-4 col-xl-3">
+        <div class="col col-12 col-md-4 col-xl-3 cardPalabrasComunes">
           <div class="e-card playing">
             <div class="image"></div>
 
@@ -133,7 +133,7 @@
             </div>
           </div>
         </div>  
-        <div class="col col-12 col-md-4 col-xl-3">
+        <div class="col col-12 col-md-4 col-xl-3 cardPalabrasComunes">
           <!-- <div class="container containerTarjeta2"> -->
           <div class="e-card playing">
             <div class="image"></div>
@@ -151,7 +151,7 @@
             </div>
           </div>
         </div> 
-        <div class="col col-12 col-md-4 col-xl-3"> 
+        <div class="col col-12 col-md-4 col-xl-3 cardPalabrasComunes"> 
           <div class="e-card playing">
             <div class="image"></div>
 
@@ -184,6 +184,7 @@
     <!-- Template Main JS File -->
     <script src="../TuVooz/Ajustes/js/main.js"></script>
     <script src="./js/modoOscuro.js"></script>
+    <script src="./js/cuenta/config.js"></script>
 </body>
 
 </html>

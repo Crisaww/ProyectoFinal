@@ -6,8 +6,8 @@ if (!token) {
 } else {
     // Hacer la petición AJAX para obtener el perfil del usuario
     $.ajax({
-        url: urlPerfil,  // Cambia esto a la URL de tu API
-        type: 'POST',         // Debe ser POST porque tu view es POST
+        url: urlPerfil, 
+        type: 'POST',         
         headers: {
             'Authorization': 'Token ' + token,  // Añade el token en el encabezado
         },

@@ -257,6 +257,12 @@ padding-left: 10px;
   color: #ffffff;
 }
 
+.dropdown-item:focus, .dropdown-item:hover{
+  background:#8f19f7;
+  color: white;
+
+}
+
 .navbar .nav-item:hover .dropdown-menu {
   transform: rotateX(0deg);
   visibility: visible;
@@ -301,9 +307,7 @@ Texto
 .tituloTexto{
   font-family: "Poppins", sans-serif;
   text-align: center;
-  padding-top: 120px;
-  color: #5128b3;
-  text-align: center;
+  color: #5128b3 var();
   font-weight: bold;
 }
 
@@ -497,7 +501,7 @@ ACCESIBILIDAD
 .linea{
   border: none;
   margin-top: 20px;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid;
   width: 100%;
 
   
