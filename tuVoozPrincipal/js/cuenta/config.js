@@ -4,6 +4,7 @@ let urlBasica= "http://127.0.0.1:8000/"
 let urlLogin= urlBasica+"tuvooz/api/v1/iniciarSesion";
 let urlRegistro=urlBasica+"tuvooz/api/v1/registro";
 let urlPerfil = urlBasica+"tuvooz/api/v1/perfil";
+let urlPerfilNombre = urlBasica+"tuvooz/api/v1/nombre/";
 let urlOlvideContrasena = urlBasica+"tuvooz/api/v1/olvideContrasena/";
 let urlRestabkecerContrasena = urlBasica+"tuvooz/api/v1/restablecerContrasena/";
 let urlCerrarSesion = urlBasica + "tuvooz/api/v1/logout/";

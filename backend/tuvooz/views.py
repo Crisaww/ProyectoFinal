@@ -1,4 +1,5 @@
-from django.shortcuts import get_object_or_404
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404, render
 from django.contrib.auth import logout as django_logout
 from django.utils import timezone
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -87,7 +88,7 @@ def registro(request):
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-#acceso al perfil
+#Acceso al perfil
 @api_view(['POST'])
 @permission_classes([IsAuthenticated]) 
 def perfil(request):
@@ -100,6 +101,9 @@ def perfil(request):
     }
     
     return Response(data, status=status.HTTP_200_OK)
+
+
+
 
 
 @permission_classes([AllowAny])
@@ -142,6 +146,15 @@ class olvide_contrasena(APIView):
 
         except User.DoesNotExist:
             return Response({"error": "Usuario no encontrado."}, status=status.HTTP_404_NOT_FOUND)
+
+
+#Llama el nombre del usuario actual para mostrarlo en MiCuenta
+@api_view(['GET'])
+@permission_classes([IsAuthenticated]) 
+def traerNombreUsuario(request):
+    user = request.user
+    return JsonResponse({'username': user.username})
+    
         
 @api_view(['POST'])
 @permission_classes([AllowAny])
@@ -185,6 +198,33 @@ def logout(request):
         return Response({"message": "Sesión cerrada correctamente."}, status=status.HTTP_200_OK)
     else:
         return Response({"error": "No estás autenticado."}, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @api_view(['GET'])
