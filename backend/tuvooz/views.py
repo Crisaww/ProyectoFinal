@@ -141,7 +141,7 @@ class olvide_contrasena(APIView):
             return Response({"message": "Correo enviado con éxito."}, status=status.HTTP_200_OK)
 
         except User.DoesNotExist:
-            return Response({"error": "Usuario no encontrado."}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"error": "Usuario no encontrado."}, status=status.HTTP_404_NOT_FOUND)
         
 @api_view(['POST'])
 @permission_classes([AllowAny])
