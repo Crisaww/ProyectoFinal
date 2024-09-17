@@ -97,13 +97,13 @@
     <div class="row">
       <div class="col-md-3">
         <label for="username" class="form-label">Nombre de usuario actual</label>
-        <input type="text" class="form-control" name="username" id="username" value="{{ user.username }}" readonly>
+        <input type="text" class="form-control" name="username" id="username" readonly>
         <label for="" class="form-label">Nombre de usuario nuevo</label>
-        <input type="text" class="form-control" name="" id="">
+        <input type="text" class="form-control" name="new-username" id="new-username">
       </div>
 
       <div class="col-md-2">
-        <button class="btn btn-purple" id="btnCambios" type="button">Guardar cambios</button>
+        <button class="btn btn-purple" id="btnCambios" type="button"onclick="actualizarUsername()">Guardar cambios</button>
       </div>
 
     </div>
@@ -115,7 +115,7 @@
     <div class="row">
       <div class="col-md-3">
         <label for="" class="form-label">Correo electrónico actual</label>
-        <input type="text" class="form-control" name="" id="">
+        <input type="text" class="form-control" name="email" id="email" readonly>
         <label for="" class="form-label">Correo electrónico nuevo</label>
         <input type="text" class="form-control" name="" id="">
       </div>
@@ -132,7 +132,7 @@
     <div class="row">
       <div class="col-md-3">
         <label for="" class="form-label">Contraseña actual</label>
-        <input type="text" class="form-control" name="" id="">
+        <input type="text" class="form-control" name="password" id="password" readonly>
         <label for="" class="form-label">Contraseña nueva</label>
         <input type="text" class="form-control" name="" id="">
         <label for="" class="form-label">Confirmarción de contraseña nueva</label>
@@ -231,29 +231,19 @@
         </div>
 
       </div>
-      
 
-
-    
-
-    
-
-    
-
-
-
-  <!-- Vendor JS Files -->
-  <script src="../TuVooz/Ajustes/vendor/aos/aos.js"></script>
-  <script src="../TuVooz/Ajustes/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../TuVooz/Ajustes/vendor/glightbox/js/glightbox.min.js"></script>
+      <!-- <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script> -->
+      <!-- Vendor JS Files -->
+      <script src="../TuVooz/Ajustes/vendor/aos/aos.js"></script>
+      <script src="../TuVooz/Ajustes/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="../TuVooz/Ajustes/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="../TuVooz/Ajustes/vendor/swiper/swiper-bundle.min.js"></script>
-
+  
   <!-- Template Main JS File -->
   <script src="../TuVooz/Ajustes/js/main.js"></script>
-
   <script src="./js/cuenta/perfil.js"></script>  
   <script src="./js/accesibilidad.js"></script>
   <script src="./js/modoOscuro.js"></script>
   <script src="./js/cuenta/config.js"></script>  
-  </body>
+</body>
 </html>

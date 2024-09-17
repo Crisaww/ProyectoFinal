@@ -1,4 +1,3 @@
-from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth import logout as django_logout
 from django.utils import timezone
@@ -11,7 +10,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth.models import User
 from django.template.loader import render_to_string
-from django.utils.crypto import get_random_string
+from rest_framework import generics
 from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from rest_framework.permissions import AllowAny
@@ -102,7 +101,52 @@ def perfil(request):
     
     return Response(data, status=status.HTTP_200_OK)
 
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework import status
 
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def actualizar_username(request):
+    user = request.user
+    new_username = request.data.get('new_username')
+
+    if not new_username:
+        return Response({'error': 'El nuevo nombre de usuario es requerido'}, status=status.HTTP_400_BAD_REQUEST)
+
+    # Opcional: Agregar validaciones adicionales para el nombre de usuario
+    if len(new_username) < 3:  # Ejemplo de validación
+        return Response({'error': 'El nuevo nombre de usuario debe tener al menos 3 caracteres'}, status=status.HTTP_400_BAD_REQUEST)
+
+    user.username = new_username
+    user.save()
+
+    return Response({'message': 'Nombre de usuario actualizado con éxito'}, status=status.HTTP_200_OK)
+
+
+
+# class InfoUser(APIView):
+#     def get(self, request, id, format=None):
+#         try:
+#             user = User.objects.get(pk=id)
+#         except User.DoesNotExist:
+#             return Response(status=status.HTTP_404_NOT_FOUND)
+
+#         serializer = UserSerializer(user)
+#         return Response(serializer.data)
+
+#     def put(self, request, id, format=None):
+#         try:
+#             user = User.objects.get(pk=id)
+#         except User.DoesNotExist:
+#             return Response(status=status.HTTP_404_NOT_FOUND)
+
+#         serializer = UserSerializer(user, data=request.data, partial=True)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 
@@ -148,12 +192,12 @@ class olvide_contrasena(APIView):
             return Response({"error": "Usuario no encontrado."}, status=status.HTTP_404_NOT_FOUND)
 
 
-#Llama el nombre del usuario actual para mostrarlo en MiCuenta
-@api_view(['GET'])
-@permission_classes([IsAuthenticated]) 
-def traerNombreUsuario(request):
-    user = request.user
-    return JsonResponse({'username': user.username})
+# #Llama el nombre del usuario actual para mostrarlo en MiCuenta
+# @api_view(['GET'])
+# @permission_classes([IsAuthenticated]) 
+# def traerNombreUsuario(request):
+#     user = request.user
+#     return JsonResponse({'username': user.username})
     
         
 @api_view(['POST'])
@@ -198,33 +242,6 @@ def logout(request):
         return Response({"message": "Sesión cerrada correctamente."}, status=status.HTTP_200_OK)
     else:
         return Response({"error": "No estás autenticado."}, status=status.HTTP_400_BAD_REQUEST)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @api_view(['GET'])
