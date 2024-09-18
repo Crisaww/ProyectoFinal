@@ -387,16 +387,17 @@ Mi cuenta
 .form-overlay{
   margin-left: 13%;
 }
-#btnCambios{
+.btn-purple{
   width: 60%;
   background: #8e00ed;
   border-radius: 10px;
   color: #ffffff;
 }
 
-#btnCambios:hover{
+.btn-purple:hover{
   
-  box-shadow: 0px 0px 5px rgb(0, 0, 0);
+  box-shadow: #8e00ed;
+  background-color: #c966f7;
   
 }
 
