@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".frases_y_palabras_preguntas">
-    <!--<FrameLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <View
@@ -46,7 +46,7 @@
                 android:src="@drawable/home_house_ui_svgrepo_com" />
         </LinearLayout>
     </FrameLayout>
-    <!-<ScrollView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <GridLayout
@@ -64,7 +64,7 @@
                     android:id="@+id/imagen_pregunta1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/pregunta1"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonPregunta1"
@@ -86,7 +86,7 @@
                     android:id="@+id/imagen_pregunta2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/pregunta2"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonPregunta2"
@@ -108,7 +108,7 @@
                     android:id="@+id/imagen_pregunta3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/pregunta3"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonPregunta3"
@@ -130,7 +130,7 @@
                     android:id="@+id/imagen_pregunta4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/pregunta4"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonpregunta4"
@@ -152,7 +152,7 @@
                     android:id="@+id/imagen_pregunta5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/pregunta5"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/boton_pregunta5"
@@ -174,7 +174,7 @@
                     android:id="@+id/imagen_pregunta6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/pregunta21"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonPregunta6"
@@ -196,7 +196,7 @@
                     android:id="@+id/imagen_pregunta7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/pregunta6"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonPregunta7"
@@ -218,7 +218,7 @@
                     android:id="@+id/imagen_pregunta8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/pregunta7"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonPregunta8"
@@ -240,7 +240,7 @@
                     android:id="@+id/imagen_pregunta9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/pregunta8"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonPregunta9"
@@ -262,7 +262,7 @@
                     android:id="@+id/imagen_pregunta10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/pregunta9"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonPregunta10"
@@ -284,7 +284,7 @@
                     android:id="@+id/imagen_pregunta11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/pregunta18"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonPregunta11"
@@ -306,7 +306,7 @@
                     android:id="@+id/imagen_pregunta12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/pregunta19"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonPregunta12"
@@ -328,7 +328,7 @@
                     android:id="@+id/imagen_pregunta13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/pregunta11"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonPregunta13"
@@ -350,7 +350,7 @@
                     android:id="@+id/imagen_pregunta14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/pregunta12"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonPregunta14"
@@ -372,7 +372,7 @@
                     android:id="@+id/imagen_pregunta15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/pregunta13"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonPregunta15"
@@ -394,7 +394,7 @@
                     android:id="@+id/imagen_pregunta16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/pregunta14"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonPregunta16"
@@ -416,7 +416,7 @@
                     android:id="@+id/imagen_pregunta17"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/pregunta16"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonPregunta17"
@@ -438,7 +438,7 @@
                     android:id="@+id/imagen_pregunta18"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/pregunta17"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonPregunta18"
@@ -460,7 +460,7 @@
                     android:id="@+id/imagen_pregunta19"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/pregunta15"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonPregunta19"
@@ -482,7 +482,7 @@
                     android:id="@+id/imagen_pregunta20"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/pregunta20"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonPregunta20"
@@ -495,5 +495,5 @@
                     android:text="¿Dónde estás?" />
             </FrameLayout>
         </GridLayout>
-    </ScrollView>-->
+    </ScrollView>
 </LinearLayout>

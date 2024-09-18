@@ -1,0 +1,133 @@
+/*Ajustar el tamaño de la pagina*/
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(86, 58, 250, 0.9) 100%, rgba(86, 58, 250, 0.9) 0%), url("../img/Onda3.jpg");
+    background-size: cover;
+    position: relative;
+    font-family: "Poppins", sans-serif;
+}
+/*Estilo para el contenedor principal*/
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilo para las columnas */
+.left-column, .right-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex-grow: 1; /* Hacer que las columnas ocupen todo el espacio disponible */
+}
+
+/*Estilo para el contenido*/
+.fauguet {
+    border-radius: 20px;
+    max-width: 50%;
+    padding: 7%;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    /* Fondo blanco */
+    text-align: justify;
+    font-size: 100%;
+}
+
+/*Estilos para el formulario y sus elemntos*/
+form {
+    border-radius: 2px;
+    border-bottom: 2px;
+    padding: 15px;
+}
+
+.col {
+    margin-bottom: 2px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    /* Espacio inferior entre etiquetas y campos */
+}
+
+.form-control {
+    width: 100%;
+    /* Opcional: Ajusta el ancho de los campos */
+    padding: 8px;
+    /* Opcional: Ajusta el relleno de los campos */
+    border: 1px solid #ccc;
+    /* Opcional: Estilo de borde */
+    border-radius: 5px;
+    /* Opcional: Borde redondeado */
+}
+
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.parrafo {
+    text-align: center;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    max-width: 100%;
+    padding: 8px;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+}
+
+/*Estilos para el boton*/
+.boton {
+    display: flex;
+    justify-content: center;
+    
+  
+}
+
+/* Dentro del botón */
+.boton .btn {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    width: 70%;
+    border-radius: 15px;
+    border: none;
+    padding: 8px;
+
+    background-color: rgba(86, 58, 250, 0.9);
+    color: #fff;
+}
+
+/*Estilos para el aviso de descarga*/
+.aviso {
+    text-align: center;
+}
+
+.aviso img {
+    max-width: 150px;
+}
+
+.right-column{
+    flex: 1;
+    display: flex;
+    justify-content: center; /*centra horizontalmete la imagen*/
+    align-items: center; /*centra verticalmentela imagen*/
+    padding: 20px; /*se agrega espacio alrededor de la imagen*/
+}
+
+.site-logo {
+    max-width: 50%;
+    height: auto; /*se ajusta la altura de la imagen automaticamente*/
+    padding-right: 15%;
+}

@@ -46,7 +46,7 @@
                 android:src="@drawable/home_house_ui_svgrepo_com" />
         </LinearLayout>
     </FrameLayout>
-    <!--<ScrollView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <GridLayout
@@ -64,7 +64,7 @@
                     android:id="@+id/imagen_hola"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/hola"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonHola"
@@ -86,7 +86,7 @@
                     android:id="@+id/imagen_buenos_dias"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/buenos_dias"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonBuenos_dias"
@@ -108,7 +108,7 @@
                     android:id="@+id/imagen_buenas_tardes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/buenas_tardes"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonBuenas_Tardes"
@@ -130,7 +130,7 @@
                     android:id="@+id/imagen_buenas_noches"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/buenas_noches"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonBuenas_noches"
@@ -152,7 +152,7 @@
                     android:id="@+id/imagen_encantado_de_conocerte"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/encantado_conocerte"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/boton_encantado_de_conocerte"
@@ -174,7 +174,7 @@
                     android:id="@+id/imagen_que_gusto_verte"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/saludo_formales"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonQue_gusto_verte"
@@ -196,7 +196,7 @@
                     android:id="@+id/imagen_es_un_placer_conocerte"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/placer_conocerte"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonEs_un_placer_conocerte"
@@ -218,7 +218,7 @@
                     android:id="@+id/imagen_adiós"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/despedida1"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonAdiós"
@@ -240,7 +240,7 @@
                     android:id="@+id/imagen_hasta_pronto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/despedida2"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonHasta_pronto"
@@ -262,7 +262,7 @@
                     android:id="@+id/imagen_hasta_luego"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/despedida3"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonHasta_luego"
@@ -284,7 +284,7 @@
                     android:id="@+id/imagen_hasta_mañana"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/despedida4"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonHasta_mañana"
@@ -306,7 +306,7 @@
                     android:id="@+id/imagen_nos_vemos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/despedida5"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonNos_vemos"
@@ -328,7 +328,7 @@
                     android:id="@+id/imagen_chao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/despedida6"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonChao"
@@ -341,5 +341,5 @@
                     android:text="Chao" />
             </FrameLayout>
         </GridLayout>
-    </ScrollView>-->
+    </ScrollView>
 </LinearLayout>

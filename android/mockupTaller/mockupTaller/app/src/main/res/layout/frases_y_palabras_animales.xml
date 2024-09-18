@@ -46,7 +46,7 @@
                 android:src="@drawable/home_house_ui_svgrepo_com" />
         </LinearLayout>
     </FrameLayout>
-    <!--<ScrollView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <GridLayout
@@ -64,7 +64,7 @@
                     android:id="@+id/imagen_perro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/perro"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonPerro"
@@ -86,7 +86,7 @@
                     android:id="@+id/imagen_gato"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/gato"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonGato"
@@ -108,7 +108,7 @@
                     android:id="@+id/imagen_elefante"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/elefante"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonElefante"
@@ -130,7 +130,7 @@
                     android:id="@+id/imagen_Leon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/leon"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonLeon"
@@ -152,7 +152,7 @@
                     android:id="@+id/imagen_tigre"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/tigre"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/boton_tigre"
@@ -174,7 +174,7 @@
                     android:id="@+id/imagen_oso"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/oso"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonOso"
@@ -196,7 +196,7 @@
                     android:id="@+id/imagen_caballo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/caballo"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonCaballo"
@@ -218,7 +218,7 @@
                     android:id="@+id/imagen_delfin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/delfin"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonDelfin"
@@ -240,7 +240,7 @@
                     android:id="@+id/imagen_aguila"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/aguila"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonAguila"
@@ -262,7 +262,7 @@
                     android:id="@+id/imagen_pingüino"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/pinguino"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonPingüino"
@@ -284,7 +284,7 @@
                     android:id="@+id/imagen_cebra"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/cebra"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonCebra"
@@ -306,7 +306,7 @@
                     android:id="@+id/imagen_jirafa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/jirafa"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonJirafa"
@@ -328,7 +328,7 @@
                     android:id="@+id/imagen_lobo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/lobo"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonLobo"
@@ -350,7 +350,7 @@
                     android:id="@+id/imagen_koala"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=" "
+                    android:src="@drawable/koala"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonKoala"
@@ -372,7 +372,7 @@
                     android:id="@+id/imagen_panda"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/panda"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonPanda"
@@ -394,7 +394,7 @@
                     android:id="@+id/imagen_loro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/loro"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonLoro"
@@ -416,7 +416,7 @@
                     android:id="@+id/imagen_tortuga"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/tortuga"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonTortuga"
@@ -438,7 +438,7 @@
                     android:id="@+id/imagen_pato"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/pato"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonPato"
@@ -460,7 +460,7 @@
                     android:id="@+id/imagen_gallina"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/gallina"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonGallina"
@@ -482,7 +482,7 @@
                     android:id="@+id/imagen_pollo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/pollo"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonPollo"
@@ -504,7 +504,7 @@
                     android:id="@+id/imagen_pez"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/pescados"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonPez"
@@ -517,5 +517,5 @@
                     android:text="Pez" />
             </FrameLayout>
         </GridLayout>
-    </ScrollView>-->
+    </ScrollView>
 </LinearLayout>

@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".frases_y_palabras_emociones">
-    <!--<FrameLayout
+  <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <View
@@ -47,7 +47,7 @@
                 android:src="@drawable/home_house_ui_svgrepo_com" />
         </LinearLayout>
     </FrameLayout>
-    <!-<ScrollView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <GridLayout
@@ -65,7 +65,7 @@
                     android:id="@+id/imagen_feliz"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/felicidad"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonFeliz"
@@ -87,7 +87,7 @@
                     android:id="@+id/imagen_sorprendido"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/sorpresa"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonSorprendido"
@@ -109,7 +109,7 @@
                     android:id="@+id/imagen_confundido"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/confusion"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonConfundido"
@@ -131,7 +131,7 @@
                     android:id="@+id/imagen_Enojado"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/enojado"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonEnojado"
@@ -153,7 +153,7 @@
                     android:id="@+id/imagen_estresado"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/estres"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/boton_Estresado"
@@ -175,7 +175,7 @@
                     android:id="@+id/imagen_tranquilo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/tranquilidad"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonTranquilo"
@@ -197,7 +197,7 @@
                     android:id="@+id/imagen_triste"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/tristeza"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonTriste"
@@ -219,7 +219,7 @@
                     android:id="@+id/imagen_aburrido"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/aburrido"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonAburrido"
@@ -241,7 +241,7 @@
                     android:id="@+id/imagen_enamorado"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/enamorado"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonEnamorado"
@@ -263,7 +263,7 @@
                     android:id="@+id/imagen_malo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/malo"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonMalo"
@@ -285,7 +285,7 @@
                     android:id="@+id/imagen_enfermo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src=""
+                    android:src="@drawable/enfermo"
                     android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/botonEnfermo"
@@ -298,5 +298,5 @@
                     android:text="Enfermo" />
             </FrameLayout>
         </GridLayout>
-    </ScrollView>-->
+    </ScrollView>
 </LinearLayout>
