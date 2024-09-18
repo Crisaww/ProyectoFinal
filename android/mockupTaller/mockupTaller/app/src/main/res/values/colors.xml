@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="morado1">#800080</color>
+    <color name="morado2">#8673ee</color>
+    <color name="morado3">#E0C8FF</color>
+    <color name="green">#00FF00</color>
+    <color name="morado4">#e5e4e4</color>
+    <color name="morado5">#3F0045</color>
+    <color name="azul1">#90e0ef</color>
+    <color name="blue">#0000FF</color>
+    <color name="my_light_primary">#FFFFFF</color>
+    <color name="my_light_on_primary">#000000</color>
+    <color name="my_light_surface">#F5F5F5</color>
+    <color name="my_light_on_surface">#212121</color>
+
+</resources>

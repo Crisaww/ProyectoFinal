@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".como_usar_tuvooz">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:background="@drawable/gradient_overlay" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:layout_gravity="center">
+            <ImageView
+                android:id="@+id/btnVolver"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/flecha_volver" />
+            <TextView
+                android:id="@+id/textComo_usar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:fontFamily="@font/fuente_poppins_medium"
+                android:text="¿Cómo usar TuVooz?"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </FrameLayout>
+    <ImageView
+        android:id="@+id/imageManual"
+        android:layout_width="199dp"
+        android:layout_height="177dp"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/logomanual" />
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="262dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/dmsans_regular"
+        android:text="TuVooz es una aplicación muy sencilla de usar, si no entiendes como funciona, a continuacion te dejamos un corto manual de como usar nuestra App."
+        android:textAlignment="center"
+        android:textSize="20sp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

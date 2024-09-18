@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".configuracion_contra">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:background="@drawable/gradient_overlay" />
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_gravity="center">
+            <ImageView
+                android:id="@+id/btnVolver"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/flecha_volver" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:fontFamily="@font/fuente_poppins_medium"
+                android:text="Configuración - Contraseña"
+                android:textColor="@color/white"
+                android:textSize="20sp"/>
+        </LinearLayout>
+    </FrameLayout>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/fuente_poppins_medium"
+        android:text="Cambio de contraseña"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal" />
+    <TextView
+        android:id="@+id/txtActual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/dmsans_regular"
+        android:text="Contraseña actual:"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_marginLeft="40dp"/>
+    <RelativeLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <EditText
+            android:id="@+id/editTextTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/estilo_borde_text"
+            android:backgroundTint="#E4E4E4"
+            android:inputType="textPassword"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:textSize="14sp" />
+        <ImageView
+            android:id="@+id/eyeToggleActual"
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:clickable="true"
+            android:contentDescription="Mostrar/Ocultar contraseña"
+            android:src="@drawable/ojo_svgrepo_com" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="35dp">
+        <TextView
+            android:id="@+id/textContraNueva"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/dmsans_regular"
+            android:text="Contraseña nueva:"
+            android:textSize="16sp" />
+        <EditText
+            android:id="@+id/txtNueva"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/estilo_borde_text"
+            android:backgroundTint="#E4E4E4"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/eyeToggleNueva"
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="end"
+            android:layout_marginTop="-45dp"
+            android:layout_marginEnd="10dp"
+            android:clickable="true"
+            android:contentDescription="Mostrar/Ocultar contraseña nueva"
+            android:src="@drawable/ojo_svgrepo_com" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="35dp">
+        <TextView
+            android:id="@+id/textConfirmacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/dmsans_regular"
+            android:text="Confirmación de contraseña nueva:"
+            android:textSize="16sp" />
+        <EditText
+            android:id="@+id/txtConfirmacion"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/estilo_borde_text"
+            android:backgroundTint="#E4E4E4"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:textSize="14sp" />
+        <ImageView
+            android:id="@+id/eyeToggleConfirmacion"
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="end"
+            android:layout_marginTop="-45dp"
+            android:layout_marginEnd="10dp"
+            android:clickable="true"
+            android:contentDescription="Mostrar/Ocultar confirmación de contraseña nueva"
+            android:src="@drawable/ojo_svgrepo_com" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/btnGuardar_cambios"
+        android:layout_width="175dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="35dp"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="#563AFA"
+        app:cornerRadius="10dp"
+        android:text="Guardar cambios"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

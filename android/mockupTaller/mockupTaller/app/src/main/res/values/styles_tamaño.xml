@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tema con tamaño de texto normal -->
+    <style name="SmallTextTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+    </style>
+
+    <!-- Tema con tamaño de texto grande -->
+    <style name="LargeTextTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textSize">@dimen/text_size_large</item>
+    </style>
+</resources>

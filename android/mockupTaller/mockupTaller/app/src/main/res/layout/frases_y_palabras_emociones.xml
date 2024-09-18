@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".frases_y_palabras_emociones">
+    <!--<FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/gradient_overlay" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_gravity="center">
+            <ImageView
+                android:id="@+id/btnVolver"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:src="@drawable/flecha_volver" />
+            <TextView
+                android:id="@+id/textfrases_emociones"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/fuente_poppins_medium"
+                android:text="Emociones"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+            <ImageView
+                android:id="@+id/imageInicio"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:src="@drawable/home_house_ui_svgrepo_com" />
+        </LinearLayout>
+    </FrameLayout>
+    <!-<ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:padding="8dp">
+            <FrameLayout
+                android:layout_width="180dp"
+                android:layout_height="200dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/borde_cartas"
+                android:padding="4dp">
+                <ImageView
+                    android:id="@+id/imagen_feliz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src=""
+                    android:scaleType="centerCrop" />
+                <Button
+                    android:id="@+id/botonFeliz"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="80dp"
+                    android:backgroundTint="#7D72F4"
+                    android:textColor="#ffffff"
+                    android:text="Feliz" />
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="180dp"
+                android:layout_height="200dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/borde_cartas"
+                android:padding="4dp">
+                <ImageView
+                    android:id="@+id/imagen_sorprendido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src=""
+                    android:scaleType="centerCrop" />
+                <Button
+                    android:id="@+id/botonSorprendido"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="80dp"
+                    android:backgroundTint="#7D72F4"
+                    android:textColor="#ffffff"
+                    android:text="Sorprendido" />
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="180dp"
+                android:layout_height="200dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/borde_cartas"
+                android:padding="4dp">
+                <ImageView
+                    android:id="@+id/imagen_confundido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src=""
+                    android:scaleType="centerCrop" />
+                <Button
+                    android:id="@+id/botonConfundido"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="80dp"
+                    android:backgroundTint="#7D72F4"
+                    android:textColor="#ffffff"
+                    android:text="Confundido" />
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="180dp"
+                android:layout_height="200dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/borde_cartas"
+                android:padding="4dp">
+                <ImageView
+                    android:id="@+id/imagen_Enojado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src=""
+                    android:scaleType="centerCrop" />
+                <Button
+                    android:id="@+id/botonEnojado"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="80dp"
+                    android:backgroundTint="#7D72F4"
+                    android:textColor="#ffffff"
+                    android:text="Enojado" />
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="180dp"
+                android:layout_height="200dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/borde_cartas"
+                android:padding="4dp">
+                <ImageView
+                    android:id="@+id/imagen_estresado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src=""
+                    android:scaleType="centerCrop" />
+                <Button
+                    android:id="@+id/boton_Estresado"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="80dp"
+                    android:backgroundTint="#7D72F4"
+                    android:textColor="#ffffff"
+                    android:text="Estresado" />
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="180dp"
+                android:layout_height="200dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/borde_cartas"
+                android:padding="4dp">
+                <ImageView
+                    android:id="@+id/imagen_tranquilo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src=""
+                    android:scaleType="centerCrop" />
+                <Button
+                    android:id="@+id/botonTranquilo"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="80dp"
+                    android:backgroundTint="#7D72F4"
+                    android:textColor="#ffffff"
+                    android:text="Tranquilo" />
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="180dp"
+                android:layout_height="200dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/borde_cartas"
+                android:padding="4dp">
+                <ImageView
+                    android:id="@+id/imagen_triste"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src=""
+                    android:scaleType="centerCrop" />
+                <Button
+                    android:id="@+id/botonTriste"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="80dp"
+                    android:backgroundTint="#7D72F4"
+                    android:textColor="#ffffff"
+                    android:text="Triste" />
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="180dp"
+                android:layout_height="200dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/borde_cartas"
+                android:padding="4dp">
+                <ImageView
+                    android:id="@+id/imagen_aburrido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src=""
+                    android:scaleType="centerCrop" />
+                <Button
+                    android:id="@+id/botonAburrido"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="80dp"
+                    android:backgroundTint="#7D72F4"
+                    android:textColor="#ffffff"
+                    android:text="Aburrido" />
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="180dp"
+                android:layout_height="200dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/borde_cartas"
+                android:padding="4dp">
+                <ImageView
+                    android:id="@+id/imagen_enamorado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src=""
+                    android:scaleType="centerCrop" />
+                <Button
+                    android:id="@+id/botonEnamorado"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="80dp"
+                    android:backgroundTint="#7D72F4"
+                    android:textColor="#ffffff"
+                    android:text="Enamorado" />
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="180dp"
+                android:layout_height="200dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/borde_cartas"
+                android:padding="4dp">
+                <ImageView
+                    android:id="@+id/imagen_malo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src=""
+                    android:scaleType="centerCrop" />
+                <Button
+                    android:id="@+id/botonMalo"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="80dp"
+                    android:backgroundTint="#7D72F4"
+                    android:textColor="#ffffff"
+                    android:text="Malo" />
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="180dp"
+                android:layout_height="200dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/borde_cartas"
+                android:padding="4dp">
+                <ImageView
+                    android:id="@+id/imagen_enfermo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src=""
+                    android:scaleType="centerCrop" />
+                <Button
+                    android:id="@+id/botonEnfermo"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="80dp"
+                    android:backgroundTint="#7D72F4"
+                    android:textColor="#ffffff"
+                    android:text="Enfermo" />
+            </FrameLayout>
+        </GridLayout>
+    </ScrollView>-->
+</LinearLayout>

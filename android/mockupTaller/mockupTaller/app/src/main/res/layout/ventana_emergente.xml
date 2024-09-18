@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ventana_emergente">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_overlay"
+        android:orientation="vertical"
+        android:padding="16dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/cerrarVentana"
+                android:layout_width="41dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="Cerrar"
+                android:src="@drawable/x_cerrar_ventana" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Configuración"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@android:color/darker_gray" />
+        <Button
+            android:id="@+id/btnMiCuenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#8673ee"
+            android:gravity="start"
+            android:onClick="registrarse"
+            android:padding="16dp"
+            app:cornerRadius="10dp"
+            android:text="Mi cuenta"
+            android:textColor="@android:color/black"
+            app:icon="@drawable/usuario_circulo"
+            app:iconSize="22dp"
+            app:iconTint="#FFFFFF" />
+        <Button
+            android:id="@+id/btnAccesibilidad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#8673ee"
+            android:gravity="start"
+            android:onClick="tema"
+            app:cornerRadius="10dp"
+            android:padding="16dp"
+            android:text="Accesibilidad"
+            app:icon="@drawable/accessibility"
+            app:iconSize="25dp"
+            app:iconTint="#FFFFFF"
+            android:textColor="@android:color/black" />
+        <Button
+            android:id="@+id/btnContrasena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#8673ee"
+            android:gravity="start"
+            android:onClick="contrasena"
+            android:padding="16dp"
+            android:text="Contraseña"
+            app:cornerRadius="10dp"
+            app:icon="@drawable/password"
+            app:iconSize="22dp"
+            app:iconTint="#FFFFFF"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+</LinearLayout>
