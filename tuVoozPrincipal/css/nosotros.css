@@ -14,19 +14,19 @@
 }
 
 .team-member img {
-  width: 100px;
-  height:130px;
+  width: 90px;
+  height:175px;
   object-fit: cover;
   border-radius: 80%;
   position: absolute;
-  top: 5px;
+  top: 17px;
   left: 62%;
   transform: translateX(-110px);
   transition: all 0.3s;
 }
 
 .team-member:hover img {
-  top: -80px;
+  top: 20px;
 }
 
 .team-member .main-content {
@@ -35,6 +35,7 @@
   background-color: #f1f0fe;
   text-align: center;
 }
+
 
 .team-member .main-content span.category {
   color: #6a1581;
@@ -127,9 +128,9 @@
 .button::before {
   content: "";
   position: absolute;
-  width: 55px;
+  width: 535px;
   height: 55px;
-  background-color: #212121;
+  background-color: #a61414;
   border-radius: 50px;
   transition: 0.4s;
 }
@@ -191,4 +192,8 @@
 .owl-next{
   height: 102%;
   width: 65%;
+}
+.item{
+  width: 100px;
+  height: 370px;
 }
