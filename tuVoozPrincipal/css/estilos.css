@@ -397,6 +397,9 @@ Mi cuenta
 .btn-purple:hover{
   
   box-shadow: #8e00ed;
+  color: white;
+  box-shadow: 0px 0px 5px rgb(0, 0, 0);
+
   background-color: #c966f7;
   
 }
@@ -1071,7 +1074,6 @@ ACCESIBILIDAD
 }
 
 .card2 {
-  margin-top: 5rem;
   width: 15rem;
   height: 10rem;
   display: flex;
