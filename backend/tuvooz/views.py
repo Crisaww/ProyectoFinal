@@ -21,6 +21,9 @@ from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from rest_framework.views import APIView
 from django.utils.encoding import force_str
 from django.utils.http import urlsafe_base64_decode
+from django.core.validators import validate_email
+
+
 
 # Create your views here.
 
@@ -87,43 +90,61 @@ def registro(request):
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-#Acceso al perfil
-@api_view(['POST'])
-@permission_classes([IsAuthenticated]) 
-def perfil(request):
-    
-    user = request.user
-    data = {
-        'email': user.email,
-        'username': user.username,
-        'date_joined': user.date_joined.strftime('%Y-%m-%d'),
-    }
-    
-    return Response(data, status=status.HTTP_200_OK)
-
-from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
-from rest_framework import status
-
-@api_view(['POST'])
+@api_view(['GET', 'PATCH'])
 @permission_classes([IsAuthenticated])
-def actualizar_username(request):
+def perfil(request):
     user = request.user
-    new_username = request.data.get('new_username')
 
-    if not new_username:
-        return Response({'error': 'El nuevo nombre de usuario es requerido'}, status=status.HTTP_400_BAD_REQUEST)
+    if request.method == 'GET':
+        # Devolver los datos actuales del usuario
+        data = {
+            'email': user.email,
+            'username': user.username,
+            'date_joined': user.date_joined.strftime('%Y-%m-%d'),
+        }
+        return Response(data, status=status.HTTP_200_OK)
+    
+    elif request.method == 'PATCH':
+        # Obtener los nuevos datos
+        new_username = request.data.get('username')
+        new_email = request.data.get('email')
 
-    # Opcional: Agregar validaciones adicionales para el nombre de usuario
-    if len(new_username) < 3:  # Ejemplo de validación
-        return Response({'error': 'El nuevo nombre de usuario debe tener al menos 3 caracteres'}, status=status.HTTP_400_BAD_REQUEST)
+        if new_username:
+            # Verificar si el nuevo nombre de usuario ya existe
+            if User.objects.filter(username=new_username).exists():
+                return Response(
+                    {'error': 'El nombre de usuario ya está en uso.'},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            # Actualizar el username del usuario
+            user.username = new_username
 
-    user.username = new_username
-    user.save()
+        if new_email:
+            # Validar el nuevo email
+            try:
+                validate_email(new_email)
+            except ValidationError:
+                return Response(
+                    {'error': 'El email proporcionado no es válido.'},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
 
-    return Response({'message': 'Nombre de usuario actualizado con éxito'}, status=status.HTTP_200_OK)
+            # Verificar si el nuevo email ya está en uso
+            if User.objects.filter(email=new_email).exists():
+                return Response(
+                    {'error': 'El email ya está en uso.'},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            # Actualizar el email del usuario
+            user.email = new_email
 
+        # Guardar los cambios
+        user.save()
+
+        return Response(
+            {'message': 'Datos de usuario actualizados correctamente.'},
+            status=status.HTTP_200_OK
+        )
 
 
 # class InfoUser(APIView):

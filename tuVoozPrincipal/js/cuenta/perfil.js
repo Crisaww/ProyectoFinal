@@ -80,8 +80,8 @@
 //     console.error('ID de usuario no disponible');
 // }
 
-
 document.addEventListener('DOMContentLoaded', function() {
+    // Función para obtener el perfil del usuario
     async function obtenerPerfil() {
         try {
             const token = localStorage.getItem('access_token'); 
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             const response = await fetch(urlPerfil, {
-                method: 'POST',
+                method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             const data = await response.json();
-            console.log('Datos del perfil:', data);  // Verifica lo que se está recibiendo
+            console.log('Datos del perfil:', data);
             document.getElementById('username').value = data.username;
             document.getElementById('email').value = data.email;
         } catch (error) {
@@ -110,31 +110,113 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    obtenerPerfil();  // Ejecuta la función para obtener el perfil
+    // Función para actualizar el nombre de usuario
+    async function actualizarUsername() {
+        try {
+            const token = localStorage.getItem('access_token'); 
+            if (!token) {
+                throw new Error('Token no encontrado en el localStorage');
+            }
+
+            const nuevoUsername = document.getElementById('new-username').value;
+
+            const response = await fetch(urlPerfil, {
+                method: 'PATCH',  // Cambia el método si es necesario para tu API
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    'username': nuevoUsername
+                })
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'Error al actualizar el nombre de usuario');
+            }
+
+            Swal.fire({
+                title: 'Éxito',
+                text: 'Nombre de usuario actualizado correctamente',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            }).then(() => {
+                window.location.reload();
+            });
+
+        } catch (error) {
+            console.error('Error:', error);
+            Swal.fire({
+                title: 'Error',
+                text: 'No se pudo actualizar el nombre de usuario',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
+        }
+    }
+
+    // Función para actualizar el correo electrónico
+    async function actualizarEmail() {
+        try {
+            const token = localStorage.getItem('access_token'); 
+            if (!token) {
+                throw new Error('Token no encontrado en el localStorage');
+            }
+
+            const nuevoEmail = document.getElementById('new-email').value;
+
+            const response = await fetch(urlPerfil, {
+                method: 'PATCH',  // Cambia el método si es necesario para tu API
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    'email': nuevoEmail
+                })
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'Error al actualizar el correo electrónico');
+            }
+
+            Swal.fire({
+                title: 'Éxito',
+                text: 'Correo electrónico actualizado correctamente',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            }).then(() => {
+                window.location.reload();
+            });
+
+        } catch (error) {
+            console.error('Error:', error);
+            Swal.fire({
+                title: 'Error',
+                text: 'No se pudo actualizar el correo electrónico',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
+        }
+    }
+
+    // Obtener perfil cuando se cargue la página
+    obtenerPerfil();
+
+    // Evento para actualizar el nombre de usuario al hacer clic en el botón correspondiente
+    const btnActualizarUsername = document.getElementById('btnActualizarUsername');
+    btnActualizarUsername.addEventListener('click', function(event) {
+        event.preventDefault();
+        actualizarUsername();
+    });
+
+    // Evento para actualizar el correo electrónico al hacer clic en el botón correspondiente
+    const btnActualizarEmail = document.getElementById('btnActualizarEmail');
+    btnActualizarEmail.addEventListener('click', function(event) {
+        event.preventDefault();
+        actualizarEmail();
+    });
 });
 
-
-
-
-async function actualizarUsername() {
-    const nuevoUsername = document.getElementById('new-username').value;
-
-    try {
-        const response = await fetch(urlActualizarUsername, { // Asegúrate de tener esta ruta configurada en Django
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
-            },
-            body: JSON.stringify({ new_username: nuevoUsername })
-        });
-
-        if (!response.ok) {
-            throw new Error('Error al actualizar el nombre de usuario');
-        }
-
-        alert('Nombre de usuario actualizado con éxito');
-    } catch (error) {
-        console.error('Error:', error);
-    }
-}

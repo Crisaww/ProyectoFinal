@@ -545,8 +545,8 @@ ACCESIBILIDAD
 }
 
 .custom-checkbox input[type="checkbox"]:checked + .checkmark {
-  background-color: #065f19;
-  border-color: #065f19;
+  background-color: #9e69e4;
+  border-color: #7514cf;
   transform: scale(1.1) rotateZ(360deg) rotateY(360deg);
 }
 

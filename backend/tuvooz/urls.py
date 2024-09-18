@@ -6,7 +6,7 @@ from rest_framework.documentation import include_docs_urls
 from .viewAI import synthesize
 from tuvooz import views
 from django.conf.urls.static import static
-from .views import actualizar_username, olvide_contrasena
+from .views import olvide_contrasena
 
 urlpatterns = [
     
@@ -24,9 +24,7 @@ urlpatterns = [
     re_path('api/v1/olvideContrasena/', olvide_contrasena.as_view(), name='olvide-contrasena'),
     re_path('api/v1/restablecerContrasena', views.restablecerContrasena, name='restablecerContrasena'),
     re_path('api/v1/logout/', views.logout, name='logout'),
-    # re_path('api/v1/nombre/', views.traerNombreUsuario, name='traerNombreUsuario'),
-    # re_path('api/v1/infousers/id/', InfoUser.as_view(), name='userInfo'),
-    path('api/v1/actualizarUsername/', actualizar_username, name='actualizarUsername'),  # Nueva ruta
+    # re_path('api/v1/actualizarUsername/', views.actualizar_username, name='actualizarUsername'),  # Nueva ruta
     
     # Ruta para sintetizar audio
     re_path('synthesize/', synthesize, name='synthesize'),
