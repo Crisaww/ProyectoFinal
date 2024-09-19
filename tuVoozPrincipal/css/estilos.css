@@ -387,39 +387,40 @@ Mi cuenta
 .form-overlay{
   margin-left: 13%;
 }
-/* .btnGuardarCambios{
+.btn.btnGuardarCambios{
   width: 60%;
   background: #8e00ed;
   border-radius: 10px;
   color: #ffffff;
-} */
+}
 
 
 
-/* .btn-purple:hover{
+.btn.btnGuardarCambios:hover{
   
   box-shadow: #8e00ed;
   color: white;
   box-shadow: 0px 0px 5px rgb(0, 0, 0);
-  background-color: #c966f7;
+  background-color: #b53eec;
   
-} */
+}
 
-/* .btnEliminar{
+.btn.btnEliminar{
   width: 60%;
   background: #970202;
   border-radius: 10px;
   color: #ffffff;
-} */
+  margin-top: 10px;
+}
 
 
 
-/* .btnEliminar:hover{
+.btn.btnEliminar:hover{
  
   box-shadow: 0px 0px 5px rgb(0, 0, 0);
-  background: #a71111;
+  background: #b11b1b;
   
-} */
+}
 
 
 
