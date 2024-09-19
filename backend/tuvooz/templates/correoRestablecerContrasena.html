@@ -1,26 +1,4 @@
-{% load static %}{% comment %} 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restablecer Contraseña</title>
-</head>
-<body>
-    <h1>Restablecer Contraseña</h1>
-    <p>Hola {{ user.username }},</p>
-    
-    <img src="{% static 'images/nuevoLogo.png' %}" alt="Logo">
-
-    <p>Has solicitado restablecer tu contraseña. Haga clic en el siguiente enlace para proceder:</p>
-    <a href="{{ frontend_url }}/tuVoozPrincipal/cuenta/recuperarContrasena.html?token={{ token }}&uid={{ uid }}">Restablecer Contraseña</a>
-
-    <p>Si no solicitó este cambio, ignore este mensaje. Su contraseña no se modificará.</p>
-
-    <p>Atentamente,<br>
-    El equipo de Tu Vooz</p>
-</body>
-</html> {% endcomment %}
+{% load static %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="und">
  <head>

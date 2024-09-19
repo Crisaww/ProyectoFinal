@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['*', 'tuvooz.com', 'www.tuvooz.com', '5.183.11.147']
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5502",
     "http://10.192.66.56:5502"# Reemplaza con el origen de tu frontend
+    "http://tuvooz.com"
 ]
 
 # Application definition
@@ -209,7 +210,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'tuvoozsoporte@gmail.com'
 EMAIL_HOST_PASSWORD = config('USER_MAIL_PASSWORD')
 EMAIL_USE_TLS = True
-FRONTEND_URL = 'http://127.0.0.1:5502'
+FRONTEND_URL = 'http://tuvooz.com'
 # Lee la ruta de las credenciales desde el archivo .env
 GOOGLE_APPLICATION_CREDENTIALS = config('GOOGLE_APPLICATION_CREDENTIALS')
 
