@@ -387,7 +387,7 @@ Mi cuenta
 .form-overlay{
   margin-left: 13%;
 }
-/* .btn-purple{
+/* .btnGuardarCambios{
   width: 60%;
   background: #8e00ed;
   border-radius: 10px;
@@ -411,6 +411,8 @@ Mi cuenta
   border-radius: 10px;
   color: #ffffff;
 } */
+
+.btn.btn-purple
 
 /* .btnEliminar:hover{
  
