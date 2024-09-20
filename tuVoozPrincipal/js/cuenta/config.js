@@ -1,4 +1,6 @@
-let urlBasica= "http://127.0.0.1:8000/"
+let urlBasica= "http://5.183.11.147:8000/"
+let urlBasicaFront ="http://tuvooz.com/" 
+//let urlBasicaFront ="http://127.0.0.1:5502/" 
 // let urlBasica="http://5.183.11.147:8000/";//ip servidor
 //let urlBasica="http://192.168.17.3:8000/";
 let urlLogin= urlBasica+"tuvooz/api/v1/iniciarSesion";
@@ -11,6 +13,7 @@ let urlRestabkecerContrasena = urlBasica+"tuvooz/api/v1/restablecerContrasena/";
 let urlCerrarSesion = urlBasica + "tuvooz/api/v1/logout/";
 let urlGenerarTexto=urlBasica+"synthesize/";
 let urlRefrescarToken = urlBasica + "api/token/refresh/";
+let urlInicioSesion = urlBasicaFront +"tuVoozPrincipal/cuenta/iniciarSesion.html";
 
 function obtenerTokens() {
     const access_token = localStorage.getItem('access_token');
@@ -44,7 +47,7 @@ async function logout() {
                     localStorage.removeItem('refresh_token');
 
                     Swal.fire("Sesión cerrada", "Has cerrado sesión correctamente.", "success").then(() => {
-                        window.location.href = "http://127.0.0.1:5502/tuVoozPrincipal/cuenta/iniciarSesion.html";
+                        window.location.href = urlInicioSesion;
                     });
                 } else {
                     const errorData = await response.json();
@@ -120,7 +123,7 @@ async function fetchWithAuth(url, options = {}) {
             response = await fetch(url, options); // Reintentar solicitud
         } catch (error) {
             console.error('Error al refrescar token:', error);
-            window.location.href = "http://127.0.0.1:5502/tuVoozPrincipal/cuenta/iniciarSesion.html";
+            window.location.href = urlInicioSesion;
         }
     }
 
@@ -206,7 +209,7 @@ function redirigirSiNoEnSesion() {
     if (!access_token && !rutasPermitidas.includes(rutaActual)) {
         console.log('Redirigiendo a iniciar sesión'); // Para depuración
         // Redirige al usuario a la página de inicio de sesión si no tiene un token
-        window.location.href = "http://127.0.0.1:5502/tuVoozPrincipal/cuenta/iniciarSesion.html";
+        window.location.href = urlInicioSesion;
     }
 }
 
