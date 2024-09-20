@@ -146,32 +146,6 @@ def perfil(request):
             {'message': 'Datos de usuario actualizados correctamente.'},
             status=status.HTTP_200_OK
         )
-
-
-# class InfoUser(APIView):
-#     def get(self, request, id, format=None):
-#         try:
-#             user = User.objects.get(pk=id)
-#         except User.DoesNotExist:
-#             return Response(status=status.HTTP_404_NOT_FOUND)
-
-#         serializer = UserSerializer(user)
-#         return Response(serializer.data)
-
-#     def put(self, request, id, format=None):
-#         try:
-#             user = User.objects.get(pk=id)
-#         except User.DoesNotExist:
-#             return Response(status=status.HTTP_404_NOT_FOUND)
-
-#         serializer = UserSerializer(user, data=request.data, partial=True)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(serializer.data)
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-
 @permission_classes([AllowAny])
 class olvide_contrasena(APIView):
     def post(self, request):
