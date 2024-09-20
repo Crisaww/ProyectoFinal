@@ -44,7 +44,7 @@ function iniciarSesion() {
             localStorage.setItem('showLoginMessage', 'true'); 
             localStorage.setItem('access_token', data.access); // guarda el token
             localStorage.setItem('refresh_token', data.refresh); // lo actualiza
-            window.location.href = "http://127.0.0.1:5502/tuVoozPrincipal/paginaPrincipal.html";
+            window.location.href = "http://tuvooz.com/tuVoozPrincipal/paginaPrincipal.html";
         })
         .catch(error => {
             if (error.message !== 'Credenciales incorrectas') {

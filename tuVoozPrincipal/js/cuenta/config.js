@@ -44,7 +44,7 @@ async function logout() {
                     localStorage.removeItem('refresh_token');
 
                     Swal.fire("Sesión cerrada", "Has cerrado sesión correctamente.", "success").then(() => {
-                        window.location.href = "http://127.0.0.1:5502/tuVoozPrincipal/cuenta/iniciarSesion.html";
+                        window.location.href = "http://tuvooz.com/tuVoozPrincipal/cuenta/iniciarSesion.html";
                     });
                 } else {
                     const errorData = await response.json();
