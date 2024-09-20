@@ -34,6 +34,8 @@ ALLOWED_HOSTS = ['*', 'tuvooz.com', 'www.tuvooz.com', '5.183.11.147']
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5502",
     "http://10.192.66.56:5502"# Reemplaza con el origen de tu frontend
+    "http://tuvooz.com"# Reemplaza con el origen de tu frontend
+    
 ]
 
 # Application definition

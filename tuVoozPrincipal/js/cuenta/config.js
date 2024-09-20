@@ -1,4 +1,4 @@
-let urlBasica= "http://5.183.11.147:8000/"
+let urlBasica= "http://tuvooz.com:8000/"
 let urlBasicaFront ="http://tuvooz.com/" 
 //let urlBasicaFront ="http://127.0.0.1:5502/" 
 // let urlBasica="http://5.183.11.147:8000/";//ip servidor
