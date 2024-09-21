@@ -183,8 +183,8 @@ class olvide_contrasena(APIView):
             uid = urlsafe_base64_encode(force_bytes(user.pk))
 
             # URL del frontend con el token y uid
-            #frontend_url = 'http://127.0.0.1:5502'
-            frontend_url = 'http://tuvooz.com'
+            frontend_url = 'http://127.0.0.1:5502'
+            #frontend_url = 'http://tuvooz.com'
 
             # Renderizar la plantilla con el contexto adecuado
             html_content = render_to_string('correoRestablecerContrasena.html', {
