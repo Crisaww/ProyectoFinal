@@ -3,11 +3,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Función para obtener el perfil del usuario
     async function obtenerPerfil() {
         try {
-            const token = localStorage.getItem('access_token'); 
+            const token = localStorage.getItem('access_token');
             if (!token) {
                 throw new Error('Token no encontrado en el localStorage');
             }
-
+    
             const response = await fetch(urlPerfil, {
                 method: 'GET',
                 headers: {
@@ -15,20 +15,30 @@ document.addEventListener('DOMContentLoaded', function() {
                     'Authorization': `Bearer ${token}`
                 }
             });
-
+    
             if (!response.ok) {
+                if (response.status === 401) {
+                    // Token expirado o no válido, redirigir al login
+                    throw new Error('Sesión expirada, por favor inicia sesión de nuevo');
+                }
                 throw new Error('Error al obtener el perfil');
             }
-
+    
             const data = await response.json();
             console.log('Datos del perfil:', data);
             document.getElementById('username').value = data.username;
             document.getElementById('email').value = data.email;
         } catch (error) {
             console.error('Error:', error);
+            Swal.fire({
+                title: 'Error',
+                text: error.message,
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
         }
     }
-
+    
     
     // Función para validar el nombre de usuario
 function validarUsername(usernameInput) {

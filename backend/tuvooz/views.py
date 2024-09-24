@@ -65,8 +65,8 @@ def registro(request):
             refresh_token = str(refresh)
             
             # Imprimir los tokens en la consola
-            print(f"Access Token: {access_token}")
-            print(f"Refresh Token: {refresh_token}")
+          #  print(f"Access Token: {access_token}")
+           # print(f"Refresh Token: {refresh_token}")
             
             def send_email():
                 subject = 'Bienvenid@ a Tu Vooz'
@@ -104,13 +104,14 @@ def perfil(request):
             'date_joined': user.date_joined.strftime('%Y-%m-%d'),
         }
         return Response(data, status=status.HTTP_200_OK)
-    
+
     elif request.method == 'PATCH':
         # Obtener los nuevos datos
         new_username = request.data.get('username')
         new_email = request.data.get('email')
+        changes_made = False
 
-        if new_username:
+        if new_username and new_username != user.username:
             # Verificar si el nuevo nombre de usuario ya existe
             if User.objects.filter(username=new_username).exists():
                 return Response(
@@ -119,8 +120,9 @@ def perfil(request):
                 )
             # Actualizar el username del usuario
             user.username = new_username
+            changes_made = True
 
-        if new_email:
+        if new_email and new_email != user.email:
             # Validar el nuevo email
             try:
                 validate_email(new_email)
@@ -138,38 +140,44 @@ def perfil(request):
                 )
             # Actualizar el email del usuario
             user.email = new_email
+            changes_made = True
 
-        # Guardar los cambios
-        user.save()
+        if changes_made:
+            # Guardar los cambios
+            user.save()
 
-        return Response(
-            {'message': 'Datos de usuario actualizados correctamente.'},
-            status=status.HTTP_200_OK
-        )
+            # Enviar correo de notificación
+            def send_email():
+                subject = 'Actualización de perfil en Tu Vooz'
+                from_email = settings.EMAIL_HOST_USER
+                to = user.email
+                text_content = 'Tu perfil en Tu Vooz ha sido actualizado.'
+                context = {
+                    'user': user,
+                    'nuevo_username': new_username if new_username else None,
+                    'nuevo_email': new_email if new_email else None,
+                }
+                html_content = render_to_string('correoActualizacionPerfil.html', context)
 
+                email = EmailMultiAlternatives(subject, text_content, from_email, [to])
+                email.attach_alternative(html_content, "text/html")
+                email.send()
 
-# class InfoUser(APIView):
-#     def get(self, request, id, format=None):
-#         try:
-#             user = User.objects.get(pk=id)
-#         except User.DoesNotExist:
-#             return Response(status=status.HTTP_404_NOT_FOUND)
+            # Iniciar el envío del correo en un hilo separado
+            email_thread = threading.Thread(target=send_email)
+            email_thread.start()
 
-#         serializer = UserSerializer(user)
-#         return Response(serializer.data)
-
-#     def put(self, request, id, format=None):
-#         try:
-#             user = User.objects.get(pk=id)
-#         except User.DoesNotExist:
-#             return Response(status=status.HTTP_404_NOT_FOUND)
-
-#         serializer = UserSerializer(user, data=request.data, partial=True)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(serializer.data)
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+            return Response(
+                {'message': 'Datos de usuario actualizados correctamente.'},
+                status=status.HTTP_200_OK
+            )
+        else:
+            return Response(
+                {'message': 'No se realizaron cambios en el perfil.'},
+                status=status.HTTP_200_OK
+            )
+    print(f"Nuevo username: {new_username}")
+    print(f"Nuevo email: {new_email}")
 
 
 @permission_classes([AllowAny])
