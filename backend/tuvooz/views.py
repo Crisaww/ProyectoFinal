@@ -222,14 +222,6 @@ class olvide_contrasena(APIView):
         except User.DoesNotExist:
             return Response({"error": "Usuario no encontrado."}, status=status.HTTP_404_NOT_FOUND)
 
-
-# #Llama el nombre del usuario actual para mostrarlo en MiCuenta
-# @api_view(['GET'])
-# @permission_classes([IsAuthenticated]) 
-# def traerNombreUsuario(request):
-#     user = request.user
-#     return JsonResponse({'username': user.username})
-    
         
 @api_view(['POST'])
 @permission_classes([AllowAny])
