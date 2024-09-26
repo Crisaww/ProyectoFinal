@@ -1379,3 +1379,9 @@ ACCESIBILIDAD
     border-radius: 50px;
     font-weight: normal;
   }
+  .gitTextoVoz{
+    display: flex; 
+    justify-content:center;
+    align-items: center;
+    margin-top: -10%;
+  }
