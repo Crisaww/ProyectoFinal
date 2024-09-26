@@ -211,7 +211,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'tuvoozsoporte@gmail.com'
 EMAIL_HOST_PASSWORD = config('USER_MAIL_PASSWORD')
 EMAIL_USE_TLS = True
-FRONTEND_URL = 'http://127.0.0.1:5502'
+
 # Lee la ruta de las credenciales desde el archivo .env
 GOOGLE_APPLICATION_CREDENTIALS = config('GOOGLE_APPLICATION_CREDENTIALS')
 
