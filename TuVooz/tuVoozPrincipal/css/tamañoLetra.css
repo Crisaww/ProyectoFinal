@@ -1,0 +1,52 @@
+/* Variables CSS para los tamaños de las fuentes */
+:root {
+    --font-size-base: 16px; /* Tamaño base inicial */
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    font-size: var(--font-size-base); /* Aplicar tamaño base al body */
+}
+
+/* Títulos */
+h1 {
+    font-size: calc(var(--font-size-base) * 2.5); /* Tamaño de título basado en variable */
+}
+
+h2 {
+    font-size: calc(var(--font-size-base) * 2); /* Subtítulos */
+}
+
+/* Botones, inputs, y demás elementos que hereden el tamaño base */
+p, label, button, input, .tarjeta {
+    font-size: var(--font-size-base); /* Tamaño base aplicado a otras etiquetas */
+}
+
+/* Botones para ajustar el tamaño */
+button {
+    padding: 10px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+
+/* Estilos adicionales para las secciones */
+.seccion {
+    margin: 20px 0;
+}
+
+.barra-busqueda input {
+    font-size: var(--font-size-base);
+    padding: 5px;
+}
+
+.tarjeta {
+    padding: 15px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.boton-tarjeta {
+    font-size: var(--font-size-base);
+    padding: 10px;
+}
