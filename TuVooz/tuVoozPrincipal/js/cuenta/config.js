@@ -1,7 +1,7 @@
-//let urlBasica= "http://127.0.0.1:8000/"
-let urlBasicaFront ="http://tuvooz.com/" 
-//let urlBasicaFront ="http://127.0.0.1:5502/" 
-let urlBasica="http://5.183.11.147:8000/";//ip servidor
+let urlBasica= "http://127.0.0.1:8000/"
+//let urlBasicaFront ="http://tuvooz.com/" 
+let urlBasicaFront ="http://127.0.0.1:5502/" 
+//let urlBasica="http://5.183.11.147:8000/";//ip servidor
 //let urlBasica="http://192.168.17.3:8000/";
 let urlLogin= urlBasica+"tuvooz/api/v1/iniciarSesion";
 let urlRegistro=urlBasica+"tuvooz/api/v1/registro";
@@ -13,7 +13,7 @@ let urlRestabkecerContrasena = urlBasica+"tuvooz/api/v1/restablecerContrasena/";
 let urlCerrarSesion = urlBasica + "tuvooz/api/v1/logout/";
 let urlGenerarTexto=urlBasica+"synthesize/";
 let urlRefrescarToken = urlBasica + "api/token/refresh/";
-let urlInicioSesion = urlBasicaFront +"tuVoozPrincipal/cuenta/iniciarSesion.html";
+let urlInicioSesion = urlBasicaFront +"TuVooz/tuVoozPrincipal/cuenta/iniciarSesion.html";
 
 function obtenerTokens() {
     const access_token = localStorage.getItem('access_token');
@@ -196,10 +196,10 @@ function redirigirSiNoEnSesion() {
 
     // Rutas permitidas en las que el usuario puede estar sin token
     const rutasPermitidas = [
-        "/tuVoozPrincipal/cuenta/iniciarSesion.html",
-        "/tuVoozPrincipal/cuenta/crearcuenta.html",
-        "/tuVoozPrincipal/cuenta/olvideContrasena.html",
-        "/tuVoozPrincipal/cuenta/recuperarContrasena.html"
+        "/TuVooz/tuVoozPrincipal/cuenta/iniciarSesion.html",
+        "/TuVooz/tuVoozPrincipal/cuenta/crearcuenta.html",
+        "/TuVooz/tuVoozPrincipal/cuenta/olvideContrasena.html",
+        "/TuVooz/tuVoozPrincipal/cuenta/recuperarContrasena.html"
 
     ];
 
