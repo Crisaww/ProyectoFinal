@@ -6,6 +6,7 @@ document.getElementById('togglePassword').addEventListener('click', function () 
     this.classList.toggle('fa-eye');
     this.classList.toggle('fa-eye-slash');
 });
+
 // Para el campo de confirmar contraseña
 document.getElementById('toggleConfirmPassword').addEventListener('click', function () {
     const confirmPasswordField = document.getElementById('confirmPassword');
@@ -14,7 +15,8 @@ document.getElementById('toggleConfirmPassword').addEventListener('click', funct
     this.classList.toggle('fa-eye');
     this.classList.toggle('fa-eye-slash');
 });
-// Inicializa los tippy para ambos campos
+
+// Inicializa los tippy para el campo de confirmar contraseña
 const confirmPasswordInput = document.getElementById('confirmPassword');
 let tippyInstanceConfirm = tippy(confirmPasswordInput, {
     content: '',
@@ -47,7 +49,7 @@ function validarPasswordIguales() {
     }
 }
 
-// Escucha el evento 'input' para validar en tiempo real si las contraseñas son iguales
+// Listener para validar en tiempo real
 confirmPasswordInput.addEventListener('input', validarPasswordIguales);
 
 // Listener para ocultar el tippy si el usuario cambia la contraseña principal
@@ -55,6 +57,7 @@ document.getElementById('password').addEventListener('input', function() {
     tippyInstanceConfirm.hide();
 });
 
+// Actualizar la función para registrar el usuario
 function registrarUsuario() {
     let username = document.getElementById("username").value;
     let email = document.getElementById("email").value;
@@ -99,8 +102,6 @@ function registrarUsuario() {
                 text: "Se ha registrado exitosamente, \npor favor, revisa tu correo electrónico",
                 icon: "success"
             });
-            // Redirigir al usuario a otra página si es necesario
-            // window.location.href = "http://192.168.140.176:5500/front_end/listacliente.html";
         })
         .catch(error => {
             if (error !== 'Usuario ya registrado') {
@@ -116,14 +117,17 @@ function registrarUsuario() {
     }
 }
 
-
+// Modificar validarCampos para incluir validarPasswordIguales()
 function validarCampos() {
     var username = document.getElementById("username");
     var email = document.getElementById("email");
     var password = document.getElementById("password");
 
-    return validarUsername(username) && validarPassword(password) && validarEmail(email);
+    return validarUsername(username) && validarPassword(password) && validarEmail(email) && validarPasswordIguales();
 }
+
+// Resto del código de validación se mantiene igual...
+
 // Inicializa tippy.js en el campo de nombre de usuario
 const usernameInput = document.getElementById('username');
 let tippyInstanceUsername = tippy(usernameInput, {
