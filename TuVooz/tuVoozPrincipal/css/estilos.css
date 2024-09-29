@@ -241,7 +241,7 @@ body {
 }
 /*** menu de barra****/
 .dropdown{
-padding-left: 10px;
+padding: 20px 10px;
 }
 .navbar .dropdown-toggle::after {
   border: none;
@@ -983,6 +983,13 @@ ACCESIBILIDAD
 
 .fa-gear::before {
   font-size: 25px;
+  color: #ffffff;
+}
+
+@media (max-width: 991px) { /* Cambia 768px según tus necesidades */
+  .fa-gear::before {
+      color: #2c4964; /* Color en pantallas pequeñas */
+  }
 }
 
 .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {

@@ -364,12 +364,14 @@ h6 {
   padding: 0;
 }
 
-.navbar-mobile a,
-.navbar-mobile a:focus {
+.navbar-mobile a.nav-link.scrollto,
+.navbar-mobile a.nav-link.scrollto:focus {
   padding: 10px 20px;
   font-size: 15px;
   color: #2c4964;
 }
+
+
 
 .navbar-mobile a:hover:before,
 .navbar-mobile li:hover>a:before,
@@ -377,10 +379,12 @@ h6 {
   visibility: hidden;
 }
 
-.navbar-mobile a:hover,
-.navbar-mobile .active,
-.navbar-mobile li:hover>a {
+
+.navbar-mobile .nav-link.scrollto.active{
   color: #5846f9;
+}
+.navbar-mobile .active{
+  color: #ffffff;
 }
 
 .navbar-mobile .getstarted,
@@ -421,6 +425,14 @@ h6 {
 .navbar-mobile .dropdown>.dropdown-active {
   display: block;
 }
+
+
+
+
+
+
+
+
 
 /*--------------------------------------------------------------
 # Hero Section
