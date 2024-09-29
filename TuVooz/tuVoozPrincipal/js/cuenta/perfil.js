@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!response.ok) {
                 if (response.status === 401) {
                     // Token expirado o no válido, redirigir al login
-                    throw new Error('Sesión expirada, por favor inicia sesión de nuevo');
+                    window.location.href = urlInicioSesion;
                 }
                 throw new Error('Error al obtener el perfil');
             }
