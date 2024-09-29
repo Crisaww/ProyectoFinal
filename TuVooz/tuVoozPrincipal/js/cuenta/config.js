@@ -17,10 +17,25 @@ let urlObtenerToken = urlBasica + "api/token/";
 let urlCambiarContrasenna = urlBasica + "tuvooz/api/v1/cambiarContrasenna/";
 let urlInicioSesion = urlBasicaFront +"TuVooz/tuVoozPrincipal/cuenta/iniciarSesion.html";
 
-function obtenerTokens() {
-    const access_token = localStorage.getItem('access_token');
-    const refresh_token = localStorage.getItem('refresh_token');
-    return { access_token, refresh_token };
+async function obtenerToken(username, password) {
+    try {
+        const response = await fetch(urlObtenerToken, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password })
+        });
+        const data = await response.json();
+        if (response.ok) {
+            localStorage.setItem('access_token', data.access);
+            localStorage.setItem('refresh_token', data.refresh);
+            return true;
+        } else {
+            throw new Error(data.detail || 'Error al obtener el token');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        return false;
+    }
 }
 
 async function logout() {
@@ -58,6 +73,7 @@ async function logout() {
                         title: 'Error',
                         text: errorData.error || 'Hubo un problema al cerrar sesión.',
                     });
+                    window.location.href = urlInicioSesion;
                 }
             } catch (error) {
                
