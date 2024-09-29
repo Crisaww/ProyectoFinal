@@ -113,60 +113,60 @@ html{
 
 }
 /* menu de ajuestes  */
-       body {
-            font-family: "Poppins", sans-serif;
-            height: 100vh;
-            background-color: #e8e8e8;
-        }
-        .menu-container {
-            position: relative;
-            display: inline-block;
-            margin-left: 22%;
-        }
-        .menu-button {
-            background-color: #702984fa;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 5px;
-           
-        }
-        .menu-content {
-            display: none;
-            position: absolute;
-            background-color: #6a1581;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            border-radius: 5px;
-        }
-        .menu-content a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-        .menu-content a:hover {
-            background-color: #d56bf3;
-        }
-        .close-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 24px;
-            color: white;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-        #menuDespliegue{
-          background-color: #3b0f7c;
-        }
-        .dropdown-item{
-          color: #fffeff;
-        }
+body {
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    background-color: #e8e8e8;
+}
+.menu-container {
+    position: relative;
+    display: inline-block;
+    margin-left: 22%;
+}
+.menu-button {
+    background-color: #702984fa;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    
+}
+.menu-content {
+    display: none;
+    position: absolute;
+    background-color: #6a1581;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+.menu-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.menu-content a:hover {
+    background-color: #d56bf3;
+}
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+#menuDespliegue{
+  background-color: #3b0f7c;
+}
+.dropdown-item{
+  color: #fffeff;
+}
 /* estilos del logo end */
 
 
@@ -280,24 +280,7 @@ padding-left: 10px;
 ------------------------------
  */
 
-/**********
-el selector de la etiqueta aplica  para mas de un elemento que tenga una etiqueta
-sin nada solo el nombre de la etiquetas llama directamente a alas etiquetas que estoy selecionando ejeplo:
-a{
-  color=  #2345
-}
 
-selector para llamar por el id es para un elemento es espesifico
-#titulo{
-  color=  #2345
-}
-
-selector para llamar por class es para aplicar estilos a mas de un elemento
-.containerInicio{
-}
- **********/
-
-/*
 /*
 -----------------
 Texto 
@@ -422,60 +405,20 @@ Mi cuenta
   
 }
 
-
-
-
-
 .cuadro_textoarea {
   display: flex;
   justify-content: center;
   padding-bottom: 10px;
 }
-
-
-/* .botonReproducirTexto {
+.contrasena{
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  padding: 10px 15px;
-  gap: 15px;
-  background-color: #5b0a71;
-  outline: 3px #181717 solid;
-  outline-offset: -3px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  transition: 400ms;
+  padding: 0;
+  width: 100%;
+ 
 }
 
-.botonReproducirTexto .text {
-  color: white;
-  font-weight: 700;
-  font-size: 1em;
-  transition: 400ms;
-  margin: 0;
-}
-
-.botonReproducirTexto i {
-  color: white;
-  transition: 400ms;
-}
-
-.botonReproducirTexto:hover {
-  
-  background-color: #f687faef;
-}
-
-.botonReproducirTexto:hover .text {
-  color: #181717;
-  
-}
-
-.botonReproducirTexto:hover i {
-  color: #181717;
-  
-  
-} */
 
 
 /*

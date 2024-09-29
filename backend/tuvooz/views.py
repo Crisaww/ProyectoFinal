@@ -23,6 +23,7 @@ from rest_framework.views import APIView
 from django.utils.encoding import force_str
 from django.utils.http import urlsafe_base64_decode
 from django.core.validators import validate_email
+from django.contrib.auth.password_validation import validate_password
 
 
 
@@ -179,6 +180,35 @@ def perfil(request):
     print(f"Nuevo username: {new_username}")
     print(f"Nuevo email: {new_email}")
 
+class CambiarContrasenna(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        user = request.user
+        new_password = request.data.get('new_password')
+        confirm_password = request.data.get('confirm_password')
+
+        if not new_password or not confirm_password:
+            return Response({"error": "Ambos campos de contraseña son requeridos."}, status=status.HTTP_400_BAD_REQUEST)
+
+        if new_password != confirm_password:
+            return Response({"error": "Las contraseñas no coinciden."}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            validate_password(new_password, user)
+        except ValidationError as e:
+            return Response({"error": list(e.messages)}, status=status.HTTP_400_BAD_REQUEST)
+
+        user.set_password(new_password)
+        user.save()
+        # Generar nuevos tokens JWT
+        refresh_token = RefreshToken.for_user(user)
+
+        return Response({
+            "success": "Contraseña cambiada exitosamente.",
+            "access": str(refresh_token.access_token),
+            "refresh": str(refresh_token)
+        }, status=status.HTTP_200_OK)
 
 @permission_classes([AllowAny])
 class olvide_contrasena(APIView):

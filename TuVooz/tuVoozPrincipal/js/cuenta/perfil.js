@@ -25,11 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
     
             const data = await response.json();
-            console.log('Datos del perfil:', data);
             document.getElementById('username').value = data.username;
             document.getElementById('email').value = data.email;
         } catch (error) {
-            console.error('Error:', error);
             Swal.fire({
                 title: 'Error',
                 text: error.message,
@@ -143,7 +141,6 @@ async function actualizarUsername() {
         });
 
     } catch (error) {
-        console.error('Error:', error);
         Swal.fire({
             title: 'Error',
             text: 'No se pudo actualizar el nombre de usuario',
@@ -233,7 +230,6 @@ async function actualizarEmail() {
         });
 
     } catch (error) {
-        console.error('Error:', error);
         Swal.fire({
             title: 'Error',
             text: 'No se pudo actualizar el correo electrónico',
