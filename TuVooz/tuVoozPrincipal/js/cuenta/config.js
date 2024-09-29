@@ -17,7 +17,7 @@ let urlObtenerToken = urlBasica + "api/token/";
 let urlCambiarContrasenna = urlBasica + "tuvooz/api/v1/cambiarContrasenna/";
 let urlInicioSesion = urlBasicaFront +"TuVooz/tuVoozPrincipal/cuenta/iniciarSesion.html";
 
-async function obtenerToken(username, password) {
+async function obtenerTokens(username, password) {
     try {
         const response = await fetch(urlObtenerToken, {
             method: 'POST',
