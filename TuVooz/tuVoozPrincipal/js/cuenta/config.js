@@ -24,30 +24,34 @@ function obtenerTokens() {
 }
 
 async function logout() {
+    const { access_token } = obtenerTokens();
+    
+    if (!access_token) {
+        window.location.href = urlInicioSesion;
+        return;
+    }
+
     Swal.fire({
         title: "Advertencia",
         text: "¿Estás seguro de que quieres cerrar sesión?",
         icon: "warning",
-        showCancelButton: true, // Botón para cancelar la acción
+        showCancelButton: true,
         confirmButtonText: "Sí, cerrar sesión",
         cancelButtonText: "Cancelar",
     }).then(async (result) => {
         if (result.isConfirmed) {
             try {
-                // Enviar solicitud de cierre de sesión al backend
                 const response = await fetch(urlCerrarSesion, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ' + localStorage.getItem('access_token'),
+                        'Authorization': 'Bearer ' + access_token,
                     },
                 });
 
                 if (response.ok) {
-                    // Eliminar tokens del almacenamiento local
                     localStorage.removeItem('access_token');
                     localStorage.removeItem('refresh_token');
-
                     Swal.fire("Sesión cerrada", "Has cerrado sesión correctamente.", "success").then(() => {
                         window.location.href = urlInicioSesion;
                     });
@@ -58,10 +62,8 @@ async function logout() {
                         title: 'Error',
                         text: errorData.error || 'Hubo un problema al cerrar sesión.',
                     });
-                    window.location.href = urlInicioSesion;
                 }
             } catch (error) {
-               
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',
@@ -71,6 +73,7 @@ async function logout() {
         }
     });
 }
+
 
 
 function refrescarToken() {
