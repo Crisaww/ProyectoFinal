@@ -13,7 +13,7 @@ actualizarTamanoFuente();
 
 // Aumentar el tamaño de la fuente
 document.getElementById('aumentarFuente').addEventListener('click', () => {
-    if (fontSizeBase < 25) { // Limitar el tamaño máximo a 25px
+    if (fontSizeBase < 22) { // Limitar el tamaño máximo a 25px
         fontSizeBase += 2; // Aumentar en 2px
         actualizarTamanoFuente();
     }

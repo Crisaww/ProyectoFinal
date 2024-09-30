@@ -1,6 +1,12 @@
 //<<<<<<<<<<<<<< Inicio audio-Saludos-Despedidas <<<<<<<<<<<<<<<<<<<<<
+
+//Voz por defecto
 var soundHola = new Audio(); 
 soundHola.src = "./sonido/Hola.wav"; 
+
+//Voz que quiero como resultado cuando seleccione el tipo de voz a femenino
+var soundHola = new Audio(); 
+soundHola.src = "./sonido/MujerHola.mp3"; 
 
 var soundBuenosDias = new Audio(); 
 soundBuenosDias.src = "./sonido/Buenos_dias.wav"; 
