@@ -1,7 +1,7 @@
-let urlBasica= "http://127.0.0.1:8000/"
-//let urlBasicaFront ="http://tuvooz.com/" 
-let urlBasicaFront ="http://127.0.0.1:5502/" 
-//let urlBasica="http://5.183.11.147:8000/";//ip servidor
+//let urlBasica= "http://127.0.0.1:8000/"
+//let urlBasicaFront ="http://127.0.0.1:5502/" 
+let urlBasicaFront ="http://tuvooz.com/" 
+let urlBasica="http://5.183.11.147:8000/";//ip servidor
 //let urlBasica="http://192.168.17.3:8000/";
 let urlLogin= urlBasica+"tuvooz/api/v1/iniciarSesion";
 let urlRegistro=urlBasica+"tuvooz/api/v1/registro";
@@ -13,6 +13,8 @@ let urlRestabkecerContrasena = urlBasica+"tuvooz/api/v1/restablecerContrasena/";
 let urlCerrarSesion = urlBasica + "tuvooz/api/v1/logout/";
 let urlGenerarTexto=urlBasica+"synthesize/";
 let urlRefrescarToken = urlBasica + "api/token/refresh/";
+let urlObtenerToken = urlBasica + "api/token/";
+let urlCambiarContrasenna = urlBasica + "tuvooz/api/v1/cambiarContrasenna/";
 let urlInicioSesion = urlBasicaFront +"TuVooz/tuVoozPrincipal/cuenta/iniciarSesion.html";
 
 function obtenerTokens() {
@@ -22,30 +24,34 @@ function obtenerTokens() {
 }
 
 async function logout() {
+    const { access_token } = obtenerTokens();
+    
+    if (!access_token) {
+        window.location.href = urlInicioSesion;
+        return;
+    }
+
     Swal.fire({
         title: "Advertencia",
         text: "¿Estás seguro de que quieres cerrar sesión?",
         icon: "warning",
-        showCancelButton: true, // Botón para cancelar la acción
+        showCancelButton: true,
         confirmButtonText: "Sí, cerrar sesión",
         cancelButtonText: "Cancelar",
     }).then(async (result) => {
         if (result.isConfirmed) {
             try {
-                // Enviar solicitud de cierre de sesión al backend
                 const response = await fetch(urlCerrarSesion, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ' + localStorage.getItem('access_token'),
+                        'Authorization': 'Bearer ' + access_token,
                     },
                 });
 
                 if (response.ok) {
-                    // Eliminar tokens del almacenamiento local
                     localStorage.removeItem('access_token');
                     localStorage.removeItem('refresh_token');
-
                     Swal.fire("Sesión cerrada", "Has cerrado sesión correctamente.", "success").then(() => {
                         window.location.href = urlInicioSesion;
                     });
@@ -58,7 +64,6 @@ async function logout() {
                     });
                 }
             } catch (error) {
-                console.error('Error al enviar la solicitud:', error);
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',
@@ -68,6 +73,7 @@ async function logout() {
         }
     });
 }
+
 
 
 function refrescarToken() {
@@ -88,7 +94,7 @@ function refrescarToken() {
         if (!response.ok) {
             logout();
             return response.json().then(data => {
-                console.error('Error en el refresco del token:', data);
+              
                 return Promise.reject(new Error('Error al refrescar el token'));
             });
         }
@@ -99,7 +105,7 @@ function refrescarToken() {
         return data;
     })
     .catch(error => {
-        console.error('Error:', error);
+       
         logout();
         return Promise.reject(error);
     });
@@ -122,7 +128,7 @@ async function fetchWithAuth(url, options = {}) {
             options.headers['Authorization'] = 'Bearer ' + data.access;
             response = await fetch(url, options); // Reintentar solicitud
         } catch (error) {
-            console.error('Error al refrescar token:', error);
+           
             window.location.href = urlInicioSesion;
         }
     }
@@ -167,7 +173,7 @@ function VistasProtegidas(url) {
                 });
             } else {
                 return response.text().then(text => {
-                    console.error('Error en la solicitud:', text);
+                 
                     throw new Error(`Error en la solicitud: ${text}`);
                 });
             }
@@ -177,12 +183,10 @@ function VistasProtegidas(url) {
     .then(data => {
         if (data && data.detail === 'Authentication credentials were not provided.') {
             logout();
-        } else {
-            console.log(data);
         }
     })
     .catch(error => {
-        console.error('Error:', error);
+        
         redirigirSiNoEnSesion();
     });
 }
@@ -192,7 +196,6 @@ function redirigirSiNoEnSesion() {
     const { access_token } = obtenerTokens();
     const rutaActual = window.location.pathname;
 
-    console.log('Ruta actual:', rutaActual); // Para depuración
 
     // Rutas permitidas en las que el usuario puede estar sin token
     const rutasPermitidas = [
@@ -203,12 +206,8 @@ function redirigirSiNoEnSesion() {
 
     ];
 
-    console.log('Access token:', access_token); // Para depuración
-
     // Verifica si el usuario tiene un token de acceso
     if (!access_token && !rutasPermitidas.includes(rutaActual)) {
-        console.log('Redirigiendo a iniciar sesión'); // Para depuración
-        // Redirige al usuario a la página de inicio de sesión si no tiene un token
         window.location.href = urlInicioSesion;
     }
 }

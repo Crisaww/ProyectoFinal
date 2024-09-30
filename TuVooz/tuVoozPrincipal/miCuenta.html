@@ -131,18 +131,18 @@
     </div>
 
     <div class="row">
+      <h2 class="texto-h2">Contraseña</h2>
       <div class="col-md-3">
-        <label for="" class="form-label">Contraseña actual</label>
-        <input type="text" class="form-control" name="password" id="password" readonly>
-        <label for="" class="form-label">Contraseña nueva</label>
-        <input type="text" class="form-control" name="" id="">
-        <label for="" class="form-label">Confirmarción de contraseña nueva</label>
-        <input type="text" class="form-control" name="" id="">
-      </div>
+        
+        <label for="nuevaContrasena" class="form-label">Contraseña nueva</label>
+        <input type="password" class="form-control" id="nuevaContrasena">
 
+        <label for="confirmarContrasena" class="form-label">Confirmación de contraseña nueva</label>
+        <input type="password" class="form-control" id="confirmarContrasena">
+        
+      </div>
       <div class="col-md-2">
-        <button class="btn btnGuardarCambios" id="" type="button" >Guardar cambios</button>
-        <button class="btn btnEliminar " id="" type="button">Eliminar cuenta</button>
+        <button class="btn btnGuardarCambios" id="btnActualizarEmail" type="button" onclick="cambiarContrasena();">Guardar cambios</button>
       </div>
     </div>
 
@@ -249,5 +249,6 @@
   <script src="./js/modoOscuro.js"></script>
   <script src="./js/cuenta/config.js"></script>
   <script src="./js/tamañoLetras.js"></script> 
+  <script src="./js/cuenta/cambiarContraseña.js"></script> 
 </body>
 </html>

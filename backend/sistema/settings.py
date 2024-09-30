@@ -114,8 +114,13 @@ DATABASES = {
         'NAME': 'tuvoozdb',
         'USER': 'root',
         #'PASSWORD': '',
+<<<<<<< HEAD
         'PASSWORD': '123456',
         #'PASSWORD': 'root123',
+=======
+        #'PASSWORD': '123456',
+        'PASSWORD': 'root123',
+>>>>>>> 1507e78f579f808763f3a1b1dfc78a6c76958c86
         'HOST': 'localhost',  # o la dirección IP de tu servidor MySQL
         'PORT': '3306',       
     }

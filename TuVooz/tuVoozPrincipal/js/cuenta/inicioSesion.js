@@ -106,7 +106,6 @@ function validarEmail(email) {
 }
 
 function validarPassword(password) {
-    let errorDiv = document.getElementById('password-error');
     let valor = password.value.trim();
     let valido = true;
     let mensajeError = "";
