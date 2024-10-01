@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
             const data = await response.json();
             document.getElementById('username').value = data.username;
-            document.getElementById('email').value = data.email;
         } catch (error) {
             Swal.fire({
                 title: 'Error',
@@ -153,91 +152,6 @@ async function actualizarUsername() {
 
 
 
-// Función para validar el correo electrónico
-function validarEmailInput(emailInput) {
-    let tippyInstanceEmail = tippy(emailInput, {
-        content: '',
-        trigger: 'manual',
-        placement: 'right',
-        theme: 'material',
-    });
-
-    if (!emailInput || !emailInput.value) {
-        emailInput.className = "form-control is-invalid";
-        tippyInstanceEmail.setContent('El correo electrónico es obligatorio.');
-        tippyInstanceEmail.show();
-        return false;
-    }
-
-    let valor = emailInput.value.trim();
-    let valido = valor.length > 0 && valor.length <= 100;
-
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(([^<>()[\]\.,;:\s@"]+\.)+[^<>()[\]\.,;:\s@"]{2,})$/i;
-    valido = valido && re.test(valor);
-
-    if (!valido) {
-        emailInput.className = "form-control is-invalid";
-        tippyInstanceEmail.setContent('El correo electrónico no tiene un formato válido.');
-        tippyInstanceEmail.show();
-    } else {
-        emailInput.className = "form-control is-valid";
-        tippyInstanceEmail.hide();
-    }
-
-    return valido;
-}
-
-// Función para actualizar el correo electrónico
-async function actualizarEmail() {
-    try {
-        const emailInput = document.getElementById('new-email');
-
-        // Validar correo electrónico antes de enviar la solicitud
-        if (!validarEmailInput(emailInput)) {
-            return;
-        }
-
-        const token = localStorage.getItem('access_token');
-        if (!token) {
-            throw new Error('Token no encontrado en el localStorage');
-        }
-
-        const nuevoEmail = emailInput.value;
-
-        const response = await fetch(urlPerfil, {
-            method: 'PATCH',  // Cambia el método si es necesario para tu API
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify({
-                'email': nuevoEmail
-            })
-        });
-
-        if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.error || 'Error al actualizar el correo electrónico');
-        }
-
-        Swal.fire({
-            title: 'Éxito',
-            text: 'Correo electrónico actualizado correctamente',
-            icon: 'success',
-            confirmButtonText: 'Aceptar'
-        }).then(() => {
-            window.location.reload();
-        });
-
-    } catch (error) {
-        Swal.fire({
-            title: 'Error',
-            text: 'No se pudo actualizar el correo electrónico',
-            icon: 'error',
-            confirmButtonText: 'Aceptar'
-        });
-    }
-}
 
 
     // Obtener perfil cuando se cargue la página
@@ -250,11 +164,5 @@ async function actualizarEmail() {
         actualizarUsername();
     });
 
-    // Evento para actualizar el correo electrónico al hacer clic en el botón correspondiente
-    const btnActualizarEmail = document.getElementById('btnActualizarEmail');
-    btnActualizarEmail.addEventListener('click', function(event) {
-        event.preventDefault();
-        actualizarEmail();
-    });
 });
 

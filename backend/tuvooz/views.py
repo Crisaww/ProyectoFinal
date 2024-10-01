@@ -100,7 +100,6 @@ def perfil(request):
     if request.method == 'GET':
         # Devolver los datos actuales del usuario
         data = {
-            'email': user.email,
             'username': user.username,
             'date_joined': user.date_joined.strftime('%Y-%m-%d'),
         }
@@ -109,7 +108,6 @@ def perfil(request):
     elif request.method == 'PATCH':
         # Obtener los nuevos datos
         new_username = request.data.get('username')
-        new_email = request.data.get('email')
         changes_made = False
 
         if new_username and new_username != user.username:
@@ -121,26 +119,6 @@ def perfil(request):
                 )
             # Actualizar el username del usuario
             user.username = new_username
-            changes_made = True
-
-        if new_email and new_email != user.email:
-            # Validar el nuevo email
-            try:
-                validate_email(new_email)
-            except ValidationError:
-                return Response(
-                    {'error': 'El email proporcionado no es válido.'},
-                    status=status.HTTP_400_BAD_REQUEST
-                )
-
-            # Verificar si el nuevo email ya está en uso
-            if User.objects.filter(email=new_email).exists():
-                return Response(
-                    {'error': 'El email ya está en uso.'},
-                    status=status.HTTP_400_BAD_REQUEST
-                )
-            # Actualizar el email del usuario
-            user.email = new_email
             changes_made = True
 
         if changes_made:
@@ -156,7 +134,7 @@ def perfil(request):
                 context = {
                     'user': user,
                     'nuevo_username': new_username if new_username else None,
-                    'nuevo_email': new_email if new_email else None,
+                    
                 }
                 html_content = render_to_string('correoActualizacionPerfil.html', context)
 
@@ -178,7 +156,7 @@ def perfil(request):
                 status=status.HTTP_200_OK
             )
     print(f"Nuevo username: {new_username}")
-    print(f"Nuevo email: {new_email}")
+
 
 class CambiarContrasenna(APIView):
     permission_classes = [IsAuthenticated]
