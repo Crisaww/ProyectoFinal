@@ -2,12 +2,12 @@ import os
 from google.cloud import texttospeech
 
 # Cambia la ruta al archivo de credenciales JSON correctamente
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "D:/SENA/Documents/CristianNarvaez/Software/ProyectoSENA/ProyectoFinal/backend/credencialesGoogleCloud/pruebatts-434520-5ebbec57f75a.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "C:/Users/USER/Documents/ADSO-2024/HTML_TuVooz/ProyectoFinal/backend/credencialesGoogleCloud/pruebatts-434520-5ebbec57f75a.json"
 
 client = texttospeech.TextToSpeechClient()
 
 # Configurar el texto de entrada
-input_text = texttospeech.SynthesisInput(text="Chao")
+input_text = texttospeech.SynthesisInput(text="Dónde estás?")
 
 # Configurar los parámetros de la voz
 voice = texttospeech.VoiceSelectionParams(
@@ -18,7 +18,7 @@ voice = texttospeech.VoiceSelectionParams(
 # Configurar los parámetros del audio
 audio_config = texttospeech.AudioConfig(
     audio_encoding=texttospeech.AudioEncoding.MP3,  # Cambié a MP3 para que coincida con la extensión del archivo
-    speaking_rate=0.8  # Mantenido el valor 1.0 para la velocidad normal
+    speaking_rate=1.0  # Mantenido el valor 1.0 para la velocidad normal
 )
 
 # Realizar la solicitud de síntesis de voz
@@ -27,6 +27,6 @@ response = client.synthesize_speech(
 )
 
 # Guardar el contenido de audio en un archivo
-with open("MujerChao.mp3", "wb") as out:
+with open("MujerDondeEstas.wav", "wb") as out:
     out.write(response.audio_content)
     print('Tu audio ha sido exportado')

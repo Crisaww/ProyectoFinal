@@ -93,7 +93,7 @@
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a onclick="soundFeliz.play()" class="btn btn-primary botonReproducirTextoTarjeta">Feliz</a>
+                                    <a onclick="reproducirFeliz()" class="btn btn-primary botonReproducirTextoTarjeta">Feliz</a>
                                 </div>
                             </div>
                         </div>
@@ -106,7 +106,7 @@
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a onclick="soundSorprendido.play()" class="btn btn-primary botonReproducirTextoTarjeta">Sorprendido</a>
+                                    <a onclick="reproducirSorprendido()" class="btn btn-primary botonReproducirTextoTarjeta">Sorprendido</a>
                                 </div>
                             </div>
                         </div>
@@ -119,7 +119,7 @@
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a onclick="soundConfundido.play()" class="btn btn-primary botonReproducirTextoTarjeta">Confundido</a>
+                                    <a onclick="reproducirConfundido()" class="btn btn-primary botonReproducirTextoTarjeta">Confundido</a>
                                 </div>
                             </div>
                         </div>
@@ -132,7 +132,7 @@
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a onclick="soundEnojado.play()" class="btn btn-primary botonReproducirTextoTarjeta">Enojado</a>
+                                    <a onclick="reproducirEnojado()" class="btn btn-primary botonReproducirTextoTarjeta">Enojado</a>
                                 </div>
                             </div>
                         </div>
@@ -145,7 +145,7 @@
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a onclick="sounEstresado.play()" class="btn btn-primary botonReproducirTextoTarjeta">Estresado</a>
+                                    <a onclick="reproducirEstresado()" class="btn btn-primary botonReproducirTextoTarjeta">Estresado</a>
                                 </div>
                             </div>
                         </div>
@@ -158,7 +158,7 @@
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a onclick="soundTranquilo.play()" class="btn btn-primary botonReproducirTextoTarjeta">Tranquilo</a>
+                                    <a onclick="reproducirTranquilo()" class="btn btn-primary botonReproducirTextoTarjeta">Tranquilo</a>
                                 </div>
                             </div>
                         </div>
@@ -171,7 +171,7 @@
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a onclick="soundTriste.play()" class="btn btn-primary botonReproducirTextoTarjeta">Triste</a>
+                                    <a onclick="reproducirTriste()" class="btn btn-primary botonReproducirTextoTarjeta">Triste</a>
                                 </div>
                             </div>
                         </div>
@@ -184,7 +184,7 @@
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a onclick="soundAburrido.play()" class="btn btn-primary botonReproducirTextoTarjeta">Aburrido</a>
+                                    <a onclick="reproducirAburrido()" class="btn btn-primary botonReproducirTextoTarjeta">Aburrido</a>
                                 </div>
                             </div>
                         </div>
@@ -197,7 +197,7 @@
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a onclick="soundEnamorado.play()" class="btn btn-primary botonReproducirTextoTarjeta">Enamorado</a>
+                                    <a onclick="reproducirEnamorado()" class="btn btn-primary botonReproducirTextoTarjeta">Enamorado</a>
                                 </div>
                             </div>
                         </div>
@@ -210,7 +210,7 @@
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a onclick="soundMalo.play()" class="btn btn-primary botonReproducirTextoTarjeta">Malo</a>
+                                    <a onclick="reproducirMalo()" class="btn btn-primary botonReproducirTextoTarjeta">Malo</a>
                                 </div>
                             </div>
                         </div>
@@ -223,7 +223,7 @@
                                 <h5 class="card-title"></h5>
                                 <!-- <p class="card-text">Some quick </p> -->
                                 <div class=".contenedor_botonTarjeta">
-                                    <a onclick="soundEnfermo.play()" class="btn btn-primary botonReproducirTextoTarjeta">Enfermo</a>
+                                    <a onclick="reproducirEnfermo()" class="btn btn-primary botonReproducirTextoTarjeta">Enfermo</a>
                                 </div>
                             </div>
                         </div>
@@ -237,9 +237,9 @@
         <script src="/TuVooz/Ajustes/vendor/swiper/swiper-bundle.min.js"></script>
 
         <!-- Template Main JS File -->
+        <script src="./js/accesibilidad.js"></script>
         <script src="/TuVooz/Ajustes/js/main.js"></script>
         <script src="./js/modoOscuro.js"></script>
-        <script src="./js/audios.js"></script>
         <script src="./js/cuenta/config.js"></script>
         <script src="./js/tamañoLetras.js"></script>
     </body>
