@@ -1,0 +1,30 @@
+.niñaTuVooz{
+    flex: 1; /* Ocupa el espacio disponible */
+    display: flex;
+    justify-content: flex-start; /* Alinea el contenido a la izquierda */
+    padding: 3px;
+}
+.niñoTuVooz{
+    flex: 1; /* Ocupa el espacio disponible */
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido a la derecha */
+
+}
+/* Ajustes de imagen para que sean responsive */
+.muñeca img, .muñeco img {
+    max-width: 100%; /* Asegura que las imágenes no excedan el tamaño del contenedor */
+    height: auto; /* Mantiene la proporción de las imágenes */
+}
+
+/* Opcional: ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Coloca los elementos uno debajo del otro en pantallas pequeñas */
+    }
+    .muñeca, .muñeco {
+        justify-content: center; /* Centra las imágenes en pantallas pequeñas */
+    }
+}
+.hidden {
+    display: none; /* Oculta el elemento */
+}
