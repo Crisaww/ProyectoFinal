@@ -1,4 +1,4 @@
-/*Ajustar el tamaño de la pagina*/
+/* Ajustar el tamaño de la página */
 body,
 html {
     margin: 0;
@@ -9,7 +9,8 @@ html {
     position: relative;
     font-family: "Poppins", sans-serif;
 }
-/*Estilo para el contenedor principal*/
+
+/* Estilo para el contenedor principal */
 .container {
     display: flex;
     width: 100%;
@@ -18,53 +19,50 @@ html {
 
 /* Estilo para las columnas */
 .left-column, .right-column {
-    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    flex-grow: 1; /* Hacer que las columnas ocupen todo el espacio disponible */
 }
 
-/*Estilo para el contenido*/
+/* Estilo para la columna izquierda */
+.left-column {
+    flex-direction: column;
+}
+
+/* Estilo para la columna derecha */
+.right-column {
+    flex-direction: column;
+}
+
+/* Estilo para el contenido del formulario */
 .fauguet {
+    width: 25rem;
+    max-width: 100%;
     border-radius: 20px;
-    max-width: 50%;
-    padding: 7%;
-    border: 1px solid #ddd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    /* Fondo blanco */
-    text-align: justify;
-    font-size: 100%;
+    padding: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
 }
 
-/*Estilos para el formulario y sus elemntos*/
+/* Estilos para el formulario */
 form {
     border-radius: 2px;
-    border-bottom: 2px;
     padding: 15px;
-}
-
-.col {
-    margin-bottom: 2px;
 }
 
 .form-label {
     display: block;
     margin-bottom: 5px;
-    /* Espacio inferior entre etiquetas y campos */
 }
 
 .form-control {
-    width: 100%;
-    /* Opcional: Ajusta el ancho de los campos */
+    width: 90%;
     padding: 8px;
-    /* Opcional: Ajusta el relleno de los campos */
     border: 1px solid #ccc;
-    /* Opcional: Estilo de borde */
     border-radius: 5px;
-    /* Opcional: Borde redondeado */
+    display: flex;
+    justify-content: center;
 }
 
 h1 {
@@ -74,28 +72,11 @@ h1 {
     margin-bottom: 1rem;
 }
 
-.parrafo {
-    text-align: center;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    max-width: 100%;
-    padding: 8px;
-    border: 1px solid #ffffff;
-    border-radius: 10px;
-}
-
-/*Estilos para el boton*/
 .boton {
     display: flex;
     justify-content: center;
-    
-  
 }
 
-/* Dentro del botón */
 .boton .btn {
     font-family: "Poppins", sans-serif;
     font-size: 16px;
@@ -104,30 +85,53 @@ input[type="password"] {
     border-radius: 15px;
     border: none;
     padding: 8px;
-
     background-color: rgba(86, 58, 250, 0.9);
     color: #fff;
 }
 
-/*Estilos para el aviso de descarga*/
-.aviso {
-    text-align: center;
+.right-column {
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-.aviso img {
-    max-width: 150px;
+.site-logo{max-width:400px}
+
+.fauguet{width:90%;max-width:400px}
+@media (max-width:600px){
+    .fauguet{width:95%}.site-logo{max-width:150px}}
+/* Estilos responsive */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-column, .right-column {
+        max-width: 100%;
+    }
+
+    .right-column {
+        order: -1; /* Coloca el logo en la parte superior */
+        padding-top: 20px;
+    }
+
+    .site-logo {
+        max-width: 30%; /* Ajusta el tamaño del logo para dispositivos más pequeños */
+        padding: 0;
+    }
+
+    .fauguet {
+        max-width: 100%;
+        padding: 20px;
+    }
 }
 
-.right-column{
-    flex: 1;
-    display: flex;
-    justify-content: center; /*centra horizontalmete la imagen*/
-    align-items: center; /*centra verticalmentela imagen*/
-    padding: 20px; /*se agrega espacio alrededor de la imagen*/
-}
+@media (max-width: 480px) {
+    .boton .btn {
+        width: 100%;
+    }
 
-.site-logo {
-    max-width: 50%;
-    height: auto; /*se ajusta la altura de la imagen automaticamente*/
-    padding-right: 15%;
+    .site-logo {
+        max-width: 40%;
+    }
 }
