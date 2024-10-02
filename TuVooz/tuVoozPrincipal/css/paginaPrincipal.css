@@ -1,23 +1,39 @@
-.niñaTuVooz{
-    flex: 1; /* Ocupa el espacio disponible */
+.niñaTuVooz {
+    flex: 1;
     display: flex;
-    justify-content: flex-start; /* Alinea el contenido a la izquierda */
+    justify-content: flex-start;
     padding: 10px;
-    margin-top: -22%;
+    margin-top: -21%;
 }
-.niñoTuVooz{
-    flex: 1; /* Ocupa el espacio disponible */
+
+.niñoTuVooz {
+    flex: 1;
     display: flex;
-    justify-content: flex-end; /* Alinea el contenido a la derecha */
-
-}
-/* Ajustes de imagen para que sean responsive */
-.muñeca img, .muñeco img {
-    max-width: 100%; /* Asegura que las imágenes no excedan el tamaño del contenedor */
-    height: auto; /* Mantiene la proporción de las imágenes */
+    justify-content: flex-end;
 }
 
+/* Estilos para pantallas medianas (tablets) */
+@media (max-width: 768px) {
+    .niñaTuVooz {
+        justify-content: center; /* Centra el contenido */
+        padding: 5px; /* Reduce el padding */
+        margin-top: -10%; /* Ajusta el margen */
+    }
 
-.hidden {
-    display: none; /* Oculta el elemento */
+    .niñoTuVooz {
+        justify-content: center; /* Centra el contenido */
+    }
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+    .niñaTuVooz {
+        justify-content: center;
+        padding: 3px; /* Aún más pequeño en móviles */
+        margin-top: -5%; /* Ajusta más el margen */
+    }
+
+    .niñoTuVooz {
+        justify-content: center;
+    }
 }
