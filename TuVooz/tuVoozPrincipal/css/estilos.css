@@ -371,7 +371,7 @@ Mi cuenta
   margin-right: 0;
   --bs-gutter-x: 0;
   display: flex;
-  flex-direction: column;
+  
 }
 
 .col-md-3 {

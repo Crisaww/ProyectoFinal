@@ -252,20 +252,19 @@ class RestablecerContrasena(APIView):
 
         return Response({"message": "Contraseña actualizada correctamente."}, status=status.HTTP_200_OK)
 #cerrar sesion
-@api_view(['POST'])
-def logout(request):
-    user = request.user
-    if user.is_authenticated:
-        # Actualizar last_login antes de cerrar sesión
-        user.last_login = timezone.now()
-        user.save()
+class LogoutView(APIView):
+    def post(self, request):
+        user = request.user
+        if user.is_authenticated:
+            # Actualizar last_login antes de cerrar sesión
+            user.last_login = timezone.now()
+            user.save()
 
-        # Cerrar sesión
-        django_logout(request)
-        return Response({"message": "Sesión cerrada correctamente."}, status=status.HTTP_200_OK)
-    else:
-        return Response({"error": "No estás autenticado."}, status=status.HTTP_400_BAD_REQUEST)
-
+            # Cerrar sesión
+            django_logout(request)
+            return Response({"message": "Sesión cerrada correctamente."}, status=status.HTTP_200_OK)
+        else:
+            return Response({"error": "No estás autenticado."}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
