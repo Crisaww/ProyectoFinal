@@ -3,7 +3,7 @@
     display: flex;
     justify-content: flex-start; /* Alinea el contenido a la izquierda */
     padding: 10px;
-    margin-top: -18%;
+    margin-top: -22%;
 }
 .niñoTuVooz{
     flex: 1; /* Ocupa el espacio disponible */
@@ -17,15 +17,7 @@
     height: auto; /* Mantiene la proporción de las imágenes */
 }
 
-/* Opcional: ajustes para pantallas pequeñas */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column; /* Coloca los elementos uno debajo del otro en pantallas pequeñas */
-    }
-    .muñeca, .muñeco {
-        justify-content: center; /* Centra las imágenes en pantallas pequeñas */
-    }
-}
+
 .hidden {
     display: none; /* Oculta el elemento */
 }
