@@ -2,7 +2,8 @@
     flex: 1; /* Ocupa el espacio disponible */
     display: flex;
     justify-content: flex-start; /* Alinea el contenido a la izquierda */
-    padding: 3px;
+    padding: 10px;
+    margin-top: -18%;
 }
 .niñoTuVooz{
     flex: 1; /* Ocupa el espacio disponible */
