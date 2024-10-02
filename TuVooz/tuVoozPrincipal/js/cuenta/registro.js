@@ -81,31 +81,38 @@ function registrarUsuario() {
         .then(response => {
             if (response.status === 401) {
                 return response.json().then(data => {
+                    // Muestra una alerta específica si el usuario ya está registrado
                     Swal.fire({
                         title: "Advertencia",
-                        text: "El usuario ya está registrado.",
+                        text: "El nombre de usuario ya está registrado.",
                         icon: "warning"
                     });
                     return Promise.reject('Usuario ya registrado');
                 });
             } else if (!response.ok) {
-                throw new Error('La respuesta de la red no fue correcta');
+                return response.json().then(data => {
+                    Swal.fire("Error", data.error || "Error al registrar: " + response.statusText, "error");
+                    throw new Error(data.error);
+                });
             }
             return response.json();
         })
         .then(data => {
             // Almacenar el token JWT en el localStorage
-            localStorage.setItem('accessToken', data.token);
+            localStorage.setItem('accessToken', data.access);
             
             Swal.fire({
                 title: "Excelente",
                 text: "Se ha registrado exitosamente, \npor favor, revisa tu correo electrónico",
                 icon: "success"
+            }).then(() => {
+                // Redirigir al inicio de sesión después de mostrar el mensaje
+                window.location.href = urlInicioSesion;
             });
         })
         .catch(error => {
             if (error !== 'Usuario ya registrado') {
-                Swal.fire("Error", "Error al registrar: " + error, "error");
+                console.error(error);
             }
         });
     } else {
@@ -116,7 +123,6 @@ function registrarUsuario() {
         });
     }
 }
-
 // Modificar validarCampos para incluir validarPasswordIguales()
 function validarCampos() {
     var username = document.getElementById("username");

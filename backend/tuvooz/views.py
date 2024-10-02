@@ -68,7 +68,10 @@ class Registro(APIView):
                 'refresh': refresh_token,
                 'access': access_token
             }, status=status.HTTP_201_CREATED)
-        
+        if 'username' in serializer.errors and serializer.errors['username'][0].code == 'unique':
+            return Response({'error': 'El nombre de usuario ya está en uso. Por favor, elige otro.'},
+                            status=status.HTTP_400_BAD_REQUEST)
+        print(serializer.errors)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def send_welcome_email(self, to_email):
