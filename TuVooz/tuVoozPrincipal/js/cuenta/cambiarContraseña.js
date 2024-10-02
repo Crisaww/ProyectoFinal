@@ -1,3 +1,24 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleButtons = document.querySelectorAll('.toggle-password');
+    
+    toggleButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-target');
+            const passwordInput = document.getElementById(targetId);
+            const icon = this.querySelector('i');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('bi-eye');
+                icon.classList.add('bi-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('bi-eye-slash');
+                icon.classList.add('bi-eye');
+            }
+        });
+    });
+});
 // Función de validación de contraseña
 function validarPassword(password) {
     let valor = password.value.trim();
@@ -75,23 +96,32 @@ tippy('#confirmarContrasena', {
     trigger: 'manual'
 });
 
-// Función para cambiar la contraseña
 async function cambiarContrasena() {
+    const currentPasswordInput = document.getElementById('contrasenaActual');
     const newPasswordInput = document.getElementById('nuevaContrasena');
     const confirmPasswordInput = document.getElementById('confirmarContrasena');
+
+    // Validar que se haya ingresado la contraseña actual
+    if (!currentPasswordInput.value.trim()) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Por favor, ingrese su contraseña actual'
+        });
+        return;
+    }
 
     // Validar la nueva contraseña
     if (!validarPassword(newPasswordInput)) {
         return;
     }
 
-    // Validar que ambas contraseñas coincidan
+    // Validar que ambas contraseñas nuevas coincidan
     if (newPasswordInput.value !== confirmPasswordInput.value) {
-        // Mostrar alerta de error con SweetAlert
         Swal.fire({
             icon: 'error',
             title: 'Error',
-            text: 'Las contraseñas no coinciden'
+            text: 'Las contraseñas nuevas no coinciden'
         });
         return;
     }
@@ -104,6 +134,7 @@ async function cambiarContrasena() {
                 'Authorization': 'Bearer ' + localStorage.getItem('access_token')
             },
             body: JSON.stringify({
+                current_password: currentPasswordInput.value,
                 new_password: newPasswordInput.value,
                 confirm_password: confirmPasswordInput.value
             })
@@ -112,7 +143,6 @@ async function cambiarContrasena() {
         const data = await response.json();
 
         if (response.ok) {
-            // Mostrar mensaje de éxito con SweetAlert
             Swal.fire({
                 icon: 'success',
                 title: '¡Éxito!',
@@ -127,13 +157,11 @@ async function cambiarContrasena() {
             throw new Error(data.error || 'Error al cambiar la contraseña');
         }
     } catch (error) {
-        // Mostrar mensaje de error con SweetAlert
         Swal.fire({
             icon: 'error',
             title: 'Error',
             text: error.message
         });
-        
     }
 }
 // Función para obtener el token JWT
