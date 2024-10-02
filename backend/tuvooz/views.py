@@ -29,29 +29,27 @@ from django.contrib.auth.password_validation import validate_password
 
 # Create your views here.
 
-@api_view(['POST'])
-@permission_classes([AllowAny]) 
-def iniciarSesion(request):
-    user = get_object_or_404(User, email=request.data['email'])
-    
-    if not user.check_password(request.data['password']):
-        return Response({'error': 'Contraseña incorrecta'}, status=status.HTTP_401_UNAUTHORIZED)
-    
-    refresh = RefreshToken.for_user(user)
-    return Response({
-        'refresh': str(refresh),
-        'access': str(refresh.access_token),
-    }, status=status.HTTP_200_OK)
+class IniciarSesion(APIView):
+    permission_classes = [AllowAny]
 
-    
-#registro de usuario
-@api_view(['POST'])
-@permission_classes([AllowAny])
-def registro(request):
-    if request.method == 'POST':
+    def post(self, request):
+        user = get_object_or_404(User, email=request.data['email'])
+        
+        if not user.check_password(request.data['password']):
+            return Response({'error': 'Contraseña incorrecta'}, status=status.HTTP_401_UNAUTHORIZED)
+        
+        refresh = RefreshToken.for_user(user)
+        return Response({
+            'refresh': str(refresh),
+            'access': str(refresh.access_token),
+        }, status=status.HTTP_200_OK)
+
+class Registro(APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request):
         serializer = UserSerializer(data=request.data)
         
-        # Verificar si el usuario ya existe por email
         if User.objects.filter(email=request.data.get('email')).exists():
             return Response({'error': 'El usuario ya se encuentra registrado'}, status=status.HTTP_401_UNAUTHORIZED)
         
@@ -60,31 +58,12 @@ def registro(request):
             user.set_password(serializer.validated_data['password'])
             user.save()
             
-            # Generar el token JWT
             refresh = RefreshToken.for_user(user)
             access_token = str(refresh.access_token)
             refresh_token = str(refresh)
             
-            # Imprimir los tokens en la consola
-          #  print(f"Access Token: {access_token}")
-           # print(f"Refresh Token: {refresh_token}")
+            self.send_welcome_email(request.data.get('email'))
             
-            def send_email():
-                subject = 'Bienvenid@ a Tu Vooz'
-                from_email = settings.EMAIL_HOST_USER
-                to = request.data.get('email')
-                text_content = 'Gracias por registrarte en Tu Vooz.'
-                html_content = render_to_string('correoRegistro.html', {'subject': subject, 'message': text_content})
-
-                email = EmailMultiAlternatives(subject, text_content, from_email, [to])
-                email.attach_alternative(html_content, "text/html")
-                email.send()
-            
-            # Iniciar el envío del correo en un hilo separado
-            email_thread = threading.Thread(target=send_email)
-            email_thread.start()
-   
-            # Devolver el token JWT
             return Response({
                 'refresh': refresh_token,
                 'access': access_token
@@ -92,60 +71,48 @@ def registro(request):
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['GET', 'PATCH'])
-@permission_classes([IsAuthenticated])
-def perfil(request):
-    user = request.user
+    def send_welcome_email(self, to_email):
+        def send_email():
+            subject = 'Bienvenid@ a Tu Vooz'
+            from_email = settings.EMAIL_HOST_USER
+            text_content = 'Gracias por registrarte en Tu Vooz.'
+            html_content = render_to_string('correoRegistro.html', {'subject': subject, 'message': text_content})
 
-    if request.method == 'GET':
-        # Devolver los datos actuales del usuario
+            email = EmailMultiAlternatives(subject, text_content, from_email, [to_email])
+            email.attach_alternative(html_content, "text/html")
+            email.send()
+        
+        email_thread = threading.Thread(target=send_email)
+        email_thread.start()
+
+class Perfil(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        user = request.user
         data = {
             'username': user.username,
             'date_joined': user.date_joined.strftime('%Y-%m-%d'),
         }
         return Response(data, status=status.HTTP_200_OK)
 
-    elif request.method == 'PATCH':
-        # Obtener los nuevos datos
+    def patch(self, request):
+        user = request.user
         new_username = request.data.get('username')
         changes_made = False
 
         if new_username and new_username != user.username:
-            # Verificar si el nuevo nombre de usuario ya existe
             if User.objects.filter(username=new_username).exists():
                 return Response(
                     {'error': 'El nombre de usuario ya está en uso.'},
                     status=status.HTTP_400_BAD_REQUEST
                 )
-            # Actualizar el username del usuario
             user.username = new_username
             changes_made = True
 
         if changes_made:
-            # Guardar los cambios
             user.save()
-
-            # Enviar correo de notificación
-            def send_email():
-                subject = 'Actualización de perfil en Tu Vooz'
-                from_email = settings.EMAIL_HOST_USER
-                to = user.email
-                text_content = 'Tu perfil en Tu Vooz ha sido actualizado.'
-                context = {
-                    'user': user,
-                    'nuevo_username': new_username if new_username else None,
-                    
-                }
-                html_content = render_to_string('correoActualizacionPerfil.html', context)
-
-                email = EmailMultiAlternatives(subject, text_content, from_email, [to])
-                email.attach_alternative(html_content, "text/html")
-                email.send()
-
-            # Iniciar el envío del correo en un hilo separado
-            email_thread = threading.Thread(target=send_email)
-            email_thread.start()
-
+            self.send_update_email(user, new_username)
             return Response(
                 {'message': 'Datos de usuario actualizados correctamente.'},
                 status=status.HTTP_200_OK
@@ -155,30 +122,56 @@ def perfil(request):
                 {'message': 'No se realizaron cambios en el perfil.'},
                 status=status.HTTP_200_OK
             )
-    print(f"Nuevo username: {new_username}")
 
+    def send_update_email(self, user, new_username):
+        def send_email():
+            subject = 'Actualización de perfil en Tu Vooz'
+            from_email = settings.EMAIL_HOST_USER
+            to = user.email
+            text_content = 'Tu perfil en Tu Vooz ha sido actualizado.'
+            context = {
+                'user': user,
+                'nuevo_username': new_username if new_username else None,
+            }
+            html_content = render_to_string('correoActualizacionPerfil.html', context)
 
+            email = EmailMultiAlternatives(subject, text_content, from_email, [to])
+            email.attach_alternative(html_content, "text/html")
+            email.send()
+
+        email_thread = threading.Thread(target=send_email)
+        email_thread.start()
 class CambiarContrasenna(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
         user = request.user
+        current_password = request.data.get('current_password')
         new_password = request.data.get('new_password')
         confirm_password = request.data.get('confirm_password')
 
-        if not new_password or not confirm_password:
-            return Response({"error": "Ambos campos de contraseña son requeridos."}, status=status.HTTP_400_BAD_REQUEST)
+        # Verificar que todos los campos necesarios estén presentes
+        if not current_password or not new_password or not confirm_password:
+            return Response({"error": "Todos los campos de contraseña son requeridos."}, status=status.HTTP_400_BAD_REQUEST)
 
+        # Verificar la contraseña actual
+        if not user.check_password(current_password):
+            return Response({"error": "La contraseña actual es incorrecta."}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Verificar que las nuevas contraseñas coincidan
         if new_password != confirm_password:
-            return Response({"error": "Las contraseñas no coinciden."}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"error": "Las nuevas contraseñas no coinciden."}, status=status.HTTP_400_BAD_REQUEST)
 
+        # Validar la nueva contraseña
         try:
             validate_password(new_password, user)
         except ValidationError as e:
             return Response({"error": list(e.messages)}, status=status.HTTP_400_BAD_REQUEST)
 
+        # Cambiar la contraseña
         user.set_password(new_password)
         user.save()
+
         # Generar nuevos tokens JWT
         refresh_token = RefreshToken.for_user(user)
 
@@ -187,7 +180,6 @@ class CambiarContrasenna(APIView):
             "access": str(refresh_token.access_token),
             "refresh": str(refresh_token)
         }, status=status.HTTP_200_OK)
-
 @permission_classes([AllowAny])
 class olvide_contrasena(APIView):
     def post(self, request):
@@ -231,49 +223,48 @@ class olvide_contrasena(APIView):
             return Response({"error": "Usuario no encontrado."}, status=status.HTTP_404_NOT_FOUND)
 
         
-@api_view(['POST'])
-@permission_classes([AllowAny])
-def restablecerContrasena(request):
-    token = request.data.get('token')
-    uidb64 = request.data.get('uid')
-    new_password = request.data.get('new_password')
+class RestablecerContrasena(APIView):
+    permission_classes = [AllowAny]
 
-    try:
-        uid = force_str(urlsafe_base64_decode(uidb64))
-        user = User.objects.get(pk=uid)
-    except (TypeError, ValueError, OverflowError, User.DoesNotExist):
-        return Response({"error": "UID inválido."}, status=status.HTTP_400_BAD_REQUEST)
+    def post(self, request):
+        token = request.data.get('token')
+        uidb64 = request.data.get('uid')
+        new_password = request.data.get('new_password')
 
-    # Verificar que el token sea válido
-    token_generator = PasswordResetTokenGenerator()
-    if not token_generator.check_token(user, token):
-        return Response({"error": "Token inválido o expirado."}, status=status.HTTP_400_BAD_REQUEST)
+        try:
+            uid = force_str(urlsafe_base64_decode(uidb64))
+            user = User.objects.get(pk=uid)
+        except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+            return Response({"error": "UID inválido."}, status=status.HTTP_400_BAD_REQUEST)
 
-    # Validar la nueva contraseña si es necesario (mínimo de caracteres, etc.)
-    if len(new_password) < 8:
-        return Response({"error": "La contraseña debe tener al menos 8 caracteres."}, status=status.HTTP_400_BAD_REQUEST)
+        # Verificar que el token sea válido
+        token_generator = PasswordResetTokenGenerator()
+        if not token_generator.check_token(user, token):
+            return Response({"error": "Token inválido o expirado."}, status=status.HTTP_400_BAD_REQUEST)
 
-    # Actualizar la contraseña del usuario
-    user.set_password(new_password)
-    user.save()
+        # Validar la nueva contraseña si es necesario (mínimo de caracteres, etc.)
+        if len(new_password) < 8:
+            return Response({"error": "La contraseña debe tener al menos 8 caracteres."}, status=status.HTTP_400_BAD_REQUEST)
 
-    return Response({"message": "Contraseña actualizada correctamente."}, status=status.HTTP_200_OK)
-
-#cerrar sesion
-@api_view(['POST'])
-def logout(request):
-    user = request.user
-    if user.is_authenticated:
-        # Actualizar last_login antes de cerrar sesión
-        user.last_login = timezone.now()
+        # Actualizar la contraseña del usuario
+        user.set_password(new_password)
         user.save()
 
-        # Cerrar sesión
-        django_logout(request)
-        return Response({"message": "Sesión cerrada correctamente."}, status=status.HTTP_200_OK)
-    else:
-        return Response({"error": "No estás autenticado."}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"message": "Contraseña actualizada correctamente."}, status=status.HTTP_200_OK)
+#cerrar sesion
+class LogoutView(APIView):
+    def post(self, request):
+        user = request.user
+        if user.is_authenticated:
+            # Actualizar last_login antes de cerrar sesión
+            user.last_login = timezone.now()
+            user.save()
 
+            # Cerrar sesión
+            django_logout(request)
+            return Response({"message": "Sesión cerrada correctamente."}, status=status.HTTP_200_OK)
+        else:
+            return Response({"error": "No estás autenticado."}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
