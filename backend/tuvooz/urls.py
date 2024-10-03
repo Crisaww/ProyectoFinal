@@ -6,7 +6,7 @@ from rest_framework.documentation import include_docs_urls
 from .viewAI import synthesize
 from tuvooz import views
 from django.conf.urls.static import static
-from .views import olvide_contrasena, CambiarContrasenna, Registro, IniciarSesion, Perfil, RestablecerContrasena
+from .views import olvide_contrasena, CambiarContrasenna, Registro, IniciarSesion, Perfil, RestablecerContrasena, LogoutView
 
 urlpatterns = [
     
@@ -23,7 +23,7 @@ urlpatterns = [
     re_path('api/v1/perfil', Perfil.as_view(), name='accesoPerfil'),
     re_path('api/v1/olvideContrasena/', olvide_contrasena.as_view(), name='olvide-contrasena'),
     re_path('api/v1/restablecerContrasena', RestablecerContrasena.as_view(), name='restablecerContrasena'),
-    re_path('api/v1/logout/', views.logout, name='logout'),
+    re_path('api/v1/logout/', LogoutView.as_view(), name='logout'),
     re_path('cambiarContrasenna/', CambiarContrasenna.as_view(), name='CambiarContrasenna'),
     # re_path('api/v1/actualizarUsername/', views.actualizar_username, name='actualizarUsername'),  # Nueva ruta
     

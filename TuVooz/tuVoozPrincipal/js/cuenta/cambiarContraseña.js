@@ -148,7 +148,12 @@ async function cambiarContrasena() {
                 title: '¡Éxito!',
                 text: 'Contraseña cambiada exitosamente'
             }).then(() => {
-                window.location.reload();
+                // se eliminan los tokens y se cierra la sesion
+                localStorage.removeItem('access_token');
+                localStorage.removeItem('refresh_token');
+
+               // Redireccionar al usuario a la página de inicio de sesión
+                window.location.href = urlInicioSesion;
             });
     
             if (data.access) localStorage.setItem('access_token', data.access);

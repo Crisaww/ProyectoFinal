@@ -68,7 +68,10 @@ class Registro(APIView):
                 'refresh': refresh_token,
                 'access': access_token
             }, status=status.HTTP_201_CREATED)
-        
+        if 'username' in serializer.errors and serializer.errors['username'][0].code == 'unique':
+            return Response({'error': 'El nombre de usuario ya está en uso. Por favor, elige otro.'},
+                            status=status.HTTP_226_IM_USED)
+        print(serializer.errors)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def send_welcome_email(self, to_email):
@@ -166,7 +169,11 @@ class CambiarContrasenna(APIView):
         try:
             validate_password(new_password, user)
         except ValidationError as e:
-            return Response({"error": list(e.messages)}, status=status.HTTP_400_BAD_REQUEST)
+            # Retornar un mensaje de error claro para cada caso de validación
+            errores = list(e.messages)
+            if any('too similar to the username' in error for error in errores):
+                return Response({"error": "La contraseña es demasiado similar al nombre de usuario."}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"error": errores}, status=status.HTTP_400_BAD_REQUEST)
 
         # Cambiar la contraseña
         user.set_password(new_password)
@@ -252,20 +259,19 @@ class RestablecerContrasena(APIView):
 
         return Response({"message": "Contraseña actualizada correctamente."}, status=status.HTTP_200_OK)
 #cerrar sesion
-@api_view(['POST'])
-def logout(request):
-    user = request.user
-    if user.is_authenticated:
-        # Actualizar last_login antes de cerrar sesión
-        user.last_login = timezone.now()
-        user.save()
+class LogoutView(APIView):
+    def post(self, request):
+        user = request.user
+        if user.is_authenticated:
+            # Actualizar last_login antes de cerrar sesión
+            user.last_login = timezone.now()
+            user.save()
 
-        # Cerrar sesión
-        django_logout(request)
-        return Response({"message": "Sesión cerrada correctamente."}, status=status.HTTP_200_OK)
-    else:
-        return Response({"error": "No estás autenticado."}, status=status.HTTP_400_BAD_REQUEST)
-
+            # Cerrar sesión
+            django_logout(request)
+            return Response({"message": "Sesión cerrada correctamente."}, status=status.HTTP_200_OK)
+        else:
+            return Response({"error": "No estás autenticado."}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
