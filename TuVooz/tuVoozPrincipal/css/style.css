@@ -1840,22 +1840,22 @@ FIN COMO USAR TU VOOZ
 .cajaBotonTitulo {
   display: flex;
   align-items: end;
-  height: 25%;
+  height: 30%;
 }
 
 .volverCasa {
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: end;
   height: 100%;
-  width: 10rem;
+  width: 5rem;
 }
 
 .cajaTituloTexto2 {
   display: flex;
   align-items: end;
   justify-content: center;
-  width: 84%;
+  width: 95%;
   height: 100%;
 }
 
