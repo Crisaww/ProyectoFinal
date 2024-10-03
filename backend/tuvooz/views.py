@@ -70,7 +70,7 @@ class Registro(APIView):
             }, status=status.HTTP_201_CREATED)
         if 'username' in serializer.errors and serializer.errors['username'][0].code == 'unique':
             return Response({'error': 'El nombre de usuario ya está en uso. Por favor, elige otro.'},
-                            status=status.HTTP_400_BAD_REQUEST)
+                            status=status.HTTP_226_IM_USED)
         print(serializer.errors)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -169,7 +169,11 @@ class CambiarContrasenna(APIView):
         try:
             validate_password(new_password, user)
         except ValidationError as e:
-            return Response({"error": list(e.messages)}, status=status.HTTP_400_BAD_REQUEST)
+            # Retornar un mensaje de error claro para cada caso de validación
+            errores = list(e.messages)
+            if any('too similar to the username' in error for error in errores):
+                return Response({"error": "La contraseña es demasiado similar al nombre de usuario."}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"error": errores}, status=status.HTTP_400_BAD_REQUEST)
 
         # Cambiar la contraseña
         user.set_password(new_password)

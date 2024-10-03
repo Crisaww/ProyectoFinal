@@ -79,7 +79,7 @@ function registrarUsuario() {
             body: JSON.stringify(formData)
         })
         .then(response => {
-            if (response.status === 401) {
+            if (response.status === 226) {
                 return response.json().then(data => {
                     // Muestra una alerta específica si el usuario ya está registrado
                     Swal.fire({
