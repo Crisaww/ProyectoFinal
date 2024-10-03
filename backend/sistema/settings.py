@@ -114,7 +114,6 @@ DATABASES = {
         'NAME': 'tuvoozdb',
         'USER': 'root',
         #'PASSWORD': '',
-        'PASSWORD': '123456',
         #'PASSWORD': 'root123',
         'PORT': '3306',       
     }
