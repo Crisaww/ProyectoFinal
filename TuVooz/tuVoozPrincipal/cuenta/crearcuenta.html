@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear cuenta</title>
+
+    <link href="../img/logosolo.png" rel="icon">
+
+
     <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -14,7 +18,9 @@
     <!-- Font Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -29,66 +35,69 @@
                       para eso esta css, eso es error de especificidad, corregí muchos errores de ese tipo y
                        tambien con los tamaños, por favor, ver la documentacion que envio por el grupo, 
                        no me mato buscando eso para que lo ignoren -->
-                    <div class="formularioCrearCuenta" >
-                        <div class="labelFormulario" >
-                            <label for="username" class="form-label"  >Nombre de usuario:</label>
+                    <div class="formularioCrearCuenta">
+                        <div class="labelFormulario">
+                            <label for="username" class="form-label">Nombre de usuario:</label>
                         </div>
                         <div class="inputFormulario">
-                            <input type="text" class="form-control" name="username" id="username" step="1" onfocusout="validarUsername(this);">
+                            <input type="text" class="form-control" name="username" id="username" step="1"
+                                onfocusout="validarUsername(this);">
                         </div>
-                       
+
                     </div>
 
-                    <div class="formularioCrearCuenta" >
-                        <div class="labelFormulario" >
-                            <label for="email" class="form-label"  >Correo electrónico:</label>
+                    <div class="formularioCrearCuenta">
+                        <div class="labelFormulario">
+                            <label for="email" class="form-label">Correo electrónico:</label>
                         </div>
 
                         <div class="inputFormulario">
-                            <input type="email" class="form-control" name="email" id="email" step="1" onfocusout="validarEmail(this);">
+                            <input type="email" class="form-control" name="email" id="email" step="1"
+                                onfocusout="validarEmail(this);">
                         </div>
-                       
+
                     </div>
 
-                    <div class="formularioCrearCuenta" >
-                        <div class="labelFormulario" >
-                            <label for="password" class="form-label" >Contraseña:</label>
+                    <div class="formularioCrearCuenta">
+                        <div class="labelFormulario">
+                            <label for="password" class="form-label">Contraseña:</label>
                         </div>
                         <div class="inputFormulario">
-                            <input type="password" class="form-control" name="password" id="password" step="1" >
+                            <input type="password" class="form-control" name="password" id="password" step="1">
                             <i class="fas fa-eye toggle-password" id="togglePassword"></i>
                         </div>
-                       
-                    </div> 
-                    <div class="formularioCrearCuenta" >
-                        <div class="labelFormulario" >
-                            <label for="password" class="form-label" >Confirmar Contraseña:</label>
+
+                    </div>
+                    <div class="formularioCrearCuenta">
+                        <div class="labelFormulario">
+                            <label for="password" class="form-label">Confirmar Contraseña:</label>
                         </div>
                         <div class="inputFormulario">
-                            <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" step="1" > 
+                            <input type="password" class="form-control" name="confirmPassword" id="confirmPassword"
+                                step="1">
                             <i class="fas fa-eye toggle-password" id="toggleConfirmPassword"></i>
-                            
+
                         </div>
-                        
-                        
-                    </div> 
-                    
+
+
+                    </div>
+
                 </div>
-               
+
                 <div class="boton">
                     <button type="button" class="btn" onclick="registrarUsuario();">Crear Cuenta</button>
                 </div>
-                
+
                 <div class="registro">
-                    <p>¿Ya tienes una cuenta? <a href="./iniciarSesion.html">Iniciar Sesión</a></p>
-                </div>                
+                    <p >¿Ya tienes una cuenta? <a class="text_light" href="./iniciarSesion.html">Inicia sesión</a></p>
+                </div>
             </div>
         </div>
         <div class="right-column">
             <img src="../img/solidoGrande (1).png" alt="TuVooz" class="site-logo">
         </div>
     </div>
-    
+
 </body>
 <!-- se trae la libretia tippy -->
 <script src="https://unpkg.com/@popperjs/core@2"></script>
