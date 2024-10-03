@@ -1,20 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const toggleButtons = document.querySelectorAll('.toggle-password');
-    
-    toggleButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const targetId = this.getAttribute('data-target');
-            const passwordInput = document.getElementById(targetId);
-            const icon = this.querySelector('i');
+    const toggleIcons = document.querySelectorAll('.grupo-contrasena i');
 
-            if (passwordInput.type === 'password') {
+    toggleIcons.forEach(icon => {
+        icon.addEventListener('click', function() {
+            const passwordInput = this.previousElementSibling; // Input que está antes del icono
+
+            // Verifica que el input de contraseña existe
+            if (passwordInput && passwordInput.type === 'password') {
                 passwordInput.type = 'text';
-                icon.classList.remove('bi-eye');
-                icon.classList.add('bi-eye-slash');
-            } else {
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else if (passwordInput && passwordInput.type === 'text') {
                 passwordInput.type = 'password';
-                icon.classList.remove('bi-eye-slash');
-                icon.classList.add('bi-eye');
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
             }
         });
     });

@@ -416,41 +416,30 @@ Mi cuenta
     width: 30%;
   }
 }
-
-/* Nuevos estilos para los campos de contraseña */
-.input-group {
-  display: flex;
-  width: 19%;
-  margin-top: 10px;
+/* Alineación de inputs */
+.form-control {
+  width: 80%;
+  margin: 0 auto;
 }
 
-.input-group .form-control {
-  flex: 1;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.toggle-password {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  padding: 0.375rem 0.75rem;
-  background-color: #f8f9fa;
-  border: 1px solid #ced4da;
-  border-left: none;
-}
-
-.toggle-password i {
-  font-size: 1rem;
-}
-
-/* Ajustes para mantener la consistencia con tu diseño original */
-.mb-3 {
+.grupo-contrasena {
+  position: relative;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  padding-left: 2rem;
+  margin: 0 auto;
 }
+
+.grupo-contrasena .form-control {
+  padding-right: 40px;
+}
+
+.grupo-contrasena i, .grupo-contrasena button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
 
 
 
@@ -459,7 +448,7 @@ Mi cuenta
 }
 .form-control{
   left: 12%;
-  width: 60%;
+  width: 80%;
 }
 .form-overlay{
   margin-left: 13%;
@@ -504,14 +493,7 @@ Mi cuenta
   justify-content: center;
   padding-bottom: 10px;
 }
-.contrasena{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0;
-  width: 100%;
- 
-}
+
 .tituloTexto2 {
   font-family: "Poppins", sans-serif;
   text-align: center;
