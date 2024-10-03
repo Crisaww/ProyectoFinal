@@ -194,6 +194,8 @@
   width: 65%;
 }
 .item{
-  width: 100px;
-  height: 370px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 24rem;
 }

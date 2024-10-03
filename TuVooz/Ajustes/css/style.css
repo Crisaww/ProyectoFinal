@@ -401,15 +401,22 @@ a:hover {
  
 }
 
-@media (width: 991px) {
+@media (max-width: 991px) {
    
     
     #hero .hero-img img {
-        width: 40%;
+        width: 50%;
     }
    
    
 }
+
+.img-fluid2{
+  max-width: 100%;
+  height: auto;
+}
+
+
 
 
 
@@ -423,7 +430,7 @@ a:hover {
     line-height: 24px;
   }
   #hero .hero-img img {
-    width: 40%;
+    width: 75%;
   }
 }
 
