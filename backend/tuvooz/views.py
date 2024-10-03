@@ -33,17 +33,26 @@ class IniciarSesion(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request):
-        user = get_object_or_404(User, email=request.data['email'])
-        
-        if not user.check_password(request.data['password']):
+        # Obtener el email del request
+        email = request.data.get('email')
+        password = request.data.get('password')
+
+        # Verificar si el usuario existe
+        try:
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            return Response({'error': 'Usuario no registrado'}, status=status.HTTP_404_NOT_FOUND)
+
+        # Verificar la contraseña
+        if not user.check_password(password):
             return Response({'error': 'Contraseña incorrecta'}, status=status.HTTP_401_UNAUTHORIZED)
-        
+
+        # Generar los tokens
         refresh = RefreshToken.for_user(user)
         return Response({
             'refresh': str(refresh),
             'access': str(refresh.access_token),
         }, status=status.HTTP_200_OK)
-
 class Registro(APIView):
     permission_classes = [AllowAny]
 
@@ -276,6 +285,19 @@ class LogoutView(APIView):
             return Response({"message": "Sesión cerrada correctamente."}, status=status.HTTP_200_OK)
         else:
             return Response({"error": "No estás autenticado."}, status=status.HTTP_400_BAD_REQUEST)
+class EliminarCuenta(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def delete(self, request, *args, **kwargs):
+        # Acceder al usuario autenticado
+        user = request.user
+        
+        # Eliminar el usuario
+        user.delete()
+        
+        # Respuesta de confirmación
+        return Response({"message": "Cuenta eliminada correctamente."}, status=status.HTTP_204_NO_CONTENT)
+    
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])

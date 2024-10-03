@@ -6,7 +6,7 @@ from rest_framework.documentation import include_docs_urls
 from .viewAI import synthesize
 from tuvooz import views
 from django.conf.urls.static import static
-from .views import olvide_contrasena, CambiarContrasenna, Registro, IniciarSesion, Perfil, RestablecerContrasena, LogoutView
+from .views import olvide_contrasena, CambiarContrasenna, Registro, IniciarSesion, Perfil, RestablecerContrasena, LogoutView, EliminarCuenta
 
 urlpatterns = [
     
@@ -25,6 +25,7 @@ urlpatterns = [
     re_path('api/v1/restablecerContrasena', RestablecerContrasena.as_view(), name='restablecerContrasena'),
     re_path('api/v1/logout/', LogoutView.as_view(), name='logout'),
     re_path('cambiarContrasenna/', CambiarContrasenna.as_view(), name='CambiarContrasenna'),
+    re_path('api/v1/eliminarcuenta', EliminarCuenta.as_view(), name='EliminarCuenta'), 
     # re_path('api/v1/actualizarUsername/', views.actualizar_username, name='actualizarUsername'),  # Nueva ruta
     
     # Ruta para sintetizar audio
