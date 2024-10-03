@@ -103,56 +103,44 @@
         <label for="" class="form-label">Nombre de usuario nuevo</label>
         <input type="text" class="form-control" name="new-username" id="new-username">
       </div>
-
+    
       <div class="col-md-2">
-        <button class="btn btnGuardarCambios" id="btnActualizarUsername" type="button" >Guardar cambios</button>
+        <button class="btn btnGuardarCambios" id="btnActualizarUsername" type="button">Guardar cambios</button>
       </div>
-
     </div>
-
-
-
+    
     <div class="row">
       <hr class="linea">
     </div>
-
-    <div class="row">
+    
+    <div class="row ">
       <h3 class="texto-h2">Cambiar contraseña</h3>
-      <div class="mb-3">
+      <div class="col-md-3">
         <label for="contrasenaActual" class="form-label">Contraseña actual</label>
-        <div class="input-group">
+        <div class="grupo-contrasena contrasena">
           <input type="password" class="form-control" id="contrasenaActual">
-          <button class="btn btn-outline-secondary toggle-password" type="button" data-target="contrasenaActual">
-            <i class="bi bi-eye"></i>
-          </button>
+            <i class="fas fa-eye"></i>
+        </div>  
+        <label for="nuevaContrasena" class="form-label">Contraseña nueva</label>
+        <div class="grupo-contrasena contrasena">
+          <input type="password" class="form-control" id="nuevaContrasena">
+          <i class="fas fa-eye"></i>
         </div>
-      </div>
-    
-    
-      <div class="mb-3">
-          <label for="nuevaContrasena" class="form-label">Contraseña nueva</label>
-          <div class="input-group">
-              <input type="password" class="form-control" id="nuevaContrasena">
-              <button class="btn btn-outline-secondary toggle-password" type="button" data-target="nuevaContrasena">
-                  <i class="bi bi-eye"></i>
-              </button>
-          </div>
-      </div>
       
-      <div class="mb-3">
-          <label for="confirmarContrasena" class="form-label">Confirmación de contraseña nueva</label>
-          <div class="input-group">
-              <input type="password" class="form-control" id="confirmarContrasena">
-              <button class="btn btn-outline-secondary toggle-password" type="button" data-target="confirmarContrasena">
-                  <i class="bi bi-eye"></i>
-              </button>
-          </div>
+    
+      
+        <label for="confirmarContrasena" class="form-label">Confirmación de contraseña nueva</label>
+        <div class="grupo-contrasena contrasena">
+          <input type="password" class="form-control" id="confirmarContrasena">
+          <i class="fas fa-eye"></i>
+        </div>
       </div>
     
       <div class="col-md-2">
         <button class="btn btnGuardarCambios" id="btnActualizarEmail" type="button" onclick="cambiarContrasena();">Guardar cambios</button>
       </div>
     </div>
+    
 
     <div class="row">
       <hr class="linea">

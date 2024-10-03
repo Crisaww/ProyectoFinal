@@ -160,6 +160,9 @@ class CambiarContrasenna(APIView):
         # Verificar la contraseña actual
         if not user.check_password(current_password):
             return Response({"error": "La contraseña actual es incorrecta."}, status=status.HTTP_400_BAD_REQUEST)
+         # Verificar que la nueva contraseña no sea igual a la actual
+        if current_password == new_password:
+            return Response({"error": "La nueva contraseña no puede ser la misma que la actual."}, status=status.HTTP_400_BAD_REQUEST)
 
         # Verificar que las nuevas contraseñas coincidan
         if new_password != confirm_password:
@@ -187,6 +190,7 @@ class CambiarContrasenna(APIView):
             "access": str(refresh_token.access_token),
             "refresh": str(refresh_token)
         }, status=status.HTTP_200_OK)
+
 @permission_classes([AllowAny])
 class olvide_contrasena(APIView):
     def post(self, request):
