@@ -113,9 +113,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tuvoozdb',
         'USER': 'root',
-        #'PASSWORD': '',
-        'PASSWORD': '123456',
-        #'PASSWORD': 'root123',
+        'PASSWORD': 'root123',
         'PORT': '3306',       
     }
 }
