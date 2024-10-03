@@ -1,59 +1,80 @@
-/* Ajustar el tamaño de la página */
 body,
 html {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
     height: 100%;
-    background: linear-gradient(45deg, rgba(86, 58, 250, 0.9) 100%, rgba(86, 58, 250, 0.9) 0%), url("../img/Onda3.jpg");
-    background-size: cover;
-    position: relative;
-    font-family: "Poppins", sans-serif;
+    background: linear-gradient(45deg, rgba(86, 58, 250, .9) 100%, rgba(86, 58, 250, .9) 0) 0 0/cover, url("../img/Onda3.jpg") 0 0/cover;
+    overflow: hidden; /* Evita que el contenido se desborde */
+
+    font-family: Poppins, sans-serif
 }
 
-/* Estilo para el contenedor principal */
 .container {
     display: flex;
     width: 100%;
     height: 100%;
 }
 
-/* Estilo para las columnas */
-.left-column, .right-column {
+.formulario{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.left-column {
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
 }
-
-/* Estilo para la columna izquierda */
-.left-column {
-    flex-direction: column;
-}
-
-/* Estilo para la columna derecha */
+  
 .right-column {
-    flex-direction: column;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
-/* Estilo para el contenido del formulario */
+/*Estilos para el formulario y sus elemntos*/
 .fauguet {
-    width: 25rem;
-    max-width: 100%;
+    width: 30rem;
     border-radius: 20px;
     background-color: #fff;
-    padding: 2rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    height: 28rem;
 }
 
-/* Estilos para el formulario */
-form {
-    border-radius: 2px;
-    padding: 15px;
+.tituloRestablecerContrasena{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2rem;
 }
 
-.form-label {
-    display: block;
-    margin-bottom: 5px;
+
+p{
+    text-align: center;
+}
+
+.form-login {
+    display: flex;
+    width: 100%;
+    padding-top: 15px;
+    flex-direction: column;
+}
+
+.labelFormulario{
+    display: flex;
+    width: 100%;
+    padding-left: 3rem;
+}
+
+.inputFormulario {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative; /* Asegura que el contenedor sea relativo para el posicionamiento absoluto del ícono */
 }
 
 .form-control {
@@ -65,73 +86,144 @@ form {
     justify-content: center;
 }
 
-h1 {
-    text-align: center;
-    font-size: 2rem;
-    margin-top: 0;
-    margin-bottom: 1rem;
+/* Cambio de color externo input */
+input:focus {
+    outline: none;
+    border-color: #563afae6;
 }
 
 .boton {
     display: flex;
     justify-content: center;
+    margin-top: 12px;
+    width: 100%
 }
 
+/* Dentro del botón */
 .boton .btn {
     font-family: "Poppins", sans-serif;
     font-size: 16px;
     cursor: pointer;
-    width: 70%;
+    width: 53%;
     border-radius: 15px;
     border: none;
     padding: 8px;
+
     background-color: rgba(86, 58, 250, 0.9);
     color: #fff;
 }
 
-.right-column {
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+.btn:hover{
+    color: #d6d6d6;
 }
 
-.site-logo{max-width:400px}
+/*Estilos para el enlace de registro*/
+.login {
+    text-align: center;
+    font-size: 14px;
+  }
 
-.fauguet{width:90%;max-width:400px}
-@media (max-width:600px){
-    .fauguet{width:95%}.site-logo{max-width:150px}}
-/* Estilos responsive */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
+a {
+    color: #23527c;
+    text-decoration: none
+}
 
-    .left-column, .right-column {
-        max-width: 100%;
-    }
+a:hover {
+    color: #aaa
+}
 
+.site-logo {
+    width: 400px;
+    height: auto; /*se ajusta la altura de la imagen automaticamente*/
+}
+
+/* Medidas para pantallas grandes (desktops) */
+@media (min-width: 1024px) {
+    .left-column,
     .right-column {
-        order: -1; /* Coloca el logo en la parte superior */
-        padding-top: 20px;
+      width: 50%;
     }
-
-    .site-logo {
-        max-width: 30%; /* Ajusta el tamaño del logo para dispositivos más pequeños */
-        padding: 0;
+  }
+  
+  /* Medidas para tablets y pantallas medianas */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .container {
+      width: 100%;
+      flex-direction: column-reverse;
     }
-
-    .fauguet {
-        max-width: 100%;
-        padding: 20px;
+    .left-column {
+      width: 100%;
+      height: 60%;
+      display: flex;
+      align-items: start;
     }
-}
-
-@media (max-width: 480px) {
-    .boton .btn {
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .site-logo{
+      width: 200px;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .right-column {
         width: 100%;
+        height: 40%;
+  }
+  
+  }
+  
+  /* Medidas para pantallas pequeñas (celulares) */
+  @media (max-width: 767px) {
+    .container {
+      flex-direction: column;
     }
+  
+    .fauguet {
+      width: 30rem; 
+    }
+  
+    .site-logo{
+      width: 200px;
+    }
+  
+    .right-column {
+      order: 2; /* Mueve el right-column arriba */
+    }
+  
+    .left-column {
+      order: 1; /* Mueve el left-column abajo */
+    }
+  
+    .left-column{
+      display: flex;
+      align-items: start;
+      width: 100%;
+      height: 60%;
+    }
+    
+  
+    .right-column {
+      width: 100%;
+      height: 40%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+        flex-direction:column-reverse;
+    }
+  }
+  
+  @media (min-width: 200px) and (max-width: 535px) {
+    .fauguet {
+        width: 20rem;
+    }
+  
+    .site-logo{
+      width: 200px;
+    }
+  } 
 
-    .site-logo {
-        max-width: 40%;
-    }
-}
+
+
