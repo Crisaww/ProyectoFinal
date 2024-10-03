@@ -20,20 +20,19 @@ function iniciarSesion() {
         fetch(urlLogin, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': getCookie('csrftoken')
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(formData)
         })
         .then(response => {
-            if (response.status === 401 ||response.status === 404) {
+            if (response.status === 401 || response.status === 404) {
                 return response.json().then(data => {
                     Swal.fire({
                         title: "Advertencia",
-                        text: "Credenciales incorrectas.",
+                        text: data.error,
                         icon: "warning"
                     });
-                    throw new Error('Credenciales incorrectas');
+                    throw new Error(data.error);
                 });
             } else if (!response.ok) {
                 throw new Error('La respuesta de la red no fue correcta');
@@ -41,13 +40,13 @@ function iniciarSesion() {
             return response.json();
         })
         .then(data => {
-            localStorage.setItem('showLoginMessage', 'true'); 
-            localStorage.setItem('access_token', data.access); // guarda el token
-            localStorage.setItem('refresh_token', data.refresh); // lo actualiza
-            window.location.href = urlBasicaFront+"TuVooz/tuVoozPrincipal/paginaPrincipal.html";
+            localStorage.setItem('showLoginMessage', 'true');
+            localStorage.setItem('access_token', data.access);
+            localStorage.setItem('refresh_token', data.refresh);
+            window.location.href = urlBasicaFront + "TuVooz/tuVoozPrincipal/paginaPrincipal.html";
         })
         .catch(error => {
-            if (error.message !== 'Credenciales incorrectas') {
+            if (error.message !== 'Credenciales incorrectas' && error.message !== 'Usuario no registrado') {
                 Swal.fire("Error", "Error al iniciar sesión: " + error.message, "error");
             }
         });
@@ -59,7 +58,6 @@ function iniciarSesion() {
         });
     }
 }
-
 
 
 function validarCamposLogin() {
