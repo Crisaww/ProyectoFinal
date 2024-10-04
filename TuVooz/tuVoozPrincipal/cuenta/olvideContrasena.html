@@ -19,43 +19,44 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="left-column">
-            <div class="fauguet">
-                <h1 class="tituloRestablecerContrasena">Restablecer Contraseña</h1>
-                <p>Ingrese el correo con el que se registró y verifique su bandeja de entrada</p>
-                <div class="formulario">
+        <div class="container">
+            <div class="left-column">
+                <div class="fauguet">
+                    <h1 class="tituloRestablecerContrasena">Restablecer Contraseña</h1>
+                    <p>Ingrese el correo con el que se registró y verifique su bandeja de entrada</p>
+                    <div class="formulario">
 
-                    <div class="form-login">
-                        <div class="labelFormulario">
-                            <label for="email" class="form-label">Correo electrónico:</label>
+                        <div class="form-login">
+                            <div class="labelFormulario">
+                                <label for="email" class="form-label">Correo electrónico:</label>
+                            </div>
+
+                            <div class="inputFormulario">
+                                <input type="email" class="form-control" name="email" id="email" step="1"
+                                    style="background-color: #e5e4e4;">
+                            </div>
                         </div>
 
-                        <div class="inputFormulario">
-                            <input type="email" class="form-control" name="email" id="email" step="1"
-                                style="background-color: #e5e4e4;">
+
+                        <div class="boton">
+                            <button type="button" class="btn" onclick="olvidarContrasena();">Recuperar Contraseña</button>
                         </div>
-                    </div>
 
-
-                    <div class="boton">
-                        <button type="button" class="btn" onclick="olvidarContrasena();">Recuperar Contraseña</button>
+                        <div class="login">
+                            <p>¿Ya tienes una cuenta? <a class="text_light" href="./iniciarSesion.html">Inicia sesión</a>
+                            </p>
+                        </div>
+                        
                     </div>
-
-                    <div class="login">
-                        <p>¿Ya tienes una cuenta? <a class="text_light" href="./iniciarSesion.html">Inicia sesión</a>
-                        </p>
-                    </div>
-                    
                 </div>
+            </div>
+            <div class="right-column">
+                <img src="../img/solidoGrande (1).png" alt="TuVooz" class="site-logo">
             </div>
         </div>
     </div>
 
-    <div class="right-column">
-        <img src="../img/solidoGrande (1).png" alt="TuVooz" class="site-logo">
-    </div>
-    </div>
+
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
     <script src="../js/cuenta/config.js"></script>
