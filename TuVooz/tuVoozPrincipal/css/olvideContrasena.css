@@ -1,230 +1,229 @@
 body,
 html {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: linear-gradient(45deg, rgba(86, 58, 250, .9) 100%, rgba(86, 58, 250, .9) 0) 0 0/cover, url("../img/Onda3.jpg") 0 0/cover;
-    overflow: hidden; /* Evita que el contenido se desborde */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: linear-gradient(
+        45deg,
+        rgba(86, 58, 250, 0.9) 100%,
+        rgba(86, 58, 250, 0.9) 0
+      )
+      0 0 / cover,
+    url("../img/Onda3.jpg") 0 0 / cover;
+  overflow: hidden; /* Evita que el contenido se desborde */
 
-    font-family: Poppins, sans-serif
+  font-family: Poppins, sans-serif;
 }
 
 .container {
-    display: flex;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
 
-.formulario{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.formulario {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .left-column {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-  
+
 .right-column {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*Estilos para el formulario y sus elemntos*/
 .fauguet {
-    width: 30rem;
-    border-radius: 20px;
-    background-color: #fff;
-    height: 28rem;
+  width: 30rem;
+  border-radius: 20px;
+  background-color: #fff;
+  height: 28rem;
 }
 
-.tituloRestablecerContrasena{
+.tituloRestablecerContrasena {
   text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2rem;
 }
 
-
-p{
-    text-align: center;
+p {
+  text-align: center;
 }
 
 .form-login {
-    display: flex;
-    width: 100%;
-    padding-top: 15px;
-    flex-direction: column;
+  display: flex;
+  width: 100%;
+  padding-top: 15px;
+  flex-direction: column;
 }
 
-.labelFormulario{
-    display: flex;
-    width: 100%;
-    padding-left: 3rem;
+.labelFormulario {
+  display: flex;
+  width: 100%;
+  padding-left: 3rem;
 }
 
 .inputFormulario {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    position: relative; /* Asegura que el contenedor sea relativo para el posicionamiento absoluto del ícono */
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative; /* Asegura que el contenedor sea relativo para el posicionamiento absoluto del ícono */
 }
 
 .form-control {
-    width: 90%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
+  width: 90%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
 }
 
 /* Cambio de color externo input */
 input:focus {
-    outline: none;
-    border-color: #563afae6;
+  outline: none;
+  border-color: #563afae6;
 }
 
 .boton {
-    display: flex;
-    justify-content: center;
-    margin-top: 12px;
-    width: 100%
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+  width: 100%;
 }
 
 /* Dentro del botón */
 .boton .btn {
-    font-family: "Poppins", sans-serif;
-    font-size: 16px;
-    cursor: pointer;
-    width: 53%;
-    border-radius: 15px;
-    border: none;
-    padding: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  width: 53%;
+  border-radius: 15px;
+  border: none;
+  padding: 8px;
 
-    background-color: rgba(86, 58, 250, 0.9);
-    color: #fff;
+  background-color: rgba(86, 58, 250, 0.9);
+  color: #fff;
 }
 
-.btn:hover{
-    color: #d6d6d6;
+.btn:hover {
+  color: #d6d6d6;
 }
 
 /*Estilos para el enlace de registro*/
 .login {
-    text-align: center;
-    font-size: 14px;
-  }
+  text-align: center;
+  font-size: 14px;
+}
 
 a {
-    color: #23527c;
-    text-decoration: none
+  color: #23527c;
+  text-decoration: none;
 }
 
 a:hover {
-    color: #aaa
+  color: #aaa;
 }
 
 .site-logo {
-    width: 400px;
-    height: auto; /*se ajusta la altura de la imagen automaticamente*/
+  width: 400px;
+  height: auto; /*se ajusta la altura de la imagen automaticamente*/
 }
 
 /* Medidas para pantallas grandes (desktops) */
 @media (min-width: 1024px) {
-    .left-column,
-    .right-column {
-      width: 50%;
-    }
+  .left-column,
+  .right-column {
+    width: 50%;
   }
-  
-  /* Medidas para tablets y pantallas medianas */
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .container {
-      width: 100%;
-      flex-direction: column-reverse;
-    }
-    .left-column {
-      width: 100%;
-      height: 60%;
-      display: flex;
-      align-items: start;
-    }
-  }
-  
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .site-logo{
-      width: 200px;
-    }
-  }
-  
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .right-column {
-        width: 100%;
-        height: 40%;
-  }
-  
-  }
-  
-  /* Medidas para pantallas pequeñas (celulares) */
-  @media (max-width: 767px) {
-    .container {
-      flex-direction: column;
-    }
-  
-    .fauguet {
-      width: 30rem; 
-    }
-  
-    .site-logo{
-      width: 200px;
-    }
-  
-    .right-column {
-      order: 2; /* Mueve el right-column arriba */
-    }
-  
-    .left-column {
-      order: 1; /* Mueve el left-column abajo */
-    }
-  
-    .left-column{
-      display: flex;
-      align-items: start;
-      width: 100%;
-      height: 60%;
-    }
-    
-  
-    .right-column {
-      width: 100%;
-      height: 40%;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .container {
-        flex-direction:column-reverse;
-    }
-  }
-  
-  @media (min-width: 200px) and (max-width: 535px) {
-    .fauguet {
-        width: 20rem;
-    }
-  
-    .site-logo{
-      width: 200px;
-    }
-  } 
+}
 
+/* Medidas para tablets y pantallas medianas */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    width: 100%;
+    flex-direction: column-reverse;
+  }
+  .left-column {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    align-items: start;
+  }
+}
 
+@media (min-width: 768px) and (max-width: 1023px) {
+  .site-logo {
+    width: 200px;
+  }
+}
 
+@media (min-width: 768px) and (max-width: 1023px) {
+  .right-column {
+    width: 100%;
+    height: 40%;
+  }
+}
+
+/* Medidas para pantallas pequeñas (celulares) */
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .fauguet {
+    width: 30rem;
+  }
+
+  .site-logo {
+    width: 200px;
+  }
+
+  .right-column {
+    order: 2; /* Mueve el right-column arriba */
+  }
+
+  .left-column {
+    order: 1; /* Mueve el left-column abajo */
+  }
+
+  .left-column {
+    display: flex;
+    align-items: start;
+    width: 100%;
+    height: 60%;
+  }
+
+  .right-column {
+    width: 100%;
+    height: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column-reverse;
+  }
+}
+
+@media (min-width: 200px) and (max-width: 535px) {
+  .fauguet {
+    width: 20rem;
+  }
+
+  .site-logo {
+    width: 200px;
+  }
+}
