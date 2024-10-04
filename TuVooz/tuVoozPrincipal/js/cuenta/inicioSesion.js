@@ -69,10 +69,15 @@ function validarCamposLogin() {
 
 function validarEmail(email) {
     let errorDiv = document.getElementById('email-error');
+
+    // Detecta el tamaño de la pantalla
+    let placement = window.matchMedia("(max-width: 767px)").matches ? 'top' : 'right';
+
+    // Crea una instancia de Tippy con el posicionamiento adecuado
     let tippyInstanceEmail = tippy(email, {
         content: '',
         trigger: 'manual',
-        placement: 'right',
+        placement: placement,  // Dinámicamente cambia la posición
         theme: 'material',
     });
 
@@ -103,15 +108,20 @@ function validarEmail(email) {
     return valido;
 }
 
+
 function validarPassword(password) {
     let valor = password.value.trim();
     let valido = true;
     let mensajeError = "";
 
+    // Detecta el tamaño de la pantalla
+    let placement = window.matchMedia("(max-width: 767px)").matches ? 'top' : 'right';
+
+    // Crea una instancia de Tippy con el posicionamiento adecuado
     let tippyInstancePassword = tippy(password, {
         content: '',
         trigger: 'manual',
-        placement: 'right',
+        placement: placement,  // Dinámicamente cambia la posición
         theme: 'material',
     });
 
@@ -127,7 +137,7 @@ function validarPassword(password) {
     } else if (!/[0-9]/.test(valor)) {
         valido = false;
         mensajeError = "La contraseña debe tener al menos un número.";
-    } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(valor)) {
+    } else if (!/[!@#$%^&*(),.?\":{}|<>]/.test(valor)) {
         valido = false;
         mensajeError = "La contraseña debe tener al menos un carácter especial.";
     }
@@ -143,6 +153,7 @@ function validarPassword(password) {
 
     return valido;
 }
+
 
 function getCookie(name) {
     let cookieValue = null;

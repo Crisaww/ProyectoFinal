@@ -1,29 +1,25 @@
-/*Ajustar el tamaño de la pagina*/
 body,
 html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: linear-gradient(45deg, rgba(86, 58, 250, 0.9) 100%, rgba(86, 58, 250, 0.9) 0%), url("../img/Onda3.jpg");
-    background-size: cover;
-    position: relative;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(86, 58, 250, .9) 100%, rgba(86, 58, 250, .9) 0) 0 0/cover, url("../img/Onda3.jpg") 0 0/cover;
+  overflow-x: hidden;
+  /* Evita el desplazamiento horizontal */
+  overflow-y: auto;
+  /* Permite el desplazamiento vertical */
 
-    font-family: "Poppins", sans-serif;
-}
-
-
-/*Estilo para el contenedor principal*/
-.wrapper {
-  position: relative;
-  width: 100%;
+  font-family: Poppins, sans-serif
 }
 
 .container {
-    display: flex;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
-.formulario{
+
+.formulario {
   height: 18rem;
   display: flex;
   flex-direction: column;
@@ -43,37 +39,38 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
 }
 
-/*Estilo para el contenido*/
 /*Estilos para el formulario y sus elemntos*/
 .fauguet {
   width: 30rem;
   border-radius: 20px;
   background-color: #fff;
-  height: 34rem;
+  height: 28rem;
 }
 
-
-
-.tituloRecuperarContraseña > h1{
-  margin: 0;
+.tituloRecuperarContrasena {
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 2.5rem;
-  
+  padding-top: 2rem;
 }
 
-.formularioRecuperarContrasena{
+.tituloRecuperarContrasena>h1 {
+  margin: 0;
+}
+
+.form-recuperarContrasena {
   display: flex;
   width: 100%;
-  padding-top: 45px;
+  padding-top: 15px;
   flex-direction: column;
 }
 
-.labelFormulario{
+
+.labelFormulario {
   display: flex;
   width: 100%;
   padding-left: 3rem;
@@ -83,13 +80,16 @@ html {
   display: flex;
   justify-content: center;
   width: 100%;
-  position: relative; /* Asegura que el contenedor sea relativo para el posicionamiento absoluto del ícono */
+  position: relative;
+  /* Asegura que el contenedor sea relativo para el posicionamiento absoluto del ícono */
 }
 
 .form-control {
   width: 70%;
-  padding: 8px 40px 8px 8px; /* Ajusta el padding derecho para dar espacio al ícono */
-  border: 1px solid #fff; /* Borde blanco por defecto */
+  padding: 8px 40px 8px 8px;
+  /* Ajusta el padding derecho para dar espacio al ícono */
+  border: 1px solid #fff;
+  /* Borde blanco por defecto */
   border-radius: 10px;
   background-color: #e5e4e4;
 }
@@ -98,10 +98,68 @@ html {
   cursor: pointer;
   font-size: 16px;
   position: absolute;
-  top: 50%; /* Alinea verticalmente en el centro */
-  right: 60px; /* Ajusta la distancia desde el borde derecho del input */
-  transform: translateY(-50%); /* Ajusta para que esté centrado verticalmente */
-  color: #000; /* Color del ícono */
+  top: 50%;
+  /* Alinea verticalmente en el centro */
+  right: 60px;
+  /* Ajusta la distancia desde el borde derecho del input */
+  transform: translateY(-50%);
+  /* Ajusta para que esté centrado verticalmente */
+  color: #000;
+  /* Color del ícono */
+}
+
+/* Asegurarse de que las clases de validación sobrescriban el borde */
+
+/* Cambio de color externo input */
+input:focus {
+  outline: none;
+  border-color: #563afae6;
+}
+
+.boton {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+  width: 100%
+}
+
+/* Dentro del botón */
+.boton .btn {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  width: 53%;
+  border-radius: 15px;
+  border: none;
+  padding: 8px;
+
+  background-color: rgba(86, 58, 250, 0.9);
+  color: #fff;
+}
+
+.btn:hover {
+  color: #d6d6d6;
+}
+
+.recordar {
+  display: flex;
+  justify-content: center;
+}
+
+
+/*Estilos para el enlace de registro*/
+.registro {
+  text-align: center;
+  font-size: 14px;
+}
+
+a {
+  color: #23527c;
+  text-decoration: none
+}
+
+a:hover {
+  color: #aaa
 }
 
 
@@ -110,11 +168,13 @@ html {
 
 .site-logo {
   width: 400px;
-  height: auto; /*se ajusta la altura de la imagen automaticamente*/
+  height: auto;
+  /*se ajusta la altura de la imagen automaticamente*/
 }
 
 /* Medidas para pantallas grandes (desktops) */
 @media (min-width: 1024px) {
+
   .left-column,
   .right-column {
     width: 50%;
@@ -127,6 +187,7 @@ html {
     width: 100%;
     flex-direction: column-reverse;
   }
+
   .left-column {
     width: 100%;
     height: 60%;
@@ -136,16 +197,16 @@ html {
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  .site-logo{
+  .site-logo {
     width: 200px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .right-column {
-      width: 100%;
-      height: 40%;
-}
+    width: 100%;
+    height: 40%;
+  }
 
 }
 
@@ -156,28 +217,30 @@ html {
   }
 
   .fauguet {
-    width: 30rem; 
+    width: 30rem;
   }
 
-  .site-logo{
+  .site-logo {
     width: 200px;
   }
 
   .right-column {
-    order: 2; /* Mueve el right-column arriba */
+    order: 2;
+    /* Mueve el right-column arriba */
   }
 
   .left-column {
-    order: 1; /* Mueve el left-column abajo */
+    order: 1;
+    /* Mueve el left-column abajo */
   }
 
-  .left-column{
+  .left-column {
     display: flex;
     align-items: start;
     width: 100%;
     height: 60%;
   }
-  
+
 
   .right-column {
     width: 100%;
@@ -187,206 +250,30 @@ html {
 
 @media (max-width: 768px) {
   .container {
-      flex-direction:column-reverse;
+    flex-direction: column-reverse;
   }
 }
 
 @media (min-width: 200px) and (max-width: 535px) {
   .fauguet {
-      width: 20rem;
+    width: 20rem;
   }
 
-  .site-logo{
+  .site-logo {
     width: 200px;
   }
-} 
 
-
-
-/* Asegurarse de que las clases de validación sobrescriban el borde */
-
-
-/* Cambio de color externo input */
-input:focus {
-    outline: none;
-    border-color: #563afae6;
+  .form-control {
+    width: 55%;
+    padding: 8px 40px 8px 8px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    background-color: #e5e4e4;
 }
-
-/*Estilos para el boton -- Esto es afuera .boton es el padre .btn es el interior*/
-.boton {
-    display: flex;
-    justify-content: center;
-    padding-top : .5rem
-  
-}
-
-
-/* Dentro del botón */
-.boton .btn {
-    font-family: "Poppins", sans-serif;
-    font-size: 16px;
-    cursor: pointer;
-    width: 70%;
-    border-radius: 15px;
-    border: none;
-    padding: 8px;
-
-    background-color: rgba(86, 58, 250, 0.9);
-    color: #fff;
-}
-
-.btn:hover{
-    color: #d6d6d6;
-}
-
-/*Estilos para el enlace de registro*/
-.registro {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; Innecesario, para eso está text-align*/
-
-
-    text-align: center;
-    font-size: large;
-}
-
-a {
-    /* text-align: center; */
-    text-decoration: none;
-    color: #23527c;
-    font-weight: 300;
 }
 
 
 
-
-/* estilos para el loader */
-.loader {
-    display: none;
-    position: absolute;
-    margin: auto;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 6.250em;
-    height: 6.250em;
-    animation: rotate5123 2.4s linear infinite;
-  }
-  
-  .white {
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: white;
-    animation: flash 2.4s linear infinite;
-    opacity: 0;
-  }
-  
-  .dot {
-    position: absolute;
-    margin: auto;
-    width: 2.4em;
-    height: 2.4em;
-    border-radius: 100%;
-    transition: all 1s ease;
-  }
-  
-  .dot:nth-child(2) {
-    top: 0;
-    bottom: 0;
-    left: 0;
-    background: #5f14fe;
-    animation: dotsY 2.4s linear infinite;
-  }
-  
-  .dot:nth-child(3) {
-    left: 0;
-    right: 0;
-    top: 0;
-    background: #5f32ad;
-    animation: dotsX 2.4s linear infinite;
-  }
-  
-  .dot:nth-child(4) {
-    top: 0;
-    bottom: 0;
-    right: 0;
-    background: #2d16bf;
-    animation: dotsY 2.4s linear infinite;
-  }
-  
-  .dot:nth-child(5) {
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #33B5E5;
-    animation: dotsX 2.4s linear infinite;
-  }
-  
-  @keyframes rotate5123 {
-    0% {
-      transform: rotate( 0 );
-    }
-  
-    10% {
-      width: 6.250em;
-      height: 6.250em;
-    }
-  
-    66% {
-      width: 2.4em;
-      height: 2.4em;
-    }
-  
-    100% {
-      transform: rotate(360deg);
-      width: 6.250em;
-      height: 6.250em;
-    }
-  }
-  
-  @keyframes dotsY {
-    66% {
-      opacity: .1;
-      width: 2.4em;
-    }
-  
-    77% {
-      opacity: 1;
-      width: 0;
-    }
-  }
-  
-  @keyframes dotsX {
-    66% {
-      opacity: .1;
-      height: 2.4em;
-    }
-  
-    77% {
-      opacity: 1;
-      height: 0;
-    }
-  }
-  
-  @keyframes flash {
-    33% {
-      opacity: 0;
-      border-radius: 0%;
-    }
-  
-    55% {
-      opacity: .6;
-      border-radius: 100%;
-    }
-  
-    66% {
-      opacity: 0;
-    }
-  }
-/* fin loader   */
 
 
 

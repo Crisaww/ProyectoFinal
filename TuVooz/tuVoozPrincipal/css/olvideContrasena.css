@@ -4,15 +4,14 @@ html {
   margin: 0;
   padding: 0;
   height: 100%;
-  background: linear-gradient(
-        45deg,
-        rgba(86, 58, 250, 0.9) 100%,
-        rgba(86, 58, 250, 0.9) 0
-      )
-      0 0 / cover,
+  background: linear-gradient(45deg,
+      rgba(86, 58, 250, 0.9) 100%,
+      rgba(86, 58, 250, 0.9) 0) 0 0 / cover,
     url("../img/Onda3.jpg") 0 0 / cover;
-  overflow: hidden; /* Evita que el contenido se desborde */
-
+  overflow-x: hidden;
+  /* Evita el desplazamiento horizontal */
+  overflow-y: auto;
+  /* Permite el desplazamiento vertical */
   font-family: Poppins, sans-serif;
 }
 
@@ -79,7 +78,8 @@ p {
   display: flex;
   justify-content: center;
   width: 100%;
-  position: relative; /* Asegura que el contenedor sea relativo para el posicionamiento absoluto del ícono */
+  position: relative;
+  /* Asegura que el contenedor sea relativo para el posicionamiento absoluto del ícono */
 }
 
 .form-control {
@@ -139,11 +139,13 @@ a:hover {
 
 .site-logo {
   width: 400px;
-  height: auto; /*se ajusta la altura de la imagen automaticamente*/
+  height: auto;
+  /*se ajusta la altura de la imagen automaticamente*/
 }
 
 /* Medidas para pantallas grandes (desktops) */
 @media (min-width: 1024px) {
+
   .left-column,
   .right-column {
     width: 50%;
@@ -156,6 +158,7 @@ a:hover {
     width: 100%;
     flex-direction: column-reverse;
   }
+
   .left-column {
     width: 100%;
     height: 60%;
@@ -192,11 +195,13 @@ a:hover {
   }
 
   .right-column {
-    order: 2; /* Mueve el right-column arriba */
+    order: 2;
+    /* Mueve el right-column arriba */
   }
 
   .left-column {
-    order: 1; /* Mueve el left-column abajo */
+    order: 1;
+    /* Mueve el left-column abajo */
   }
 
   .left-column {

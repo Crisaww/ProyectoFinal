@@ -2,12 +2,16 @@ function olvidarContrasena() {
     let emailElement = document.getElementById("email");
     let email = emailElement.value;
 
-    // Función para validar el email
+    // Función para validar el email con el ajuste de Tippy para pantallas pequeñas
     function validarEmail(emailElement) {
+        // Detecta el tamaño de la pantalla para ajustar la posición del Tippy
+        let placement = window.matchMedia("(max-width: 767px)").matches ? 'top' : 'right';
+
+        // Crea una instancia de Tippy con el posicionamiento adecuado
         let tippyInstanceEmail = tippy(emailElement, {
             content: '',
             trigger: 'manual',
-            placement: 'right',
+            placement: placement,  // Cambia dinámicamente la posición
             theme: 'material',
         });
 
@@ -81,6 +85,7 @@ function olvidarContrasena() {
         }
     });
 }
+
 
 // Función para obtener el CSRF token si es necesario (solo si usas sesiones con Django)
 function getCookie(name) {

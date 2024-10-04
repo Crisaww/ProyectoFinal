@@ -27,9 +27,9 @@
     <div class="container">
         <div class="left-column">
             <div class="fauguet">
-                <div class="tituloCrearCuenta">
-                    <h1>Crear cuenta</h1>
-                </div>
+
+                <h1 class="tituloCrearCuenta">Crear cuenta</h1>
+
                 <div class="formulario">
                     <!-- si se tiene creada una clase, no es necesario poner el style dentro de la etiqueta,
                       para eso esta css, eso es error de especificidad, corregí muchos errores de ese tipo y
@@ -82,15 +82,18 @@
 
                     </div>
 
+                    <div class="boton">
+                        <button type="button" class="btn" onclick="registrarUsuario();">Crear Cuenta</button>
+                    </div>
+
+                    <div class="registro">
+                        <p>¿Ya tienes una cuenta? <a class="text_light" href="./iniciarSesion.html">Inicia sesión</a>
+                        </p>
+                    </div>
+
                 </div>
 
-                <div class="boton">
-                    <button type="button" class="btn" onclick="registrarUsuario();">Crear Cuenta</button>
-                </div>
 
-                <div class="registro">
-                    <p >¿Ya tienes una cuenta? <a class="text_light" href="./iniciarSesion.html">Inicia sesión</a></p>
-                </div>
             </div>
         </div>
         <div class="right-column">
