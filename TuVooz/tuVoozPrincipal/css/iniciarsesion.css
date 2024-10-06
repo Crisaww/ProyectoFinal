@@ -20,7 +20,7 @@ html {
 }
 
 .formulario {
-  height: 18rem;
+  /* height: 18rem; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,9 +42,10 @@ html {
 
 }
 
-/*Estilos para el formulario y sus elemntos*/
+/* Ajuste del ancho del formulario para pantallas pequeñas */
 .fauguet {
-  width: 30rem;
+  width: 80%;
+  max-width: 30rem; /* Mantiene el tamaño máximo en pantallas grandes */
   border-radius: 20px;
   background-color: #fff;
   height: 28rem;

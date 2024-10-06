@@ -24,7 +24,7 @@ html {
 }
 
 .formulario {
-  height: 18rem;
+  /* height: 18rem; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -52,7 +52,7 @@ html {
   width: 30rem;
   border-radius: 20px;
   background-color: #fff;
-  height: 32rem;
+  height: 35rem;
 }
 
 .tituloCrearCuenta {
