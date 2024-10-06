@@ -71,7 +71,7 @@ function validarEmail(email) {
     let errorDiv = document.getElementById('email-error');
 
     // Detecta el tamaño de la pantalla
-    let placement = window.matchMedia("(max-width: 767px)").matches ? 'top' : 'right';
+    let placement = window.matchMedia("(max-width: 1023px)").matches ? 'top' : 'right';
 
     // Crea una instancia de Tippy con el posicionamiento adecuado
     let tippyInstanceEmail = tippy(email, {
@@ -115,16 +115,24 @@ function validarPassword(password) {
     let mensajeError = "";
 
     // Detecta el tamaño de la pantalla
-    let placement = window.matchMedia("(max-width: 767px)").matches ? 'top' : 'right';
+    let placement = window.matchMedia("(max-width: 1023px)").matches ? 'top' : 'right';
 
-    // Crea una instancia de Tippy con el posicionamiento adecuado
-    let tippyInstancePassword = tippy(password, {
-        content: '',
-        trigger: 'manual',
-        placement: placement,  // Dinámicamente cambia la posición
-        theme: 'material',
-    });
+    // Crea o usa una instancia de Tippy con el posicionamiento adecuado
+    if (!password.tippyInstance) {
+        password.tippyInstance = tippy(password, {
+            content: '',
+            trigger: 'manual',
+            placement: placement,  // Dinámicamente cambia la posición
+            theme: 'material',
+        });
+    } else {
+        // Actualiza la posición del tooltip
+        password.tippyInstance.setProps({
+            placement: placement,
+        });
+    }
 
+    // Validaciones de la contraseña
     if (valor.length < 8 || valor.length > 20) {
         valido = false;
         mensajeError = "La contraseña debe tener entre 8 y 20 caracteres.";
@@ -137,22 +145,40 @@ function validarPassword(password) {
     } else if (!/[0-9]/.test(valor)) {
         valido = false;
         mensajeError = "La contraseña debe tener al menos un número.";
-    } else if (!/[!@#$%^&*(),.?\":{}|<>]/.test(valor)) {
+    } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(valor)) {
         valido = false;
         mensajeError = "La contraseña debe tener al menos un carácter especial.";
     }
 
+    // Muestra o oculta el tooltip basado en la validez
     if (!valido) {
         password.className = "form-control is-invalid";
-        tippyInstancePassword.setContent(mensajeError);
-        tippyInstancePassword.show();
+        password.tippyInstance.setContent(mensajeError);
+        password.tippyInstance.show();
     } else {
         password.className = "form-control is-valid";
-        tippyInstancePassword.hide();
+        password.tippyInstance.hide();
     }
 
     return valido;
 }
+
+// Agregar un listener al campo de contraseña para validar en tiempo real
+document.getElementById("password").addEventListener("input", function () {
+    validarPassword(this);
+});
+
+// Ajustar el tooltip al cambiar el tamaño de la ventana
+window.addEventListener("resize", function () {
+    let passwordField = document.getElementById("password");
+    if (passwordField.tippyInstance) {
+        let placement = window.matchMedia("(max-width: 1023px)").matches ? 'top' : 'right';
+        passwordField.tippyInstance.setProps({
+            placement: placement,
+        });
+    }
+});
+
 
 
 function getCookie(name) {

@@ -1,7 +1,7 @@
-// let urlBasica= "http://127.0.0.1:8000/"
-// let urlBasicaFront ="http://127.0.0.1:5502/" 
-let urlBasicaFront ="http://tuvooz.com/" 
-let urlBasica="http://5.183.11.147:8000/";//ip servidor
+let urlBasica= "http://127.0.0.1:8000/"
+let urlBasicaFront ="http://127.0.0.1:5502/" 
+//let urlBasicaFront ="http://tuvooz.com/" 
+//let urlBasica="http://5.183.11.147:8000/";//ip servidor
 //let urlBasica="http://192.168.17.3:8000/";
 let urlLogin= urlBasica+"tuvooz/api/v1/iniciarSesion";
 let urlRegistro=urlBasica+"tuvooz/api/v1/registro";
