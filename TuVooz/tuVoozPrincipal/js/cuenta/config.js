@@ -145,8 +145,23 @@ async function VistasProtegidas(url) {
     }
 }
 
-// Función mejorada de logout
 async function logout() {
+    // Mostrar confirmación antes de cerrar sesión
+    const confirmacion = await Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¿Deseas cerrar sesión?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, cerrar sesión',
+        cancelButtonText: 'Cancelar'
+    });
+
+    if (!confirmacion.isConfirmed) {
+        return; // Si el usuario cancela, no se cierra la sesión
+    }
+
     const { access_token } = obtenerTokens();
 
     if (!access_token) {
@@ -191,6 +206,7 @@ async function logout() {
         });
     }
 }
+
 
 // Event listener
 document.addEventListener('DOMContentLoaded', async function() {
