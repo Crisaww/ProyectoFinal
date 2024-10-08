@@ -18,245 +18,137 @@ let urlCambiarContrasenna = urlBasica + "tuvooz/api/v1/cambiarContrasenna/";
 let urlInicioSesion = urlBasicaFront +"TuVooz/tuVoozPrincipal/cuenta/iniciarSesion.html";
 let urlEliminarCuenta = urlBasica + "tuvooz/api/v1/eliminarcuenta/";
 
+// Función mejorada para obtener tokens
 function obtenerTokens() {
     const access_token = localStorage.getItem('access_token');
     const refresh_token = localStorage.getItem('refresh_token');
     return { access_token, refresh_token };
 }
 
-async function logout() {
-    const { access_token } = obtenerTokens();
-
-    if (!access_token) {
-        console.log("No hay sesión activa. Redirigiendo a la página de inicio de sesión.");
-        window.location.href = urlInicioSesion;
-        return;
-    }
-
-    const result = await Swal.fire({
-        title: "Advertencia",
-        text: "¿Estás seguro de que quieres cerrar sesión?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonText: "Sí, cerrar sesión",
-        cancelButtonText: "Cancelar",
-    });
-
-    if (result.isConfirmed) {
-        try {
-            const response = await fetch(urlCerrarSesion, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + access_token,
-                },
-            });
-
-            if (response.ok) {
-                localStorage.removeItem('access_token');
-                localStorage.removeItem('refresh_token');
-                await Swal.fire("Sesión cerrada", "Has cerrado sesión correctamente.", "success");
-                window.location.href = urlInicioSesion;
-            } else {
-                const errorData = await response.json();
-                await Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: errorData.error || 'Hubo un problema al cerrar sesión.',
-                });
-            }
-        } catch (error) {
-            await Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Ocurrió un error al procesar la solicitud. Por favor, inténtelo nuevamente.',
-            });
-        }
-    }
-}
-
-
-
-function refrescarToken() {
+// Función mejorada para refrescar el token
+async function refrescarToken() {
     const { refresh_token } = obtenerTokens();
     if (!refresh_token) {
-        logout();
-        return Promise.reject(new Error('No refresh token disponible'));
+        throw new Error('No refresh token disponible');
     }
 
-    return fetch(urlRefrescarToken, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ refresh: refresh_token }),
-    })
-    .then(response => {
+    try {
+        const response = await fetch(urlRefrescarToken, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ refresh: refresh_token }),
+        });
+
         if (!response.ok) {
-            logout();
-            return response.json().then(data => {
-              
-                return Promise.reject(new Error('Error al refrescar el token'));
-            });
+            throw new Error('Error al refrescar el token');
         }
-        return response.json();
-    })
-    .then(data => {
+
+        const data = await response.json();
         localStorage.setItem('access_token', data.access);
-        return data;
-    })
-    .catch(error => {
-       
+        return data.access;
+    } catch (error) {
+        console.error('Error al refrescar el token:', error);
         logout();
-        return Promise.reject(error);
-    });
+        throw error;
+    }
 }
 
+// Función mejorada para hacer solicitudes autenticadas
 async function fetchWithAuth(url, options = {}) {
-    const { access_token } = obtenerTokens();
-    if (access_token) {
-        options.headers = {
-            ...options.headers,
-            'Authorization': 'Bearer ' + access_token
-        };
-    }
-
-    let response = await fetch(url, options);
-
-    if (response.status === 401) { // Token expirado
-        try {
-            const data = await refrescarToken();
-            options.headers['Authorization'] = 'Bearer ' + data.access;
-            response = await fetch(url, options); // Reintentar solicitud
-        } catch (error) {
-           
-            window.location.href = urlInicioSesion;
-        }
-    }
-
-    return response;
-}
-
-
-
-
-
-// Función para hacer solicitudes protegidas
-
-function VistasProtegidas(url) {
-    const { access_token } = obtenerTokens();
+    let { access_token } = obtenerTokens();
 
     if (!access_token) {
-        redirigirSiNoEnSesion();
-        return;
+        try {
+            access_token = await refrescarToken();
+        } catch (error) {
+            redirigirSiNoEnSesion();
+            throw error;
+        }
     }
 
-    fetch(`${urlBasica}${url}`, {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${access_token}`
+    options.headers = {
+        ...options.headers,
+        'Authorization': `Bearer ${access_token}`
+    };
+
+    try {
+        let response = await fetch(url, options);
+
+        if (response.status === 401) {
+            access_token = await refrescarToken();
+            options.headers['Authorization'] = `Bearer ${access_token}`;
+            response = await fetch(url, options);
         }
-    })
-    .then(response => {
+
         if (!response.ok) {
-            if (response.status === 401) {
-                return refrescarToken().then(() => {
-                    // Reintenta la solicitud después de refrescar el token
-                    return fetch(`${urlBasica}${url}`, {
-                        method: 'GET',
-                        headers: {
-                            'Authorization': `Bearer ${localStorage.getItem('access_token')}`
-                        }
-                    });
-                }).catch(() => {
-                    // Si el refresco falla, redirige al inicio de sesión
-                    redirigirSiNoEnSesion();
-                });
-            } else {
-                return response.text().then(text => {
-                 
-                    throw new Error(`Error en la solicitud: ${text}`);
-                });
-            }
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-        return response.json();
-    })
-    .then(data => {
-        if (data && data.detail === 'Authentication credentials were not provided.') {
-            logout();
+
+        return response;
+    } catch (error) {
+        console.error('Error en fetchWithAuth:', error);
+        if (error.message.includes('Error al refrescar el token')) {
+            redirigirSiNoEnSesion();
         }
-    })
-    .catch(error => {
-        
-        redirigirSiNoEnSesion();
-    });
+        throw error;
+    }
 }
 
+// Función mejorada para vistas protegidas
+async function VistasProtegidas(url) {
+    try {
+        const response = await fetchWithAuth(`${urlBasica}${url}`);
+        const data = await response.json();
+        // Procesar los datos como sea necesario
+        console.log(data);
+    } catch (error) {
+        console.error('Error en VistasProtegidas:', error);
+        // Manejar el error según sea necesario
+    }
+}
 
+// Función para redirigir si no hay sesión
 function redirigirSiNoEnSesion() {
     const { access_token } = obtenerTokens();
     const rutaActual = window.location.pathname;
 
-
-    // Rutas permitidas en las que el usuario puede estar sin token
     const rutasPermitidas = [
         "/TuVooz/tuVoozPrincipal/cuenta/iniciarSesion.html",
         "/TuVooz/tuVoozPrincipal/cuenta/crearcuenta.html",
         "/TuVooz/tuVoozPrincipal/cuenta/olvideContrasena.html",
         "/TuVooz/tuVoozPrincipal/cuenta/recuperarContrasena.html",
         "/TuVooz/tuVoozPrincipal/cuenta/recuperarContraseña.html",
-
     ];
 
-    // Verifica si el usuario tiene un token de acceso
     if (!access_token && !rutasPermitidas.includes(rutaActual)) {
         window.location.href = urlInicioSesion;
     }
 }
 
-// Ejemplo de uso
-function cargarPaginaPrincipal() {
-    VistasProtegidas('tuVoozPrincipal/paginaPrincipal/');
-}
-function cargarIndexPalabrasComunes() {
-    VistasProtegidas('tuVoozPrincipal/indexPalabrasComunes/');
-}
-
-function cargarAnimales() {
-    VistasProtegidas('tuVoozPrincipal/animales/');
-}
-function cargarComoTuVooz() {
-    VistasProtegidas('tuVoozPrincipal/comoUsarTuvooz/');
-}
-function cargarEmociones() {
-    VistasProtegidas('tuVoozPrincipal/emociones/');
-}
-function CargarMiCuenta() {
-    VistasProtegidas('tuVoozPrincipal/miCuenta/');
-}
-function cargarPreguntas() {
-    VistasProtegidas('tuVoozPrincipal/preguntas/');
-}
-function cargarSaludos() {
-    VistasProtegidas('tuVoozPrincipal/saludos/');
-}
-
-document.addEventListener('DOMContentLoaded', function() {
+// Event listener modificado
+document.addEventListener('DOMContentLoaded', async function() {
     const { access_token } = obtenerTokens();
     if (!access_token) {
         redirigirSiNoEnSesion();
     } else {
-        cargarPaginaPrincipal();
-        cargarIndexPalabrasComunes();
-        cargarAnimales();
-        cargarComoTuVooz();
-        cargarEmociones();
-        CargarMiCuenta();
-        cargarPreguntas();
-        cargarSaludos();
+        try {
+            await Promise.all([
+                VistasProtegidas('tuVoozPrincipal/paginaPrincipal/'),
+                VistasProtegidas('tuVoozPrincipal/indexPalabrasComunes/'),
+                VistasProtegidas('tuVoozPrincipal/animales/'),
+                VistasProtegidas('tuVoozPrincipal/comoUsarTuvooz/'),
+                VistasProtegidas('tuVoozPrincipal/emociones/'),
+                VistasProtegidas('tuVoozPrincipal/miCuenta/'),
+                VistasProtegidas('tuVoozPrincipal/preguntas/'),
+                VistasProtegidas('tuVoozPrincipal/saludos/')
+            ]);
+        } catch (error) {
+            console.error('Error al cargar las vistas protegidas:', error);
+        }
     }
 });
-
 
 
 
