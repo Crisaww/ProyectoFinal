@@ -11,7 +11,6 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth.models import User
 from django.template.loader import render_to_string
-from rest_framework import generics
 from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from rest_framework.permissions import AllowAny
@@ -24,6 +23,7 @@ from django.utils.encoding import force_str
 from django.utils.http import urlsafe_base64_decode
 from django.core.validators import validate_email
 from django.contrib.auth.password_validation import validate_password
+from django.http import JsonResponse
 
 
 
@@ -339,3 +339,7 @@ def emociones(request):
 @permission_classes([IsAuthenticated])
 def preguntas(request):
     return Response({'message': 'Aquí están las preguntas'})
+
+
+def error_404_view(request):
+    return JsonResponse({'error': 'este es un error 404'}, status=404)

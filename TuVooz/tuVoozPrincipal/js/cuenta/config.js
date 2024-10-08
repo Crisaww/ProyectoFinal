@@ -17,48 +17,13 @@ let urlObtenerToken = urlBasica + "api/token/";
 let urlCambiarContrasenna = urlBasica + "tuvooz/api/v1/cambiarContrasenna/";
 let urlInicioSesion = urlBasicaFront +"TuVooz/tuVoozPrincipal/cuenta/iniciarSesion.html";
 let urlEliminarCuenta = urlBasica + "tuvooz/api/v1/eliminarcuenta/";
-
+let url404 = urlBasica + "api/v1/error404/";
 
 // Función para obtener tokens
 function obtenerTokens() {
     const access_token = localStorage.getItem('access_token');
     const refresh_token = localStorage.getItem('refresh_token');
     return { access_token, refresh_token };
-}
-
-// Función para verificar la sesión
-function verificarSesion() {
-    const { access_token } = obtenerTokens();
-    if (!access_token) {
-        redirigirSiNoEnSesion();
-        return false;
-    }
-    return true;
-}
-
-// Función mejorada para redirigir si no hay sesión
-function redirigirSiNoEnSesion() {
-    const rutaActual = window.location.pathname;
-    const rutasPermitidas = [
-        "/TuVooz/tuVoozPrincipal/cuenta/iniciarSesion.html",
-        "/TuVooz/tuVoozPrincipal/cuenta/crearcuenta.html",
-        "/TuVooz/tuVoozPrincipal/cuenta/olvideContrasena.html",
-        "/TuVooz/tuVoozPrincipal/cuenta/recuperarContrasena.html",
-        "/TuVooz/tuVoozPrincipal/cuenta/recuperarContraseña.html",
-    ];
-
-    if (!rutasPermitidas.includes(rutaActual)) {
-        window.location.href = urlInicioSesion;
-    }
-}
-
-// Función para prevenir el almacenamiento en caché de la página
-function prevenirCache() {
-    window.onpageshow = function(event) {
-        if (event.persisted) {
-            window.location.reload();
-        }
-    };
 }
 
 // Función mejorada para refrescar el token
@@ -90,61 +55,6 @@ async function refrescarToken() {
         throw error;
     }
 }
-
-// Función mejorada para hacer solicitudes autenticadas
-async function fetchWithAuth(url, options = {}) {
-    let { access_token } = obtenerTokens();
-
-    if (!access_token) {
-        try {
-            access_token = await refrescarToken();
-        } catch (error) {
-            redirigirSiNoEnSesion();
-            throw error;
-        }
-    }
-
-    options.headers = {
-        ...options.headers,
-        'Authorization': `Bearer ${access_token}`
-    };
-
-    try {
-        let response = await fetch(url, options);
-
-        if (response.status === 401) {
-            access_token = await refrescarToken();
-            options.headers['Authorization'] = `Bearer ${access_token}`;
-            response = await fetch(url, options);
-        }
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        return response;
-    } catch (error) {
-        console.error('Error en fetchWithAuth:', error);
-        if (error.message.includes('Error al refrescar el token')) {
-            redirigirSiNoEnSesion();
-        }
-        throw error;
-    }
-}
-
-// Función mejorada para vistas protegidas
-async function VistasProtegidas(url) {
-    try {
-        const response = await fetchWithAuth(`${urlBasica}${url}`);
-        const data = await response.json();
-        // Procesar los datos como sea necesario
-        console.log(data);
-    } catch (error) {
-        console.error('Error en VistasProtegidas:', error);
-        // Manejar el error según sea necesario
-    }
-}
-
 async function logout() {
     // Mostrar confirmación antes de cerrar sesión
     const confirmacion = await Swal.fire({
@@ -206,38 +116,140 @@ async function logout() {
         });
     }
 }
+// Función para prevenir el almacenamiento en caché de la página
+function prevenirCache() {
+    window.onpageshow = function(event) {
+        if (event.persisted) {
+            window.location.reload();
+        }
+    };
+}
+// Función para manejar errores 404 en el lado del cliente
+function manejarError404Cliente() {
+    const rutaActual = window.location.pathname;
+    const rutasConocidas = [
+        "/TuVooz/tuVoozPrincipal/cuenta/iniciarSesion.html",
+        "/TuVooz/tuVoozPrincipal/cuenta/crearcuenta.html",
+        "/TuVooz/tuVoozPrincipal/cuenta/olvideContrasena.html",
+        "/TuVooz/tuVoozPrincipal/cuenta/recuperarContrasena.html",
+        "/TuVooz/tuVoozPrincipal/cuenta/recuperarContraseña.html",
+        "/TuVooz/tuVoozPrincipal/paginaPrincipal.html",
+        "/TuVooz/tuVoozPrincipal/animales.html",
+        "/TuVooz/tuVoozPrincipal/comoUsarTuvooz.html",
+        "/TuVooz/tuVoozPrincipal/emociones.html",
+        "/TuVooz/tuVoozPrincipal/index.html",
+        "/TuVooz/tuVoozPrincipal/indexPalabrasComunes.html",
+        "/TuVooz/tuVoozPrincipal/miCuenta.html",
+        "/TuVooz/tuVoozPrincipal/nosotros.html",
+        "/TuVooz/tuVoozPrincipal/preguntas.html",
+        "/TuVooz/tuVoozPrincipal/saludos.html",
+        "/TuVooz/index.html",
+        "/index.html",
+        
+        // Añadir aquí todas las rutas válidas conocidas de su aplicación
+    ];
 
+    if (!rutasConocidas.includes(rutaActual)) {
+        console.error('Ruta no encontrada:', rutaActual);
+        window.location.href = urlBasicaFront + 'TuVooz/404.html';
+    }
+}
 
-// Event listener
+// Función mejorada para redirigir si no hay sesión
+function redirigirSiNoEnSesion() {
+    const rutaActual = window.location.pathname;
+    const rutasPermitidas = [
+        "/TuVooz/tuVoozPrincipal/cuenta/iniciarSesion.html",
+        "/TuVooz/tuVoozPrincipal/cuenta/crearcuenta.html",
+        "/TuVooz/tuVoozPrincipal/cuenta/olvideContrasena.html",
+        "/TuVooz/tuVoozPrincipal/cuenta/recuperarContrasena.html",
+        "/TuVooz/tuVoozPrincipal/cuenta/recuperarContraseña.html",
+    ];
+
+    if (!rutasPermitidas.includes(rutaActual)) {
+        window.location.href = urlInicioSesion;
+    }
+}
+
+// Función mejorada para hacer solicitudes autenticadas
+async function fetchWithAuth(url, options = {}) {
+    let { access_token } = obtenerTokens();
+
+    if (!access_token) {
+        try {
+            access_token = await refrescarToken();
+        } catch (error) {
+            redirigirSiNoEnSesion();
+            throw error;
+        }
+    }
+
+    options.headers = {
+        ...options.headers,
+        'Authorization': `Bearer ${access_token}`
+    };
+
+    try {
+        let response = await fetch(url, options);
+
+        if (response.status === 401) {
+            access_token = await refrescarToken();
+            options.headers['Authorization'] = `Bearer ${access_token}`;
+            response = await fetch(url, options);
+        }
+
+        if (response.status === 404) {
+            console.error('Error 404: Recurso no encontrado');
+            window.location.href = urlBasicaFront + 'TuVooz/404.html';
+            return null;
+        }
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        return response;
+    } catch (error) {
+        console.error('Error en fetchWithAuth:', error);
+        if (error.message.includes('Error al refrescar el token')) {
+            redirigirSiNoEnSesion();
+        }
+        throw error;
+    }
+}
+function verificarSesion() {
+    const { access_token } = obtenerTokens();
+    return !!access_token; // Retorna verdadero si hay un token de acceso
+}
+
+// Event listener actualizado
 document.addEventListener('DOMContentLoaded', async function() {
     prevenirCache();
+    manejarError404Cliente();
     
-    if (verificarSesion()) {
-        try {
-            await Promise.all([
-                VistasProtegidas('tuVoozPrincipal/paginaPrincipal/'),
-                VistasProtegidas('tuVoozPrincipal/indexPalabrasComunes/'),
-                VistasProtegidas('tuVoozPrincipal/animales/'),
-                VistasProtegidas('tuVoozPrincipal/comoUsarTuvooz/'),
-                VistasProtegidas('tuVoozPrincipal/emociones/'),
-                VistasProtegidas('tuVoozPrincipal/miCuenta/'),
-                VistasProtegidas('tuVoozPrincipal/preguntas/'),
-                VistasProtegidas('tuVoozPrincipal/saludos/')
-            ]);
-        } catch (error) {
-            console.error('Error al cargar las vistas protegidas:', error);
+    const esPaginaProtegida = !window.location.pathname.includes('/cuenta/');
+    
+    if (esPaginaProtegida) {
+        if (verificarSesion()) {
+            try {
+                await Promise.all([
+                    VistasProtegidas('tuVoozPrincipal/paginaPrincipal/'),
+                    VistasProtegidas('tuVoozPrincipal/indexPalabrasComunes/'),
+                    VistasProtegidas('tuVoozPrincipal/animales/'),
+                    VistasProtegidas('tuVoozPrincipal/comoUsarTuvooz/'),
+                    VistasProtegidas('tuVoozPrincipal/emociones/'),
+                    VistasProtegidas('tuVoozPrincipal/miCuenta/'),
+                    VistasProtegidas('tuVoozPrincipal/preguntas/'),
+                    VistasProtegidas('tuVoozPrincipal/saludos/')
+                ]);
+            } catch (error) {
+                console.error('Error al cargar las vistas protegidas:', error);
+            }
+        } else {
             redirigirSiNoEnSesion();
         }
     }
 });
-
-// Verificación adicional para todas las páginas protegidas
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', verificarSesion);
-} else {
-    verificarSesion();
-}
-
 
 
 

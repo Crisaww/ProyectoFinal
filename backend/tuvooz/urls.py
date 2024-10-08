@@ -6,7 +6,7 @@ from rest_framework.documentation import include_docs_urls
 from .viewAI import synthesize
 from tuvooz import views
 from django.conf.urls.static import static
-from .views import olvide_contrasena, CambiarContrasenna, Registro, IniciarSesion, Perfil, RestablecerContrasena, LogoutView, EliminarCuenta
+from .views import olvide_contrasena, CambiarContrasenna, Registro, IniciarSesion, Perfil, RestablecerContrasena, LogoutView, EliminarCuenta, error_404_view
 
 urlpatterns = [
     
@@ -25,7 +25,8 @@ urlpatterns = [
     re_path('api/v1/restablecerContrasena', RestablecerContrasena.as_view(), name='restablecerContrasena'),
     re_path('api/v1/logout/', LogoutView.as_view(), name='logout'),
     re_path('cambiarContrasenna/', CambiarContrasenna.as_view(), name='CambiarContrasenna'),
-    re_path('api/v1/eliminarcuenta', EliminarCuenta.as_view(), name='EliminarCuenta'), 
+    re_path('api/v1/eliminarcuenta', EliminarCuenta.as_view(), name='EliminarCuenta'),
+    re_path('api/v1/error404/', error_404_view, name='error404'), 
     # re_path('api/v1/actualizarUsername/', views.actualizar_username, name='actualizarUsername'),  # Nueva ruta
     
     # Ruta para sintetizar audio
@@ -44,3 +45,4 @@ urlpatterns = [
     # Ruta para el login de la cuenta
     # path('cuenta/iniciarSesion.html', LoginView.as_view(template_name='tuVoozPrincipal/cuenta/iniciarSesion.html'), name='login'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
