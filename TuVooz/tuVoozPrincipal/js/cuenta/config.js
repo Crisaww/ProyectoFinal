@@ -50,7 +50,6 @@ async function refrescarToken() {
         localStorage.setItem('access_token', data.access);
         return data.access;
     } catch (error) {
-        console.error('Error al refrescar el token:', error);
         logout();
         throw error;
     }
@@ -108,7 +107,6 @@ async function logout() {
             throw new Error('Error al cerrar sesión');
         }
     } catch (error) {
-        console.error('Error durante el cierre de sesión:', error);
         await Swal.fire({
             icon: 'error',
             title: 'Error',
@@ -150,7 +148,6 @@ function manejarError404Cliente() {
     ];
 
     if (!rutasConocidas.includes(rutaActual)) {
-        console.error('Ruta no encontrada:', rutaActual);
         window.location.href = urlBasicaFront + 'TuVooz/404.html';
     }
 }
@@ -170,7 +167,22 @@ function redirigirSiNoEnSesion() {
         window.location.href = urlInicioSesion;
     }
 }
-
+async function VistasProtegidas(url) {
+    try {
+        const response = await fetchWithAuth(`${urlBasica}${url}`);
+        if (response === null) {
+            // La función fetchWithAuth ya manejó el error 404
+            return;
+        }
+        const data = await response.json();
+        // Procesar los datos como sea necesario
+        console.log(data);
+    } catch (error) {
+        if (error.message.includes('Error al refrescar el token')) {
+            redirigirSiNoEnSesion();
+        }
+    }
+}
 // Función mejorada para hacer solicitudes autenticadas
 async function fetchWithAuth(url, options = {}) {
     let { access_token } = obtenerTokens();
@@ -199,7 +211,6 @@ async function fetchWithAuth(url, options = {}) {
         }
 
         if (response.status === 404) {
-            console.error('Error 404: Recurso no encontrado');
             window.location.href = urlBasicaFront + 'TuVooz/404.html';
             return null;
         }
@@ -210,7 +221,6 @@ async function fetchWithAuth(url, options = {}) {
 
         return response;
     } catch (error) {
-        console.error('Error en fetchWithAuth:', error);
         if (error.message.includes('Error al refrescar el token')) {
             redirigirSiNoEnSesion();
         }
