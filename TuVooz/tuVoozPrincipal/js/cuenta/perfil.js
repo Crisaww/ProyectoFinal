@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const token = localStorage.getItem("access_token");
       if (!token) {
-        throw new Error("Token no encontrado en el localStorage");
+        window.location.href = urlInicioSesion;
       }
 
       const response = await fetch(urlPerfil, {
@@ -111,7 +111,7 @@ function validarUsername(usernameInput) {
 
       const token = localStorage.getItem("access_token");
       if (!token) {
-        throw new Error("Token no encontrado en el localStorage");
+        window.location.href = urlInicioSesion;
       }
 
       const nuevoUsername = usernameInput.value;
