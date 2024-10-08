@@ -18,6 +18,57 @@ let urlCambiarContrasenna = urlBasica + "tuvooz/api/v1/cambiarContrasenna/";
 let urlInicioSesion = urlBasicaFront +"TuVooz/tuVoozPrincipal/cuenta/iniciarSesion.html";
 let urlEliminarCuenta = urlBasica + "tuvooz/api/v1/eliminarcuenta/";
 
+
+async function logout() {
+    const { access_token } = obtenerTokens();
+    
+    if (!access_token) {
+        console.log("No hay sesión activa. Redirigiendo a la página de inicio de sesión.");
+        window.location.href = urlInicioSesion;
+        return;
+    }
+    
+    const result = await Swal.fire({
+        title: "Advertencia",
+        text: "¿Estás seguro de que quieres cerrar sesión?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Sí, cerrar sesión",
+        cancelButtonText: "Cancelar",
+    });
+    
+    if (result.isConfirmed) {
+        try {
+            const response = await fetch(urlCerrarSesion, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + access_token,
+                },
+            });
+            
+            if (response.ok) {
+                localStorage.removeItem('access_token');
+                localStorage.removeItem('refresh_token');
+                await Swal.fire("Sesión cerrada", "Has cerrado sesión correctamente.", "success");
+                window.location.href = urlInicioSesion;
+            } else {
+                const errorData = await response.json();
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: errorData.error || 'Hubo un problema al cerrar sesión.',
+                });
+            }
+        } catch (error) {
+            await Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Ocurrió un error al procesar la solicitud. Por favor, inténtelo nuevamente.',
+            });
+        }
+    }
+}
 // Función mejorada para obtener tokens
 function obtenerTokens() {
     const access_token = localStorage.getItem('access_token');
