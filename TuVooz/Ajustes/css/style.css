@@ -455,11 +455,9 @@ a:hover {
   #hero {
     text-align: center;
   }
-}
 
-@media (max-width: 991px) {
   #hero .hero-img img {
-    width: 50%;
+    width: 40%;
   }
 }
 
