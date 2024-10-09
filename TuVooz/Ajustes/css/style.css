@@ -456,7 +456,7 @@ a:hover {
     text-align: center;
   }
 
-  #hero .hero-img img {
+  #hero .img-fluid2 {
     width: 40%;
   }
 }
