@@ -45,7 +45,8 @@ html {
 /* Ajuste del ancho del formulario para pantallas pequeñas */
 .fauguet {
   width: 80%;
-  max-width: 30rem; /* Mantiene el tamaño máximo en pantallas grandes */
+  max-width: 30rem;
+  /* Mantiene el tamaño máximo en pantallas grandes */
   border-radius: 20px;
   background-color: #fff;
   height: 28rem;

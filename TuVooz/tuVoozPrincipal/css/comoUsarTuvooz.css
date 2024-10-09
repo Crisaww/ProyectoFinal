@@ -1,24 +1,26 @@
-.usarTuVoozParrafo{
-    display: flex; 
-    width: 100%; 
-    height: 20%; 
-    justify-content: center; 
-    padding: 0 10px; 
+.usarTuVoozParrafo {
+    display: flex;
+    width: 100%;
+    height: 20%;
+    justify-content: center;
+    padding: 0 10px;
     text-align: center;
 }
 
 
-.usarTuvoozImagen{
+.usarTuvoozImagen {
     display: flex;
-     width: 100%;
-      height: 20%;
-       justify-content: center;
+    width: 100%;
+    height: 20%;
+    justify-content: center;
 }
+
 .pdfTuVooz {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+    width: 100%;
+    /* Asegura que el contenedor ocupe todo el ancho disponible */
     margin: 0 auto;
 }
 
@@ -26,16 +28,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: auto; /* Permite que el botón se ajuste al tamaño del contenido */
-    max-width: 90%; /* Asegura que el botón no ocupe más del 90% del ancho */
+    width: auto;
+    /* Permite que el botón se ajuste al tamaño del contenido */
+    max-width: 90%;
+    /* Asegura que el botón no ocupe más del 90% del ancho */
     padding: 0.8em 1.2em;
     border-radius: 25px;
     background: linear-gradient(to bottom, #563afae6 0%, #6195e1 100%);
     color: #ffffff;
     font-family: "Poppins", sans-serif;
     text-align: center;
-    white-space: nowrap; /* Evita saltos de línea */
-    overflow: hidden; /* Evita que el contenido se desborde */
+    white-space: nowrap;
+    /* Evita saltos de línea */
+    overflow: hidden;
+    /* Evita que el contenido se desborde */
 }
 
 /* Estado inicial del enlace */
@@ -65,7 +71,8 @@ a.descargarPdf:active {
     .descargarPdf {
         width: auto;
         padding: 1em 1.5em;
-        font-size: 1rem; /* Ajustar el tamaño de fuente */
+        font-size: 1rem;
+        /* Ajustar el tamaño de fuente */
     }
 }
 
@@ -81,7 +88,8 @@ a.descargarPdf:active {
 /* Pantallas pequeñas (móviles) */
 @media (max-width: 767px) {
     .descargarPdf {
-        width: 80%; /* Ajusta el botón a 80% del contenedor */
+        width: 80%;
+        /* Ajusta el botón a 80% del contenedor */
         padding: 0.6em 0.8em;
         font-size: 0.8rem;
     }
@@ -90,7 +98,8 @@ a.descargarPdf:active {
 /* Pantallas muy pequeñas (móviles muy pequeños) */
 @media (max-width: 480px) {
     .descargarPdf {
-        width: 90%; /* Más ancho en pantallas pequeñas */
+        width: 90%;
+        /* Más ancho en pantallas pequeñas */
         padding: 0.5em 0.6em;
         font-size: 0.7rem;
     }

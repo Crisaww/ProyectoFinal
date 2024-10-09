@@ -380,10 +380,11 @@ h6 {
 }
 
 
-.navbar-mobile .nav-link.scrollto.active{
+.navbar-mobile .nav-link.scrollto.active {
   color: #5846f9;
 }
-.navbar-mobile .active{
+
+.navbar-mobile .active {
   color: #ffffff;
 }
 

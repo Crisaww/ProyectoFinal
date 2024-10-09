@@ -15,7 +15,7 @@
 
 .team-member img {
   width: 90px;
-  height:175px;
+  height: 175px;
   object-fit: cover;
   border-radius: 80%;
   position: absolute;
@@ -159,6 +159,7 @@
 
 /* Responsive Design */
 @media (min-width: 100px) {
+
   .container,
   .container-lg,
   .container-md,
@@ -185,15 +186,18 @@
 .nombre {
   color: #0a0a0a;
 }
-.owl-prev{
+
+.owl-prev {
   height: 102%;
   width: 65%;
 }
-.owl-next{
+
+.owl-next {
   height: 102%;
   width: 65%;
 }
-.item{
+
+.item {
   width: 100%;
   display: flex;
   justify-content: center;
