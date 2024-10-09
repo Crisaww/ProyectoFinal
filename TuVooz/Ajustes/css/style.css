@@ -476,10 +476,6 @@ a:hover {
     font-size: 18px;
     line-height: 24px;
   }
-
-  #hero .hero-img img {
-    width: 75%;
-  }
 }
 
 @media (max-width: 575px),
