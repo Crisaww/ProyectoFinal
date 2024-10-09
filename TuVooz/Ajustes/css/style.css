@@ -455,30 +455,18 @@ a:hover {
   #hero {
     text-align: center;
   }
-
-
-
-
 }
 
 @media (max-width: 991px) {
-
-
   #hero .hero-img img {
     width: 50%;
   }
-
-
 }
 
 .img-fluid2 {
   max-width: 100%;
   height: auto;
 }
-
-
-
-
 
 @media (max-width: 768px) {
   #hero h1 {

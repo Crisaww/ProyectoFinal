@@ -566,7 +566,9 @@ ACCESIBILIDAD
   border-radius: 17px;
   height: 100%;
   width: 80%;
-}
+  border: 2px solid #9e69e4; 
+
+} 
 
 .imgModos:hover {
   border-radius: 17px;

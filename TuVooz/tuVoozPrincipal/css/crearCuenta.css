@@ -14,8 +14,11 @@ html {
   font-family: "Poppins", sans-serif;
 }
 
-
-
+@media (prefers-color-scheme: dark) {
+  .imagen-con-borde {
+      border: 5px solid white; /* Cambia el borde a blanco en modo oscuro */
+  }
+}
 
 .container {
   display: flex;
