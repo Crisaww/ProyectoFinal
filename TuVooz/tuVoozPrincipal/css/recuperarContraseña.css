@@ -9,6 +9,7 @@ html {
     position: relative;
     font-family: "Poppins", sans-serif;
 }
+
 /*Estilo para el contenedor principal*/
 .container {
     display: flex;
@@ -17,13 +18,15 @@ html {
 }
 
 /* Estilo para las columnas */
-.left-column, .right-column {
+.left-column,
+.right-column {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    flex-grow: 1; /* Hacer que las columnas ocupen todo el espacio disponible */
+    flex-grow: 1;
+    /* Hacer que las columnas ocupen todo el espacio disponible */
 }
 
 /*Estilo para el contenido*/
@@ -91,8 +94,8 @@ input[type="password"] {
 .boton {
     display: flex;
     justify-content: center;
-    
-  
+
+
 }
 
 /* Dentro del botón */
@@ -118,16 +121,20 @@ input[type="password"] {
     max-width: 150px;
 }
 
-.right-column{
+.right-column {
     flex: 1;
     display: flex;
-    justify-content: center; /*centra horizontalmete la imagen*/
-    align-items: center; /*centra verticalmentela imagen*/
-    padding: 20px; /*se agrega espacio alrededor de la imagen*/
+    justify-content: center;
+    /*centra horizontalmete la imagen*/
+    align-items: center;
+    /*centra verticalmentela imagen*/
+    padding: 20px;
+    /*se agrega espacio alrededor de la imagen*/
 }
 
 .site-logo {
     max-width: 50%;
-    height: auto; /*se ajusta la altura de la imagen automaticamente*/
+    height: auto;
+    /*se ajusta la altura de la imagen automaticamente*/
     padding-right: 15%;
 }

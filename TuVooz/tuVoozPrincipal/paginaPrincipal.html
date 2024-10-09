@@ -32,7 +32,7 @@
   <link href="./css/style.css" rel="stylesheet">
   <link href="./css/estilos.css" rel="stylesheet">
   <link rel="stylesheet" href="./css/modoOscuro.css">
-  <link  href="./css/tamañoLetra.css" rel="stylesheet">
+  <link href="./css/tamañoLetra.css" rel="stylesheet">
   <link rel="stylesheet" href="../tuVoozPrincipal/css/paginaPrincipal.css">
 
   <!-- =======================================================
@@ -43,132 +43,134 @@
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
 </head>
-<body class="dark-mode"> 
-<body>
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center justify-content-between"
-      style="width: 100%; height: 100%; margin: 0; padding: 0 0 0 50px;">
-      <div class="logoAjuste">
-        <a href="./paginaPrincipal.html" class="logo"><img src="./img/solidolado.png" alt=""
-            class="img-fluid"></a>
 
-      </div>
+<body class="dark-mode">
 
-      <nav id="navbar" class="navbar">
-        <ul style="padding: 0px 40px 0px 0px;">
-          <li><a class="nav-link scrollto active" href="./paginaPrincipal.html">Texto</a></li>
-          <li><a class="nav-link scrollto" href="indexPalabrasComunes.html">Palabras comunes</a></li>
-          <li><a class="nav-link scrollto" href="./comoUsarTuvooz.html">¿Cómo usar TuVooz?</a></li>
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center justify-content-between"
+        style="width: 100%; height: 100%; margin: 0; padding: 0 0 0 50px;">
+        <div class="logoAjuste">
+          <a href="./paginaPrincipal.html" class="logo"><img src="./img/solidolado.png" alt="" class="img-fluid"></a>
 
-          <div class="dropdown">
-            <a href="#" class="dropdow text-light" data-bs-toggle="dropdown"><i class="fa-solid fa-gear"
-                id="#Menu "></i>
-            </a>
-            
-            <div class="dropdown-menu rounded" id="menuDespliegue">
-              <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> Mi cuenta</a>
-              <button class="dropdown-item" onclick="logout()"><i class="fas fa-power-off me-2"></i>Cerrar sesión</button>
+        </div>
+
+        <nav id="navbar" class="navbar">
+          <ul style="padding: 0px 40px 0px 0px;">
+            <li><a class="nav-link scrollto active" href="./paginaPrincipal.html">Texto</a></li>
+            <li><a class="nav-link scrollto" href="indexPalabrasComunes.html">Palabras comunes</a></li>
+            <li><a class="nav-link scrollto" href="./comoUsarTuvooz.html">¿Cómo usar TuVooz?</a></li>
+
+            <div class="dropdown">
+              <a href="#" class="dropdow text-light" data-bs-toggle="dropdown"><i class="fa-solid fa-gear"
+                  id="#Menu "></i>
+              </a>
+
+              <div class="dropdown-menu rounded" id="menuDespliegue">
+                <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> Mi cuenta</a>
+                <button class="dropdown-item" onclick="logout()"><i class="fas fa-power-off me-2"></i>Cerrar
+                  sesión</button>
+              </div>
             </div>
-          </div>
 
-        </ul>
-
-
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-    </div>
-  </header><!-- End Header -->
+          </ul>
 
 
-
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-
-    <div class="container-fluid" data-aos="fade-up">
-      <div class="row ">
-
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
 
       </div>
-    </div>
-
-  </section><!-- End Hero -->
+    </header><!-- End Header -->
 
 
-  <!-- Mensaje de Inicio de sesion exitoso -->
-  <div class="cardMessage login-message" id="login-message" style="display: none;">
-    <svg class="wave" viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M0,256L11.4,240C22.9,224,46,192,69,192C91.4,192,114,224,137,234.7C160,245,183,235,206,213.3C228.6,192,251,160,274,149.3C297.1,139,320,149,343,181.3C365.7,213,389,267,411,282.7C434.3,299,457,277,480,250.7C502.9,224,526,192,549,181.3C571.4,171,594,181,617,208C640,235,663,277,686,256C708.6,235,731,149,754,122.7C777.1,96,800,128,823,165.3C845.7,203,869,245,891,224C914.3,203,937,117,960,112C982.9,107,1006,181,1029,197.3C1051.4,213,1074,171,1097,144C1120,117,1143,107,1166,133.3C1188.6,160,1211,224,1234,218.7C1257.1,213,1280,139,1303,133.3C1325.7,128,1349,192,1371,192C1394.3,192,1417,128,1429,96L1440,64L1440,320L1428.6,320C1417.1,320,1394,320,1371,320C1348.6,320,1326,320,1303,320C1280,320,1257,320,1234,320C1211.4,320,1189,320,1166,320C1142.9,320,1120,320,1097,320C1074.3,320,1051,320,1029,320C1005.7,320,983,320,960,320C937.1,320,914,320,891,320C868.6,320,846,320,823,320C800,320,777,320,754,320C731.4,320,709,320,686,320C662.9,320,640,320,617,320C594.3,320,571,320,549,320C525.7,320,503,320,480,320C457.1,320,434,320,411,320C388.6,320,366,320,343,320C320,320,297,320,274,320C251.4,320,229,320,206,320C182.9,320,160,320,137,320C114.3,320,91,320,69,320C45.7,320,23,320,11,320L0,320Z"
-        fill-opacity="1"></path>
-    </svg>
-    <div class="message-text-container">
-      <p class="message-text">¡Inicio de sesión exitoso!</p>
-    </div>
-  </div>
 
 
-  <div class="cajaBotonTitulo">
-    <div class="cajaTituloTexto">
-        <h1 class="tituloTexto">Texto a voz</h1>
-    </div>
-  </div>
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
 
-  <div class="textarea-container">
-    <textarea class="multiLine" name="texto" rows="4" cols="50" id="texto" placeholder="Escriba aquí... "></textarea>
-  </div>
-  <div class="containerLoading hidden">
-    <div class="loading">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div>
+      <div class="container-fluid" data-aos="fade-up">
+        <div class="row ">
 
- 
-  <div class="contenedor_boton">
-    <button onclick="convertirTexto()" class="botonReproducirTexto">
-      <div class="svg-wrapper-1">
-        <div class="svg-wrapper">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-            <path fill="none" d="M0 0h24v24H0z"></path>
-            <path fill="currentColor"
-              d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z">
-            </path>
-          </svg>
+
         </div>
       </div>
-      <span>Reproducir sonido</span>
-    </button>
 
-  </div>
-  <div class="niñaTuVooz">
-    <img id="gifNiña" src="./img/videos/niñaTuVooz.gif" alt="">
-  </div>
-<div class="niñoTuVooz">
-  <img  id="gifNiño" src="./img/videos/niñoTuVooz.gif" alt="          ">
-
-</div>
-  <!-- Vendor JS Files -->
-  <script src="/TuVooz/Ajustes/vendor/aos/aos.js"></script>
-  <script src="/TuVooz/Ajustes/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/TuVooz/Ajustes/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="/TuVooz/Ajustes/vendor/swiper/swiper-bundle.min.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="/TuVooz/Ajustes/js/main.js"></script>
-  <script src="./js/texto.js"></script>
-  <script src="./js/accesibilidad.js"></script>
-  <script src="./js/cuenta/config.js"></script>
-  <script src="./js/modoOscuro.js"></script>
-  <script src="./js/paginaPrincipal.js"></script>
-  <script src="./js/tamañoLetras.js"></script>
+    </section><!-- End Hero -->
 
 
-</body>
+    <!-- Mensaje de Inicio de sesion exitoso -->
+    <div class="cardMessage login-message" id="login-message" style="display: none;">
+      <svg class="wave" viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M0,256L11.4,240C22.9,224,46,192,69,192C91.4,192,114,224,137,234.7C160,245,183,235,206,213.3C228.6,192,251,160,274,149.3C297.1,139,320,149,343,181.3C365.7,213,389,267,411,282.7C434.3,299,457,277,480,250.7C502.9,224,526,192,549,181.3C571.4,171,594,181,617,208C640,235,663,277,686,256C708.6,235,731,149,754,122.7C777.1,96,800,128,823,165.3C845.7,203,869,245,891,224C914.3,203,937,117,960,112C982.9,107,1006,181,1029,197.3C1051.4,213,1074,171,1097,144C1120,117,1143,107,1166,133.3C1188.6,160,1211,224,1234,218.7C1257.1,213,1280,139,1303,133.3C1325.7,128,1349,192,1371,192C1394.3,192,1417,128,1429,96L1440,64L1440,320L1428.6,320C1417.1,320,1394,320,1371,320C1348.6,320,1326,320,1303,320C1280,320,1257,320,1234,320C1211.4,320,1189,320,1166,320C1142.9,320,1120,320,1097,320C1074.3,320,1051,320,1029,320C1005.7,320,983,320,960,320C937.1,320,914,320,891,320C868.6,320,846,320,823,320C800,320,777,320,754,320C731.4,320,709,320,686,320C662.9,320,640,320,617,320C594.3,320,571,320,549,320C525.7,320,503,320,480,320C457.1,320,434,320,411,320C388.6,320,366,320,343,320C320,320,297,320,274,320C251.4,320,229,320,206,320C182.9,320,160,320,137,320C114.3,320,91,320,69,320C45.7,320,23,320,11,320L0,320Z"
+          fill-opacity="1"></path>
+      </svg>
+      <div class="message-text-container">
+        <p class="message-text">¡Inicio de sesión exitoso!</p>
+      </div>
+    </div>
+
+
+    <div class="cajaBotonTitulo">
+      <div class="cajaTituloTexto">
+        <h1 class="tituloTexto">Texto a voz</h1>
+      </div>
+    </div>
+
+    <div class="textarea-container">
+      <textarea class="multiLine" name="texto" rows="4" cols="50" id="texto" placeholder="Escriba aquí... "></textarea>
+    </div>
+    <div class="containerLoading hidden">
+      <div class="loading">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+
+    <div class="contenedor_boton">
+      <button onclick="convertirTexto()" class="botonReproducirTexto">
+        <div class="svg-wrapper-1">
+          <div class="svg-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path fill="none" d="M0 0h24v24H0z"></path>
+              <path fill="currentColor"
+                d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z">
+              </path>
+            </svg>
+          </div>
+        </div>
+        <span>Reproducir sonido</span>
+      </button>
+
+    </div>
+    <div class="niñaTuVooz">
+      <img id="gifNiña" src="./img/videos/niñaTuVooz.gif" alt="">
+    </div>
+    <div class="niñoTuVooz">
+      <img id="gifNiño" src="./img/videos/niñoTuVooz.gif" alt="          ">
+
+    </div>
+    <!-- Vendor JS Files -->
+    <script src="/TuVooz/Ajustes/vendor/aos/aos.js"></script>
+    <script src="/TuVooz/Ajustes/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/TuVooz/Ajustes/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="/TuVooz/Ajustes/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="/TuVooz/Ajustes/js/main.js"></script>
+    <script src="./js/texto.js"></script>
+    <script src="./js/accesibilidad.js"></script>
+    <script src="./js/cuenta/config.js"></script>
+    <script src="./js/modoOscuro.js"></script>
+    <script src="./js/paginaPrincipal.js"></script>
+    <script src="./js/tamañoLetras.js"></script>
+
+
+  </body>
 
 </html>

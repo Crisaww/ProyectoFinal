@@ -16,33 +16,39 @@
 
 /* Estilo general para la imagen */
 .mi-imagen {
-    width: 100px; /* Tamaño inicial de la imagen */
+    width: 100px;
+    /* Tamaño inicial de la imagen */
     height: auto;
 }
 
 /* Ocultar la imagen en pantallas medianas (tablets) */
 @media (max-width: 768px) {
     .niñoTuVooz {
-        display: none; /* Oculta la imagen en pantallas medianas */
+        display: none;
+        /* Oculta la imagen en pantallas medianas */
     }
 }
 
 /* Ocultar la imagen en pantallas pequeñas (móviles) */
 @media (max-width: 480px) {
     .niñoTuVooz {
-        display: none; /* Oculta la imagen en pantallas pequeñas */
+        display: none;
+        /* Oculta la imagen en pantallas pequeñas */
     }
 }
+
 /* Ocultar la imagen en pantallas medianas (tablets) */
 @media (max-width: 768px) {
     .niñaTuVooz {
-        display: none; /* Oculta la imagen en pantallas medianas */
+        display: none;
+        /* Oculta la imagen en pantallas medianas */
     }
 }
 
 /* Ocultar la imagen en pantallas pequeñas (móviles) */
 @media (max-width: 480px) {
     .niñaTuVooz {
-        display: none; /* Oculta la imagen en pantallas pequeñas */
+        display: none;
+        /* Oculta la imagen en pantallas pequeñas */
     }
 }
