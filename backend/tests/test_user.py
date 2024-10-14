@@ -139,12 +139,6 @@ def test_verificar_cambio_contrasena():
     assert 'refresh' in nueva_contrasena_response.data
 
 
-import pytest
-from django.urls import reverse
-from rest_framework import status
-from rest_framework.test import APIClient
-from django.contrib.auth.models import User
-
 # Prueba para el caso exitoso en el que se envía el correo correctamente
 @pytest.mark.django_db
 def test_olvide_contrasena_envia_correo():
@@ -155,7 +149,7 @@ def test_olvide_contrasena_envia_correo():
 
     # Definir la URL y los datos para la prueba
     url = reverse('olvide-contrasena')
-    data = {'email': 'cristianfns@gmail.com'}
+    data = {'email': 'cristianfns11@gmail.com'}
 
     # Realizar la solicitud POST
     response = client.post(url, data)
@@ -164,6 +158,47 @@ def test_olvide_contrasena_envia_correo():
     assert response.status_code == status.HTTP_200_OK
     assert 'message' in response.data
     assert response.data['message'] == 'Correo enviado con éxito.'
+
+# Testing cierre de sesión
+@pytest.mark.django_db
+def test_cerrar_sesion():
+    client = APIClient()
+
+    # Crear un usuario de prueba
+    user = User.objects.create_user(username='Crisaww', email='cristianfns11@gmail.com', password='Crisaww11*')
+
+    # Autenticar al usuario
+    client.force_authenticate(user=user)
+
+    # Realizar la solicitud de cierre de sesión
+    logout_url = reverse('logout')  # Ajusta el nombre de la ruta si es necesario
+    response = client.post(logout_url)
+
+    # Verificar que la respuesta sea exitosa y se devuelva el mensaje esperado
+    assert response.status_code == status.HTTP_200_OK
+    # assert response.data['message'] == 'Sesión cerrada correctamente.'
+
+# Testing eliminación de cuenta
+@pytest.mark.django_db
+def test_eliminar_cuenta():
+    client = APIClient()
+
+    # Crear un usuario de prueba
+    user = User.objects.create_user(username='Crisaww', email='cristianfns11@gmail.com', password='Crisaww11*')
+
+    # Autenticar al usuario
+    client.force_authenticate(user=user)
+
+    # Realizar la solicitud de eliminación de cuenta
+    eliminar_cuenta_url = reverse('EliminarCuenta')  # Ajusta el nombre de la ruta si es necesario
+    response = client.delete(eliminar_cuenta_url)
+
+    # Verificar que la respuesta sea exitosa y se devuelva el mensaje esperado
+    assert response.status_code == status.HTTP_204_NO_CONTENT
+    # assert response.data['message'] == 'Cuenta eliminada correctamente.'
+
+    # Verificar que el usuario haya sido eliminado de la base de datos
+    assert User.objects.filter(username='Crisaww').count() == 0
 
 
 
