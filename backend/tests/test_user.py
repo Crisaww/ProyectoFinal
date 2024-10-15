@@ -1,3 +1,4 @@
+import json
 from unittest import mock
 import pytest
 from django.urls import reverse
@@ -5,6 +6,8 @@ from rest_framework.test import APIClient
 from rest_framework import status
 from threading import Thread
 from django.contrib.auth.models import User
+from google.cloud import texttospeech  # Asegúrate de importar el cliente texttospeech
+
 
 #Testing registro de usuario
 @pytest.mark.django_db
@@ -199,6 +202,37 @@ def test_eliminar_cuenta():
 
     # Verificar que el usuario haya sido eliminado de la base de datos
     assert User.objects.filter(username='Crisaww').count() == 0
+
+
+@pytest.mark.django_db  # Esto permite el uso de la base de datos en pruebas
+class TestSynthesizeView:
+
+    @pytest.fixture
+    def mock_client(self, monkeypatch):
+        class MockTextToSpeechClient:
+            def synthesize_speech(self, input, voice, audio_config):
+                class MockResponse:
+                    audio_content = b'Test audio content'
+                return MockResponse()
+
+        monkeypatch.setattr(texttospeech, 'TextToSpeechClient', MockTextToSpeechClient)
+
+    def test_synthesize_success(self, client, mock_client):
+        url = reverse('synthesize')  # Cambia el nombre si es necesario
+
+        # Datos de prueba
+        data = {
+            'text': '',
+            'voice': 'es-US-Wavenet-A'
+        }
+
+        # Realiza la solicitud POST
+        response = client.post(url, json.dumps(data), content_type='application/json')
+
+        # Verifica la respuesta
+        assert response.status_code == 200
+        assert response.content == b'Test audio content'
+        assert response['Content-Type'] == 'audio/mpeg'
 
 
 
