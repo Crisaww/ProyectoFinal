@@ -6,7 +6,6 @@ document.getElementById('togglePassword').addEventListener('click', function () 
     this.classList.toggle('fa-eye');
     this.classList.toggle('fa-eye-slash');
 });
-
 function iniciarSesion() {
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
@@ -25,41 +24,31 @@ function iniciarSesion() {
             body: JSON.stringify(formData)
         })
         .then(response => {
-            if (response.status === 401 || response.status === 404) {
+            if (!response.ok) {
                 return response.json().then(data => {
-                    Swal.fire({
-                        title: "Advertencia",
-                        text: data.error,
-                        icon: "warning"
-                    });
-                    throw new Error(data.error);
+                    throw new Error(data.error || 'Error en el servidor');
                 });
-            } else if (!response.ok) {
-                throw new Error('La respuesta de la red no fue correcta');
             }
             return response.json();
         })
         .then(data => {
             localStorage.setItem('access_token', data.access);
             localStorage.setItem('refresh_token', data.refresh);
-
             
-            window.location.href = urlBasicaFront + "TuVooz/tuVoozPrincipal/paginaPrincipal.html";
+          
+            }).then(() => {
+                window.location.href = urlBasicaFront + "TuVooz/tuVoozPrincipal/paginaPrincipal.html";
+          
         })
         .catch(error => {
-            if (error.message !== 'Credenciales incorrectas' && error.message !== 'Usuario no registrado') {
-                Swal.fire("Error", "Error al iniciar sesión: " + error.message, "error");
-            }
-        });
-    } else {
-        Swal.fire({
-            title: "Error!",
-            text: "Complete los campos correctamente",
-            icon: "error"
+            Swal.fire({
+                title: "Error",
+                text: error.message || "Error al iniciar sesión",
+                icon: "error"
+            });
         });
     }
 }
-
 
 function validarCamposLogin() {
     var email = document.getElementById("email");
