@@ -40,7 +40,6 @@ function iniciarSesion() {
             return response.json();
         })
         .then(data => {
-            localStorage.setItem('showLoginMessage', 'true');
             localStorage.setItem('access_token', data.access);
             localStorage.setItem('refresh_token', data.refresh);
 
@@ -70,8 +69,6 @@ function validarCamposLogin() {
 }
 
 function validarEmail(email) {
-    let errorDiv = document.getElementById('email-error');
-
     // Detecta el tamaño de la pantalla
     let placement = window.matchMedia("(max-width: 1023px)").matches ? 'top' : 'right';
 
