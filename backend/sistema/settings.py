@@ -194,6 +194,9 @@ TEMPLATES = [
     },
 ]
 
+# AUTH_USER_MODEL = 'tuvooz.CustomUser'  
+
+
 
 # Configuración de email
 if 'test' in sys.argv:

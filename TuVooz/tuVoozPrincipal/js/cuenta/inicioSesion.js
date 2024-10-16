@@ -43,6 +43,8 @@ function iniciarSesion() {
             localStorage.setItem('showLoginMessage', 'true');
             localStorage.setItem('access_token', data.access);
             localStorage.setItem('refresh_token', data.refresh);
+
+            
             window.location.href = urlBasicaFront + "TuVooz/tuVoozPrincipal/paginaPrincipal.html";
         })
         .catch(error => {
