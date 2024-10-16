@@ -27,6 +27,8 @@ urlpatterns = [
     re_path('cambiarContrasenna/', CambiarContrasenna.as_view(), name='CambiarContrasenna'),
     re_path('api/v1/eliminarcuenta', EliminarCuenta.as_view(), name='EliminarCuenta'),
     re_path('api/v1/error404/', error_404_view, name='error404'), 
+    re_path('api/v1/perfil/actualizar-tema/', Perfil.as_view(), name='actualizarTema'),
+    
     # re_path('api/v1/actualizarUsername/', views.actualizar_username, name='actualizarUsername'),  # Nueva ruta
     
     # Ruta para sintetizar audio

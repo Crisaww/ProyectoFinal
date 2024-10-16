@@ -1,53 +1,86 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Selecciona los botones para alternar entre modos
-  const toggleButton = document.getElementById('toggle-dark-mode');
+  const toggleDarkModeButton = document.getElementById('toggle-dark-mode'); // Botón para modo oscuro
   const lightModeButton = document.getElementById('light-mode'); // Botón para modo claro
 
-  // Verifica si hay un modo guardado en el almacenamiento local
-  const currentMode = localStorage.getItem('theme');
-  if (currentMode === 'dark') {
-    setDarkMode();
-  } else {
-    setLightMode();
-  }
+  // Verifica la preferencia de tema almacenada en el servidor
+  fetch('/api/v1/perfil', {
+      method: 'GET',
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token'),
+      },
+  })
+  .then(response => response.json())
+  .then(data => {
+      const savedTheme = data.theme; // Asumiendo que la respuesta incluye un campo 'theme'
+      if (savedTheme === 'dark') {
+          setDarkMode();
+      } else {
+          setLightMode();
+      }
+  })
+  .catch(error => console.error('Error fetching user theme:', error));
 
-  // Alterna el modo oscuro al hacer clic en el botón de modo oscuro
-  toggleButton.addEventListener('click', () => {
-    setDarkMode();
+  // Alterna al modo oscuro al hacer clic en el botón de modo oscuro
+  toggleDarkModeButton.addEventListener('click', () => {
+      setDarkMode();
   });
 
-  // Alterna el modo claro al hacer clic en el botón de modo claro
+  // Alterna al modo claro al hacer clic en el botón de modo claro
   lightModeButton.addEventListener('click', () => {
-    setLightMode();
+      setLightMode();
   });
 
   // Función para establecer el modo oscuro
   function setDarkMode() {
-    document.body.classList.add('dark-mode');
-    // Actualiza las variables CSS para el modo oscuro
-    document.documentElement.style.setProperty('--background-color', 'var(--dark-background-color)');
-    document.documentElement.style.setProperty('--text-color', 'var(--dark-text-color)');
-    document.documentElement.style.setProperty('--input-background', 'var(--dark-input-background)');
-    document.documentElement.style.setProperty('--input-text-color', 'var(--dark-input-text-color)');
-    document.documentElement.style.setProperty('--h1-color', 'var(--dark-h1-color)');
-    document.documentElement.style.setProperty('--hr-border-bottom', 'var(--dark-hr-linea-border-bottom)');
-
-    // Guarda el modo oscuro en el almacenamiento local
-    localStorage.setItem('theme', 'dark');
+      document.body.classList.add('dark-mode');
+      applyDarkStyles();
+      // Guarda el modo oscuro en el backend
+      updateUserTheme('dark');
   }
 
   // Función para establecer el modo claro
   function setLightMode() {
-    document.body.classList.remove('dark-mode');
-    // Actualiza las variables CSS para el modo claro
-    document.documentElement.style.setProperty('--background-color', 'var(--light-background-color)');
-    document.documentElement.style.setProperty('--text-color', 'var(--light-text-color)');
-    document.documentElement.style.setProperty('--input-background', 'var(--light-input-background)');
-    document.documentElement.style.setProperty('--input-text-color', 'var(--light-input-text-color)');
-    document.documentElement.style.setProperty('--h1-color', 'var(--light-h1-color)');
-    document.documentElement.style.setProperty('--hr-border-bottom', 'var(--light-hr-linea-border-bottom)');
+      document.body.classList.remove('dark-mode');
+      applyLightStyles();
+      // Guarda el modo claro en el backend
+      updateUserTheme('light');
+  }
 
-    // Guarda el modo claro en el almacenamiento local
-    localStorage.setItem('theme', 'light');
+  // Función para aplicar estilos oscuros
+  function applyDarkStyles() {
+      document.documentElement.style.setProperty('--background-color', 'var(--dark-background-color)');
+      document.documentElement.style.setProperty('--text-color', 'var(--dark-text-color)');
+      // Agrega más propiedades de estilo según sea necesario
+  }
+
+  // Función para aplicar estilos claros
+  function applyLightStyles() {
+      document.documentElement.style.setProperty('--background-color', 'var(--light-background-color)');
+      document.documentElement.style.setProperty('--text-color', 'var(--light-text-color)');
+      // Agrega más propiedades de estilo según sea necesario
+  }
+
+  // Función para enviar el tema actualizado al servidor
+  function updateUserTheme(theme) {
+      fetch('/api/v1/perfil', {
+          method: 'PATCH',
+          headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer ' + localStorage.getItem('token'), // Asegúrate de usar el token correcto
+          },
+          body: JSON.stringify({ theme: theme })
+      })
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Error updating theme');
+          }
+          return response.json();
+      })
+      .then(data => {
+          console.log('Theme updated:', data);
+      })
+      .catch(error => {
+          console.error('Error updating theme:', error);
+      });
   }
 });
