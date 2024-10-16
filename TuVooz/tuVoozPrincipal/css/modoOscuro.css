@@ -57,3 +57,49 @@ body.dark-mode {
   --h1-color: var(--dark-h1-color);
   --hr-border-bottom: var(--dark-hr-linea-border-bottom);
 }
+.boton-flotante {
+  
+  /* position: fixed;  */
+  left: 20px; 
+  background-color: #ffffff; 
+  color: #5128b3; 
+  border: none; 
+  padding: 15px 20px; 
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+  cursor: pointer; 
+  transition: background-color 0.3s, box-shadow 0.3s; 
+  font-size: 20px;
+  margin-bottom: 15px; 
+}
+
+/* Efecto al pasar el mouse sobre el botón */
+.boton-flotante:hover {
+  background-color: #5128b3; /* Color al pasar el cursor */
+  color: #ffffff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Aumenta la sombra */
+}
+
+/* Posicionamiento individual de cada botón */
+#boton1 {
+  bottom: 100px; /* Distancia desde el borde inferior */
+}
+
+#boton2 {
+  bottom: 170px; /* Distancia desde el borde inferior */
+}
+
+#boton3 {
+  bottom: 240px; /* Distancia desde el borde inferior */
+}
+@media (max-width: 600px) {
+  .botones-flotantes {
+      left: 10px; /* Ajusta la distancia desde el borde izquierdo en pantallas pequeñas */
+      gap: 10px; /* Reduce el espacio entre botones en dispositivos pequeños */
+  }
+
+  .boton-flotante {
+      padding: 12px 16px; /* Reduce el tamaño del botón en dispositivos pequeños */
+      font-size: 18px; /* Ajusta el tamaño del texto o ícono */
+  }
+}
