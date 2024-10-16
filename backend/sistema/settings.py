@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-(txe3%0876b*)5*ws9_t(=*jl%4mh^pzg7#3q3iqh&)n=t!=28'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*', 'tuvooz.com', 'www.tuvooz.com', '5.183.11.147']
 CORS_ALLOWED_ORIGINS = [
