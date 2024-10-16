@@ -1,54 +1,61 @@
-.niñaTuVooz {
-    flex: 1;
+.botonesAccesibilidad {
+    margin-top: 137px;
     display: flex;
-    justify-content: flex-start;
-    padding: 10px;
-    margin-top: -21%;
+    justify-content: right;
+    align-items: center;
 }
 
-.niñoTuVooz {
-    flex: 1;
+.botones-flotantes {
+    position: fixed; 
+    left: 20px; /* Distancia desde el borde izquierdo */
+    top: 50%; /* Centra verticalmente */
+    transform: translateY(-50%); /* Ajusta el centro para estar perfectamente centrado */
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column; /* Coloca los botones uno encima del otro */
+    gap: 15px; /* Espacio entre los botones */
 }
 
+/* Estilo común para todos los botones flotantes */
+.boton-flotante {
+    background-color: #ffffff; /* Color de fondo del botón */
+    color: #563afae6; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 15px 20px; /* Espaciado interno */
+    border-radius: 50%; /* Forma circular */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para darle efecto de elevación */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s, box-shadow 0.3s;
+    font-size: 20px; 
 
-
-/* Estilo general para la imagen */
-.mi-imagen {
-    width: 100px;
-    /* Tamaño inicial de la imagen */
-    height: auto;
+}
+.boton-flotante:hover {
+    background-color: #563afae6; 
+    color: #ffffff; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); 
 }
 
-/* Ocultar la imagen en pantallas medianas (tablets) */
-@media (max-width: 768px) {
-    .niñoTuVooz {
-        display: none;
-        /* Oculta la imagen en pantallas medianas */
+/* Estilos responsivos para dispositivos pequeños */
+@media (max-width: 600px) {
+    .botones-flotantes {
+        left: 10px; 
+        gap: 10px; 
+    }
+
+    .boton-flotante {
+        padding: 10px 15px;
+        font-size: 18px; 
     }
 }
 
-/* Ocultar la imagen en pantallas pequeñas (móviles) */
-@media (max-width: 480px) {
-    .niñoTuVooz {
-        display: none;
-        /* Oculta la imagen en pantallas pequeñas */
+
+@media (min-width: 600px) and (max-width: 1024px) {
+    .botones-flotantes {
+        bottom: 40px; 
     }
 }
 
-/* Ocultar la imagen en pantallas medianas (tablets) */
-@media (max-width: 768px) {
-    .niñaTuVooz {
-        display: none;
-        /* Oculta la imagen en pantallas medianas */
-    }
-}
-
-/* Ocultar la imagen en pantallas pequeñas (móviles) */
-@media (max-width: 480px) {
-    .niñaTuVooz {
-        display: none;
-        /* Oculta la imagen en pantallas pequeñas */
+@media (min-width: 1024px) {
+    .botones-flotantes {
+        bottom: 60px; 
     }
 }
