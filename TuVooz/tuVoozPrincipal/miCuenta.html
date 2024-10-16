@@ -98,11 +98,57 @@
     <div class="miCuentaSection">
       <div class="cajaBotonTitulo">
         <div class="cajaTituloTexto">
-          <h1 class="tituloTexto">Mi cuenta</h1>
+          <h1 class="tituloTexto">Accesibilidad</h1>
         </div>
       </div>
 
       <div class="row">
+        <h3 class="texto-h2">Tema</h3>
+        <div class="card_tema">
+          <div class="row" style="display: flex; justify-content: center; align-items: center;">
+      
+            <!-- Modo claro -->
+            <div class="card2">
+              <img src="./img/modoClaro.png" alt="imgModos" class="imgModos" id="light-mode">
+            </div>
+      
+            <!-- Modo oscuro -->
+            <div class="card2">
+              <img src="./img/modoOscuro.png" id="toggle-dark-mode" alt="imgModos" class="imgModos">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="row">
+        <hr class="linea">
+      </div>
+
+      <div class="row">
+        <h3 class="texto-h2">Tamaño de texto</h3>
+      </div>
+
+      <div class="row">
+
+        <div class="botonSize1">
+          <button class="text-size-button selected" id="disminuirFuente">Pequeña aA</button>
+        </div>
+
+        <div class="botonSize3">
+          <button class="text-size-button" id="aumentarFuente">Grande aA</button>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <hr class="linea">
+      </div>
+
+      <div class="row">
+        <div class="cajaTituloTexto">
+          <h1 class="tituloTexto">Mi cuenta</h1>
+        </div>
         <h3 class="texto-h2">Cambiar usuario</h3>
         <div class="col-md-3">
           <label for="username" class="form-label">Nombre de usuario actual</label>
@@ -153,93 +199,18 @@
       <div class="row">
         <hr class="linea">
       </div>
+
       <div class="row">
         <h3 class="texto-h2">Eliminar cuenta</h3>
         <div class="col-md-3">
           <button class="btn btnEliminar" id="btnEliminar" type="button" onclick="EliminarCuenta();">Eliminar
             cuenta</button>
-
-        </div>
-
-      </div>
-      <div class="row">
-        <hr class="linea">
-      </div>
-      <div class="row" style="display: flex;">
-        <h1 class="tituloTexto2">Accesibilidad</h1>
-        <!-- inicio de temas -->
-        <h3 class="texto-h2">Tema</h3>
-      </div>
-
-      <div class="card_tema">
-        <div class="row" style="display: flex; justify-content: center; align-items: center;">
-
-          <!--Modo claro-->
-          <div class="card2">
-            <img src="./img/modoClaro.png" alt="imgModos" class="imgModos" onclick="setLightMode()">
-          </div>
-
-          <!--Modo oscuro-->
-          <div class="card2">
-            <img src="./img/modoOscuro.png" alt="imgModos" class="imgModos" onclick="setDarkMode()">
-          </div>
-
-
         </div>
       </div>
 
-      <div class="row">
-        <hr class="linea">
-      </div>
-
-      <div class="row">
+      <!-- <div class="row">
         <h3 class="texto-h2">Salida de voz</h3>
-      </div>
-
-      <div class="row">
-
-        <div class="vozFemenina">
-          <label class="custom-checkbox">
-            <input id="checkboxVoiceA" name="dummy" type="checkbox" value="es-US-Wavenet-A">
-            <!-- <input id="checkboxVoiceA" name="dummy" type="checkbox" value="es-US-Neural2-A"> Siento que esa voz es como más natural pero decidí dejarla por si quieren cambiar  -->
-            <span class="checkmark"></span>
-            <i class="fa-solid fa-person-dress" id="iconosSeleccionarVoz" style="font-size: 25px;"></i>
-            <p id="vozFemenina">Voz femenina</p>
-          </label>
-        </div>
-
-        <div class="vozMasculina">
-          <label class="custom-checkbox">
-            <input id="checkboxVoiceB" name="dummy" type="checkbox" value="es-US-Wavenet-B">
-            <span class="checkmark"></span>
-            <i class="fa-solid fa-person" id="iconosSeleccionarVoz" style="font-size: 25px;"></i>
-            <p id="vozMasculina">Voz masculina</p>
-          </label>
-        </div>
-
-
-      </div>
-
-      <div class="row">
-        <hr class="linea">
-      </div>
-
-      <div class="row">
-        <h3 class="texto-h2">Tamaño de texto</h3>
-      </div>
-
-      <div class="row">
-
-        <div class="botonSize1">
-          <button class="text-size-button selected" id="disminuirFuente">Pequeña aA</button>
-        </div>
-
-        <div class="botonSize3">
-          <button class="text-size-button" id="aumentarFuente">Grande aA</button>
-        </div>
-
-      </div>
-
+      </div> -->
 
 
       <!-- <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script> -->
