@@ -1,101 +1,122 @@
 from django.forms import ValidationError
-from django.shortcuts import get_object_or_404, render
+from django.contrib.auth import get_user_model
+from django.db.models import Q
 from django.contrib.auth import logout as django_logout
 from django.utils import timezone
 from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework import  status
+from rest_framework import status
 from .serializer import UserSerializer
 import threading
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
-from django.contrib.auth.models import User
+from rest_framework.permissions import IsAuthenticated, AllowAny
+from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.conf import settings
-from django.core.mail import EmailMultiAlternatives
-from rest_framework.permissions import AllowAny
-from rest_framework_simplejwt.tokens import RefreshToken
-from django.utils.http import urlsafe_base64_encode
-from django.utils.encoding import force_bytes
-from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from .models import UserExtend as User  # Asegúrate de que uses tu modelo de usuario personalizado
 from rest_framework.views import APIView
-from django.utils.encoding import force_str
-from django.utils.http import urlsafe_base64_decode
-from django.core.validators import validate_email
-from django.contrib.auth.password_validation import validate_password
-from django.http import JsonResponse
 
-
-
-# Create your views here.
 
 class IniciarSesion(APIView):
     permission_classes = [AllowAny]
-
+    
     def post(self, request):
-        # Obtener el email del request
-        email = request.data.get('email')
-        password = request.data.get('password')
-
-        # Verificar si el usuario existe
         try:
-            user = User.objects.get(email=email)
-        except User.DoesNotExist:
-            return Response({'error': 'Usuario no registrado'}, status=status.HTTP_404_NOT_FOUND)
-
-        # Verificar la contraseña
-        if not user.check_password(password):
-            return Response({'error': 'Contraseña incorrecta'}, status=status.HTTP_401_UNAUTHORIZED)
-
-        # Generar los tokens
-        refresh = RefreshToken.for_user(user)
-        return Response({
-            'refresh': str(refresh),
-            'access': str(refresh.access_token),
-        }, status=status.HTTP_200_OK)
+            identifier = request.data.get('identifier')
+            password = request.data.get('password')
+            
+            print("Datos recibidos:", request.data)  # Para debug
+            
+            if not identifier or not password:
+                return Response(
+                    {'error': 'Credenciales incompletas'},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            
+            User = get_user_model()
+            
+            try:
+                user = User.objects.get(
+                    Q(email=identifier) | Q(username=identifier)
+                )
+            except User.DoesNotExist:
+                return Response(
+                    {'error': 'Usuario no encontrado'},
+                    status=status.HTTP_404_NOT_FOUND
+                )
+            
+            if not user.check_password(password):
+                return Response(
+                    {'error': 'Contraseña incorrecta'},
+                    status=status.HTTP_401_UNAUTHORIZED
+                )
+                
+            refresh = RefreshToken.for_user(user)
+            return Response({
+                'refresh': str(refresh),
+                'access': str(refresh.access_token),
+            })
+            
+        except Exception as e:
+            print("Error:", str(e))  # Para debug
+            return Response(
+                {'error': 'Error interno del servidor'},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+            
 class Registro(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request):
         serializer = UserSerializer(data=request.data)
-        
-        if User.objects.filter(email=request.data.get('email')).exists():
-            return Response({'error': 'El usuario ya se encuentra registrado'}, status=status.HTTP_401_UNAUTHORIZED)
-        
+
         if serializer.is_valid():
             user = serializer.save()
-            user.set_password(serializer.validated_data['password'])
-            user.save()
-            
             refresh = RefreshToken.for_user(user)
             access_token = str(refresh.access_token)
             refresh_token = str(refresh)
-            
-            self.send_welcome_email(request.data.get('email'))
-            
+
+            # Envía el correo de bienvenida
+            self.send_welcome_email(user.email)
+
             return Response({
                 'refresh': refresh_token,
                 'access': access_token
             }, status=status.HTTP_201_CREATED)
-        if 'username' in serializer.errors and serializer.errors['username'][0].code == 'unique':
+
+        # Manejando errores de validación específicos
+        if 'username' in serializer.errors:
             return Response({'error': 'El nombre de usuario ya está en uso. Por favor, elige otro.'},
-                            status=status.HTTP_226_IM_USED)
-        print(serializer.errors)
+                            status=status.HTTP_400_BAD_REQUEST)
+
+        if 'email' in serializer.errors:
+            return Response({'error': 'El correo electrónico ya está en uso.'},
+                            status=status.HTTP_400_BAD_REQUEST)
+
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def send_welcome_email(self, to_email):
-        def send_email():
-            subject = 'Bienvenid@ a Tu Vooz'
-            from_email = settings.EMAIL_HOST_USER
-            text_content = 'Gracias por registrarte en Tu Vooz.'
-            html_content = render_to_string('correoRegistro.html', {'subject': subject, 'message': text_content})
+        subject = 'Bienvenid@ a Tu Vooz'
+        from_email = settings.EMAIL_HOST_USER
+        text_content = 'Gracias por registrarte en Tu Vooz.'
+        html_content = render_to_string('correoRegistro.html', {'subject': subject, 'message': text_content})
 
-            email = EmailMultiAlternatives(subject, text_content, from_email, [to_email])
-            email.attach_alternative(html_content, "text/html")
-            email.send()
-        
-        email_thread = threading.Thread(target=send_email)
-        email_thread.start()
+        email = EmailMultiAlternatives(subject, text_content, from_email, [to_email])
+        email.attach_alternative(html_content, "text/html")
+        email.send()
+
+
+class TemaService:
+    def __init__(self, user):
+        self.user = user
+
+    def actualizar_tema(self, nuevo_tema):
+        # Cambiar el tema si se proporciona un valor válido
+        if nuevo_tema in ['light', 'dark']:
+            self.user.temaColor = nuevo_tema
+            self.user.save()
+            return True
+        return False
 
 class Perfil(APIView):
     permission_classes = [IsAuthenticated]
@@ -105,54 +126,47 @@ class Perfil(APIView):
         data = {
             'username': user.username,
             'date_joined': user.date_joined.strftime('%Y-%m-%d'),
+            'temaColor': user.temaColor,
         }
         return Response(data, status=status.HTTP_200_OK)
 
     def patch(self, request):
         user = request.user
         new_username = request.data.get('username')
-        changes_made = False
+        new_theme = request.data.get('temaColor')
 
+        # Cambiar el nombre de usuario si se proporciona uno nuevo y no está en uso
         if new_username and new_username != user.username:
             if User.objects.filter(username=new_username).exists():
-                return Response(
-                    {'error': 'El nombre de usuario ya está en uso.'},
-                    status=status.HTTP_400_BAD_REQUEST
-                )
+                return Response({'error': 'El nombre de usuario ya está en uso.'}, status=status.HTTP_400_BAD_REQUEST)
             user.username = new_username
-            changes_made = True
 
-        if changes_made:
-            user.save()
+        # Manejo del cambio de tema
+        tema_service = TemaService(user)
+        if new_theme:
+            if not tema_service.actualizar_tema(new_theme):
+                return Response({'error': 'Tema no válido.'}, status=status.HTTP_400_BAD_REQUEST)
+
+        user.save()
+
+        # Aquí puedes enviar el correo de actualización si lo deseas
+        if new_username:
             self.send_update_email(user, new_username)
-            return Response(
-                {'message': 'Datos de usuario actualizados correctamente.'},
-                status=status.HTTP_200_OK
-            )
-        else:
-            return Response(
-                {'message': 'No se realizaron cambios en el perfil.'},
-                status=status.HTTP_200_OK
-            )
 
+        return Response({'message': 'Datos de usuario actualizados correctamente.'}, status=status.HTTP_200_OK)
+    
     def send_update_email(self, user, new_username):
-        def send_email():
-            subject = 'Actualización de perfil en Tu Vooz'
-            from_email = settings.EMAIL_HOST_USER
-            to = user.email
-            text_content = 'Tu perfil en Tu Vooz ha sido actualizado.'
-            context = {
-                'user': user,
-                'nuevo_username': new_username if new_username else None,
-            }
-            html_content = render_to_string('correoActualizacionPerfil.html', context)
+        subject = 'Actualización de perfil en Tu Vooz'
+        from_email = settings.EMAIL_HOST_USER
+        to = user.email
+        text_content = 'Tu perfil en Tu Vooz ha sido actualizado.'
+        context = {'user': user, 'nuevo_username': new_username}
+        html_content = render_to_string('correoActualizacionPerfil.html', context)
 
-            email = EmailMultiAlternatives(subject, text_content, from_email, [to])
-            email.attach_alternative(html_content, "text/html")
-            email.send()
-
-        email_thread = threading.Thread(target=send_email)
-        email_thread.start()
+        email = EmailMultiAlternatives(subject, text_content, from_email, [to])
+        email.attach_alternative(html_content, "text/html")
+        email.send()
+        
 class CambiarContrasenna(APIView):
     permission_classes = [IsAuthenticated]
 

@@ -194,7 +194,7 @@ TEMPLATES = [
     },
 ]
 
-# AUTH_USER_MODEL = 'tuvooz.CustomUser'  
+AUTH_USER_MODEL = 'tuvooz.UserExtend'  
 
 
 
