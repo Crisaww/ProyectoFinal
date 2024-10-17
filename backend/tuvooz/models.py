@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractUser, Group, Permission
 
 class UserExtend(AbstractUser):
     temaColor = models.CharField(max_length=10, default='light')
+    tipo_voz = models.CharField(max_length=15, default='voz_masculina')
 
     groups = models.ManyToManyField(
         Group,
