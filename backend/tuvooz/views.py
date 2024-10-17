@@ -96,14 +96,18 @@ class Registro(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def send_welcome_email(self, to_email):
-        subject = 'Bienvenid@ a Tu Vooz'
-        from_email = settings.EMAIL_HOST_USER
-        text_content = 'Gracias por registrarte en Tu Vooz.'
-        html_content = render_to_string('correoRegistro.html', {'subject': subject, 'message': text_content})
+        def send_email():
+            subject = 'Bienvenid@ a Tu Vooz'
+            from_email = settings.EMAIL_HOST_USER
+            text_content = 'Gracias por registrarte en Tu Vooz.'
+            html_content = render_to_string('correoRegistro.html', {'subject': subject, 'message': text_content})
 
-        email = EmailMultiAlternatives(subject, text_content, from_email, [to_email])
-        email.attach_alternative(html_content, "text/html")
-        email.send()
+            email = EmailMultiAlternatives(subject, text_content, from_email, [to_email])
+            email.attach_alternative(html_content, "text/html")
+            email.send()
+        
+        email_thread = threading.Thread(target=send_email)
+        email_thread.start()
 
 
 class TemaService:
