@@ -4,7 +4,7 @@
   .boton-flotante {
     position: fixed;
     bottom: 20px;
-    left: 20px; /* Mueve el botón a la parte izquierda */
+    left: 18px; /* Mueve el botón a la parte izquierda */
     width: 60px;
     height: 60px;
     background-color: #563afae6;
@@ -30,8 +30,8 @@
 /* Estilo para los botones del submenú */
 .submenu {
     position: fixed;
-    bottom: 90px; /* Ajuste para que se posicione encima del botón principal */
-    left: 24px; /* Mueve el submenú a la parte izquierda */
+    bottom: 95px; /* Ajuste para que se posicione encima del botón principal */
+    left: 19px; /* Mueve el submenú a la parte izquierda */
     display: none; /* Oculto por defecto */
     flex-direction: column;
     z-index: 20; /* Asegura que el submenú esté encima del botón verde */
@@ -54,8 +54,9 @@
 }
 
 .submenu button:hover {
-    background-color: #ffffff;
+    background-color: #cfa9e89e;
     color: #563afae6;
+    border: 2px solid #563afae6; /* Cambiado el grosor del borde a 2px */
 }
 #submenu {
     display: none; /* Oculto por defecto */
