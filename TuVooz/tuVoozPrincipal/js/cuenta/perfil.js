@@ -144,7 +144,7 @@ function validarUsername(usernameInput) {
       });
     } catch (error) {
       Swal.fire({
-        title: "Error",
+        title: "¡Advertencia!",
         text: "No se pudo actualizar el nombre de usuario",
         icon: "error",
         confirmButtonText: "Aceptar",

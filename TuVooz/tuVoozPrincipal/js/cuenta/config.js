@@ -20,6 +20,63 @@ let urlEliminarCuenta = urlBasica + "tuvooz/api/v1/eliminarcuenta/";
 let url404 = urlBasica + "api/v1/error404/";
 
 
-
+function logout() {
+    Swal.fire({
+        title: "¿Estás seguro?",
+        text: "¿Deseas cerrar la sesión?",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonText: "Sí, cerrar sesión",
+        cancelButtonText: "Cancelar"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fetch(urlCerrarSesion, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error al cerrar sesión');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Limpiar localStorage
+                localStorage.removeItem('access_token');
+                localStorage.removeItem('refresh_token');
+                localStorage.removeItem('user_data');
+                
+                Swal.fire({
+                    title: "¡Éxito!",
+                    text: data.message || "Sesión cerrada correctamente",
+                    icon: "success",
+                    timer: 1500,
+                    showConfirmButton: false
+                }).then(() => {
+                    window.location.href = urlInicioSesion;
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                Swal.fire({
+                    title: "Error",
+                    text: "Hubo un problema al cerrar la sesión",
+                    icon: "error",
+                    timer: 1500,
+                    showConfirmButton: false
+                }).then(() => {
+                    // Aún si hay error, limpiamos localStorage y redirigimos
+                    localStorage.removeItem('access_token');
+                    localStorage.removeItem('refresh_token');
+                    localStorage.removeItem('user_data');
+                    window.location.href = urlInicioSesion;
+                });
+            });
+        }
+    });
+}
 
 

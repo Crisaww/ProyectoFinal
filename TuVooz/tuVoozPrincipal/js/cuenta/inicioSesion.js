@@ -6,12 +6,13 @@ document.getElementById('togglePassword').addEventListener('click', function () 
     this.classList.toggle('fa-eye');
     this.classList.toggle('fa-eye-slash');
 });
+
 function iniciarSesion() {
-    let email = document.getElementById("email").value;
+    let identifier = document.getElementById("identifier").value;
     let password = document.getElementById("password").value;
 
     let formData = {
-        "email": email,
+        "identifier": identifier,  // Puede ser email o username
         "password": password
     };
 
@@ -34,11 +35,11 @@ function iniciarSesion() {
         .then(data => {
             localStorage.setItem('access_token', data.access);
             localStorage.setItem('refresh_token', data.refresh);
-            
-          
-            }).then(() => {
-                window.location.href = urlBasicaFront + "TuVooz/tuVoozPrincipal/paginaPrincipal.html";
-          
+            if (data.user) {
+                localStorage.setItem('user_data', JSON.stringify(data.user));
+            }
+        }).then(() => {
+            window.location.href = urlBasicaFront + "TuVooz/tuVoozPrincipal/paginaPrincipal.html";
         })
         .catch(error => {
             Swal.fire({
@@ -49,48 +50,53 @@ function iniciarSesion() {
         });
     }
 }
-
 function validarCamposLogin() {
-    var email = document.getElementById("email");
+    var identifier = document.getElementById("identifier");
     var password = document.getElementById("password"); 
    
-    return validarEmail(email) && validarPassword(password);
+    return validarIdentifier(identifier) && validarPassword(password);
 }
 
-function validarEmail(email) {
-    // Detecta el tamaño de la pantalla
+function validarIdentifier(identifier) {
     let placement = window.matchMedia("(max-width: 1023px)").matches ? 'top' : 'right';
 
-    // Crea una instancia de Tippy con el posicionamiento adecuado
-    let tippyInstanceEmail = tippy(email, {
+    let tippyInstanceIdentifier = tippy(identifier, {
         content: '',
         trigger: 'manual',
-        placement: placement,  // Dinámicamente cambia la posición
+        placement: placement,
         theme: 'material',
     });
 
-    if (!email || !email.value) {
-        email.className = "form-control is-invalid";
-        tippyInstanceEmail.setContent('El correo electrónico es obligatorio.');
-        tippyInstanceEmail.show();
+    if (!identifier || !identifier.value) {
+        identifier.className = "form-control is-invalid";
+        tippyInstanceIdentifier.setContent('El usuario o correo electrónico es obligatorio.');
+        tippyInstanceIdentifier.show();
         return false;
     }
 
-    let valor = email.value.trim();
+    let valor = identifier.value.trim();
     let valido = true;
 
-    valido = valor.length > 0 && valor.length <= 100;
+    // Validar longitud
+    if (valor.length === 0 || valor.length > 100) {
+        valido = false;
+    }
 
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(([^<>()[\]\.,;:\s@"]+\.)+[^<>()[\]\.,;:\s@"]{2,})$/i;
-    valido = valido && re.test(valor);
+    // Verificar si es email o username
+    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const usernameRegex = /^[a-zA-Z0-9_]{3,30}$/;  // Ejemplo de regex para username
+
+    if (!emailRegex.test(valor) && !usernameRegex.test(valor)) {
+        valido = false;
+    }
 
     if (!valido) {
-        email.className = "form-control is-invalid";
-        tippyInstanceEmail.setContent('El correo electrónico no tiene un formato válido.');
-        tippyInstanceEmail.show();
+        identifier.className = "form-control is-invalid";
+        tippyInstanceIdentifier.setContent('Ingrese un correo electrónico o nombre de usuario válido.');
+        tippyInstanceIdentifier.show();
     } else {
-        email.className = "form-control is-valid";
-        tippyInstanceEmail.hide();
+        identifier.className = "form-control is-valid";
+        tippyInstanceIdentifier.hide();
     }
 
     return valido;
@@ -156,17 +162,25 @@ document.getElementById("password").addEventListener("input", function () {
     validarPassword(this);
 });
 
-// Ajustar el tooltip al cambiar el tamaño de la ventana
-window.addEventListener("resize", function () {
-    let passwordField = document.getElementById("password");
-    if (passwordField.tippyInstance) {
-        let placement = window.matchMedia("(max-width: 1023px)").matches ? 'top' : 'right';
-        passwordField.tippyInstance.setProps({
-            placement: placement,
-        });
-    }
+// Agregar listener para validación en tiempo real del identifier
+document.getElementById("identifier").addEventListener("input", function () {
+    validarIdentifier(this);
 });
 
+// Ajustar tooltips al cambiar tamaño de ventana
+window.addEventListener("resize", function () {
+    let identifierField = document.getElementById("identifier");
+    let passwordField = document.getElementById("password");
+    
+    let placement = window.matchMedia("(max-width: 1023px)").matches ? 'top' : 'right';
+    
+    if (identifierField.tippyInstance) {
+        identifierField.tippyInstance.setProps({ placement });
+    }
+    if (passwordField.tippyInstance) {
+        passwordField.tippyInstance.setProps({ placement });
+    }
+});
 
 
 function getCookie(name) {

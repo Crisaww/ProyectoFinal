@@ -1,3 +1,9 @@
+document.addEventListener('DOMContentLoaded', function() {
+  const token = localStorage.getItem('access_token');
+  if (!token) {
+      window.location.href = urlInicioSesion;
+  }
+});
 function fetchProtectedData(endpoint) {
     fetch(`http://127.0.0.1:8000/tuvooz/tuVoozPrincipal/${endpoint}/`, {
       method: 'GET',

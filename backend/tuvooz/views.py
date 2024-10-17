@@ -1,5 +1,6 @@
 from django.forms import ValidationError
-from django.shortcuts import get_object_or_404, render
+from django.contrib.auth import get_user_model
+from django.db.models import Q
 from django.contrib.auth import logout as django_logout
 from django.utils import timezone
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -18,25 +19,51 @@ from rest_framework.views import APIView
 
 class IniciarSesion(APIView):
     permission_classes = [AllowAny]
-
+    
     def post(self, request):
-        email = request.data.get('email')
-        password = request.data.get('password')
-
         try:
-            user = User.objects.get(email=email)
-        except User.DoesNotExist:
-            return Response({'error': 'Usuario no registrado'}, status=status.HTTP_404_NOT_FOUND)
-
-        if not user.check_password(password):
-            return Response({'error': 'Contraseña incorrecta'}, status=status.HTTP_401_UNAUTHORIZED)
-
-        refresh = RefreshToken.for_user(user)
-        return Response({
-            'refresh': str(refresh),
-            'access': str(refresh.access_token),
-        }, status=status.HTTP_200_OK)
-
+            identifier = request.data.get('identifier')
+            password = request.data.get('password')
+            
+            print("Datos recibidos:", request.data)  # Para debug
+            
+            if not identifier or not password:
+                return Response(
+                    {'error': 'Credenciales incompletas'},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            
+            User = get_user_model()
+            
+            try:
+                user = User.objects.get(
+                    Q(email=identifier) | Q(username=identifier)
+                )
+            except User.DoesNotExist:
+                return Response(
+                    {'error': 'Usuario no encontrado'},
+                    status=status.HTTP_404_NOT_FOUND
+                )
+            
+            if not user.check_password(password):
+                return Response(
+                    {'error': 'Contraseña incorrecta'},
+                    status=status.HTTP_401_UNAUTHORIZED
+                )
+                
+            refresh = RefreshToken.for_user(user)
+            return Response({
+                'refresh': str(refresh),
+                'access': str(refresh.access_token),
+            })
+            
+        except Exception as e:
+            print("Error:", str(e))  # Para debug
+            return Response(
+                {'error': 'Error interno del servidor'},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+            
 class Registro(APIView):
     permission_classes = [AllowAny]
 

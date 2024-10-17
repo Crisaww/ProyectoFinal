@@ -21,8 +21,8 @@ async function restablecerContrasena() {
     // Validar que las contraseñas coincidan
     if (password !== confirmPassword) {
         Swal.fire({
-            icon: 'error',
-            title: 'Error',
+            icon: 'warning',
+            title: '¡Advertencia!',
             text: 'Las contraseñas no coinciden.',
         });
         return;
