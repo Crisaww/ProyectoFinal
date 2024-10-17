@@ -57,3 +57,12 @@
     background-color: #ffffff;
     color: #563afae6;
 }
+#submenu {
+    display: none; /* Oculto por defecto */
+    flex-direction: column; /* Alinear los botones en columna */
+}
+
+#submenu button {
+    margin: 5px; /* Espaciado entre botones */
+    padding: 10px; /* Espaciado interno de los botones */
+}
