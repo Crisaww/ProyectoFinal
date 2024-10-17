@@ -763,3 +763,47 @@ buttons.forEach(button => {
 });
 
 // Tamaño de letras
+
+// grupo de accesibilidad 
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleButton = document.getElementById('toggle-button'); // Botón para mostrar/ocultar
+    const botonGroup = document.getElementById('boton-group'); // Grupo de botones
+
+    // Alterna la visibilidad del grupo de botones
+    toggleButton.addEventListener('click', (event) => {
+        event.stopPropagation(); // Evita que el clic en el botón cierre el menú
+        if (botonGroup.classList.contains('visible')) {
+            // Si el grupo de botones es visible, ocúltalo
+            botonGroup.classList.remove('visible'); // Alterna la clase 'visible'
+            botonGroup.style.animation = 'slideUp 0.5s forwards'; // Añade la animación de deslizamiento hacia arriba
+
+            // Espera el tiempo de la animación y luego ocultar el display
+            setTimeout(() => {
+                botonGroup.style.display = 'none'; // Oculta el grupo de botones
+            }, 500); // Coincide con la duración de la animación
+        } else {
+            // Si el grupo de botones no es visible, muéstralo
+            botonGroup.style.display = 'flex'; // Muestra el grupo de botones
+            botonGroup.style.animation = 'slideDown 0.5s forwards'; // Añade la animación de deslizamiento hacia abajo
+            setTimeout(() => {
+                botonGroup.classList.add('visible'); // Añade la clase 'visible' después de la animación
+            }, 500); // Coincide con la duración de la animación
+        }
+    });
+
+    // Cierra el menú si se hace clic fuera de él
+    document.addEventListener('click', (event) => {
+        const isClickInside = toggleButton.contains(event.target) || botonGroup.contains(event.target);
+        if (!isClickInside) {
+            if (botonGroup.classList.contains('visible')) {
+                botonGroup.classList.remove('visible'); // Alterna la clase 'visible'
+                botonGroup.style.animation = 'slideUp 0.5s forwards'; // Añade la animación de deslizamiento hacia arriba
+
+                // Espera el tiempo de la animación y luego ocultar el display
+                setTimeout(() => {
+                    botonGroup.style.display = 'none'; // Oculta el grupo de botones
+                }, 500); // Coincide con la duración de la animación
+            }
+        }
+    });
+});
