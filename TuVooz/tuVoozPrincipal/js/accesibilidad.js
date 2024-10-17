@@ -765,45 +765,113 @@ buttons.forEach(button => {
 // Tamaño de letras
 
 // grupo de accesibilidad 
+
 document.addEventListener('DOMContentLoaded', () => {
-    const toggleButton = document.getElementById('toggle-button'); // Botón para mostrar/ocultar
-    const botonGroup = document.getElementById('boton-group'); // Grupo de botones
+    const toggleDarkModeButton = document.getElementById('toggle-dark-mode'); // Botón con el icono de luna/sol
 
-    // Alterna la visibilidad del grupo de botones
-    toggleButton.addEventListener('click', (event) => {
-        event.stopPropagation(); // Evita que el clic en el botón cierre el menú
-        if (botonGroup.classList.contains('visible')) {
-            // Si el grupo de botones es visible, ocúltalo
-            botonGroup.classList.remove('visible'); // Alterna la clase 'visible'
-            botonGroup.style.animation = 'slideUp 0.5s forwards'; // Añade la animación de deslizamiento hacia arriba
-
-            // Espera el tiempo de la animación y luego ocultar el display
-            setTimeout(() => {
-                botonGroup.style.display = 'none'; // Oculta el grupo de botones
-            }, 500); // Coincide con la duración de la animación
-        } else {
-            // Si el grupo de botones no es visible, muéstralo
-            botonGroup.style.display = 'flex'; // Muestra el grupo de botones
-            botonGroup.style.animation = 'slideDown 0.5s forwards'; // Añade la animación de deslizamiento hacia abajo
-            setTimeout(() => {
-                botonGroup.classList.add('visible'); // Añade la clase 'visible' después de la animación
-            }, 500); // Coincide con la duración de la animación
-        }
-    });
-
-    // Cierra el menú si se hace clic fuera de él
-    document.addEventListener('click', (event) => {
-        const isClickInside = toggleButton.contains(event.target) || botonGroup.contains(event.target);
-        if (!isClickInside) {
-            if (botonGroup.classList.contains('visible')) {
-                botonGroup.classList.remove('visible'); // Alterna la clase 'visible'
-                botonGroup.style.animation = 'slideUp 0.5s forwards'; // Añade la animación de deslizamiento hacia arriba
-
-                // Espera el tiempo de la animación y luego ocultar el display
-                setTimeout(() => {
-                    botonGroup.style.display = 'none'; // Oculta el grupo de botones
-                }, 500); // Coincide con la duración de la animación
+    // Verifica la preferencia de tema almacenada en el servidor
+    fetch(urlPerfil, {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('access_token'),
+        },
+    })
+        .then(response => response.json())
+        .then(data => {
+            const savedTemaColor = data.temaColor;
+            if (savedTemaColor === 'dark') {
+                setDarkMode();
+            } else {
+                setLightMode();
             }
+        })
+        .catch(error => console.error('Error fetching user theme:', error));
+
+    // Alterna el modo oscuro y claro al hacer clic en el botón
+    toggleDarkModeButton.addEventListener('click', () => {
+        if (document.body.classList.contains('modo-claro')) {
+            setDarkMode();
+        } else {
+            setLightMode();
         }
     });
+
+    // Función para establecer el modo oscuro
+    function setDarkMode() {
+        document.body.classList.remove('modo-claro');
+        toggleDarkModeButton.innerHTML = '🌙'; // Cambia el icono al de luna
+        applyDarkStyles();
+        updateUserTemaColor('dark');
+    }
+
+    // Función para establecer el modo claro
+    function setLightMode() {
+        document.body.classList.add('modo-claro');
+        toggleDarkModeButton.innerHTML = '🌞'; // Cambia el icono al de sol
+        applyLightStyles();
+        updateUserTemaColor('light');
+    }
+
+    // Función para aplicar estilos oscuros
+    function applyDarkStyles() {
+        document.documentElement.style.setProperty('--background-color', 'var(--dark-background-color)');
+        document.documentElement.style.setProperty('--text-color', 'var(--dark-text-color)');
+    }
+
+    // Función para aplicar estilos claros
+    function applyLightStyles() {
+        document.documentElement.style.setProperty('--background-color', 'var(--light-background-color)');
+        document.documentElement.style.setProperty('--text-color', 'var(--light-text-color)');
+    }
+
+    // Función para enviar el tema actualizado al servidor
+    function updateUserTemaColor(temaColor) {
+        fetch(urlPerfil, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('access_token'),
+            },
+            body: JSON.stringify({ temaColor: temaColor })
+        })
+            .then(response => {
+                if (!response.ok) {
+                    return response.text().then(text => {
+                        throw new Error(`Error updating theme: ${text}`);
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Theme updated:', data);
+            })
+            .catch(error => {
+                console.error('Error updating theme:', error);
+            });
+    }
 });
+
+        // Lógica para mostrar u ocultar el submenú al hacer clic en el botón principal
+        const botonPrincipal = document.getElementById('boton-principal');
+        const submenu = document.getElementById('submenu');
+
+        botonPrincipal.addEventListener('click', () => {
+            // Alternar la visualización del submenú
+            submenu.style.display = submenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Funcionalidad para cambiar el modo y el icono
+        const botonModo = document.getElementById('boton-modo');
+        const iconoModo = document.getElementById('icono-modo');
+        const body = document.body;
+
+        botonModo.addEventListener('click', () => {
+            // Alternar el modo claro y oscuro
+            if (body.classList.contains('modo-claro')) {
+                body.classList.remove('modo-claro');
+                iconoModo.textContent = '🌙'; // Cambia el icono a la luna para el modo oscuro
+            } else {
+                body.classList.add('modo-claro');
+                iconoModo.textContent = '🌞'; // Cambia el icono al sol para el modo claro
+            }
+        });

@@ -1,1 +1,59 @@
 @font-face{font-family:govco-font;src:url("C:/Users/Angie/OneDrive/Documentos/ProyectoFinal/assets/icons/fonts/govco-font-icons.ttf") format("truetype");font-weight:400;font-style:normal}@font-face{font-family:WorkSans-Medium;src:url('../assets/fonts/Work_Sans/static/WorkSans-Medium.ttf')}@font-face{font-family:WorkSans-Regular;src:url('../assets/fonts/Work_Sans/static/WorkSans-Regular.ttf')}@font-face{font-family:WorkSans-SemiBold;src:url('../assets/fonts/Work_Sans/static/WorkSans-SemiBold.ttf')}@font-face{font-family:Montserrat-SemiBold;src:url('../assets/fonts/Montserrat/Montserrat-SemiBold.ttf')}.content-example-barra{margin-left:auto;margin-right:auto}.barra-accesibilidad-letra{width:100%;align-items:center;text-align:center}.barra-accesibilidad-letra .titulo-barra-accesibilidad{color:#000;font-family:Montserrat-SemiBold;font-size:1.25rem;margin:0}.barra-accesibilidad-letra .descripcion-barra-accesibilidad{color:#4b4b4b;font-family:WorkSans-Regular;font-size:1rem;margin:0}.barra-accesibilidad-govco{height:8.9375rem;width:3rem;position:fixed;right:0;top:35%;background-color:#a300ff!important;border-radius:.625rem 0 0 .625rem;opacity:1;padding:.75rem 0 1.25rem;align-items:center}.barra-accesibilidad-govco button{line-height:inherit}.barra-accesibilidad-govco .icon-contraste{background:#a300ff;width:3rem;height:2.5rem;border:none;outline:0;text-decoration:none}.barra-accesibilidad-govco .icon-contraste::after,.icon-contraste:focus::after,.icon-contraste:hover::after{background:#fff;content:"\e803";font-family:govco-font;height:1.5rem;width:1.5rem;color:#a300ff;padding:.25rem;border-radius:.3125rem;opacity:1;position:relative}.icon-aumentar:focus #titleaumentar,.icon-contraste:focus #titlecontraste,.icon-escala-grises:focus #titlegrises,.icon-lector:focus #titlelector,.icon-modo-contraste:focus #titlecontraste,.icon-reducir:focus #titledisminuir,.icon-restaurar:focus #titlerestaurar{font-family:WorkSans-Medium!important;opacity:1;line-height:normal!important;visibility:visible;margin-left:-8.5rem;outline:#000 solid .125rem;outline-offset:0.125rem}.barra-accesibilidad-govco .icon-aumentar,.barra-accesibilidad-govco .icon-escala-grises,.barra-accesibilidad-govco .icon-modo-contraste,.barra-accesibilidad-govco .icon-reducir,.barra-accesibilidad-govco .icon-restaurar{background:#a300ff;text-align:center;width:3rem;height:2.5rem;border:none;outline:0;text-decoration:none}.barra-accesibilidad-govco .icon-aumentar::after,.barra-accesibilidad-govco .icon-reducir::after,.barra-accesibilidad-govco .icon-restaurar::after,.icon-aumentar:focus::after,.icon-aumentar:hover::after,.icon-reducir:focus::after,.icon-reducir:hover::after,.icon-restaurar:focus::after,.icon-restaurar:hover::after{font-family:govco-font;line-height:0;height:1.5rem;width:1.5rem;padding:.25rem;border-radius:.3125rem;opacity:1;position:relative;background:#fff;color:#a300ff}.barra-accesibilidad-govco .icon-reducir::after,.icon-reducir:focus::after,.icon-reducir:hover::after{content:"\ec2a"}.barra-accesibilidad-govco #titleaumentar,.barra-accesibilidad-govco #titlecontraste,.barra-accesibilidad-govco #titledisminuir,.barra-accesibilidad-govco #titlegrises,.barra-accesibilidad-govco #titlelector,.barra-accesibilidad-govco #titlerestaurar{text-align:left;position:absolute;background:#a300ff;color:#fff;line-height:normal!important;font-family:WorkSans-Medium!important;font-size:.875rem;margin-top:-.5rem;opacity:0;width:10.75rem;height:2.5rem;border-radius:.625rem 0 0 .625rem;padding:.625rem .625rem .75rem}.barra-accesibilidad-govco button:hover #titleaumentar,.barra-accesibilidad-govco button:hover #titlecontraste,.barra-accesibilidad-govco button:hover #titledisminuir,.barra-accesibilidad-govco button:hover #titlegrises,.barra-accesibilidad-govco button:hover #titlelector,.barra-accesibilidad-govco button:hover #titlerestaurar{opacity:1;visibility:visible;margin-left:-8.4375rem}.barra-accesibilidad-govco .icon-aumentar::after,.icon-aumentar:focus::after,.icon-aumentar:hover::after{content:"\ec29"}.barra-accesibilidad-govco .icon-restaurar::after,.icon-restaurar:focus::after,.icon-restaurar:hover::after{content:"\ed71"}.barra-accesibilidad-govco .icon-lector{background:#5b0a71;text-align:center;width:3rem;height:2.5rem;border:none;outline:0;text-decoration:none}.barra-accesibilidad-govco .icon-lector::after,.icon-lector:focus::after,.icon-lector:hover::after{background:#fff;content:"\ec23";font-family:govco-font;line-height:0;height:1.5rem;width:1.5rem;color:#a300ff;padding:.25rem;border-radius:.3125rem;opacity:1;position:relative}.barra-accesibilidad-govco .icon-modo-contraste::after,.icon-modo-contraste:focus::after,.icon-modo-contraste:hover::after{content:"\ec40";background:#fff;font-family:govco-font;line-height:0;height:1.5rem;width:1.5rem;padding:.25rem;border-radius:.3125rem;opacity:1;position:relative}.barra-accesibilidad-govco .icon-modo-contraste::after,.icon-modo-contraste:focus::after{color:#a300ff}.icon-modo-contraste:hover::after{color:#5b0a71}.barra-accesibilidad-govco .icon-escala-grises::after,.icon-escala-grises:focus::after,.icon-escala-grises:hover::after{background:#fff;content:"\ed5d";font-family:govco-font;line-height:0;height:1.5rem;width:1.5rem;color:#a300ff;padding:.25rem;border-radius:.3125rem;opacity:1;position:relative}
+
+  /* Estilo para el botón flotante verde */
+  .boton-flotante {
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* Mueve el botón a la parte izquierda */
+    width: 60px;
+    height: 60px;
+    background-color: #563afae6;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-size: 24px;
+    transition: transform 0.3s ease;
+    z-index: 10; /* Asegura que esté por encima del contenido de la página */
+}
+
+/* Efecto al pasar el mouse sobre el botón */
+.boton-flotante:hover {
+    background-color: #ffffff;
+    color: #563afae6;
+}
+
+/* Estilo para los botones del submenú */
+.submenu {
+    position: fixed;
+    bottom: 90px; /* Ajuste para que se posicione encima del botón principal */
+    left: 24px; /* Mueve el submenú a la parte izquierda */
+    display: none; /* Oculto por defecto */
+    flex-direction: column;
+    z-index: 20; /* Asegura que el submenú esté encima del botón verde */
+}
+
+.submenu button {
+    margin-bottom: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: #563afae6;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submenu button:hover {
+    background-color: #ffffff;
+    color: #563afae6;
+}
