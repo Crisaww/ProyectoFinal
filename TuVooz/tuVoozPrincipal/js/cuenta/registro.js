@@ -165,8 +165,8 @@ function validarCampos() {
   );
 }
 
-// // Inicializa tippy.js en el campo de nombre de usuario
-// const usernameInput = document.getElementById('username');
+// Inicializa tippy.js en el campo de nombre de usuario
+const usernameInput = document.getElementById('username');
 
 function validarUsername(username) {
   let valido = true;
@@ -174,7 +174,6 @@ function validarUsername(username) {
 
   // Detecta el tamaño de la pantalla
   let placement = window.matchMedia("(max-width: 1023px)").matches ? 'top' : 'right';
-
 
   let tippyInstanceUsername = tippy(username, {
     content: "",
@@ -208,6 +207,12 @@ function validarUsername(username) {
     mensajesError.push("no debe contener caracteres especiales");
   }
 
+  // Verifica si el nombre excede los 20 caracteres
+  if (valor.length > 20) {
+    valido = false;
+    mensajesError.push("no debe tener más de 20 caracteres");
+  }
+
   // Mostrar u ocultar el tooltip en función de la validez del campo
   if (!valido) {
     let mensajeError =
@@ -224,6 +229,7 @@ function validarUsername(username) {
 
   return valido;
 }
+
 
 // // Escuchar el evento 'input' para validar en tiempo real
 // usernameInput.addEventListener('input', function() {
@@ -381,6 +387,42 @@ window.addEventListener("resize", function () {
         });
     }
 });
+
+
+// Función para deshabilitar el pegado y mostrar el tippy instantáneamente
+function deshabilitarPegado(campo) {
+  campo.addEventListener("paste", function (e) {
+      e.preventDefault(); // Evita que se pegue cualquier contenido
+      
+      // Configura y muestra el tippy instantáneamente
+      if (!campo.tippyInstance) {
+          campo.tippyInstance = tippy(campo, {
+              content: "No se permite pegar.",
+              trigger: 'manual',
+              theme: 'material',
+              placement: 'right' // Puedes ajustar la posición
+          });
+      } else {
+          campo.tippyInstance.setContent("No se permite pegar.");
+      }
+
+      campo.tippyInstance.show(); // Muestra el mensaje de Tippy al instante
+      
+      // Oculta el tippy después de 2 segundos
+      setTimeout(() => {
+          campo.tippyInstance.hide();
+      }, 2000);
+  });
+}
+
+// Seleccionamos los campos de contraseña y confirmación de contraseña
+const passwordField = document.getElementById("password");
+
+// Deshabilita el pegado en ambos campos
+deshabilitarPegado(passwordField);
+deshabilitarPegado(confirmPasswordField);
+
+
 
 
 

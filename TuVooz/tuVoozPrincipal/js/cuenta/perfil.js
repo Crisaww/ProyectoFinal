@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const token = localStorage.getItem("access_token");
       if (!token) {
         window.location.href = urlInicioSesion;
+        return;
       }
 
       const response = await fetch(urlPerfil, {
@@ -17,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (!response.ok) {
         if (response.status === 401) {
-          // Token expirado o no válido, redirigir al login
           window.location.href = urlInicioSesion;
         }
         throw new Error("Error al obtener el perfil");
@@ -35,40 +35,24 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Función para validar el nombre de usuario
-function validarUsername(usernameInput) {
-    // Detecta el tamaño de la pantalla y ajusta la colocación del tooltip
+  function validarUsername(usernameInput) {
     let placement = window.matchMedia("(max-width: 1023px)").matches ? 'top' : 'right';
   
     let tippyInstanceUsername = tippy(usernameInput, {
       content: "",
       trigger: "manual",
-      placement: placement,  // Usa la colocación en función del tamaño de la pantalla
+      placement: placement,
       theme: "material",
     });
   
-    let valor = usernameInput.value.trim();
+    let valor = usernameInput.value.trim();  // Eliminamos espacios al inicio y al final
     let valido = true;
     let mensajesError = [];
   
-    // Verifica si el nombre está vacío
+    // Verifica si el campo está vacío
     if (!valor) {
-      usernameInput.className = "form-control is-invalid";
-      tippyInstanceUsername.setContent("El nombre de usuario es obligatorio.");
-      tippyInstanceUsername.show();
-      return false;
-    }
-  
-    // Verifica la longitud mínima (al menos 3 caracteres)
-    if (valor.length < 3) {
       valido = false;
-      mensajesError.push("El nombre de usuario debe contener al menos 3 caracteres.");
-    }
-  
-    // Verifica la longitud del nombre
-    if (valor.length > 50) { // Ajusta la longitud máxima según sea necesario
-      valido = false;
-      mensajesError.push("El nombre de usuario debe tener hasta 50 caracteres.");
+      mensajesError.push("El nombre de usuario es obligatorio.");
     }
   
     // Verifica si el nombre contiene espacios
@@ -77,15 +61,19 @@ function validarUsername(usernameInput) {
       mensajesError.push("El nombre de usuario no debe contener espacios.");
     }
   
-    // Verifica si el nombre contiene caracteres especiales
-    if (/[^a-zA-Z0-9]/.test(valor)) {
+    // Verifica si el nombre contiene caracteres especiales, excluyendo los espacios
+    if (/[^a-zA-Z0-9\s]/.test(valor)) {
       valido = false;
-      // Solo añade el mensaje de caracteres especiales si ya no hay otros errores
-      if (!mensajesError.some((msg) => msg.includes("espacios"))) {
-        mensajesError.push("El nombre de usuario no debe contener caracteres especiales.");
-      }
+      mensajesError.push("El nombre de usuario no debe contener caracteres especiales.");
     }
   
+    // Verifica si el nombre excede los 20 caracteres
+    if (valor.length > 20) {
+      valido = false;
+      mensajesError.push("El nombre de usuario no debe tener más de 20 caracteres.");
+    }
+  
+    // Mostrar u ocultar el tooltip en función de la validez del campo
     if (!valido) {
       usernameInput.className = "form-control is-invalid";
       tippyInstanceUsername.setContent(mensajesError.join(" "));
@@ -99,12 +87,16 @@ function validarUsername(usernameInput) {
   }
   
 
-  // Función para actualizar el nombre de usuario
-  async function actualizarUsername() {
-    try {
-      const usernameInput = document.getElementById("new-username");
+  // Validación en tiempo real al escribir en el campo de nombre de usuario
+  const usernameInput = document.getElementById("new-username");
+  usernameInput.addEventListener("input", function () {
+    validarUsername(usernameInput);
+  });
 
-      // Validar nombre de usuario antes de enviar la solicitud
+  // Función para actualizar el perfil del usuario
+  async function actualizarPerfil() {
+    try {
+      // Validar el nombre de usuario antes de proceder
       if (!validarUsername(usernameInput)) {
         return;
       }
@@ -112,12 +104,13 @@ function validarUsername(usernameInput) {
       const token = localStorage.getItem("access_token");
       if (!token) {
         window.location.href = urlInicioSesion;
+        return;
       }
 
       const nuevoUsername = usernameInput.value;
 
       const response = await fetch(urlPerfil, {
-        method: "PATCH", // Cambia el método si es necesario para tu API
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -127,25 +120,33 @@ function validarUsername(usernameInput) {
         }),
       });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(
-          errorData.error || "Error al actualizar el nombre de usuario"
-        );
-      }
+      console.log("Respuesta completa:", response);
 
-      Swal.fire({
-        title: "Éxito",
-        text: "Nombre de usuario actualizado correctamente",
-        icon: "success",
-        confirmButtonText: "Aceptar",
-      }).then(() => {
-        window.location.reload();
-      });
+      const contentType = response.headers.get("content-type");
+      if (contentType && contentType.indexOf("application/json") !== -1) {
+        const data = await response.json();
+        if (!response.ok) {
+          throw new Error(data.error || "Error al actualizar el perfil");
+        }
+
+        Swal.fire({
+          title: "Éxito",
+          text: "Perfil actualizado correctamente",
+          icon: "success",
+          confirmButtonText: "Aceptar",
+        }).then(() => {
+          window.location.reload();
+        });
+      } else {
+        const text = await response.text();
+        console.error("Respuesta no JSON:", text);
+        throw new Error("La respuesta del servidor no es JSON válido");
+      }
     } catch (error) {
+      console.error("Error completo:", error);
       Swal.fire({
         title: "¡Advertencia!",
-        text: "No se pudo actualizar el nombre de usuario",
+        text: error.message || "No se pudo actualizar el perfil",
         icon: "error",
         confirmButtonText: "Aceptar",
       });
@@ -155,12 +156,10 @@ function validarUsername(usernameInput) {
   // Obtener perfil cuando se cargue la página
   obtenerPerfil();
 
-  // Evento para actualizar el nombre de usuario al hacer clic en el botón correspondiente
-  const btnActualizarUsername = document.getElementById(
-    "btnActualizarUsername"
-  );
-  btnActualizarUsername.addEventListener("click", function (event) {
+  // Evento para actualizar el perfil al hacer clic en el botón correspondiente
+  const btnActualizarPerfil = document.getElementById("btnActualizarPerfil");
+  btnActualizarPerfil.addEventListener("click", function (event) {
     event.preventDefault();
-    actualizarUsername();
+    actualizarPerfil();
   });
 });

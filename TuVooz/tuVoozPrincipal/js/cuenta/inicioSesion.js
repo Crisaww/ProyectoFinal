@@ -67,7 +67,7 @@ function validarIdentifier(identifier) {
         theme: 'material',
     });
 
-    if (!identifier || !identifier.value) {
+    if (!identifier || !identifier.value.trim()) {
         identifier.className = "form-control is-invalid";
         tippyInstanceIdentifier.setContent('El usuario o correo electrónico es obligatorio.');
         tippyInstanceIdentifier.show();
@@ -76,23 +76,33 @@ function validarIdentifier(identifier) {
 
     let valor = identifier.value.trim();
     let valido = true;
+    let mensajesError = [];
 
     // Validar longitud
     if (valor.length === 0 || valor.length > 100) {
         valido = false;
+        mensajesError.push('No debe tener más de 100 caracteres');
+    }
+
+    // Verificar si tiene espacios
+    if (/\s/.test(valor)) {
+        valido = false;
+        mensajesError.push('No debe contener espacios');
     }
 
     // Verificar si es email o username
     const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    const usernameRegex = /^[a-zA-Z0-9_]{3,30}$/;  // Ejemplo de regex para username
+    const usernameRegex = /^[a-zA-Z0-9_]{3,30}$/;  // Username de 3 a 30 caracteres
 
     if (!emailRegex.test(valor) && !usernameRegex.test(valor)) {
         valido = false;
+        mensajesError.push('Ingrese un correo electrónico o nombre de usuario válido');
     }
 
+    // Mostrar mensajes de error
     if (!valido) {
         identifier.className = "form-control is-invalid";
-        tippyInstanceIdentifier.setContent('Ingrese un correo electrónico o nombre de usuario válido.');
+        tippyInstanceIdentifier.setContent(mensajesError.join(' y ') + '.');
         tippyInstanceIdentifier.show();
     } else {
         identifier.className = "form-control is-valid";
@@ -101,7 +111,6 @@ function validarIdentifier(identifier) {
 
     return valido;
 }
-
 
 function validarPassword(password) {
     let valor = password.value.trim();
@@ -182,6 +191,37 @@ window.addEventListener("resize", function () {
     }
 });
 
+// Función para deshabilitar el pegado y mostrar el tippy instantáneamente
+function deshabilitarPegado(campo) {
+    campo.addEventListener("paste", function (e) {
+        e.preventDefault(); // Evita que se pegue cualquier contenido
+        
+        // Configura y muestra el tippy instantáneamente
+        if (!campo.tippyInstance) {
+            campo.tippyInstance = tippy(campo, {
+                content: "No se permite pegar.",
+                trigger: 'manual',
+                theme: 'material',
+                placement: 'right' // Puedes ajustar la posición
+            });
+        } else {
+            campo.tippyInstance.setContent("No se permite pegar.");
+        }
+  
+        campo.tippyInstance.show(); // Muestra el mensaje de Tippy al instante
+        
+        // Oculta el tippy después de 2 segundos
+        setTimeout(() => {
+            campo.tippyInstance.hide();
+        }, 2000);
+    });
+  }
+  
+  // Seleccionamos los campos de contraseña y confirmación de contraseña
+  const passwordField = document.getElementById("password");
+  
+  // Deshabilita el pegado en ambos campos
+  deshabilitarPegado(passwordField);
 
 function getCookie(name) {
     let cookieValue = null;

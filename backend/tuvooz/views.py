@@ -28,7 +28,6 @@ import threading
 from .serializer import UserSerializer
 from .models import UserExtend as User
 
-
 class IniciarSesion(APIView):
     permission_classes = [AllowAny]
     
@@ -84,6 +83,11 @@ class Registro(APIView):
 
         if serializer.is_valid():
             user = serializer.save()
+
+             # Asignar la voz por defecto
+            user.tipo_voz = 'es-US-Wavenet-B'  # Asignar la voz masculina por defecto
+            user.save()  # Guardar los cambios en el usuario
+
             refresh = RefreshToken.for_user(user)
             access_token = str(refresh.access_token)
             refresh_token = str(refresh)
@@ -142,6 +146,8 @@ class VozService:
             return True
         return False
 
+
+
 class Perfil(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -149,46 +155,61 @@ class Perfil(APIView):
         user = request.user
         return Response({
             'username': user.username,
-            'tipo_voz': user.tipo_voz,
+            'tipo_voz': user.tipo_voz or 'es-US-Wavenet-B',  # Asignar voz por defecto si no hay
             'temaColor': user.temaColor,
         }, status=status.HTTP_200_OK)
 
     def patch(self, request):
         user = request.user
         new_username = request.data.get('username')
-        new_theme = request.data.get('temaColor')
-        new_voice = request.data.get('tipo_voz')
+        new_tipo_voz = request.data.get('tipo_voz')  # Obtener el tipo de voz del request
+        changes_made = False
 
-        # Validar y actualizar el nombre de usuario
-        if new_username and new_username != user.username:
-            if User.objects.filter(username=new_username).exists():
-                return Response({'error': 'El nombre de usuario ya está en uso.'}, status=status.HTTP_400_BAD_REQUEST)
-            user.username = new_username
-
-        # Actualizar el tema
-        tema_service = TemaService(user)
-        if new_theme and not tema_service.actualizar_tema(new_theme):
-            return Response({'error': 'Tema no válido.'}, status=status.HTTP_400_BAD_REQUEST)
-
-        # Actualizar el tipo de voz
-        voz_service = VozService(user)
-        if new_voice and not voz_service.actualizar_voz(new_voice):
-            return Response({'error': 'Tipo de voz no válido.'}, status=status.HTTP_400_BAD_REQUEST)
-
-        # Guardar todos los cambios al usuario
         try:
-            user.save()
+            # Validar y actualizar el nombre de usuario
+            if new_username and new_username != user.username:
+                if User.objects.filter(username=new_username).exists():
+                    return Response({'error': 'El nombre de usuario ya está en uso.'}, status=status.HTTP_400_BAD_REQUEST)
+                user.username = new_username
+                changes_made = True
+            
+            # Validar y actualizar el tipo de voz
+            if new_tipo_voz and new_tipo_voz != user.tipo_voz:
+                if new_tipo_voz in ['es-US-Wavenet-B', 'es-US-Wavenet-A']:
+                    user.tipo_voz = new_tipo_voz
+                    changes_made = True
+
+            # Guardar todos los cambios al usuario
+            if changes_made:
+                user.save()
+                self.send_update_email(user, new_username)
+                return Response({'message': 'Datos de usuario actualizados correctamente.'}, status=status.HTTP_200_OK)
+            else:
+                return Response({'message': 'No se realizaron cambios en el perfil.'}, status=status.HTTP_200_OK)
+
         except Exception as e:
+            print(f"Error en patch: {str(e)}")  # O usar logging
             return Response({'error': 'Error al guardar los cambios. Detalles: {}'.format(str(e))}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-        # Enviar correo de actualización si se cambió el nombre de usuario
-        if new_username:
-            self.send_update_email(user, new_username)
+    def send_update_email(self, user, new_username):
+        def send_email():
+            subject = 'Actualización de perfil en Tu Vooz'
+            from_email = settings.EMAIL_HOST_USER
+            to = user.email
+            text_content = 'Tu perfil en Tu Vooz ha sido actualizado.'
+            context = {
+                'user': user,
+                'nuevo_username': new_username if new_username else None,
+            }
+            html_content = render_to_string('correoActualizacionPerfil.html', context)
 
-        return Response({'message': 'Datos de usuario actualizados correctamente.'}, status=status.HTTP_200_OK)
+            email = EmailMultiAlternatives(subject, text_content, from_email, [to])
+            email.attach_alternative(html_content, "text/html")
+            email.send()
 
+        email_thread = threading.Thread(target=send_email)
+        email_thread.start()
 
-       
 class CambiarContrasenna(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -247,8 +268,8 @@ class olvide_contrasena(APIView):
             uid = urlsafe_base64_encode(force_bytes(user.pk))
 
             # URL del frontend con el token y uid
-            #frontend_url = 'http://127.0.0.1:5502'
-            frontend_url = 'http://tuvooz.com'
+            frontend_url = 'http://127.0.0.1:5502'
+            #frontend_url = 'http://tuvooz.com'
 
             # Renderizar la plantilla con el contexto adecuado
             html_content = render_to_string('correoRestablecerContrasena.html', {
