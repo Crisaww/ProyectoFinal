@@ -1,3 +1,11 @@
+# Django imports
+from django.http import JsonResponse
+from django.utils.encoding import force_str, force_bytes
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.contrib.auth.password_validation import validate_password
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
+
+# Existing imports from your code
 from django.forms import ValidationError
 from django.contrib.auth import get_user_model
 from django.db.models import Q
@@ -5,16 +13,20 @@ from django.contrib.auth import logout as django_logout
 from django.utils import timezone
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework import status
-from .serializer import UserSerializer
-import threading
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.conf import settings
-from .models import UserExtend as User  # Asegúrate de que uses tu modelo de usuario personalizado
 from rest_framework.views import APIView
+
+# Standard library imports
+import threading
+
+# Local imports (asumiendo que estos archivos existen en tu proyecto)
+from .serializer import UserSerializer
+from .models import UserExtend as User
 
 
 class IniciarSesion(APIView):
