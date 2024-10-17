@@ -111,10 +111,18 @@ class TemaService:
         self.user = user
 
     def actualizar_tema(self, nuevo_tema):
-        # Cambiar el tema si se proporciona un valor válido
         if nuevo_tema in ['light', 'dark']:
             self.user.temaColor = nuevo_tema
-            self.user.save()
+            return True
+        return False
+
+class VozService:
+    def __init__(self, user):
+        self.user = user
+
+    def actualizar_voz(self, nueva_voz):
+        if nueva_voz in ['es-US-Wavenet-B', 'es-US-Wavenet-A']:
+            self.user.tipo_voz = nueva_voz
             return True
         return False
 
@@ -123,50 +131,48 @@ class Perfil(APIView):
 
     def get(self, request):
         user = request.user
-        data = {
+        return Response({
             'username': user.username,
-            'date_joined': user.date_joined.strftime('%Y-%m-%d'),
+            'tipo_voz': user.tipo_voz,
             'temaColor': user.temaColor,
-        }
-        return Response(data, status=status.HTTP_200_OK)
+        }, status=status.HTTP_200_OK)
 
     def patch(self, request):
         user = request.user
         new_username = request.data.get('username')
         new_theme = request.data.get('temaColor')
+        new_voice = request.data.get('tipo_voz')
 
-        # Cambiar el nombre de usuario si se proporciona uno nuevo y no está en uso
+        # Validar y actualizar el nombre de usuario
         if new_username and new_username != user.username:
             if User.objects.filter(username=new_username).exists():
                 return Response({'error': 'El nombre de usuario ya está en uso.'}, status=status.HTTP_400_BAD_REQUEST)
             user.username = new_username
 
-        # Manejo del cambio de tema
+        # Actualizar el tema
         tema_service = TemaService(user)
-        if new_theme:
-            if not tema_service.actualizar_tema(new_theme):
-                return Response({'error': 'Tema no válido.'}, status=status.HTTP_400_BAD_REQUEST)
+        if new_theme and not tema_service.actualizar_tema(new_theme):
+            return Response({'error': 'Tema no válido.'}, status=status.HTTP_400_BAD_REQUEST)
 
-        user.save()
+        # Actualizar el tipo de voz
+        voz_service = VozService(user)
+        if new_voice and not voz_service.actualizar_voz(new_voice):
+            return Response({'error': 'Tipo de voz no válido.'}, status=status.HTTP_400_BAD_REQUEST)
 
-        # Aquí puedes enviar el correo de actualización si lo deseas
+        # Guardar todos los cambios al usuario
+        try:
+            user.save()
+        except Exception as e:
+            return Response({'error': 'Error al guardar los cambios. Detalles: {}'.format(str(e))}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        # Enviar correo de actualización si se cambió el nombre de usuario
         if new_username:
             self.send_update_email(user, new_username)
 
         return Response({'message': 'Datos de usuario actualizados correctamente.'}, status=status.HTTP_200_OK)
-    
-    def send_update_email(self, user, new_username):
-        subject = 'Actualización de perfil en Tu Vooz'
-        from_email = settings.EMAIL_HOST_USER
-        to = user.email
-        text_content = 'Tu perfil en Tu Vooz ha sido actualizado.'
-        context = {'user': user, 'nuevo_username': new_username}
-        html_content = render_to_string('correoActualizacionPerfil.html', context)
 
-        email = EmailMultiAlternatives(subject, text_content, from_email, [to])
-        email.attach_alternative(html_content, "text/html")
-        email.send()
-        
+
+       
 class CambiarContrasenna(APIView):
     permission_classes = [IsAuthenticated]
 

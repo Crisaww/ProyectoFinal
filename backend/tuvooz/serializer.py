@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from rest_framework_simplejwt.tokens import RefreshToken  # Para manejar los tokens
 from .models import UserExtend
 
 class UserSerializer(serializers.ModelSerializer):
@@ -7,13 +6,14 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserExtend  # Usa tu modelo personalizado
-        fields = ['id', 'username', 'email', 'password', 'temaColor']  # Incluye temaColor
+        fields = ['id', 'username', 'email', 'password', 'temaColor', 'tipo_voz']  # Incluye temaColor y tipo_voz
 
     def create(self, validated_data):
         user = UserExtend(
             username=validated_data['username'],
             email=validated_data['email'],
-            temaColor=validated_data.get('temaColor', 'light')  # Valor predeterminado
+            temaColor=validated_data.get('temaColor', 'light'),  # Valor predeterminado, añade la coma aquí
+            tipo_voz=validated_data.get('tipo_voz', 'default_voice')  # Asegúrate de agregar el tipo de voz
         )
         user.set_password(validated_data['password'])  # Usa set_password para encriptar
         user.save()
