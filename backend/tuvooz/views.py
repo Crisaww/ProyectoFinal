@@ -126,28 +126,6 @@ class Registro(APIView):
         email_thread.start()
 
 
-class TemaService:
-    def __init__(self, user):
-        self.user = user
-
-    def actualizar_tema(self, nuevo_tema):
-        if nuevo_tema in ['light', 'dark']:
-            self.user.temaColor = nuevo_tema
-            return True
-        return False
-
-class VozService:
-    def __init__(self, user):
-        self.user = user
-
-    def actualizar_voz(self, nueva_voz):
-        if nueva_voz in ['es-US-Wavenet-B', 'es-US-Wavenet-A']:
-            self.user.tipo_voz = nueva_voz
-            return True
-        return False
-
-
-
 class Perfil(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -156,13 +134,14 @@ class Perfil(APIView):
         return Response({
             'username': user.username,
             'tipo_voz': user.tipo_voz or 'es-US-Wavenet-B',  # Asignar voz por defecto si no hay
-            'temaColor': user.temaColor,
+            'temaColor': user.temaColor or 'light',  # Asignar tema claro por defecto si no hay
         }, status=status.HTTP_200_OK)
 
     def patch(self, request):
         user = request.user
         new_username = request.data.get('username')
         new_tipo_voz = request.data.get('tipo_voz')  # Obtener el tipo de voz del request
+        new_tema_color = request.data.get('temaColor')  # Obtener el tema del request
         changes_made = False
 
         try:
@@ -172,11 +151,17 @@ class Perfil(APIView):
                     return Response({'error': 'El nombre de usuario ya está en uso.'}, status=status.HTTP_400_BAD_REQUEST)
                 user.username = new_username
                 changes_made = True
-            
+
             # Validar y actualizar el tipo de voz
             if new_tipo_voz and new_tipo_voz != user.tipo_voz:
                 if new_tipo_voz in ['es-US-Wavenet-B', 'es-US-Wavenet-A']:
                     user.tipo_voz = new_tipo_voz
+                    changes_made = True
+
+            # Validar y actualizar el tema de color
+            if new_tema_color and new_tema_color in ['light', 'dark']:
+                if new_tema_color != user.temaColor:
+                    user.temaColor = new_tema_color
                     changes_made = True
 
             # Guardar todos los cambios al usuario
@@ -209,6 +194,7 @@ class Perfil(APIView):
 
         email_thread = threading.Thread(target=send_email)
         email_thread.start()
+
 
 class CambiarContrasenna(APIView):
     permission_classes = [IsAuthenticated]
