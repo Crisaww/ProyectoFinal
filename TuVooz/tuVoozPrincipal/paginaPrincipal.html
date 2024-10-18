@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Texto</title>
+  <title>TuVooz</title>
 
 
   <!-- Favicons -->
@@ -58,9 +58,9 @@
 
         <nav id="navbar" class="navbar">
           <ul style="padding: 0px 40px 0px 0px;">
-            <li><a class="nav-link scrollto active" href="./paginaPrincipal.html">Texto</a></li>
-            <li><a class="nav-link scrollto" href="indexPalabrasComunes.html">Palabras comunes</a></li>
-            <li><a class="nav-link scrollto" href="./comoUsarTuvooz.html">¿Cómo usar TuVooz?</a></li>
+            <li><a class="nav-link scrollto active" href="./paginaPrincipal.html" id="BarraTexto">Texto</a></li>
+            <li><a class="nav-link scrollto" href="indexPalabrasComunes.html" id="BarraPalabras">Palabras comunes</a></li>
+            <li><a class="nav-link scrollto" href="./comoUsarTuvooz.html" id="BarraComoUsar">¿Cómo usar TuVooz?</a></li>
 
             <div class="dropdown">
               <a href="#" class="dropdow text-light" data-bs-toggle="dropdown"><i class="fa-solid fa-gear"
@@ -68,10 +68,16 @@
               </a>
 
               <div class="dropdown-menu rounded" id="menuDespliegue">
-                <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> Mi cuenta</a>
-                <button class="dropdown-item" onclick="logout()"><i class="fas fa-power-off me-2"></i>Cerrar
-                  sesión</button>
+                <a href="miCuenta.html" class="dropdown-item" id="miCuenta"><i class="fas fa-user-alt me-2"></i> Mi cuenta</a>
+                <button class="dropdown-item" onclick="logout()" id="CerrarSesion"><i class="fas fa-power-off me-2"></i>Cerrar sesión</button>
               </div>
+            </div>
+            <div>
+              <div class="language-switch-container">
+                <button id="language-switcher" class="flags_item" data-language="en">
+                    <img src="../tuVoozPrincipal/img/colombia.png" alt="ES" id="language-icon"> Español
+                </button>
+            </div>
             </div>
 
           </ul>
@@ -131,7 +137,7 @@
             </svg>
           </div>
         </div>
-        <span>Reproducir sonido</span>
+        <span id="sonido">Reproducir sonido</span>
       </button>
 
     </div>
