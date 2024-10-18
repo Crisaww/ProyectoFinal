@@ -36,6 +36,8 @@
   <link rel="stylesheet" href="./css/comoUsarTuvooz.css">
   <link href="./css/tamañoLetra.css" rel="stylesheet">
   <link rel="stylesheet" href="./css/paginaPrincipal.css">
+  <link href="./css/accesibilidad.css" rel="stylesheet">
+
 
 
   <!-- =======================================================
@@ -124,12 +126,15 @@
       </div>
   
     </div>
-    <div class="botonesAccesibilidad">
-      <button class="boton-flotante" id="boton1"><i class="fa-solid fa-moon"></i></button>
-      <button class="boton-flotante" id="aumentarFuente"><i class="fa-solid fa-plus"></i> </button>
-      <button class="boton-flotante" id="disminuirFuente"><i class="fa-solid fa-minus"></i></button>
-    </div>
 
+    <div class="submenu" id="submenu">
+      <button id="toggle-dark-mode">🌙</button>
+      <button id="light-mode">🌞</button>
+      <button id="boton-aumento">+</button>
+      <button id="boton-disminucion">-</button>
+     </div>
+     <!-- Botón principal flotante verde -->
+     <button class="boton-flotante" id="boton-principal"><i class="fa-solid fa-person"></i></button>
 
     <!-- Vendor JS Files -->
     <script src="/TuVooz/Ajustes/vendor/aos/aos.js"></script>
@@ -145,6 +150,7 @@
     <script src="./js/cuenta/config.js"></script>
     <script src="./js/comoUsarTuVooz.js"></script>
     <script src="./js/tamañoLetras.js"></script>
+    <script src="./js/accesibilidad.js"></script>
     <script src="./js/cuenta/vistasProtegidas.js"></script>
   </body>
 

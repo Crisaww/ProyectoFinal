@@ -1,6 +1,7 @@
 let selectedVoice = localStorage.getItem('selectedVoice') || "es-US-Wavenet-B";  // Recuperar valor o usar el valor por defecto
-
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+
 
 // Objeto que contiene las rutas de los audios para cada palabra y cada voz
 const audios = {
@@ -358,16 +359,6 @@ const soundDondeEstas = new Audio();
 
 
 
-
-// Función para marcar el checkbox correspondiente basado en el valor guardado
-function setCheckboxState() {
-    checkboxes.forEach(checkbox => {
-        if (checkbox.value === selectedVoice) {
-            checkbox.checked = true;
-        }
-    });
-}
-
 // Función para cambiar las fuentes de audio según la voz seleccionada
 function actualizarFuentesAudio() {
     const tipoVoz = selectedVoice === "es-US-Wavenet-B" ? "masculino" : "femenino";
@@ -452,26 +443,7 @@ function actualizarFuentesAudio() {
 
 }
 
-// Establecer el estado inicial del checkbox basado en el valor de localStorage
-setCheckboxState();
-actualizarFuentesAudio();  // Actualizar la fuente de audio al cargar la página
 
-checkboxes.forEach(checkbox => {
-    checkbox.addEventListener('change', () => {
-        if (checkbox.checked) {
-            checkboxes.forEach(cb => {
-                if (cb !== checkbox) {
-                    cb.checked = false;
-                }
-            });
-
-            // Cambiar el valor de la voz seleccionada y guardarlo en localStorage
-            selectedVoice = checkbox.value;
-            localStorage.setItem('selectedVoice', selectedVoice);
-            actualizarFuentesAudio();  // Actualizar las fuentes de audio cuando se cambia la voz
-        }
-    });
-});
 
 // Funciones para reproducir cada palabra
 function reproducirHola() {
@@ -739,27 +711,92 @@ function reproducirPorque() {
 function reproducirDondeEstas() {
     soundDondeEstas.play();
 }
+// Función para obtener el tipo de voz del backend y actualizar el estado
+function obtenerTipoVozDelBackend() {
+    fetch(urlPerfil, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error en la respuesta del servidor: ' + response.status);
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Asigna la voz masculina si no hay voz registrada en el backend
+        selectedVoice = data.tipo_voz || "es-US-Wavenet-B"; 
+        localStorage.setItem('selectedVoice', selectedVoice);
+        setCheckboxState(); // Asegúrate de que se llame después de asignar selectedVoice
+        actualizarFuentesAudio(); // Actualiza las fuentes de audio basadas en el nuevo valor
+        console.log('Tipo de voz obtenido del servidor:', selectedVoice);
+    })
+    .catch(error => console.error('Error al obtener el perfil:', error));
+}
+
+// Función para enviar el tipo de voz seleccionado al backend
+function guardarTipoVozEnBackend(tipo_voz) {
+    fetch(urlPerfil, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+        },
+        body: JSON.stringify({
+            tipo_voz: tipo_voz  // Asegúrate de que este campo se envíe
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error en la respuesta del servidor: ' + response.status);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Respuesta del servidor:', data);
+        if (data.message) {
+            console.log('Tipo de voz actualizado en el servidor');
+        } else if (data.error) {
+            console.error('Error al actualizar el tipo de voz:', data.error);
+        }
+    })
+    .catch(error => console.error('Error al guardar el tipo de voz:', error));
+}
+
+// Función para establecer el estado del checkbox
+function setCheckboxState() {
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = (checkbox.value === selectedVoice); // Marca el checkbox correspondiente
+    });
+}
 
 
+//Obtener el tipo de voz desde el backend al cargar la página
+obtenerTipoVozDelBackend();
 
+// Establecer el estado inicial del checkbox basado en el valor de localStorage
+setCheckboxState();
+actualizarFuentesAudio();  // Actualizar la fuente de audio al cargar la página
 
+// Manejar cambios en los checkboxes
+checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+        if (checkbox.checked) {
+            checkboxes.forEach(cb => {
+                if (cb !== checkbox) {
+                    cb.checked = false; // Desmarcar otros checkboxes
+                }
+            });
 
+            selectedVoice = checkbox.value; // Actualiza selectedVoice
+            localStorage.setItem('selectedVoice', selectedVoice); // Actualiza el valor en localStorage
+            actualizarFuentesAudio(); // Actualiza las fuentes de audio
 
-//Tamaño de texto
-const buttons = document.querySelectorAll('.text-size-button');
-
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        buttons.forEach(btn => btn.classList.remove('selected'));
-        button.classList.add('selected');
-        if (button.id === 'smallText') {
-            content.style.fontSize = '12px';
-        } else if (button.id === 'mediumText') {
-            content.style.fontSize = '16px';
-        } else if (button.id === 'largeText') {
-            content.style.fontSize = '20px';
+            // Guardar el tipo de voz seleccionado en el backend
+            guardarTipoVozEnBackend(selectedVoice);
         }
     });
 });
-
-// Tamaño de letras

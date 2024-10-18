@@ -115,7 +115,7 @@
       
             <!-- Modo oscuro -->
             <div class="card2">
-              <img src="./img/modoOscuro.png" id="toggle-dark-mode" alt="imgModos" class="imgModos">
+              <img src="./img/modoOscuro.png" alt="imgModos" class="imgModos" id="toggle-dark-mode">
             </div>
           </div>
         </div>
@@ -126,9 +126,6 @@
         <hr class="linea">
       </div>
 
-      <div class="row">
-        <h3 class="texto-h2">Tamaño de texto</h3>
-      </div>
 
       <div class="row">
 
@@ -159,7 +156,7 @@
         </div>
 
         <div class="col-md-2">
-          <button class="btn btnGuardarCambios" id="btnActualizarUsername" type="button">Guardar cambios</button>
+          <button class="btn btnGuardarCambios" id="btnActualizarPerfil" type="button">Guardar cambios</button>
         </div>
       </div>
 
@@ -212,11 +209,15 @@
       <!-- <div class="row">
         <h3 class="texto-h2">Salida de voz</h3>
       </div> -->
-      <div class="botonesAccesibilidad">
-        <button class="boton-flotante" id="boton1"><i class="fa-solid fa-moon"></i></button>
-        <button class="boton-flotante" id="aumentarFuente"><i class="fa-solid fa-plus"></i> </button>
-        <button class="boton-flotante" id="disminuirFuente"><i class="fa-solid fa-minus"></i></button>
-      </div>
+ 
+      <div class="submenu" id="submenu">
+        <button id="toggle-dark-mode">🌙</button>
+        <button id="light-mode">🌞</button>
+        <button id="aumentarFuente">+</button>
+        <button id="disminuirFuente">-</button>
+       </div>
+      <!-- Botón principal flotante verde -->
+      <button class="boton-flotante" id="boton-principal"><i class="fa-solid fa-person"></i></button>
 
       <!-- <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script> -->
       <!-- Vendor JS Files -->
@@ -228,15 +229,13 @@
       <!-- Template Main JS File -->
       <script src="https://unpkg.com/@popperjs/core@2"></script>
       <script src="https://unpkg.com/tippy.js@6"></script>
+      <script src="./js/cuenta/config.js"></script>
       <script src="/TuVooz/Ajustes/js/main.js"></script>
       <script src="./js/cuenta/perfil.js"></script>
-      <script src="./js/accesibilidad.js"></script>
       <script src="./js/modoOscuro.js"></script>
-      <script src="./js/cuenta/config.js"></script>
       <script src="./js/tamañoLetras.js"></script>
       <script src="./js/cuenta/cambiarContraseña.js"></script>
       <script src="./js/cuenta/eliminarCuenta.js"></script>
-      <script src="./js/cuenta/vistasProtegidas.js"></script>
   </body>
 
 </html>

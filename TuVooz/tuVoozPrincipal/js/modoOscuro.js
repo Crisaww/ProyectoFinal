@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const toggleDarkModeButton = document.getElementById('toggle-dark-mode'); // Botón para modo oscuro
-    const lightModeButton = document.getElementById('light-mode'); // Botón para modo claro
+    const toggleDarkModeButton = document.getElementById('toggle-dark-mode');
+    const lightModeButton = document.getElementById('light-mode');
 
-    // Verifica la preferencia de tema almacenada en el servidor
+    // Recupera la preferencia de tema del backend al cargar la página
     fetch(urlPerfil, {
         method: 'GET',
         headers: {
@@ -11,21 +11,21 @@ document.addEventListener('DOMContentLoaded', () => {
     })
         .then(response => response.json())
         .then(data => {
-            const savedTemaColor = data.temaColor; // Usamos 'temaColor' como está en tu vista de Django
+            const savedTemaColor = data.temaColor || 'light';  // Modo claro por defecto
             if (savedTemaColor === 'dark') {
-                setDarkMode();
+                setDarkMode();  // Aplicar el modo oscuro si está configurado
             } else {
-                setLightMode();
+                setLightMode();  // Aplicar el modo claro si es el predeterminado
             }
         })
         .catch(error => console.error('Error fetching user theme:', error));
 
-    // Alterna al modo oscuro al hacer clic en el botón de modo oscuro
+    // Alternar al modo oscuro al hacer clic en el botón
     toggleDarkModeButton.addEventListener('click', () => {
         setDarkMode();
     });
 
-    // Alterna al modo claro al hacer clic en el botón de modo claro
+    // Alternar al modo claro al hacer clic en el botón
     lightModeButton.addEventListener('click', () => {
         setLightMode();
     });
@@ -34,35 +34,30 @@ document.addEventListener('DOMContentLoaded', () => {
     function setDarkMode() {
         document.body.classList.add('dark-mode');
         applyDarkStyles();
-        // Guarda el modo oscuro en el backend
-        updateUserTemaColor('dark');
+        updateUserTemaColor('dark');  // Guardar la preferencia en el backend
     }
 
     // Función para establecer el modo claro
     function setLightMode() {
         document.body.classList.remove('dark-mode');
         applyLightStyles();
-        // Guarda el modo claro en el backend
-        updateUserTemaColor('light');
+        updateUserTemaColor('light');  // Guardar la preferencia en el backend
     }
 
-    // Función para aplicar estilos oscuros
+    // Función para aplicar los estilos del modo oscuro
     function applyDarkStyles() {
         document.documentElement.style.setProperty('--background-color', 'var(--dark-background-color)');
         document.documentElement.style.setProperty('--text-color', 'var(--dark-text-color)');
-        // Agrega más propiedades de estilo según sea necesario
     }
 
-    // Función para aplicar estilos claros
+    // Función para aplicar los estilos del modo claro
     function applyLightStyles() {
         document.documentElement.style.setProperty('--background-color', 'var(--light-background-color)');
         document.documentElement.style.setProperty('--text-color', 'var(--light-text-color)');
-        // Agrega más propiedades de estilo según sea necesario
     }
 
-    // Función para enviar el tema actualizado al servidor
+    // Función para guardar el tema en el backend
     function updateUserTemaColor(temaColor) {
-        console.log('Updating theme to:', temaColor); // Para depuración
         fetch(urlPerfil, {
             method: 'PATCH',
             headers: {
@@ -71,19 +66,17 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             body: JSON.stringify({ temaColor: temaColor })
         })
-            .then(response => {
-                if (!response.ok) {
-                    return response.text().then(text => {
-                        throw new Error(`Error updating theme: ${text}`);
-                    });
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Theme updated:', data);
-            })
-            .catch(error => {
-                console.error('Error updating theme:', error);
-            });
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error updating theme');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Tema actualizado en el servidor:', data);
+        })
+        .catch(error => {
+            console.error('Error al actualizar el tema en el backend:', error);
+        });
     }
 });

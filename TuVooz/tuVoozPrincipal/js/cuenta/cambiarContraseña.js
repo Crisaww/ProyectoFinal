@@ -173,6 +173,41 @@ function validarPassword(password) {
       });
     }
   }
+
+
+  // Función para deshabilitar el pegado y mostrar el tippy instantáneamente
+function deshabilitarPegado(campo) {
+  campo.addEventListener("paste", function (e) {
+      e.preventDefault(); // Evita que se pegue cualquier contenido
+      
+      // Configura y muestra el tippy instantáneamente
+      if (!campo.tippyInstance) {
+          campo.tippyInstance = tippy(campo, {
+              content: "No se permite pegar.",
+              trigger: 'manual',
+              theme: 'material',
+              placement: 'right' // Puedes ajustar la posición
+          });
+      } else {
+          campo.tippyInstance.setContent("No se permite pegar.");
+      }
+
+      campo.tippyInstance.show(); // Muestra el mensaje de Tippy al instante
+      
+      // Oculta el tippy después de 2 segundos
+      setTimeout(() => {
+          campo.tippyInstance.hide();
+      }, 2000);
+  });
+}
+
+// Aplicar deshabilitarPegado a los campos de nueva contraseña y confirmar contraseña
+const nuevaContrasenaField = document.getElementById("nuevaContrasena");
+const confirmarContrasenaField = document.getElementById("confirmarContrasena");
+
+deshabilitarPegado(nuevaContrasenaField);
+deshabilitarPegado(confirmarContrasenaField);
+
   
 // Función para obtener el token JWT
 async function obtenerToken(username, password) {

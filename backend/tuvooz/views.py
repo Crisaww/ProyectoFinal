@@ -1,3 +1,11 @@
+# Django imports
+from django.http import JsonResponse
+from django.utils.encoding import force_str, force_bytes
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.contrib.auth.password_validation import validate_password
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
+
+# Existing imports from your code
 from django.forms import ValidationError
 from django.contrib.auth import get_user_model
 from django.db.models import Q
@@ -5,17 +13,20 @@ from django.contrib.auth import logout as django_logout
 from django.utils import timezone
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework import status
-from .serializer import UserSerializer
-import threading
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.conf import settings
-from .models import UserExtend as User  # Asegúrate de que uses tu modelo de usuario personalizado
 from rest_framework.views import APIView
 
+# Standard library imports
+import threading
+
+# Local imports (asumiendo que estos archivos existen en tu proyecto)
+from .serializer import UserSerializer
+from .models import UserExtend as User
 
 class IniciarSesion(APIView):
     permission_classes = [AllowAny]
@@ -72,6 +83,11 @@ class Registro(APIView):
 
         if serializer.is_valid():
             user = serializer.save()
+
+             # Asignar la voz por defecto
+            user.tipo_voz = 'es-US-Wavenet-B'  # Asignar la voz masculina por defecto
+            user.save()  # Guardar los cambios en el usuario
+
             refresh = RefreshToken.for_user(user)
             access_token = str(refresh.access_token)
             refresh_token = str(refresh)
@@ -96,77 +112,90 @@ class Registro(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def send_welcome_email(self, to_email):
-        subject = 'Bienvenid@ a Tu Vooz'
-        from_email = settings.EMAIL_HOST_USER
-        text_content = 'Gracias por registrarte en Tu Vooz.'
-        html_content = render_to_string('correoRegistro.html', {'subject': subject, 'message': text_content})
+        def send_email():
+            subject = 'Bienvenid@ a Tu Vooz'
+            from_email = settings.EMAIL_HOST_USER
+            text_content = 'Gracias por registrarte en Tu Vooz.'
+            html_content = render_to_string('correoRegistro.html', {'subject': subject, 'message': text_content})
 
-        email = EmailMultiAlternatives(subject, text_content, from_email, [to_email])
-        email.attach_alternative(html_content, "text/html")
-        email.send()
+            email = EmailMultiAlternatives(subject, text_content, from_email, [to_email])
+            email.attach_alternative(html_content, "text/html")
+            email.send()
+        
+        email_thread = threading.Thread(target=send_email)
+        email_thread.start()
 
-
-class TemaService:
-    def __init__(self, user):
-        self.user = user
-
-    def actualizar_tema(self, nuevo_tema):
-        # Cambiar el tema si se proporciona un valor válido
-        if nuevo_tema in ['light', 'dark']:
-            self.user.temaColor = nuevo_tema
-            self.user.save()
-            return True
-        return False
 
 class Perfil(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
         user = request.user
-        data = {
+        return Response({
             'username': user.username,
-            'date_joined': user.date_joined.strftime('%Y-%m-%d'),
-            'temaColor': user.temaColor,
-        }
-        return Response(data, status=status.HTTP_200_OK)
+            'tipo_voz': user.tipo_voz or 'es-US-Wavenet-B',  # Asignar voz por defecto si no hay
+            'temaColor': user.temaColor or 'light',  # Asignar tema claro por defecto si no hay
+        }, status=status.HTTP_200_OK)
 
     def patch(self, request):
         user = request.user
         new_username = request.data.get('username')
-        new_theme = request.data.get('temaColor')
+        new_tipo_voz = request.data.get('tipo_voz')  # Obtener el tipo de voz del request
+        new_tema_color = request.data.get('temaColor')  # Obtener el tema del request
+        changes_made = False
 
-        # Cambiar el nombre de usuario si se proporciona uno nuevo y no está en uso
-        if new_username and new_username != user.username:
-            if User.objects.filter(username=new_username).exists():
-                return Response({'error': 'El nombre de usuario ya está en uso.'}, status=status.HTTP_400_BAD_REQUEST)
-            user.username = new_username
+        try:
+            # Validar y actualizar el nombre de usuario
+            if new_username and new_username != user.username:
+                if User.objects.filter(username=new_username).exists():
+                    return Response({'error': 'El nombre de usuario ya está en uso.'}, status=status.HTTP_400_BAD_REQUEST)
+                user.username = new_username
+                changes_made = True
 
-        # Manejo del cambio de tema
-        tema_service = TemaService(user)
-        if new_theme:
-            if not tema_service.actualizar_tema(new_theme):
-                return Response({'error': 'Tema no válido.'}, status=status.HTTP_400_BAD_REQUEST)
+            # Validar y actualizar el tipo de voz
+            if new_tipo_voz and new_tipo_voz != user.tipo_voz:
+                if new_tipo_voz in ['es-US-Wavenet-B', 'es-US-Wavenet-A']:
+                    user.tipo_voz = new_tipo_voz
+                    changes_made = True
 
-        user.save()
+            # Validar y actualizar el tema de color
+            if new_tema_color and new_tema_color in ['light', 'dark']:
+                if new_tema_color != user.temaColor:
+                    user.temaColor = new_tema_color
+                    changes_made = True
 
-        # Aquí puedes enviar el correo de actualización si lo deseas
-        if new_username:
-            self.send_update_email(user, new_username)
+            # Guardar todos los cambios al usuario
+            if changes_made:
+                user.save()
+                self.send_update_email(user, new_username)
+                return Response({'message': 'Datos de usuario actualizados correctamente.'}, status=status.HTTP_200_OK)
+            else:
+                return Response({'message': 'No se realizaron cambios en el perfil.'}, status=status.HTTP_200_OK)
 
-        return Response({'message': 'Datos de usuario actualizados correctamente.'}, status=status.HTTP_200_OK)
-    
+        except Exception as e:
+            print(f"Error en patch: {str(e)}")  # O usar logging
+            return Response({'error': 'Error al guardar los cambios. Detalles: {}'.format(str(e))}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
     def send_update_email(self, user, new_username):
-        subject = 'Actualización de perfil en Tu Vooz'
-        from_email = settings.EMAIL_HOST_USER
-        to = user.email
-        text_content = 'Tu perfil en Tu Vooz ha sido actualizado.'
-        context = {'user': user, 'nuevo_username': new_username}
-        html_content = render_to_string('correoActualizacionPerfil.html', context)
+        def send_email():
+            subject = 'Actualización de perfil en Tu Vooz'
+            from_email = settings.EMAIL_HOST_USER
+            to = user.email
+            text_content = 'Tu perfil en Tu Vooz ha sido actualizado.'
+            context = {
+                'user': user,
+                'nuevo_username': new_username if new_username else None,
+            }
+            html_content = render_to_string('correoActualizacionPerfil.html', context)
 
-        email = EmailMultiAlternatives(subject, text_content, from_email, [to])
-        email.attach_alternative(html_content, "text/html")
-        email.send()
-        
+            email = EmailMultiAlternatives(subject, text_content, from_email, [to])
+            email.attach_alternative(html_content, "text/html")
+            email.send()
+
+        email_thread = threading.Thread(target=send_email)
+        email_thread.start()
+
+
 class CambiarContrasenna(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -226,7 +255,7 @@ class olvide_contrasena(APIView):
 
             # URL del frontend con el token y uid
             #frontend_url = 'http://127.0.0.1:5502'
-            frontend_url = 'http://tuvooz.com'
+            frontend_url = 'https://tuvooz.com'
 
             # Renderizar la plantilla con el contexto adecuado
             html_content = render_to_string('correoRestablecerContrasena.html', {

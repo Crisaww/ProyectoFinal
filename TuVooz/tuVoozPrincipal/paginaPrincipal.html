@@ -33,7 +33,9 @@
   <link href="./css/estilos.css" rel="stylesheet">
   <link rel="stylesheet" href="./css/modoOscuro.css">
   <link href="./css/tamañoLetra.css" rel="stylesheet">
-  <link rel="stylesheet" href="../tuVoozPrincipal/css/paginaPrincipal.css">
+  <link rel="stylesheet" href="../tuVoozPrincipal/css/accesibilidad.css">
+  <link href="./css/accesibilidad.css" rel="stylesheet">
+
 
   <!-- =======================================================
     * Template Name: Techie
@@ -125,6 +127,7 @@
     </div>
 
 
+<<<<<<< HEAD
     <div class="contenedor_boton">
       <button onclick="convertirTexto()" class="botonReproducirTexto">
         <div class="svg-wrapper-1">
@@ -142,6 +145,8 @@
 
     </div>
 
+=======
+>>>>>>> 40ca4ce944fa009400dd8c36c4e9a1d7915d23fe
     <div class="contenedor_boton2">
 
       <div class="vozFemenina">
@@ -165,11 +170,34 @@
       
     </div>
 
-    <div class="botonesAccesibilidad">
-      <button class="boton-flotante" id="boton1"><i class="fa-solid fa-moon"></i></button>
-      <button class="boton-flotante" id="aumentarFuente"><i class="fa-solid fa-plus"></i> </button>
-      <button class="boton-flotante" id="disminuirFuente"><i class="fa-solid fa-minus"></i></button>
+
+    <div class="contenedor_boton">
+      <button onclick="convertirTexto()" class="botonReproducirTexto">
+        <div class="svg-wrapper-1">
+          <div class="svg-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path fill="none" d="M0 0h24v24H0z"></path>
+              <path fill="currentColor"
+                d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z">
+              </path>
+            </svg>
+          </div>
+        </div>
+        <span>Reproducir sonido</span>
+      </button>
+
     </div>
+
+    
+
+    <div class="submenu" id="submenu">
+      <button id="toggle-dark-mode">🌙</button>
+      <button id="light-mode">🌞</button>
+      <button id="aumentarFuente">+</button>
+      <button id="disminuirFuente">-</button>
+     </div>
+    <!-- Botón principal flotante verde -->
+    <button class="boton-flotante" id="boton-principal"><i class="fa-solid fa-person"></i></button>
     
     <!-- Vendor JS Files -->
     <script src="/TuVooz/Ajustes/vendor/aos/aos.js"></script>
@@ -179,9 +207,9 @@
 
     <!-- Template Main JS File -->
     <script src="/TuVooz/Ajustes/js/main.js"></script>
-    <script src="./js/texto.js"></script>
-    <script src="./js/accesibilidad.js"></script>
     <script src="./js/cuenta/config.js"></script>
+    <script src="./js/accesibilidad.js"></script>
+    <script src="./js/texto.js"></script>
     <script src="./js/modoOscuro.js"></script>
     <script src="./js/paginaPrincipal.js"></script>
     <script src="./js/tamañoLetras.js"></script>
