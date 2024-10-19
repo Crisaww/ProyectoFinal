@@ -800,3 +800,27 @@ checkboxes.forEach(checkbox => {
         }
     });
 });
+
+// Boton de accesibilidad 
+
+
+// Variables
+const botonPrincipal = document.getElementById('boton-principal');
+const submenu = document.getElementById('submenu');
+const botonModo = document.getElementById('boton-modo');
+const body = document.body;
+const iconoModo = document.getElementById('icono-modo');
+
+// Funcionalidad de despliegue del submenú
+botonPrincipal.addEventListener('click', (event) => {
+    event.stopPropagation(); // Previene que el clic se propague al documento y cierre el submenú inmediatamente
+    submenu.style.display = submenu.style.display === 'flex' ? 'none' : 'flex';
+});
+
+// Función para cerrar el submenú al hacer clic en cualquier parte de la pantalla
+document.addEventListener('click', (event) => {
+    const isClickInside = submenu.contains(event.target) || botonPrincipal.contains(event.target);
+    if (!isClickInside) {
+        submenu.style.display = 'none'; // Cierra el submenú
+    }
+});

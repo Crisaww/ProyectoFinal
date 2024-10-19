@@ -80,3 +80,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+function updateUserTemaColor(temaColor) {
+    fetch(urlPerfil, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('access_token'),
+        },
+        body: JSON.stringify({ temaColor: temaColor })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error updating theme');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Tema actualizado en el servidor:', data);
+    })
+    .catch(error => {
+        console.error('Error al actualizar el tema en el backend:', error);
+    });
+}
