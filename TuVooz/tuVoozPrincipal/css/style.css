@@ -1873,3 +1873,66 @@ FIN COMO USAR TU VOOZ
   background-color: #3700b3;
   /* Color más oscuro al hacer hover */
 }
+
+/*estilos del idioma */
+.nav-item {
+  position: relative;
+}
+
+#language-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+}
+
+
+#flags {
+  display: none; /* Oculto por defecto */
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 1;
+  top: 40px; /* Ajusta según el espacio necesario */
+}
+
+#flags .flags_item {
+  display: flex; 
+  align-items: center; /* Centra verticalmente la bandera y el nombre */
+  padding: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#flags .flags_item:hover {
+  background-color: #e0e0e0;
+}
+
+.flag-icon {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px; 
+}
+
+.nav-item:hover #flags {
+  display: block; 
+}
+
+.dropdown-content {
+  display: flex;
+  flex-direction: column; /* Coloca los elementos en una columna */
+  gap: 10px;
+  justify-content: center;
+}
+
+.language-name {
+  color: #000000;
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+}

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Texto</title>
+  <title id="titulourl">TuVooz</title>
 
 
   <!-- Favicons -->
@@ -26,6 +26,8 @@
   <link href="/TuVooz/Ajustes/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/TuVooz/Ajustes/fontawesome/css/all.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
 
   <!-- Template Main CSS File -->
@@ -60,9 +62,9 @@
 
         <nav id="navbar" class="navbar">
           <ul style="padding: 0px 40px 0px 0px;">
-            <li><a class="nav-link scrollto active" href="./paginaPrincipal.html">Texto</a></li>
-            <li><a class="nav-link scrollto" href="indexPalabrasComunes.html">Palabras comunes</a></li>
-            <li><a class="nav-link scrollto" href="./comoUsarTuvooz.html">¿Cómo usar TuVooz?</a></li>
+            <li><a class="nav-link scrollto active" href="./paginaPrincipal.html" id="BarraTexto">Texto</a></li>
+            <li><a class="nav-link scrollto" href="indexPalabrasComunes.html" id="BarraPalabras">Palabras comunes</a></li>
+            <li><a class="nav-link scrollto" href="./comoUsarTuvooz.html" id="BarraComoUsar">¿Cómo usar TuVooz?</a></li>
 
             <div class="dropdown">
               <a href="#" class="dropdow text-light" data-bs-toggle="dropdown"><i class="fa-solid fa-gear"
@@ -70,16 +72,33 @@
               </a>
 
               <div class="dropdown-menu rounded" id="menuDespliegue">
-                <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> Mi cuenta</a>
-                <button class="dropdown-item" onclick="logout()"><i class="fas fa-power-off me-2"></i>Cerrar
-                  sesión</button>
+                <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i><div id="miCuenta"> Mi cuenta</div></a>
+                <button class="dropdown-item" onclick="logout()" ><i class="fas fa-power-off me-2"></i><div id="CerrarSesion">Cerrar sesión</div></button>
               </div>
+            </div> 
+            <i class="bi bi-list mobile-nav-toggle"></i>
+            
+            <div>
+              <li class="nav-item dropdown">
+                <button class="dropbtn btn" id="language-btn" data-section="projects" data-value="there-project-title">
+                    <img class="flag-icon" src="../tuVoozPrincipal/img/espanol.svg" alt="Español"> 
+                    <b id="idioma">Español</b> 
+                </button>
+                <div id="flags" class="dropdown-content">
+                    <div class="flags_item" data-language="es">
+                        <img src="../tuVoozPrincipal/img/espanol.svg" class="flag-icon" alt="Español">
+                        <span class="language-name">Español</span>
+                    </div>
+                    <div class="flags_item" data-language="en">
+                        <img src="../tuVoozPrincipal/img/english.svg" class="flag-icon" alt="English">
+                        <span class="language-name">English</span>
+                    </div>
+                </div>
+             </li>
             </div>
-
+            
+           
           </ul>
-
-
-          <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
 
       </div>
@@ -103,7 +122,7 @@
 
     <div class="cajaBotonTitulo">
       <div class="cajaTituloTexto">
-        <h1 class="tituloTexto">Texto a voz</h1>
+        <h1 class="tituloTexto" id="textoVoz">Texto a voz</h1>
       </div>
     </div>
 
@@ -157,7 +176,7 @@
             </svg>
           </div>
         </div>
-        <span>Reproducir sonido</span>
+        <span id="sonido">Reproducir sonido</span>
       </button>
 
     </div>
@@ -187,6 +206,7 @@
     <script src="./js/paginaPrincipal.js"></script>
     <script src="./js/tamañoLetras.js"></script>
     <script src="./js/cuenta/vistasProtegidas.js"></script>
+    <script src="./js/CambioIdioma.js"></script>
 
   </body>
 
