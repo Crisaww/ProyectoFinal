@@ -103,3 +103,39 @@ body.dark-mode {
       font-size: 18px; /* Ajusta el tamaño del texto o ícono */
   }
 }
+  .LunaModo{
+    width: 60%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+  }
+  /* Mostrar la imagen por defecto */
+  .LunaModo{
+  display: inline-block;
+}
+/* Ocultar la imagen de hover inicialmente */
+.LunaModo-hover {
+  display: none;
+}
+.lunaHoverModo{
+  width: 60%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+}
+
+/* Mostrar la imagen de hover cuando el mouse esté sobre el botón */
+.lunaHoverModo-button:hover .lunaHoverModo-default {
+  display: none;
+}
+
+.lunaHoverModo-button:hover .lunaHoverModo-hover {
+  display: inline-block;
+}
+.solModoOscuro{
+  width: 60%;
+}
