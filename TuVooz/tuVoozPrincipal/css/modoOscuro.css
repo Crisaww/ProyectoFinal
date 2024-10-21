@@ -105,11 +105,10 @@ body.dark-mode {
 }
   .LunaModo{
     width: 60%;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
   }
   /* Mostrar la imagen por defecto */
   .LunaModo{
@@ -137,5 +136,13 @@ body.dark-mode {
   display: inline-block;
 }
 .solModoOscuro{
+width: 60%;
+}
+.solHoverModo{
   width: 60%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
 }

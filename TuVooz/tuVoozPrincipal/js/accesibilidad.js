@@ -817,10 +817,25 @@ botonPrincipal.addEventListener('click', (event) => {
     submenu.style.display = submenu.style.display === 'flex' ? 'none' : 'flex';
 });
 
-// Función para cerrar el submenú al hacer clic en cualquier parte de la pantalla
+// // Función para cerrar el submenú al hacer clic en cualquier parte de la pantalla
+// document.addEventListener('click', (event) => {
+//     const isClickInside = submenu.contains(event.target) || botonPrincipal.contains(event.target);
+//     if (!isClickInside) {
+//         submenu.style.display = 'none'; // Cierra el submenú
+//     }
+// });
+
+
 document.addEventListener('click', (event) => {
     const isClickInside = submenu.contains(event.target) || botonPrincipal.contains(event.target);
-    if (!isClickInside) {
-        submenu.style.display = 'none'; // Cierra el submenú
+
+    // Verifica si se hizo clic en un botón dentro del submenú
+    const isButtonClick = submenu.querySelectorAll('button').length > 0 && event.target.closest('button');
+
+    // Si se hace clic fuera del submenú o en cualquier botón dentro del submenú, se cierra con un retraso de 3 segundos
+    if (!isClickInside || isButtonClick) {
+        setTimeout(() => {
+            submenu.style.display = 'none'; // Cierra el submenú después de 3 segundos (3000 ms)
+        }, 2000);
     }
 });
