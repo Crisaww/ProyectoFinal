@@ -30,6 +30,22 @@ const translations = {
         manualpdf:"Open PDF Manual",
         flagSrc: "../tuVoozPrincipal/img/english.svg", 
         flagAlt: "English" 
+    },
+    fr:{
+       //Barra Navegacion
+       BarraTexto: "Texte",
+       BarraPalabras: "Mots courants",
+       BarraComoUsar: "Comment utiliser TuVooz",
+       miCuenta: "Mon compte",
+       CerrarSesion: "Se déconnecter",
+       idioma: "Langue",
+       //como usar tu vooz
+       urlComoUsar:"Comment utiliser TuVooz?",
+       tituloComoUsarTuVooz:"Comment utiliser TuVooz?",
+       prrafoComoUsarTuVooz:"TuVooz est une application très facile à utiliser, si vous ne comprenez pas comment l'utiliser, voici un petit manuel d'utilisation de notre application.",
+       manualpdf:"Ouvrir le manuel PDF", 
+       flagSrc: "../tuVoozPrincipal/img/france.svg", 
+       flagAlt: "Français" 
     }
 };
 

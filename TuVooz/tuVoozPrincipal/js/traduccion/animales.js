@@ -68,6 +68,41 @@ const translations = {
         boton20:"Fish",
         flagSrc: "../tuVoozPrincipal/img/english.svg", 
         flagAlt: "English" 
+    }, 
+    fr:{
+        //Barra Navegacion
+        BarraTexto: "Texte",
+        BarraPalabras: "Mots courants",
+        BarraComoUsar: "Comment utiliser TuVooz",
+        miCuenta: "Mon compte",
+        CerrarSesion: "Se déconnecter",
+        idioma: "Langue", 
+        //emociones
+        urlAnimales:"Animaux",
+        tituloAnimales:"Animaux",
+        boton0:"Chien",
+        boton1:"Chat",
+        boton2:"Eléphant",
+        boton3:"Lion",
+        boton4:"Tigre",
+        boton5:"Ours",
+        boton6:"Cheval",
+        boton7:"Dauphin",
+        boton8:"Aigle",
+        boton9:"Pingouin ",
+        boton10:"Zèbre",
+        boton11:"girafe",
+        boton12:"Loup",
+        boton13:"Koala",
+        boton14:"Panda",
+        boton15:"perroquet",
+        boton16:"Tortue",
+        boton17:"Canard",
+        boton18:"Gallin",
+        boton19:"Poulet",
+        boton20:"poisson",
+        flagSrc: "../tuVoozPrincipal/img/france.svg", 
+        flagAlt: "Français" 
     }
 };
 

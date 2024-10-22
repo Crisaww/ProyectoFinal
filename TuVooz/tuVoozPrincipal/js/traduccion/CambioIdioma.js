@@ -32,6 +32,21 @@ const translations = {
         vozMasculina: "Male voice",
         flagSrc: "../tuVoozPrincipal/img/english.svg", 
         flagAlt: "English" 
+    },
+    fr: {
+        titulourl: "tuVooz",
+        BarraTexto: "Texte",
+        BarraPalabras: "Mots courants",
+        BarraComoUsar: "Comment utiliser TuVooz",
+        miCuenta: "Mon compte",
+        CerrarSesion: "Déconnexion",
+        idioma: "Langue", 
+        textoVoz: "Texte à voix",
+        sonido: "Jouer le son",
+        vozFemenina: "Voix féminine",
+        vozMasculina: "Voix masculine",
+        flagSrc: "../tuVoozPrincipal/img/france.svg", 
+        flagAlt: "Français" 
     }
 };
 

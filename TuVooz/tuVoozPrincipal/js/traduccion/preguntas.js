@@ -66,6 +66,40 @@ const translations = {
         boton19:"Where are you?",
         flagSrc: "../tuVoozPrincipal/img/english.svg", 
         flagAlt: "English" 
+    }, 
+    fr:{
+        //Barra Navegacion
+       BarraTexto: "Texte",
+       BarraPalabras: "Mots courants",
+       BarraComoUsar: "Comment utiliser TuVooz",
+       miCuenta: "Mon compte",
+       CerrarSesion: "Se déconnecter",
+       idioma: "Langue",
+       //preguntas
+       urlPregunats:"Questions",
+       tituloPreguntas:"Questions",
+       boton0:"Comment vous sentez-vous ?",
+       boton1:"Que faites-vous ?",
+       boton2:"Comment vous sentez-vous ?",
+       boton3:"Comment s'est passée votre journée ?",
+       boton4:"Tu l'aimes bien ?",
+       boton5:"¿Tu m'aimes bien ??",
+       boton6:"Tu n'aimes pas?",
+       boton7:"Comment ça se passe ?",
+       boton8:"Êtes-vous heureux ?",
+       boton9:"Avez-vous voyagé ?",
+       boton10:"Êtes-vous en colère ?",
+       boton11:"Êtes-vous en colère ?",
+       boton12:"Qu'est-ce qui ne vous plaît pas ?",
+       boton13:"Qu'est-ce qui ne va pas ?",
+       boton14:"As-tu des loisirs ?",
+       boton15:"Quelle musique aimes-tu ?",
+       boton16:"De quoi as-tu peur ?",
+       boton17:"Es-tu triste ?",
+       boton18:"Pourquoi es-tu triste?",
+       boton19:"Où es-tu ?",
+       flagSrc: "../tuVoozPrincipal/img/france.svg", 
+       flagAlt: "Français" 
     }
 };
 

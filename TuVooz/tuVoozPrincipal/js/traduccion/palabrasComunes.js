@@ -14,7 +14,10 @@ const translations = {
         emociones:"Emociones",
         animales:"Animales",
         preguntas:"Preguntas",
-        IngresoCartas:"Ingresar",
+        IngresoCartas0:"Ingresar",
+        IngresoCartas1:"Ingresar",
+        IngresoCartas2:"Ingresar",
+        IngresoCartas3:"Ingresar",
         flagSrc: "../tuVoozPrincipal/img/espanol.svg", 
         flagAlt: "Español" 
     },
@@ -33,10 +36,36 @@ const translations = {
         emociones:"Emotions",
         animales:"Animals",
         preguntas:"Questions",
-        IngresoCartas:"Get into",
+        IngresoCartas0:"Get into",
+        IngresoCartas1:"Get into",
+        IngresoCartas2:"Get into",
+        IngresoCartas3:"Get into",
         flagSrc: "../tuVoozPrincipal/img/english.svg", 
         flagAlt: "English" 
+    },
+    fr: { 
+        //Barra Navegacion
+        BarraTexto: "Texte",
+        BarraPalabras: "Mots courants",
+        BarraComoUsar: "Comment utiliser TuVooz",
+        miCuenta: "Mon compte",
+        CerrarSesion: "Se déconnecter",
+        idioma: "Langue", 
+        //frases y palabras
+        urlPaComunes: "Mots courants",
+        tituloPalComunes: "Mots courants",
+        saludosDespedidas: "Salutations/Au revoir",
+        emociones: "Émotions",
+        animales: "Les animaux",
+        preguntas: "Questions",
+        IngresoCartas0: "Entrer",
+        IngresoCartas1: "Entrer",
+        IngresoCartas2: "Entrer",
+        IngresoCartas3: "Entrer",
+        flagSrc: "../tuVoozPrincipal/img/france.svg", 
+        flagAlt: "Français" 
     }
+    
 };
 
 function changeLanguage(lang) {
@@ -56,7 +85,10 @@ function changeLanguage(lang) {
     document.getElementById('emociones').innerText = translations[lang].emociones;
     document.getElementById('animales').innerText = translations[lang].animales;
     document.getElementById('preguntas').innerText = translations[lang].preguntas;
-    document.getElementById('IngresoCartas').innerText = translations[lang].IngresoCartas;
+    document.getElementById('IngresoCartas0').innerText = translations[lang].IngresoCartas0;
+    document.getElementById('IngresoCartas1').innerText = translations[lang].IngresoCartas1;
+    document.getElementById('IngresoCartas2').innerText = translations[lang].IngresoCartas2;
+    document.getElementById('IngresoCartas3').innerText = translations[lang].IngresoCartas3;
 
      // Actualizar texto bandera-boton
      const languageButtonText = document.getElementById('idioma');

@@ -53,7 +53,34 @@ const translations = {
         boton12:"Bye",
         flagSrc: "../tuVoozPrincipal/img/english.svg", 
         flagAlt: "English" 
+    },
+    fr: {
+        //Barra Navegacion
+        BarraTexto: "Texte",
+        BarraPalabras: "Mots courants",
+        BarraComoUsar: "Comment utiliser TuVooz",
+        miCuenta: "Mon compte",
+        CerrarSesion: "Se déconnecter",
+        idioma: "Langue", 
+        //saludosDespedidas
+        tituloSaludos:"Salutations et adieux",
+        boton0:"Bonjour",
+        boton1:"Bon après-midi ",
+        boton2:"Bonsoir à tous",
+        boton3:"Good night",
+        boton4:"Enchanté de vous rencontrer",
+        boton5:"Enchanté de vous voir",
+        boton6:"C'est un plaisir de vous rencontrer",
+        boton7:"Au revoir",
+        boton8:"A bientôt",
+        boton9:"A plus tard",
+        boton10:"A demain",
+        boton11:"A bientôt",
+        boton12:"Au revoir",
+        flagSrc: "../tuVoozPrincipal/img/france.svg", 
+        flagAlt: "Français"
     }
+   
 };
 
 function changeLanguage(lang) {

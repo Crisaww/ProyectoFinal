@@ -50,6 +50,32 @@ const translations = {
         btnEliminar:"Delete account",
         flagSrc: "../tuVoozPrincipal/img/english.svg", 
         flagAlt: "English" 
+    },
+    fr:{
+        //Barra Navegacion
+       BarraTexto: "Texte",
+       BarraPalabras: "Mots courants",
+       BarraComoUsar: "Comment utiliser TuVooz",
+       miCuenta: "Mon compte",
+       CerrarSesion: "Se déconnecter",
+       idioma: "Langue",
+       //mi Cuenta
+       urlMicuenta:"Mon compte",
+       tituloAccesibilidad:"L'accessibilité",
+       tituloMiCuenta:"Mon compte",
+       cambioUsuario:"Changer d'utilisateur",
+       nombreactual:"Nom de l'utilisateur actuel",
+       nuevoNombre:"Nouveau nom d'utilisateur",
+       btnActualizarPerfil:"Sauvegarder les changements",
+       cambioContrasena:"Modifier le mot de passe",
+       contrasenaActual:"Mot de passe actuel",
+       nuvaContrasena:"Nouveau mot de passe",
+       confirmacionContrasena:"Confirmer le nouveau mot de passe",
+       btnActualizarEmail:"Sauvegarder les modifications",
+       tituloEliminarCuenta:"Supprimer le compte",
+       btnEliminar:"Supprimer le compte",
+       flagSrc: "../tuVoozPrincipal/img/france.svg", 
+       flagAlt: "Français" 
     }
 };
 
