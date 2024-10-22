@@ -4,6 +4,8 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from django.contrib.auth.views import LoginView
 from rest_framework.documentation import include_docs_urls
 from .viewAI import predict_text, synthesize
+from .viewAI import synthesize
+from .descargaIA import synthesizetts
 from tuvooz import views
 from django.conf.urls.static import static
 from .views import olvide_contrasena, CambiarContrasenna, Registro, IniciarSesion, Perfil, RestablecerContrasena, LogoutView, EliminarCuenta, error_404_view
@@ -37,6 +39,7 @@ urlpatterns = [
     re_path('predict_text/', predict_text, name='predict_text'),
 
     
+    path('synthesizetts/', synthesizetts, name='synthesizetts'),
     # Rutas para manejar vistas protegidas
     path('tuVoozPrincipal/paginaPrincipal/', views.pagina_principal, name='pagina_principal'),
     path('tuVoozPrincipal/indexPalabrasComunes/', views.index_palabras_comunes, name='index_palabras_comunes'),

@@ -1646,10 +1646,23 @@ INICIO TARJETAS SELECCION
   padding-bottom: 1em;
 }
 
-.infotop {
+.infotop
+{
   text-align: center;
   font-size: 20px;
   position: absolute;
+  top: 5.6em;
+  left: 0;
+  right: 0;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+}
+#animales,
+#preguntas, 
+#emociones,
+#saludosDespedidas{
+  text-align: center;
+  font-size: 20px;
   top: 5.6em;
   left: 0;
   right: 0;
@@ -1677,7 +1690,7 @@ INICIO TARJETAS SELECCION
 .btnCartas {
   width: 6.5em;
   height: 2.3em;
-  margin: 0.5em;
+  margin: 0.0em;
   background: rgb(191 182 255);
   color: #303041;
   border: none;
@@ -1915,8 +1928,8 @@ FIN COMO USAR TU VOOZ
 }
 
 .flag-icon {
-  width: 25px;
-  height: 25px;
+  width: 26px;
+  height: 26px;
   margin-right: 10px; 
 }
 
