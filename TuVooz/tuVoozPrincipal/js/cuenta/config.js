@@ -12,6 +12,7 @@ let urlOlvideContrasena = urlBasica+"tuvooz/api/v1/olvideContrasena/";
 let urlRestablecerContrasena = urlBasica+"tuvooz/api/v1/restablecerContrasena/";
 let urlCerrarSesion = urlBasica + "tuvooz/api/v1/logout/";
 let urlGenerarTexto=urlBasica+"synthesize/";
+let urlSugerirTexto=urlBasica+"predict_text/";
 let urlRefrescarToken = urlBasica + "api/token/refresh/";
 let urlObtenerToken = urlBasica + "api/token/";
 let urlCambiarContrasenna = urlBasica + "tuvooz/api/v1/cambiarContrasenna/";
