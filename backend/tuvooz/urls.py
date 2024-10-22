@@ -3,7 +3,7 @@ from django.urls import path, include, re_path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from django.contrib.auth.views import LoginView
 from rest_framework.documentation import include_docs_urls
-from .viewAI import synthesize
+from .viewAI import predict_text, synthesize
 from tuvooz import views
 from django.conf.urls.static import static
 from .views import olvide_contrasena, CambiarContrasenna, Registro, IniciarSesion, Perfil, RestablecerContrasena, LogoutView, EliminarCuenta, error_404_view
@@ -34,6 +34,8 @@ urlpatterns = [
     
     # Ruta para sintetizar audio
     re_path('synthesize/', synthesize, name='synthesize'),
+    re_path('predict_text/', predict_text, name='predict_text'),
+
     
     # Rutas para manejar vistas protegidas
     path('tuVoozPrincipal/paginaPrincipal/', views.pagina_principal, name='pagina_principal'),
