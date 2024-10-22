@@ -9,272 +9,272 @@ const audios = {
     //Variable de Saludos
 
     hola: {
-        masculino: "./sonido/Hola.wav",
-        femenino: "./sonido/MujerHola.mp3"
+        masculino: "./sonido/espanol/Hola.wav",
+        femenino: "./sonido//espanol/MujerHola.mp3"
     },
     buenosDias: {
-        masculino: "./sonido/Buenos_dias.wav",
-        femenino: "./sonido/MujerBuenosDias.mp3"
+        masculino: "./sonido/espanol/Buenos_dias.wav",
+        femenino: "./sonido/espanol/MujerBuenosDias.mp3"
     },
     buenasTardes: {
-        masculino: "./sonido/Buenas_tardes.wav",
-        femenino: "./sonido/MujerBuenasTardes.mp3"
+        masculino: "./sonido/espanol/Buenas_tardes.wav",
+        femenino: "./sonido/espanol/MujerBuenasTardes.mp3"
     },
     buenasNoches: {
-        masculino: "./sonido/Buenas_noches.wav",
-        femenino: "./sonido/MujerBuenasNoches.mp3"
+        masculino: "./sonido/espanol/Buenas_noches.wav",
+        femenino: "./sonido/espanol/MujerBuenasNoches.mp3"
     },
     encantadoDeConocerte: {
-        masculino: "./sonido/Encantado_de_conocerte.wav",
-        femenino: "./sonido/MujerEncantadoDeConocerte.mp3"
+        masculino: "./sonido/espanol/Encantado_de_conocerte.wav",
+        femenino: "./sonido/espanol/MujerEncantadoDeConocerte.mp3"
     },
     queGustoVerte: {
-        masculino: "./sonido/Que_gusto_verte.wav",
-        femenino: "./sonido/MujerQueGustoVerte.mp3"
+        masculino: "./sonido/espanol/Que_gusto_verte.wav",
+        femenino: "./sonido/espanol/MujerQueGustoVerte.mp3"
     },
     esUnPlacerConocerte: {
-        masculino: "./sonido/Es_un_placer_conocerte.wav",
-        femenino: "./sonido/MujerEsUnPlacerConocerte.mp3"
+        masculino: "./sonido/espanol/Es_un_placer_conocerte.wav",
+        femenino: "./sonido/espanol/MujerEsUnPlacerConocerte.mp3"
     },
     adios: {
-        masculino: "./sonido/Adios.wav",
-        femenino: "./sonido/MujerAdios.mp3"
+        masculino: "./sonido/espanol/Adios.wav",
+        femenino: "./sonido/espanol/MujerAdios.mp3"
     },
     hastaPronto: {
-        masculino: "./sonido/Hasta_pronto.wav",
-        femenino: "./sonido/MujerHastaPronto.mp3"
+        masculino: "./sonido/espanol/Hasta_pronto.wav",
+        femenino: "./sonido/espanol/MujerHastaPronto.mp3"
     },
     hastaLuego: {
-        masculino: "./sonido/Hasta_luego.wav",
-        femenino: "./sonido/MujerHastaLuego.mp3"
+        masculino: "./sonido/espanol/Hasta_luego.wav",
+        femenino: "./sonido/espanol/MujerHastaLuego.mp3"
     },
     hastaMañana: {
-        masculino: "./sonido/Hasta_mañana.wav",
-        femenino: "./sonido/MujerHastaManana.mp3"
+        masculino: "./sonido/espanol/Hasta_mañana.wav",
+        femenino: "./sonido/espanol/MujerHastaManana.mp3"
     },
     nosVemos: {
-        masculino: "./sonido/Nos_vemos.wav",
-        femenino: "./sonido/MujerNosVemos.mp3"
+        masculino: "./sonido/espanol/Nos_vemos.wav",
+        femenino: "./sonido/espanol/MujerNosVemos.mp3"
     },
     chao: {
-        masculino: "./sonido/Chao.wav",
-        femenino: "./sonido/MujerChao.mp3"
+        masculino: "./sonido/espanol/Chao.wav",
+        femenino: "./sonido/espanol/MujerChao.mp3"
     },
 
     //Variables de Emociones
 
     feliz:{
-        masculino: "./sonido/Feliz.wav",
+        masculino: "./sonido/espanol/Feliz.wav",
         femenino: "./sonido/MujerFeliz.wav"
     },
     sorprendido:{
-        masculino: "./sonido/Sorprendido.wav",
-        femenino: "./sonido/MujerSorprendido.wav"
+        masculino: "./sonido/espanol/Sorprendido.wav",
+        femenino: "./sonido/espanol/MujerSorprendido.wav"
     },
     confundido: {
-        masculino: "./sonido/Confundido.wav",
-        femenino: "./sonido/MujerConfundido.wav"
+        masculino: "./sonido/espanol/Confundido.wav",
+        femenino: "./sonido/espanol/MujerConfundido.wav"
     },
     enojado: {
-        masculino: "./sonido/Enojado.wav",
-        femenino: "./sonido/MujerEnojado.wav"
+        masculino: "./sonido/espanol/Enojado.wav",
+        femenino: "./sonido/espanol/MujerEnojado.wav"
     },
     estresado: {
-        masculino: "./sonido/Estresado.wav",
-        femenino: "./sonido/MujerEstresado.wav"
+        masculino: "./sonido/espanol/Estresado.wav",
+        femenino: "./sonido/espanol/MujerEstresado.wav"
     },
     tranquilo: {
-        masculino: "./sonido/Tranquilo.wav",
-        femenino: "./sonido/MujerTranquilo.wav"
+        masculino: "./sonido/espanol/Tranquilo.wav",
+        femenino: "./sonido/espanol/MujerTranquilo.wav"
     },
     triste: {
-        masculino: "./sonido/Triste.wav",
-        femenino: "./sonido/MujerTriste.wav"
+        masculino: "./sonido/espanol/Triste.wav",
+        femenino: "./sonido/espanol/MujerTriste.wav"
     },
     aburrido: {
-        masculino: "./sonido/Aburrido.wav",
-        femenino: "./sonido/MujerAburrido.wav"
+        masculino: "./sonido/espanol/Aburrido.wav",
+        femenino: "./sonido/espanol/MujerAburrido.wav"
     },
     enamorado: {
-        masculino: "./sonido/Enamorado.wav",
-        femenino: "./sonido/MujerEnamorado.wav"
+        masculino: "./sonido/espanol/Enamorado.wav",
+        femenino: "./sonido/espanol/MujerEnamorado.wav"
     },
     malo: {
-        masculino: "./sonido/Malo.wav",
-        femenino: "./sonido/MujerMalo.wav"
+        masculino: "./sonido/espanol/Malo.wav",
+        femenino: "./sonido/espanol/MujerMalo.wav"
     },
     enfermo: {
-        masculino: "./sonido/Enfermo.wav",
-        femenino: "./sonido/MujerEnfermo.wav"
+        masculino: "./sonido/espanol/Enfermo.wav",
+        femenino: "./sonido/espanol/MujerEnfermo.wav"
     },
 
     //Variables Animales
     perro: {
-        masculino: "./sonido/Perro.wav",
-        femenino: "./sonido/MujerPerro.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/Perro.wav",
+        femenino: "./sonido/espanol/MujerPerro.wav" // Ruta de audio femenino
     },
     gato: {
-        masculino: "./sonido/Gato.wav",
-        femenino: "./sonido/MujerGato.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/Gato.wav",
+        femenino: "./sonido/espanol/MujerGato.wav" // Ruta de audio femenino
     },
     elefante: {
-        masculino: "./sonido/Elefante.wav",
-        femenino: "./sonido/MujerElefante.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/Elefante.wav",
+        femenino: "./sonido/espanol/MujerElefante.wav" // Ruta de audio femenino
     },
     leon: {
-        masculino: "./sonido/León.wav",
-        femenino: "./sonido/MujerLeon.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/León.wav",
+        femenino: "./sonido/espanol/MujerLeon.wav" // Ruta de audio femenino
     },
     tigre: {
-        masculino: "./sonido/Tigre.wav",
-        femenino: "./sonido/MujerTigre.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/Tigre.wav",
+        femenino: "./sonido/espanol/MujerTigre.wav" // Ruta de audio femenino
     },
     oso: {
-        masculino: "./sonido/Oso.wav",
-        femenino: "./sonido/MujerOso.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/Oso.wav",
+        femenino: "./sonido/espanol/MujerOso.wav" // Ruta de audio femenino
     },
     caballo: {
-        masculino: "./sonido/Caballo.wav",
-        femenino: "./sonido/MujerCaballo.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/Caballo.wav",
+        femenino: "./sonido/espanol/MujerCaballo.wav" // Ruta de audio femenino
     },
     delfin: {
-        masculino: "./sonido/Delfín.wav",
-        femenino: "./sonido/MujerDelfin.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/Delfín.wav",
+        femenino: "./sonido/espanol/MujerDelfin.wav" // Ruta de audio femenino
     },
     aguila: {
-        masculino: "./sonido/Aguila.wav",
-        femenino: "./sonido/MujerAguila.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/Aguila.wav",
+        femenino: "./sonido/espanol/MujerAguila.wav" // Ruta de audio femenino
     },
     pinguino: {
-        masculino: "./sonido/Pinguino.wav",
-        femenino: "./sonido/MujerPinguino.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/Pinguino.wav",
+        femenino: "./sonido/espanol/MujerPinguino.wav" // Ruta de audio femenino
     },
     cebra: {
-        masculino: "./sonido/Cebra.wav",
-        femenino: "./sonido/MujerCebra.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/Cebra.wav",
+        femenino: "./sonido/espanol/MujerCebra.wav" // Ruta de audio femenino
     },
     jirafa: {
-        masculino: "./sonido/Jirafa.wav",
-        femenino: "./sonido/MujerJirafa.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/Jirafa.wav",
+        femenino: "./sonido/espanol/MujerJirafa.wav" // Ruta de audio femenino
     },
     lobo: {
-        masculino: "./sonido/Lobo.wav",
-        femenino: "./sonido/MujerLobo.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/Lobo.wav",
+        femenino: "./sonido/espanol/MujerLobo.wav" // Ruta de audio femenino
     },
     koala: {
-        masculino: "./sonido/Koala.wav",
-        femenino: "./sonido/MujerKoala.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/Koala.wav",
+        femenino: "./sonido/espanol/MujerKoala.wav" // Ruta de audio femenino
     },
     panda: {
-        masculino: "./sonido/Panda.wav",
-        femenino: "./sonido/MujerPanda.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/Panda.wav",
+        femenino: "./sonido/espanol/MujerPanda.wav" // Ruta de audio femenino
     },
     loro: {
-        masculino: "./sonido/Loro.wav",
-        femenino: "./sonido/MujerLoro.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/Loro.wav",
+        femenino: "./sonido/espanol/MujerLoro.wav" // Ruta de audio femenino
     },
     tortuga: {
-        masculino: "./sonido/Tortuga.wav",
-        femenino: "./sonido/MujerTortuga.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/Tortuga.wav",
+        femenino: "./sonido/espanol/MujerTortuga.wav" // Ruta de audio femenino
     },
     pato: {
-        masculino: "./sonido/Pato.wav",
-        femenino: "./sonido/MujerPato.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/Pato.wav",
+        femenino: "./sonido/espanol/MujerPato.wav" // Ruta de audio femenino
     },
     gallina: {
-        masculino: "./sonido/Gallina.wav",
-        femenino: "./sonido/MujerGallina.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/Gallina.wav",
+        femenino: "./sonido/espanol/MujerGallina.wav" // Ruta de audio femenino
     },
     pollo: {
-        masculino: "./sonido/Pollo.wav",
-        femenino: "./sonido/MujerPollo.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/Pollo.wav",
+        femenino: "./sonido/espanol/MujerPollo.wav" // Ruta de audio femenino
     },
     pez: {
-        masculino: "./sonido/Pez.wav",
-        femenino: "./sonido/MujerPez.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/Pez.wav",
+        femenino: "./sonido/espanol/MujerPez.wav" // Ruta de audio femenino
     },
 
     //Variables preguntas
 
     comoEstas: {
-        masculino: "./sonido/como_estas.wav",
-        femenino: "./sonido/MujerComoEstas.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/como_estas.wav",
+        femenino: "./sonido/espanol/MujerComoEstas.wav" // Ruta de audio femenino
     },
     aQueTeDedicas: {
-        masculino: "./sonido/a_que_te_dedicas.wav",
-        femenino: "./sonido/MujerAQueTeDedicas.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/a_que_te_dedicas.wav",
+        femenino: "./sonido/espanol/MujerAQueTeDedicas.wav" // Ruta de audio femenino
     },
     todoBien: {
-        masculino: "./sonido/todo_bien.wav",
-        femenino: "./sonido/MujerTodoBien.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/todo_bien.wav",
+        femenino: "./sonido/espanol/MujerTodoBien.wav" // Ruta de audio femenino
     },
     queTalTuDia: {
-        masculino: "./sonido/que_tal_tu_dia.wav",
-        femenino: "./sonido/MujerQueTalTuDia.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/que_tal_tu_dia.wav",
+        femenino: "./sonido/espanol/MujerQueTalTuDia.wav" // Ruta de audio femenino
     },
     teGusta: {
-        masculino: "./sonido/te_gusta.wav",
-        femenino: "./sonido/MujerTeGusta.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/te_gusta.wav",
+        femenino: "./sonido/espanol/MujerTeGusta.wav" // Ruta de audio femenino
     },
     teGusto: {
-        masculino: "./sonido/te_gusto.wav",
-        femenino: "./sonido/MujerTeGusto.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/te_gusto.wav",
+        femenino: "./sonido/espanol/MujerTeGusto.wav" // Ruta de audio femenino
     },
     teDisgusta: {
-        masculino: "./sonido/te_disgusta.wav",
-        femenino: "./sonido/MujerTeDisgusta.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/te_disgusta.wav",
+        femenino: "./sonido/espanol/MujerTeDisgusta.wav" // Ruta de audio femenino
     },
     comoVaTodo: {
-        masculino: "./sonido/como_va_todo.wav",
-        femenino: "./sonido/MujerComoVaTodo.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/como_va_todo.wav",
+        femenino: "./sonido/espanol/MujerComoVaTodo.wav" // Ruta de audio femenino
     },
     estasFeliz: {
-        masculino: "./sonido/estas_feliz.wav",
-        femenino: "./sonido/MujerEstasFeliz.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/estas_feliz.wav",
+        femenino: "./sonido/espanol/MujerEstasFeliz.wav" // Ruta de audio femenino
     },
     hasViajado: {
-        masculino: "./sonido/has_viajado.wav",
-        femenino: "./sonido/MujerHasViajado.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/has_viajado.wav",
+        femenino: "./sonido/espanol/MujerHasViajado.wav" // Ruta de audio femenino
     },
     estasEnojado: {
-        masculino: "./sonido/estas_enojado.wav",
-        femenino: "./sonido/MujerEstasEnojado.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/estas_enojado.wav",
+        femenino: "./sonido/espanol/MujerEstasEnojado.wav" // Ruta de audio femenino
     },
     estasEnojada: {
-        masculino: "./sonido/estas_enojada.wav",
-        femenino: "./sonido/MujerEstasEnojada.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/estas_enojada.wav",
+        femenino: "./sonido/espanol/MujerEstasEnojada.wav" // Ruta de audio femenino
     },
     queEsLoQueNoTeGusta: {
-        masculino: "./sonido/que_es_lo_que_no_te_gusta.wav",
-        femenino: "./sonido/MujerQueEsLoQueNoTeGusta.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/que_es_lo_que_no_te_gusta.wav",
+        femenino: "./sonido/espanol/MujerQueEsLoQueNoTeGusta.wav" // Ruta de audio femenino
     },
     quePasa: {
-        masculino: "./sonido/que_pasa.wav",
-        femenino: "./sonido/MujerQuePasa.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/que_pasa.wav",
+        femenino: "./sonido/espanol/MujerQuePasa.wav" // Ruta de audio femenino
     },
     tienesAlgunPasatiempo: {
-        masculino: "./sonido/tienes_algun_pasatiempo.wav",
-        femenino: "./sonido/MujerTienesAlgunPasatiempo.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/tienes_algun_pasatiempo.wav",
+        femenino: "./sonido/espanol/MujerTienesAlgunPasatiempo.wav" // Ruta de audio femenino
     },
     queMusicaTeGusta: {
-        masculino: "./sonido/que_musica_te_gusta.wav",
-        femenino: "./sonido/MujerQueMusicaTeGusta.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/que_musica_te_gusta.wav",
+        femenino: "./sonido/espanol/MujerQueMusicaTeGusta.wav" // Ruta de audio femenino
     },
     aQueLeTienesMiedo: {
-        masculino: "./sonido/a_que_le_tienes_miedo.wav",
-        femenino: "./sonido/MujerAQueLeTienesMiedo.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/a_que_le_tienes_miedo.wav",
+        femenino: "./sonido/espanol/MujerAQueLeTienesMiedo.wav" // Ruta de audio femenino
     },
     estasTriste: {
-        masculino: "./sonido/estas_triste.wav",
-        femenino: "./sonido/MujerEstasTriste.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/estas_triste.wav",
+        femenino: "./sonido/espanol/MujerEstasTriste.wav" // Ruta de audio femenino
     },
     porque: {
-        masculino: "./sonido/porque.wav",
-        femenino: "./sonido/MujerPorque.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/porque.wav",
+        femenino: "./sonido/espanol/MujerPorque.wav" // Ruta de audio femenino
     },
     dondeEstas: {
-        masculino: "./sonido/donde_estas.wav",
-        femenino: "./sonido/MujerDondeEstas.wav" // Ruta de audio femenino
+        masculino: "./sonido/espanol/donde_estas.wav",
+        femenino: "./sonido/espanol/MujerDondeEstas.wav" // Ruta de audio femenino
     }
 };
 
@@ -297,17 +297,17 @@ const soundChao = new Audio();
 
 // Emociones
 
-const soundFeliz = new Audio("./sonido/Feliz.wav");                  
-const soundSorprendido = new Audio("./sonido/Sorprendido.wav");     
-const soundConfundido = new Audio("./sonido/Confundido.wav");        
-const soundEnojado = new Audio("./sonido/Enojado.wav");              
-const soundEstresado = new Audio("./sonido/Estresado.wav");          
-const soundTranquilo = new Audio("./sonido/Tranquilo.wav");          
-const soundTriste = new Audio("./sonido/Triste.wav");              
-const soundAburrido = new Audio("./sonido/Aburrido.wav");            
-const soundEnamorado = new Audio("./sonido/Enamorado.wav");          
-const soundMalo = new Audio("./sonido/Malo.wav");                   
-const soundEnfermo = new Audio("./sonido/Enfermo.wav");              
+const soundFeliz = new Audio("./sonido/espanol/Feliz.wav");                  
+const soundSorprendido = new Audio("./sonido/espanol/Sorprendido.wav");     
+const soundConfundido = new Audio("./sonido/espanol/Confundido.wav");        
+const soundEnojado = new Audio("./sonido/espanol/Enojado.wav");              
+const soundEstresado = new Audio("./sonido/espanol/Estresado.wav");          
+const soundTranquilo = new Audio("./sonido/espanol/Tranquilo.wav");          
+const soundTriste = new Audio("./sonido/espanol/Triste.wav");              
+const soundAburrido = new Audio("./sonido/espanol/Aburrido.wav");            
+const soundEnamorado = new Audio("./sonido/espanol/Enamorado.wav");          
+const soundMalo = new Audio("./sonido/espanol/Malo.wav");                   
+const soundEnfermo = new Audio("./sonido/espanol/Enfermo.wav");              
 
 
 // Animales
@@ -817,13 +817,6 @@ botonPrincipal.addEventListener('click', (event) => {
     submenu.style.display = submenu.style.display === 'flex' ? 'none' : 'flex';
 });
 
-// // Función para cerrar el submenú al hacer clic en cualquier parte de la pantalla
-// document.addEventListener('click', (event) => {
-//     const isClickInside = submenu.contains(event.target) || botonPrincipal.contains(event.target);
-//     if (!isClickInside) {
-//         submenu.style.display = 'none'; // Cierra el submenú
-//     }
-// });
 
 
 document.addEventListener('click', (event) => {
