@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TuVooz</title>
+    <title id="urlAnimales">Animales</title>
     <!-- Favicons -->
     <link href="./img/logosolo.png" rel="icon">
     <script src="https://kit.fontawesome.com/b5603bc3b7.js" crossorigin="anonymous"></script>
@@ -60,20 +60,34 @@
 
                 <nav id="navbar" class="navbar">
                     <ul style="padding: 0px 40px 0px 0px;">
-                        <li><a class="nav-link scrollto " href="./paginaPrincipal.html">Texto</a></li>
-                        <li><a class="nav-link scrollto active" href="indexPalabrasComunes.html">Palabras comunes</a>
-                        </li>
-                        <li><a class="nav-link scrollto" href="./comoUsarTuvooz.html">¿Cómo usar TuVooz?</a></li>
+                        <li><a class="nav-link scrollto" href="./paginaPrincipal.html" id="BarraTexto">Texto</a></li>
+                        <li><a class="nav-link scrollto active" href="indexPalabrasComunes.html" id="BarraPalabras">Palabras comunes</a></li>
+                        <li><a class="nav-link scrollto" href="./comoUsarTuvooz.html" id="BarraComoUsar">¿Cómo usar TuVooz?</a></li>
                         <div class="dropdown">
                             <a href="#" class="dropdow text-light" data-bs-toggle="dropdown"><i class="fa-solid fa-gear"
                                     id="#Menu "></i></a>
                             <div class="dropdown-menu rounded" id="menuDespliegue">
-                                <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i>Mi cuenta</a>
-                                <!-- la funcion logout viene de js config -->
-                                <button class="dropdown-item" onclick="logout()"><i
-                                        class="fas fa-power-off me-2"></i>Cerrar sesión</button>
-
+                                <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i><div id="miCuenta"> Mi cuenta</div></a>
+                                <button class="dropdown-item" onclick="logout()" ><i class="fas fa-power-off me-2"></i><div id="CerrarSesion">Cerrar sesión</div></button>
                             </div>
+                        </div>
+                        <div>
+                            <li class="nav-item dropdown">
+                              <button class="dropbtn btn" id="language-btn" data-section="projects" data-value="there-project-title">
+                                  <img class="flag-icon" src="../tuVoozPrincipal/img/espanol.svg" alt="Español"> 
+                                  <b id="idioma">Español</b> 
+                              </button>
+                              <div id="flags" class="dropdown-content">
+                                  <div class="flags_item" data-language="es">
+                                      <img src="../tuVoozPrincipal/img/espanol.svg" class="flag-icon" alt="Español">
+                                      <span class="language-name">Español</span>
+                                  </div>
+                                  <div class="flags_item" data-language="en">
+                                      <img src="../tuVoozPrincipal/img/english.svg" class="flag-icon" alt="English">
+                                      <span class="language-name">English</span>
+                                  </div>
+                              </div>
+                           </li>
                         </div>
                     </ul>
                     <i class="bi bi-list mobile-nav-toggle"></i>
@@ -95,7 +109,7 @@
             </div>
 
             <div class="cajaTituloTexto2">
-                <h1 class="tituloTexto">Animales</h1>
+                <h1 class="tituloTexto" id="tituloAnimales">Animales</h1>
             </div>
         </div>
 
@@ -109,7 +123,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirPerro()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Perro</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta"id="boton0">Perro</a>
                             </div>
                         </div>
                     </div>
@@ -123,7 +137,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirGato()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Gato</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton1">Gato</a>
                             </div>
                         </div>
                     </div>
@@ -137,7 +151,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirElefante()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Elefante</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton2">Elefante</a>
                             </div>
                         </div>
                     </div>
@@ -151,7 +165,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirLeon()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">León</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton3">León</a>
                             </div>
                         </div>
                     </div>
@@ -165,7 +179,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirTigre()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Tigre</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton4">Tigre</a>
                             </div>
                         </div>
                     </div>
@@ -178,7 +192,7 @@
                             <h5 class="card-title"></h5>
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
-                                <a onclick="reproducirOso()" class="btn btn-primary botonReproducirTextoTarjeta">Oso</a>
+                                <a onclick="reproducirOso()" class="btn btn-primary botonReproducirTextoTarjeta" id="boton5">Oso</a>
                             </div>
                         </div>
                     </div>
@@ -192,7 +206,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirCaballo()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Caballo</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton6">Caballo</a>
                             </div>
                         </div>
                     </div>
@@ -206,7 +220,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirDelfin()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Delfín</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton7">Delfín</a>
                             </div>
                         </div>
                     </div>
@@ -220,7 +234,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirAguila()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Águila</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton8">Águila</a>
                             </div>
                         </div>
                     </div>
@@ -234,7 +248,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirPinguino()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Pingüino</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton9">Pingüino</a>
                             </div>
                         </div>
                     </div>
@@ -248,7 +262,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirCebra()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Cebra</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton10">Cebra</a>
                             </div>
                         </div>
                     </div>
@@ -262,7 +276,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirJirafa()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Jirafa</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton11">Jirafa</a>
                             </div>
                         </div>
                     </div>
@@ -275,8 +289,7 @@
                             <h5 class="card-title"></h5>
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
-                                <a onclick="reproducirLobo()" class="btn btn-primary botonReproducirTextoTarjeta">Lobo
-                                </a>
+                                <a onclick="reproducirLobo()" class="btn btn-primary botonReproducirTextoTarjeta" id="boton12">Lobo</a>
                             </div>
                         </div>
                     </div>
@@ -290,7 +303,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirKoala()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Koala</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton13">Koala</a>
                             </div>
                         </div>
                     </div>
@@ -304,7 +317,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirPanda()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Panda</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta"id="boton14">Panda</a>
                             </div>
                         </div>
                     </div>
@@ -318,7 +331,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirLoro()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Loro</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton15">Loro</a>
                             </div>
                         </div>
                     </div>
@@ -332,7 +345,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirTortuga()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Tortuga</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton16">Tortuga</a>
                             </div>
                         </div>
                     </div>
@@ -346,7 +359,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirPato()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Pato</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta"id="boton17">Pato</a>
                             </div>
                         </div>
                     </div>
@@ -360,7 +373,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirGallina()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Gallina</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton18">Gallina</a>
                             </div>
                         </div>
                     </div>
@@ -374,7 +387,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirPollo()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Pollo</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton19">Pollo</a>
                             </div>
                         </div>
                     </div>
@@ -387,7 +400,7 @@
                             <h5 class="card-title"></h5>
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
-                                <a onclick="reproducirPez()" class="btn btn-primary botonReproducirTextoTarjeta">Pez</a>
+                                <a onclick="reproducirPez()" class="btn btn-primary botonReproducirTextoTarjeta" id="boton20">Pez</a>
                             </div>
                         </div>
                     </div>
@@ -417,6 +430,8 @@
         <script src="./js/accesibilidad.js"></script>
         <script src="./js/tamañoLetras.js"></script>
         <script src="./js/cuenta/vistasProtegidas.js"></script>
+        <script src="./js/traduccion/principal.js"></script>
+        <script src="./js/traduccion/animales.js"></script>
     </body>
 
 </html>

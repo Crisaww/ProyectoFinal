@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>¿Cómo usar TuVooz?</title>
+  <title id="urlComoUsar">¿Cómo usar TuVooz?</title>
 
 
   <!-- Favicons -->
@@ -63,22 +63,36 @@
 
         <nav id="navbar" class="navbar">
           <ul style="padding: 0px 40px 0px 0px;">
-            <li><a class="nav-link scrollto " href="./paginaPrincipal.html">Texto</a></li>
-            <li><a class="nav-link scrollto" href="indexPalabrasComunes.html">Palabras comunes</a></li>
-            <li><a class="nav-link scrollto active" href="./comoUsarTuvooz.html">¿Cómo usar TuVooz?</a></li>
+            <li><a class="nav-link scrollto" href="./paginaPrincipal.html" id="BarraTexto">Texto</a></li>
+            <li><a class="nav-link scrollto" href="indexPalabrasComunes.html" id="BarraPalabras">Palabras comunes</a></li>
+            <li><a class="nav-link scrollto active" href="./comoUsarTuvooz.html" id="BarraComoUsar">¿Cómo usar TuVooz?</a></li>
             <div class="dropdown">
               <a href="#" class="dropdow text-light" data-bs-toggle="dropdown"><i class="fa-solid fa-gear"
                   id="#Menu "></i></a>
               <div class="dropdown-menu rounded" id="menuDespliegue">
-                <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> Mi cuenta</a>
-                <button class="dropdown-item" onclick="logout()"><i class="fas fa-power-off me-2"></i>Cerrar
-                  sesión</button>
+                <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i><div id="miCuenta"> Mi cuenta</div></a>
+                <button class="dropdown-item" onclick="logout()" ><i class="fas fa-power-off me-2"></i><div id="CerrarSesion">Cerrar sesión</div></button>
               </div>
             </div>
-
+            <div>
+              <li class="nav-item dropdown">
+                <button class="dropbtn btn" id="language-btn" data-section="projects" data-value="there-project-title">
+                    <img class="flag-icon" src="../tuVoozPrincipal/img/espanol.svg" alt="Español"> 
+                    <b id="idioma">Español</b> 
+                </button>
+                <div id="flags" class="dropdown-content">
+                    <div class="flags_item" data-language="es">
+                        <img src="../tuVoozPrincipal/img/espanol.svg" class="flag-icon" alt="Español">
+                        <span class="language-name">Español</span>
+                    </div>
+                    <div class="flags_item" data-language="en">
+                        <img src="../tuVoozPrincipal/img/english.svg" class="flag-icon" alt="English">
+                        <span class="language-name">English</span>
+                    </div>
+                </div>
+             </li>
+           </div>
           </ul>
-
-
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
 
@@ -103,13 +117,13 @@
     <div class="manualTuVooz">
       <div class="cajaBotonTitulo">
         <div class="cajaTituloTexto">
-          <h1 class="tituloTexto">¿Cómo usar TuVooz?</h1>
+          <h1 class="tituloTexto" id="tituloComoUsarTuVooz">¿Cómo usar TuVooz?</h1>
         </div>
       </div>
       <div class="usarTuvoozImagen">
         <img src="./img/libroComoTuVooz.png" alt="">
       </div>
-      <div class="usarTuVoozParrafo">
+      <div class="usarTuVoozParrafo" id="prrafoComoUsarTuVooz">
         <p>TuVooz es una aplicación muy sencilla de usar, si no entiendes como funciona, a continuacion te dejamos un
           corto manual de como usar nuestra App</p>
       </div>
@@ -118,7 +132,7 @@
         <a class="descargarPdf" href="../tuVoozPrincipal/documentos/Manual del Usuario _TuVooz Web.docx.pdf"
           target="_blank">
           <div class="iconoPdf">
-            <i class="fa-solid fa-file-arrow-down"></i> Abrir Manual PDF
+            <i class="fa-solid fa-file-arrow-down"></i><span id="manualpdf">Abrir Manual PDF</span>
           </div>
 
         </a>
@@ -152,6 +166,8 @@
     <script src="./js/tamañoLetras.js"></script>
     <script src="./js/accesibilidad.js"></script>
     <script src="./js/cuenta/vistasProtegidas.js"></script>
+    <script src="./js/traduccion/principal.js"></script>
+    <script src="./js/traduccion/comoUsarTuVooz.js"></script>
   </body>
 
 </html>

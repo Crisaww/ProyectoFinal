@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>TuVooz</title>
+  <title id="urlPaComunes">Palabras comunes</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -67,23 +67,39 @@
 
         <nav id="navbar" class="navbar">
           <ul style="padding: 0px 40px 0px 0px;">
-            <li><a class="nav-link scrollto " href="./paginaPrincipal.html">Texto</a></li>
-            <li><a class="nav-link scrollto active" href="./indexFrasesPalabras.html">Palabras comunes</a></li>
-            <!-- <li><a class="nav-link scrollto" href="./nosotros.html">¿Quiénes sómos?</a></li> -->
-            <li><a class="nav-link scrollto" href="./comoUsarTuvooz.html">¿Cómo usar TuVooz?</a></li>
+            <li><a class="nav-link scrollto" href="./paginaPrincipal.html" id="BarraTexto">Texto</a></li>
+            <li><a class="nav-link scrollto active" href="indexPalabrasComunes.html" id="BarraPalabras">Palabras comunes</a></li>
+            <li><a class="nav-link scrollto" href="./comoUsarTuvooz.html" id="BarraComoUsar">¿Cómo usar TuVooz?</a></li>
+            
             <div class="dropdown">
               <a href="#" class="dropdow text-light" data-bs-toggle="dropdown"><i class="fa-solid fa-gear"
-                  id="#Menu "></i></a>
+                id="#Menu "></i>
+              </a>
+
               <div class="dropdown-menu rounded" id="menuDespliegue">
-                <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> Mi cuenta</a>
-                <button class="dropdown-item" onclick="logout()"><i class="fas fa-power-off me-2"></i>Cerrar
-                  sesión</button>
+                <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i><div id="miCuenta"> Mi cuenta</div></a>
+                <button class="dropdown-item" onclick="logout()" ><i class="fas fa-power-off me-2"></i><div id="CerrarSesion">Cerrar sesión</div></button>
               </div>
             </div>
-
+            <div>
+              <li class="nav-item dropdown">
+                <button class="dropbtn btn" id="language-btn" data-section="projects" data-value="there-project-title">
+                    <img class="flag-icon" src="../tuVoozPrincipal/img/espanol.svg" alt="Español"> 
+                    <b id="idioma">Español</b> 
+                </button>
+                <div id="flags" class="dropdown-content">
+                    <div class="flags_item" data-language="es">
+                        <img src="../tuVoozPrincipal/img/espanol.svg" class="flag-icon" alt="Español">
+                        <span class="language-name">Español</span>
+                    </div>
+                    <div class="flags_item" data-language="en">
+                        <img src="../tuVoozPrincipal/img/english.svg" class="flag-icon" alt="English">
+                        <span class="language-name">English</span>
+                    </div>
+                </div>
+             </li>
+            </div>
           </ul>
-
-
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
 
@@ -104,7 +120,7 @@
     <!-- tarjetas de seleccion -->
     <div class="cajaBotonTitulo">
       <div class="cajaTituloTexto">
-        <h1 class="tituloTexto">Palabras comunes</h1>
+        <h1 class="tituloTexto" id="tituloPalComunes">Palabras comunes</h1>
       </div>
     </div>
 
@@ -114,10 +130,8 @@
           <div class="e-card playing">
             <div class="infotop">
               <i class="fas fa-comments icono"></i>
-              <br>
-              Saludos/Despedidas
-              <br>
-              <a href="saludos.html"><button class="btnCartas">Ingresar</button></a>
+              <p id="saludosDespedidas">Saludos/Despedidas</p>
+              <a href="saludos.html"><button class="btnCartas"><div id="IngresoCartas">Ingresar</div></button></a>
             </div>
           </div>
         </div>
@@ -131,10 +145,8 @@
 
             <div class="infotop">
               <i class="fa-solid fa-heart icono"></i>
-              <br>
-              Emociones
-              <br>
-              <a href="emociones.html"><button class="btnCartas">Ingresar</button></a>
+              <p id="emociones">Emociones</p>
+              <a href="emociones.html"><button class="btnCartas"><div id="IngresoCartas">Ingresar</div></button></a>
             </div>
           </div>
         </div>
@@ -149,10 +161,8 @@
 
             <div class="infotop">
               <i class="fa-solid fa-paw icono"></i>
-              <br>
-              Animales
-              <br>
-              <a href="animales.html"><button class="btnCartas">Ingresar</button></a>
+              <p id="animales">Animales<p>
+              <a href="animales.html"><button class="btnCartas"><div id="IngresoCartas">Ingresar</div></button></a>
             </div>
           </div>
         </div>
@@ -167,10 +177,8 @@
             <div class="infotop">
 
               <i class="fa-solid fa-question icono"></i>
-              <br>
-              Preguntas
-              <br>
-              <a href="preguntas.html"><button class="btnCartas">Ingresar</button></a>
+              <p id="preguntas">Preguntas</p>
+              <a href="preguntas.html"><button class="btnCartas"><div id="IngresoCartas">Ingresar</div></button></a>
             </div>
           </div>
         </div>
@@ -201,6 +209,9 @@
     <script src="./js/accesibilidad.js"></script>
     <script src="./js/tamañoLetras.js"></script>
     <script src="./js/cuenta/vistasProtegidas.js"></script>
+    <script src="./js/traduccion/palabrasComunes.js"></script>
+    <script src="./js/traduccion/principal.js"></script>
+    
   </body>
 
 </html>

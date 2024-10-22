@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TuVooz</title>
+    <title id="urlEmociones">Emociones</title>
     <!-- Favicons -->
     <link href="./img/logosolo.png" rel="icon">
     <script src="https://kit.fontawesome.com/b5603bc3b7.js" crossorigin="anonymous"></script>
@@ -61,19 +61,33 @@
 
                 <nav id="navbar" class="navbar">
                     <ul style="padding: 0px 40px 0px 0px;">
-                        <li><a class="nav-link scrollto " href="./paginaPrincipal.html">Texto</a></li>
-                        <li><a class="nav-link scrollto active" href="indexPalabrasComunes.html">Palabras comunes</a>
-                        </li>
-                        <li><a class="nav-link scrollto" href="./comoUsarTuvooz.html">¿Cómo usar TuVooz?</a></li>
+                        <li><a class="nav-link scrollto" href="./paginaPrincipal.html" id="BarraTexto">Texto</a></li>
+                        <li><a class="nav-link scrollto active" href="indexPalabrasComunes.html" id="BarraPalabras">Palabras comunes</a></li>
+                        <li><a class="nav-link scrollto" href="./comoUsarTuvooz.html" id="BarraComoUsar">¿Cómo usar TuVooz?</a></li>
                         <div class="dropdown">
-                            <a href="#" class="dropdow text-light" data-bs-toggle="dropdown"><i class="fa-solid fa-gear"
-                                    id="#Menu "></i></a>
+                            <a href="#" class="dropdow text-light" data-bs-toggle="dropdown"><i class="fa-solid fa-gear" id="#Menu "></i></a>
                             <div class="dropdown-menu rounded" id="menuDespliegue">
-                                <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> Mi
-                                    cuenta</a>
-                                <button class="dropdown-item" onclick="logout()"><i
-                                        class="fas fa-power-off me-2"></i>Cerrar sesión</button>
+                                <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i><div id="miCuenta"> Mi cuenta</div></a>
+                                <button class="dropdown-item" onclick="logout()" ><i class="fas fa-power-off me-2"></i><div id="CerrarSesion">Cerrar sesión</div></button>
                             </div>
+                        </div>
+                        <div>
+                            <li class="nav-item dropdown">
+                              <button class="dropbtn btn" id="language-btn" data-section="projects" data-value="there-project-title">
+                                  <img class="flag-icon" src="../tuVoozPrincipal/img/espanol.svg" alt="Español"> 
+                                  <b id="idioma">Español</b> 
+                              </button>
+                              <div id="flags" class="dropdown-content">
+                                  <div class="flags_item" data-language="es">
+                                      <img src="../tuVoozPrincipal/img/espanol.svg" class="flag-icon" alt="Español">
+                                      <span class="language-name">Español</span>
+                                  </div>
+                                  <div class="flags_item" data-language="en">
+                                      <img src="../tuVoozPrincipal/img/english.svg" class="flag-icon" alt="English">
+                                      <span class="language-name">English</span>
+                                  </div>
+                              </div>
+                           </li>
                         </div>
                     </ul>
                     <i class="bi bi-list mobile-nav-toggle"></i>
@@ -94,7 +108,7 @@
             </div>
 
             <div class="cajaTituloTexto2">
-                <h1 class="tituloTexto">Emociones</h1>
+                <h1 class="tituloTexto" id="tituloEmociones">Emociones</h1>
             </div>
         </div>
 
@@ -108,7 +122,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirFeliz()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Feliz</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton0">Feliz</a>
                             </div>
                         </div>
                     </div>
@@ -122,7 +136,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirSorprendido()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Sorprendido</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton1">Sorprendido</a>
                             </div>
                         </div>
                     </div>
@@ -136,7 +150,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirConfundido()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Confundido</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton2">Confundido</a>
                             </div>
                         </div>
                     </div>
@@ -150,7 +164,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirEnojado()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Enojado</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton3">Enojado</a>
                             </div>
                         </div>
                     </div>
@@ -164,7 +178,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirEstresado()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Estresado</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton4">Estresado</a>
                             </div>
                         </div>
                     </div>
@@ -178,7 +192,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirTranquilo()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Tranquilo</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton5">Tranquilo</a>
                             </div>
                         </div>
                     </div>
@@ -192,7 +206,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirTriste()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Triste</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta"  id="boton6">Triste</a>
                             </div>
                         </div>
                     </div>
@@ -206,7 +220,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirAburrido()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Aburrido</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton7">Aburrido</a>
                             </div>
                         </div>
                     </div>
@@ -220,7 +234,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirEnamorado()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Enamorado</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton8">Enamorado</a>
                             </div>
                         </div>
                     </div>
@@ -234,7 +248,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirMalo()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Malo</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton9">Malo</a>
                             </div>
                         </div>
                     </div>
@@ -248,7 +262,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirEnfermo()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">Enfermo</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton10">Enfermo</a>
                             </div>
                         </div>
                     </div>
@@ -277,6 +291,8 @@
         <script src="./js/accesibilidad.js"></script>
         <script src="./js/tamañoLetras.js"></script>
         <script src="./js/cuenta/vistasProtegidas.js"></script>
+        <script src="./js/traduccion/principal.js"></script>
+        <script src="./js/traduccion/emociones.js"></script>
     </body>
 
 </html>

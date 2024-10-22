@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TuVooz</title>
+    <title id="urlPregunats">Preguntas</title>
     <!-- Favicons -->
     <link href=".img/logosolo.png" rel="icon">
     <script src="https://kit.fontawesome.com/b5603bc3b7.js" crossorigin="anonymous"></script>
@@ -59,19 +59,34 @@
 
                 <nav id="navbar" class="navbar">
                     <ul style="padding: 0px 40px 0px 0px;">
-                        <li><a class="nav-link scrollto " href="./paginaPrincipal.html">Texto</a></li>
-                        <li><a class="nav-link scrollto active" href="indexPalabrasComunes.html">Palabras comunes</a>
-                        </li>
-                        <li><a class="nav-link scrollto" href="./comoUsarTuvooz.html">¿Cómo usar TuVooz?</a></li>
+                        <li><a class="nav-link scrollto" href="./paginaPrincipal.html" id="BarraTexto">Texto</a></li>
+                        <li><a class="nav-link scrollto active" href="indexPalabrasComunes.html" id="BarraPalabras">Palabras comunes</a></li>
+                        <li><a class="nav-link scrollto" href="./comoUsarTuvooz.html" id="BarraComoUsar">¿Cómo usar TuVooz?</a></li>
                         <div class="dropdown">
                             <a href="#" class="dropdow text-light" data-bs-toggle="dropdown"><i class="fa-solid fa-gear"
                                     id="#Menu "></i></a>
                             <div class="dropdown-menu rounded" id="menuDespliegue">
-                                <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> Mi
-                                    cuenta</a>
-                                <button class="dropdown-item" onclick="logout()"><i
-                                        class="fas fa-power-off me-2"></i>Cerrar sesión</button>
+                                <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i><div id="miCuenta"> Mi cuenta</div></a>
+                                <button class="dropdown-item" onclick="logout()" ><i class="fas fa-power-off me-2"></i><div id="CerrarSesion">Cerrar sesión</div></button>
                             </div>
+                        </div>
+                        <div>
+                            <li class="nav-item dropdown">
+                              <button class="dropbtn btn" id="language-btn" data-section="projects" data-value="there-project-title">
+                                  <img class="flag-icon" src="../tuVoozPrincipal/img/espanol.svg" alt="Español"> 
+                                  <b id="idioma">Español</b> 
+                              </button>
+                              <div id="flags" class="dropdown-content">
+                                  <div class="flags_item" data-language="es">
+                                      <img src="../tuVoozPrincipal/img/espanol.svg" class="flag-icon" alt="Español">
+                                      <span class="language-name">Español</span>
+                                  </div>
+                                  <div class="flags_item" data-language="en">
+                                      <img src="../tuVoozPrincipal/img/english.svg" class="flag-icon" alt="English">
+                                      <span class="language-name">English</span>
+                                  </div>
+                              </div>
+                           </li>
                         </div>
                     </ul>
                     <i class="bi bi-list mobile-nav-toggle"></i>
@@ -92,7 +107,7 @@
             </div>
 
             <div class="cajaTituloTexto2">
-                <h1 class="tituloTexto">Preguntas</h1>
+                <h1 class="tituloTexto" id="tituloPreguntas">Preguntas</h1>
             </div>
         </div>
 
@@ -106,7 +121,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirComoEstas()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">¿Cómo estás?</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta" id="boton0">¿Cómo estás?</a>
                             </div>
                         </div>
                     </div>
@@ -119,7 +134,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirAQueTeDedicas()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">¿A qué te dedicas?</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta"id="boton1">¿A qué te dedicas?</a>
                             </div>
                         </div>
                     </div>
@@ -133,7 +148,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirTodoBien()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">¿Todo bien?</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta"id="boton2">¿Todo bien?</a>
                             </div>
                         </div>
                     </div>
@@ -147,7 +162,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirQueTalTuDia()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">¿Qué tal tu día?</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta"id="boton3">¿Qué tal tu día?</a>
                             </div>
                         </div>
                     </div>
@@ -160,8 +175,7 @@
                             <h5 class="card-title"></h5>
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
-                                <a onclick="reproducirTeGusta()" class="btn btn-primary botonReproducirTextoTarjeta">¿Te
-                                    gusta?</a>
+                                <a onclick="reproducirTeGusta()" class="btn btn-primary botonReproducirTextoTarjeta"id="boton4">¿Tegusta?</a>
                             </div>
                         </div>
                     </div>
@@ -174,8 +188,7 @@
                             <h5 class="card-title"></h5>
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
-                                <a onclick="reproducirTeGusto()" class="btn btn-primary botonReproducirTextoTarjeta">¿Te
-                                    gusto?</a>
+                                <a onclick="reproducirTeGusto()" class="btn btn-primary botonReproducirTextoTarjeta"id="boton5">¿Te gusto?</a>
                             </div>
                         </div>
                     </div>
@@ -190,7 +203,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirTeDisgusta()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">¿Te disgusta?</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta"id="boton6">¿Te disgusta?</a>
                             </div>
                         </div>
                     </div>
@@ -204,7 +217,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirComoVaTodo()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">¿Cómo va todo?</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta"id="boton7">¿Cómo va todo?</a>
                             </div>
                         </div>
                     </div>
@@ -218,7 +231,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirEstasFeliz()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">¿Estás feliz?</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta"id="boton8">¿Estás feliz?</a>
                             </div>
                         </div>
                     </div>
@@ -232,7 +245,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirHasViajado()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">¿Has viajado?</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta"id="boton9">¿Has viajado?</a>
                             </div>
                         </div>
                     </div>
@@ -246,7 +259,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirEstasEnojado()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">¿Estás enojado?</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta"id="boton10">¿Estás enojado?</a>
                             </div>
                         </div>
                     </div>
@@ -260,7 +273,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirEstasEnojada()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">¿Estás enojada?</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta"id="boton11">¿Estás enojada?</a>
                             </div>
                         </div>
                     </div>
@@ -274,7 +287,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirQueEsLoQueNoTeGusta()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">¿Qué es lo que no te gusta?</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta"id="boton12">¿Qué es lo que no te gusta?</a>
                             </div>
                         </div>
                     </div>
@@ -288,7 +301,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirQuePasa()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">¿Qué pasa?</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta"id="boton13">¿Qué pasa?</a>
                             </div>
                         </div>
                     </div>
@@ -302,7 +315,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirTienesAlgunPasatiempo()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">¿Tienes algún pasatiempo?</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta"id="boton14">¿Tienes algún pasatiempo?</a>
                             </div>
                         </div>
                     </div>
@@ -316,7 +329,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirQueMusicaTeGusta()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">¿Qué música te gusta?</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta"id="boton15">¿Qué música te gusta?</a>
                             </div>
                         </div>
                     </div>
@@ -330,7 +343,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirAQueLeTienesMiedo()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">¿A qué le tienes miedo?</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta"id="boton16">¿A qué le tienes miedo?</a>
                             </div>
                         </div>
                     </div>
@@ -344,7 +357,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirEstasTriste()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">¿Estás triste?</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta"id="boton17">¿Estás triste?</a>
                             </div>
                         </div>
                     </div>
@@ -358,7 +371,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirPorque()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">¿Porqué?</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta"id="boton18">¿Porqué?</a>
                             </div>
                         </div>
                     </div>
@@ -372,7 +385,7 @@
                             <!-- <p class="card-text">Some quick </p> -->
                             <div class=".contenedor_botonTarjeta">
                                 <a onclick="reproducirDondeEstas()"
-                                    class="btn btn-primary botonReproducirTextoTarjeta">¿Dónde estás?</a>
+                                    class="btn btn-primary botonReproducirTextoTarjeta"id="boton19">¿Dónde estás?</a>
                             </div>
                         </div>
                     </div>
@@ -402,6 +415,8 @@
         <script src="./js/accesibilidad.js"></script>
         <script src="./js/tamañoLetras.js"></script>
         <script src="./js/cuenta/vistasProtegidas.js"></script>
+        <script src="./js/traduccion/preguntas.js"></script>
+        <script src="./js/traduccion/principal.js"></script>
 
     </body>
 

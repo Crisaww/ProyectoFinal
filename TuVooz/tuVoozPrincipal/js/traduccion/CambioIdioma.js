@@ -1,5 +1,6 @@
 const translations = {
     es: {
+        //Barra Navegacion
         titulourl: "tuVooz",
         BarraTexto: "Texto",
         BarraPalabras: "Palabras comunes",
@@ -7,6 +8,7 @@ const translations = {
         miCuenta: "Mi cuenta",
         CerrarSesion: "Cerrar sesión",
         idioma: "Idioma", 
+        // pagina Principla
         textoVoz: "Texto a voz",
         sonido: "Reproducir sonido",
         vozFemenina: "Voz femenina",
@@ -15,6 +17,7 @@ const translations = {
         flagAlt: "Español" 
     },
     en: {
+        //Barra Navegacion
         titulourl: "tuVooz",
         BarraTexto: "Text",
         BarraPalabras: "Common words",
@@ -22,6 +25,7 @@ const translations = {
         miCuenta: "My account",
         CerrarSesion: "Sign out",
         idioma: "Language", 
+        // pagina Principla
         textoVoz: "text to speech",
         sonido: "Play sound",
         vozFemenina: "Female voice",
@@ -36,11 +40,13 @@ function changeLanguage(lang) {
     document.title = translations[lang].titulourl;
 
     // Actualiza los textos de los elementos
+    //Barra de busqueda
     document.getElementById('BarraTexto').innerText = translations[lang].BarraTexto;
     document.getElementById('BarraPalabras').innerText = translations[lang].BarraPalabras;
     document.getElementById('BarraComoUsar').innerText = translations[lang].BarraComoUsar;
     document.getElementById('CerrarSesion').innerText = translations[lang].CerrarSesion;
     document.getElementById('miCuenta').innerText = translations[lang].miCuenta;
+    //pagina Principal
     document.getElementById('textoVoz').innerText = translations[lang].textoVoz;
     document.getElementById('sonido').innerText = translations[lang].sonido;
     document.getElementById('vozFemenina').innerText = translations[lang].vozFemenina;
@@ -56,15 +62,15 @@ function changeLanguage(lang) {
      flagIcon.alt = translations[lang].flagAlt;
 }
 
-// Añadir el evento al click de los elementos de la bandera
-document.querySelectorAll('.flags_item').forEach(item => {
-    item.addEventListener('click', () => {
-        const lang = item.getAttribute('data-language');
-        changeLanguage(lang);
-    });
-});
+// // Añadir el evento al click de los elementos de la bandera
+// document.querySelectorAll('.flags_item').forEach(item => {
+//     item.addEventListener('click', () => {
+//         const lang = item.getAttribute('data-language');
+//         changeLanguage(lang);
+//     });
+// });
 
-// Cambia el idioma inicial al cargar la página
-document.addEventListener('DOMContentLoaded', () => {
-    changeLanguage('es'); // Cambia 'es' por 'en' si prefieres inglés por defecto
-});
+// // Cambia el idioma inicial al cargar la página
+// document.addEventListener('DOMContentLoaded', () => {
+//     changeLanguage('es'); // Cambia 'es' por 'en' si prefieres inglés por defecto
+// });
