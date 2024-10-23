@@ -46,7 +46,23 @@ const translations = {
        manualpdf:"Ouvrir le manuel PDF", 
        flagSrc: "../tuVoozPrincipal/img/france.svg", 
        flagAlt: "Français" 
-    }
+    },
+    pt:{
+        //Barra Navegacion
+        BarraTexto: "Texto",
+        BarraPalabras: "Palavras comuns",
+        BarraComoUsar: "Como utilizar o TuVooz?",
+        miCuenta: "A minha conta",
+        CerrarSesion: "Terminar sessão",
+        idioma: "Língua",
+        //comoUsarTuVoz
+        urlComoUsar:"Como utilizar o TuVooz?",
+        tituloComoUsarTuVooz:"Comment utiliser TuVooz?",
+        prrafoComoUsarTuVooz:"TuVooz é uma aplicação muito fácil de usar, se não perceber como funciona, aqui está um pequeno manual sobre como usar a nossa aplicação.",
+        manualpdf:"Abrir o manual em PDF", 
+        flagSrc: "../tuVoozPrincipal/img/portugal.svg", 
+        flagAlt: "português" 
+   }
 };
 
 function changeLanguage(lang) {

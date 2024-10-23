@@ -7,7 +7,7 @@ const translations = {
         miCuenta: "Mi cuenta",
         CerrarSesion: "Cerrar sesión",
         idioma: "Idioma", 
-        //emociones
+        //animales
         urlAnimales:"Animales",
         tituloAnimales:"Animales",
         boton0:"Perro",
@@ -42,7 +42,7 @@ const translations = {
         miCuenta: "My account",
         CerrarSesion: "Sign out",
         idioma: "Language", 
-        //emociones
+        //animales
         urlEmociones:"Animals",
         tituloAnimales:"Animals",
         boton0:"Dog",
@@ -103,7 +103,42 @@ const translations = {
         boton20:"poisson",
         flagSrc: "../tuVoozPrincipal/img/france.svg", 
         flagAlt: "Français" 
-    }
+    },
+    pt:{
+        //Barra Navegacion
+        BarraTexto: "Texto",
+        BarraPalabras: "Palavras comuns",
+        BarraComoUsar: "Como utilizar o TuVooz?",
+        miCuenta: "A minha conta",
+        CerrarSesion: "Terminar sessão",
+        idioma: "Língua", 
+        //animales
+        urlAnimales:"Animais",
+        tituloAnimales:"Animais",
+        boton0:"Cão",
+        boton1:"Gato",
+        boton2:"Elefante",
+        boton3:"Leão",
+        boton4:"Tigre",
+        boton5:"Urso",
+        boton6:"Cavalo",
+        boton7:"Golfinho",
+        boton8:"Aguia",
+        boton9:"Pinguim",
+        boton10:"Zebra",
+        boton11:"Girafa",
+        boton12:"Lobo",
+        boton13:"Coala",
+        boton14:"Panda",
+        boton15:"Papagaio",
+        boton16:"Tartaruga",
+        boton17:"Pato",
+        boton18:"Galinha",
+        boton19:"Galinha",
+        boton20:"Peixe",
+        flagSrc: "../tuVoozPrincipal/img/portugal.svg", 
+        flagAlt: "português" 
+   }
 };
 
 function changeLanguage(lang) {

@@ -100,7 +100,41 @@ const translations = {
        boton19:"Où es-tu ?",
        flagSrc: "../tuVoozPrincipal/img/france.svg", 
        flagAlt: "Français" 
-    }
+    },
+    pt:{
+        //Barra Navegacion
+        BarraTexto: "Texto",
+        BarraPalabras: "Palavras comuns",
+        BarraComoUsar: "Como utilizar o TuVooz?",
+        miCuenta: "A minha conta",
+        CerrarSesion: "Terminar sessão",
+        idioma: "Língua", 
+        //preguntas
+        urlPregunats:"Preguntas",
+        tituloPreguntas:"Preguntas",
+        boton0:"Como está a correr?",
+        boton1:"O que é que faz?",
+        boton2:"Como é que está?",
+        boton3:"Como foi o teu dia?",
+        boton4:"Gostaste?",
+        boton5:"¿Gostas de mim?",
+        boton6:"Não gostaste?",
+        boton7:"Como é que está a correr?",
+        boton8:"Estás contente?",
+        boton9:"Já viajou?",
+        boton10:"Está zangado?",
+        boton11:"Está zangado?",
+        boton12:"Do que é que não gosta?",
+        boton13:"O que está acontecendo?",
+        boton14:"Tem algum passatempo?",
+        boton15:"Tem algum passatempo?",
+        boton16:"De que é que tens medo?",
+        boton17:"Estás triste?",
+        boton18:"Porqué?",
+        boton19:"Onde estás?", 
+        flagSrc: "../tuVoozPrincipal/img/portugal.svg", 
+        flagAlt: "português" 
+   }
 };
 
 function changeLanguage(lang) {

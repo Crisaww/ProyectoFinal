@@ -73,8 +73,32 @@ const translations = {
          boton10:"Malade",
          flagSrc: "../tuVoozPrincipal/img/france.svg", 
          flagAlt: "Français"
-
-    }
+    },
+    pt:{
+        //Barra Navegacion
+        BarraTexto: "Texto",
+        BarraPalabras: "Palavras comuns",
+        BarraComoUsar: "Como utilizar o TuVooz?",
+        miCuenta: "A minha conta",
+        CerrarSesion: "Terminar sessão",
+        idioma: "Língua", 
+        //emociones
+        urlEmociones:"Emoções",
+        tituloEmociones:"Emoções",
+        boton0:"Feliz",
+        boton1:"Surpreso",
+        boton2:"Confuso",
+        boton3:"Zangado",
+        boton4:"Stressado",
+        boton5:"Calmo",
+        boton6:"Triste",
+        boton7:"Aborrecido",
+        boton8:"Apaixonado",
+        boton9:"Mau",
+        boton10:"Doente",
+        flagSrc: "../tuVoozPrincipal/img/portugal.svg", 
+        flagAlt: "português" 
+   }
 };
 
 function changeLanguage(lang) {

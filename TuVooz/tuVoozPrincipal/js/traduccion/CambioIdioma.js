@@ -41,13 +41,30 @@ const translations = {
         miCuenta: "Mon compte",
         CerrarSesion: "Déconnexion",
         idioma: "Langue", 
+        // pagina Principla
         textoVoz: "Texte à voix",
         sonido: "Jouer le son",
         vozFemenina: "Voix féminine",
         vozMasculina: "Voix masculine",
         flagSrc: "../tuVoozPrincipal/img/france.svg", 
         flagAlt: "Français" 
-    }
+    },
+    pt:{
+        //Barra Navegacion
+        BarraTexto: "Texto",
+        BarraPalabras: "Palavras comuns",
+        BarraComoUsar: "Como utilizar o TuVooz?",
+        miCuenta: "A minha conta",
+        CerrarSesion: "Terminar sessão",
+        idioma: "Língua", 
+        // pagina Principla
+        textoVoz: "Texto para voz",
+        sonido: "Reproduzir som",
+        vozFemenina: "Voz feminina",
+        vozMasculina: "Voz masculina",
+        flagSrc: "../tuVoozPrincipal/img/portugal.svg", 
+        flagAlt: "português" 
+   }
 };
 
 function changeLanguage(lang) {

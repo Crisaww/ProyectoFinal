@@ -76,7 +76,33 @@ const translations = {
        btnEliminar:"Supprimer le compte",
        flagSrc: "../tuVoozPrincipal/img/france.svg", 
        flagAlt: "Français" 
-    }
+    },
+    pt:{
+        //Barra Navegacion
+        BarraTexto: "Texto",
+        BarraPalabras: "Palavras comuns",
+        BarraComoUsar: "Como utilizar o TuVooz?",
+        miCuenta: "A minha conta",
+        CerrarSesion: "Terminar sessão",
+        idioma: "Língua", 
+        //mi Cuenta
+        urlMicuenta:"A minha conta",
+        tituloAccesibilidad:"Acessibilidade",
+        tituloMiCuenta:"A minha conta",
+        cambioUsuario:"Alterar utilizador",
+        nombreactual:"Nome de utilizador atual",
+        nuevoNombre:"Novo nome de utilizador",
+        btnActualizarPerfil:"Guardar alterações",
+        cambioContrasena:"Alterar palavra-passe",
+        contrasenaActual:"Palavra-passe atual",
+        nuvaContrasena:"Nova palavra-passe",
+        confirmacionContrasena:"Confirmar a nova palavra-passe",
+        btnActualizarEmail:"Guardar alterações",
+        tituloEliminarCuenta:"Eliminar conta",
+        btnEliminar:"Eliminar conta",
+        flagSrc: "../tuVoozPrincipal/img/portugal.svg", 
+        flagAlt: "português" 
+   }
 };
 
 function changeLanguage(lang) {

@@ -64,6 +64,28 @@ const translations = {
         IngresoCartas3: "Entrer",
         flagSrc: "../tuVoozPrincipal/img/france.svg", 
         flagAlt: "Français" 
+    },
+    pt:{
+         //Barra Navegacion
+         BarraTexto: "Texto",
+         BarraPalabras: "Palavras comuns",
+         BarraComoUsar: "Como utilizar o TuVooz?",
+         miCuenta: "A minha conta",
+         CerrarSesion: "Terminar sessão",
+         idioma: "Língua", 
+        //frases y palabras
+        urlPaComunes:"Palavras comuns",
+        tituloPalComunes:"Palavras comuns",
+        saludosDespedidas:"Saudações/despedidas",
+        emociones:"Emoções",
+        animales:"Animais",
+        preguntas:"Preguntas",
+        IngresoCartas0:"Entrar",
+        IngresoCartas1:"Entrar",
+        IngresoCartas2:"Entrar",
+        IngresoCartas3:"Entrar",
+         flagSrc: "../tuVoozPrincipal/img/portugal.svg", 
+         flagAlt: "português" 
     }
     
 };
