@@ -1951,17 +1951,11 @@ FIN COMO USAR TU VOOZ
 }
 
 
-.sugerenciaTexto {
-  margin-top: 10px; /* Espacio encima del contenedor de sugerencias */
-  background-color: #e9d8ff; /* Color de fondo morado suave */
-  border: 2px solid #a45ed4; /* Borde morado */
-  border-radius: 10px; /* Bordes redondeados */
-  padding: 10px; /* Espaciado interno */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-}
+
 
 .contenedorBotonesSugeridos {
   display: flex; /* Usar flexbox para alinear botones */
+  justify-content: center;
   flex-wrap: wrap; /* Permitir que los botones se ajusten a varias líneas */
   gap: 10px; /* Espacio entre botones */
   margin-top: 10px; /* Espacio encima del contenedor de botones */
