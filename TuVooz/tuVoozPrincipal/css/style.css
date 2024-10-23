@@ -1950,3 +1950,28 @@ FIN COMO USAR TU VOOZ
   font-family: "Poppins", sans-serif;
 }
 
+
+
+
+.contenedorBotonesSugeridos {
+  display: flex; /* Usar flexbox para alinear botones */
+  justify-content: center;
+  flex-wrap: wrap; /* Permitir que los botones se ajusten a varias líneas */
+  gap: 10px; /* Espacio entre botones */
+  margin-top: 10px; /* Espacio encima del contenedor de botones */
+}
+
+.sugerencia-item {
+  background-color: #a45ed4; /* Color de fondo de los botones */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px 15px; /* Espaciado interno */
+  cursor: pointer; /* Cambiar el cursor al pasar por encima */
+  transition: background-color 0.3s; /* Transición para el color de fondo */
+}
+
+.sugerencia-item:hover {
+  background-color: #7c4dff; /* Color de fondo al pasar el mouse */
+}
+

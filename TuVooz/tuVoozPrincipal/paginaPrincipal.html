@@ -26,7 +26,7 @@
   <link href="/TuVooz/Ajustes/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/TuVooz/Ajustes/fontawesome/css/all.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  
+
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
 
@@ -63,7 +63,8 @@
         <nav id="navbar" class="navbar">
           <ul style="padding: 0px 40px 0px 0px;">
             <li><a class="nav-link scrollto active" href="./paginaPrincipal.html" id="BarraTexto">Texto</a></li>
-            <li><a class="nav-link scrollto" href="indexPalabrasComunes.html" id="BarraPalabras">Palabras comunes</a></li>
+            <li><a class="nav-link scrollto" href="indexPalabrasComunes.html" id="BarraPalabras">Palabras comunes</a>
+            </li>
             <li><a class="nav-link scrollto" href="./comoUsarTuvooz.html" id="BarraComoUsar">¿Cómo usar TuVooz?</a></li>
 
             <div class="dropdown">
@@ -75,7 +76,7 @@
                 <a href="miCuenta.html" class="dropdown-item"><i class="fas fa-user-alt me-2"></i><div id="miCuenta"> Mi cuenta</div></a>
                 <button class="dropdown-item" onclick="logout()" ><i class="fas fa-power-off me-2"></i><div id="CerrarSesion">Cerrar sesión</div></button>
               </div>
-            </div> 
+            </div>
 
             <div>
               <li class="nav-item dropdown">
@@ -103,6 +104,7 @@
                 </div>
              </li>
             </div>
+
 
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
@@ -133,8 +135,15 @@
       </div>
     </div>
 
+    <!-- Contenedor para los botones sugeridos -->
+    <div class="contenedorBotonesSugeridos" id="contenedorBotonesSugeridos">
+      <div id="sugerencia" class="sugerenciaTexto"></div>
+
+    </div>
     <div class="textarea-container">
-      <textarea class="multiLine" name="texto" rows="4" cols="50" id="texto" placeholder="Escriba aquí... "></textarea>
+      <textarea class="multiLine" name="texto" rows="4" cols="50" id="texto" placeholder="Escriba aquí... "
+        oninput="sugerirTexto()"></textarea>
+
     </div>
     <div class="containerLoading hidden">
       <div class="loading">
@@ -167,7 +176,7 @@
           <p id="vozMasculina">Voz masculina</p>
         </label>
       </div>
-      
+
     </div>
 
 
@@ -194,10 +203,10 @@
       <button id="light-mode"><i class="fa-solid fa-sun"></i></button>
       <button id="aumentarFuente"><i class="fa-solid fa-plus"></i></button>
       <button id="disminuirFuente"><i class="fa-solid fa-minus"></i></button>
-     </div>
+    </div>
     <!-- Botón principal flotante verde -->
     <button class="boton-flotante" id="boton-principal"><i class="fa-solid fa-person"></i></button>
-    
+
     <!-- Vendor JS Files -->
     <script src="/TuVooz/Ajustes/vendor/aos/aos.js"></script>
     <script src="/TuVooz/Ajustes/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
