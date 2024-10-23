@@ -103,7 +103,6 @@ h6 {
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/
 
-
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -168,7 +167,7 @@ h6 {
   position: relative;
 }
 
-.navbar>ul>li {
+.navbar > ul > li {
   padding: 10px 0 10px 24px;
 }
 
@@ -189,8 +188,6 @@ h6 {
   position: relative;
 }
 
-
-
 .navbar a i,
 .navbar a:focus i,
 .navbar button i,
@@ -200,7 +197,7 @@ h6 {
   margin-left: 5px;
 }
 
-.navbar>ul>li>a:before {
+.navbar > ul > li > a:before {
   content: "";
   position: absolute;
   width: 100%;
@@ -214,7 +211,7 @@ h6 {
 }
 
 .navbar a:hover:before,
-.navbar li:hover>a:before,
+.navbar li:hover > a:before,
 .navbar .active:before {
   visibility: visible;
   width: 100%;
@@ -223,7 +220,7 @@ h6 {
 .navbar a:hover,
 .navbar .active,
 .navbar .active:focus,
-.navbar li:hover>a {
+.navbar li:hover > a {
   color: #fff;
 }
 
@@ -247,7 +244,7 @@ h6 {
 }
 
 .navbar .getstarted:before,
-.navbar li:hover>.getstarted:before {
+.navbar li:hover > .getstarted:before {
   visibility: hidden;
 }
 
@@ -282,11 +279,11 @@ h6 {
 
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
-.navbar .dropdown ul li:hover>a {
+.navbar .dropdown ul li:hover > a {
   color: #5846f9;
 }
 
-.navbar .dropdown:hover>ul {
+.navbar .dropdown:hover > ul {
   opacity: 1;
   top: 100%;
   visibility: visible;
@@ -298,14 +295,12 @@ h6 {
   visibility: hidden;
 }
 
-.navbar .dropdown .dropdown:hover>ul {
+.navbar .dropdown .dropdown:hover > ul {
   opacity: 1;
   top: 0;
   left: 100%;
   visibility: visible;
 }
-
-
 
 /**
 * Mobile Navigation 
@@ -360,7 +355,7 @@ h6 {
   transition: 0.3s;
 }
 
-.navbar-mobile>ul>li {
+.navbar-mobile > ul > li {
   padding: 0;
 }
 
@@ -371,14 +366,11 @@ h6 {
   color: #2c4964;
 }
 
-
-
 .navbar-mobile a:hover:before,
-.navbar-mobile li:hover>a:before,
+.navbar-mobile li:hover > a:before,
 .navbar-mobile .active:before {
   visibility: hidden;
 }
-
 
 .navbar-mobile .nav-link.scrollto.active {
   color: #5846f9;
@@ -419,21 +411,13 @@ h6 {
 
 .navbar-mobile .dropdown ul a:hover,
 .navbar-mobile .dropdown ul .active:hover,
-.navbar-mobile .dropdown ul li:hover>a {
+.navbar-mobile .dropdown ul li:hover > a {
   color: #5846f9;
 }
 
-.navbar-mobile .dropdown>.dropdown-active {
+.navbar-mobile .dropdown > .dropdown-active {
   display: block;
 }
-
-
-
-
-
-
-
-
 
 /*--------------------------------------------------------------
 # Hero Section
@@ -442,7 +426,12 @@ h6 {
   position: fixed;
   height: 10%;
   width: 100%;
-  background: linear-gradient(45deg, rgba(86, 58, 250, 0.9) 0%, rgba(116, 15, 214, 0.9) 100%), url("../img/Onda3.jpg") center center no-repeat;
+  background: linear-gradient(
+      45deg,
+      rgba(86, 58, 250, 0.9) 0%,
+      rgba(116, 15, 214, 0.9) 100%
+    ),
+    url("../img/Onda3.jpg") center center no-repeat;
   background-size: cover;
 }
 
@@ -488,7 +477,6 @@ h6 {
   animation: up-down 2s ease-in-out infinite alternate-reverse both;
 }
 
-
 #hero .animated {
   animation: none;
 }
@@ -501,9 +489,6 @@ h6 {
   width: 50%;
 }
 
-
-
-
 #hero h2 {
   font-size: 18px;
   line-height: 24px;
@@ -513,15 +498,10 @@ h6 {
   width: 60%;
 }
 
-
-
-
-
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
 section {
-
   padding: 0;
   overflow: hidden;
 }
@@ -620,7 +600,12 @@ section {
 # Counts
 --------------------------------------------------------------*/
 .counts {
-  background: linear-gradient(90deg, rgba(88, 70, 249, 0.5) 0%, rgba(123, 39, 216, 0.5) 100%), url("../img/counts-bg.png") center center no-repeat;
+  background: linear-gradient(
+      90deg,
+      rgba(88, 70, 249, 0.5) 0%,
+      rgba(123, 39, 216, 0.5) 100%
+    ),
+    url("../img/counts-bg.png") center center no-repeat;
   padding: 80px 0 60px 0;
 }
 
@@ -883,8 +868,6 @@ section {
   background-color: #5846f9;
 }
 
-
-
 /*--------------------------------------------------------------
 # Portfolio
 --------------------------------------------------------------*/
@@ -1026,7 +1009,10 @@ section {
   position: relative;
 }
 
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
+.portfolio-details
+  .portfolio-details-slider
+  .swiper-pagination
+  .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
   background-color: #fff;
@@ -1034,7 +1020,10 @@ section {
   border: 1px solid #5846f9;
 }
 
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+.portfolio-details
+  .portfolio-details-slider
+  .swiper-pagination
+  .swiper-pagination-bullet-active {
   background-color: #5846f9;
 }
 
@@ -1057,7 +1046,7 @@ section {
   font-size: 15px;
 }
 
-.portfolio-details .portfolio-info ul li+li {
+.portfolio-details .portfolio-info ul li + li {
   margin-top: 10px;
 }
 
@@ -1210,7 +1199,7 @@ section {
   list-style: none;
 }
 
-.faq .faq-list li+li {
+.faq .faq-list li + li {
   margin-top: 15px;
 }
 
@@ -1274,8 +1263,6 @@ section {
   display: none;
 }
 
-
-
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
@@ -1323,7 +1310,7 @@ section {
   font-weight: 600;
 }
 
-.contact .php-email-form .error-message br+br {
+.contact .php-email-form .error-message br + br {
   margin-top: 25px;
 }
 
@@ -1375,7 +1362,7 @@ section {
   padding: 12px 15px;
 }
 
-.contact .php-email-form button[type=submit] {
+.contact .php-email-form button[type="submit"] {
   background: #5846f9;
   border: 0;
   padding: 10px 24px;
@@ -1384,7 +1371,7 @@ section {
   border-radius: 5px;
 }
 
-.contact .php-email-form button[type=submit]:hover {
+.contact .php-email-form button[type="submit"]:hover {
   background: #7b27d8;
 }
 
@@ -1408,8 +1395,6 @@ section {
   margin-top: 85px;
 }
 
-
-
 .breadcrumbs h2 {
   font-size: 28px;
   font-weight: 300;
@@ -1424,18 +1409,16 @@ section {
   margin: 0;
 }
 
-.breadcrumbs ol li+li {
+.breadcrumbs ol li + li {
   padding-left: 10px;
 }
 
-.breadcrumbs ol li+li::before {
+.breadcrumbs ol li + li::before {
   display: inline-block;
   padding-right: 10px;
   color: #3c6387;
   content: "/";
 }
-
-
 
 .breadcrumbs ol {
   display: block;
@@ -1445,13 +1428,10 @@ section {
   display: inline-block;
 }
 
-
-
 #header.header-scrolled,
 #header.header-inner-pages {
   background-color: #000000;
 }
-
 
 /*
 
@@ -1464,13 +1444,9 @@ section {
 .team {
   height: 32rem;
   width: 100%;
-
 }
 
-
-
 @media (min-width: 100px) {
-
   .container,
   .container-lg,
   .container-md,
@@ -1479,8 +1455,6 @@ section {
     max-width: 100%;
   }
 }
-
-
 
 .team-member {
   position: relative;
@@ -1499,7 +1473,7 @@ section {
   top: -81px;
   left: 65%;
   transform: translateX(-110px);
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 .team-member .main-content {
@@ -1507,7 +1481,6 @@ section {
   padding: 35% 6% 10% 2%;
   background-color: #f1f0fe;
   text-align: center;
-
 }
 
 .team-member .main-content span.category {
@@ -1537,7 +1510,7 @@ section {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 .team-member .main-content ul li a:hover {
@@ -1556,8 +1529,6 @@ section {
   /* Hace la imagen redonda */
   margin-bottom: 10px;
 }
-
-
 
 .nombre {
   color: #0a0a0a;
@@ -1638,16 +1609,13 @@ INICIO TARJETAS SELECCION
   background: linear-gradient(744deg, #7440ff, #7255eb 60%, #0297ef);
 }
 
-
-
 .icon {
   width: 3em;
   margin-top: -1em;
   padding-bottom: 1em;
 }
 
-.infotop
-{
+.infotop {
   text-align: center;
   font-size: 20px;
   position: absolute;
@@ -1658,9 +1626,9 @@ INICIO TARJETAS SELECCION
   font-weight: 600;
 }
 #animales,
-#preguntas, 
+#preguntas,
 #emociones,
-#saludosDespedidas{
+#saludosDespedidas {
   text-align: center;
   font-size: 20px;
   top: 5.6em;
@@ -1678,8 +1646,6 @@ INICIO TARJETAS SELECCION
   text-transform: lowercase;
 }
 
-
-
 /* estilos de iconos */
 .icono {
   font-size: 30px;
@@ -1690,7 +1656,7 @@ INICIO TARJETAS SELECCION
 .btnCartas {
   width: 6.5em;
   height: 2.3em;
-  margin: 0.0em;
+  margin: 0em;
   background: rgb(191 182 255);
   color: #303041;
   border: none;
@@ -1758,7 +1724,6 @@ INICIO TARJETAS-INTERNAS-SECCIONADAS PALABRAS COMUNES
   display: flex;
   justify-content: center;
   padding: 8px 8px 0 8px;
-
 }
 
 .botonReproducirTextoTarjeta {
@@ -1781,7 +1746,6 @@ INICIO TARJETAS-INTERNAS-SECCIONADAS PALABRAS COMUNES
   justify-content: center;
   margin-bottom: 10px;
 }
-
 
 /*
 -----------------------------------------------------
@@ -1827,15 +1791,12 @@ FIN COMO USAR TU VOOZ
 ------------------------------
 */
 
-
-
 .hr1 {
   border: none;
   border-bottom: 1px solid black;
   height: 1px;
   margin: 0;
 }
-
 
 /* estilos del boton ir a el inicio */
 .top-left-btn {
@@ -1848,7 +1809,6 @@ FIN COMO USAR TU VOOZ
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   position: fixed;
   justify-content: center;
-
 }
 
 .cajaBotonTitulo {
@@ -1903,7 +1863,6 @@ FIN COMO USAR TU VOOZ
   font-family: "Poppins", sans-serif;
 }
 
-
 #flags {
   display: none; /* Oculto por defecto */
   position: absolute;
@@ -1916,7 +1875,7 @@ FIN COMO USAR TU VOOZ
 }
 
 #flags .flags_item {
-  display: flex; 
+  display: flex;
   align-items: center; /* Centra verticalmente la bandera y el nombre */
   padding: 5px;
   cursor: pointer;
@@ -1930,11 +1889,11 @@ FIN COMO USAR TU VOOZ
 .flag-icon {
   width: 26px;
   height: 26px;
-  margin-right: 10px; 
+  margin-right: 10px;
 }
 
 .nav-item:hover #flags {
-  display: block; 
+  display: block;
 }
 
 .dropdown-content {
@@ -1952,6 +1911,18 @@ FIN COMO USAR TU VOOZ
 
 
 
+b#idioma {
+  color: #ffffffb3;
+}
+
+b#idioma:hover {
+  color: #fff;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  color: #fff;
+}
 
 .contenedorBotonesSugeridos {
   display: flex; /* Usar flexbox para alinear botones */
@@ -1974,4 +1945,3 @@ FIN COMO USAR TU VOOZ
 .sugerencia-item:hover {
   background-color: #7c4dff; /* Color de fondo al pasar el mouse */
 }
-
