@@ -4,10 +4,21 @@ from django.views.decorators.csrf import csrf_exempt
 from google.cloud import texttospeech
 import os
 from transformers import pipeline
+from nltk.corpus import wordnet
 
 
-# Inicializar el generador de texto con el modelo adecuado
-text_generator = pipeline("text-generation", model="datificate/gpt2-small-spanish")
+
+# Inicializamos el modelo adecuado para completar palabras
+# Cambiamos de GPT-2 a un modelo más adecuado para esta tarea como BERT
+text_generator = pipeline("fill-mask", model="dccuchile/bert-base-spanish-wwm-cased")
+
+# Función para obtener palabras relacionadas usando WordNet (opcional)
+def get_related_words(word):
+    synonyms = []
+    for syn in wordnet.synsets(word, lang='spa'):  # Sinónimos en español
+        for lemma in syn.lemmas('spa'):
+            synonyms.append(lemma.name())
+    return set(synonyms)
 
 @csrf_exempt
 def predict_text(request):
@@ -15,33 +26,30 @@ def predict_text(request):
         try:
             # Parsear los datos del request
             data = json.loads(request.body)
-            text = data.get('text', '')
-            num_words = data.get('num_words', 5)  # Número de palabras a generar
-            temperature = data.get('temperature', 2.0)  # Controlar la creatividad del modelo
+            text = data.get('text', '').strip()  # Eliminar espacios innecesarios
+            num_words = data.get('num_words', 3)  # Número de sugerencias
+            top_k = data.get('top_k', 5)  # Controlar el número de predicciones posibles
 
             # Validar que se haya proporcionado texto
             if not text:
                 return JsonResponse({'error': 'No text provided'}, status=400)
 
-            # Generar varias sugerencias
-            generated_texts = text_generator(
-                text, 
-                max_length=num_words + len(text.split()),  # Ajustar para la longitud total
-                num_return_sequences=1,  # Obtener solo una secuencia para extraer palabras
-                temperature=temperature, 
-                pad_token_id=50256,
-                truncation=True  # Activar el truncamiento
-            )
+            # Agregar una máscara al final del texto para que el modelo prediga la siguiente palabra
+            masked_text = f"{text} [MASK]"
 
-            # Limpiar el texto generado y filtrar sugerencias irrelevantes
-            suggested_texts = generated_texts[0]['generated_text'].split()  # Obtener palabras
+            # Generar sugerencias usando el modelo
+            generated_texts = text_generator(masked_text, top_k=top_k)
 
-            # Filtrar sugerencias que no tengan sentido
+            # Obtener las palabras sugeridas
+            suggested_texts = [result['token_str'] for result in generated_texts]
+
+            # Filtrar sugerencias que no tengan sentido o que sean demasiado cortas
             filtered_suggestions = [
-                word for word in suggested_texts 
-                if word not in text and len(word) > 1  # Evitar palabras vacías o repetidas
-            ][:num_words]  # Limitar el número de palabras sugeridas
+                word for word in suggested_texts
+                if len(word) > 1  # Evitar palabras vacías o muy cortas
+            ][:num_words]  # Limitar el número de sugerencias
 
+            # Retornar las sugerencias
             return JsonResponse({'suggested_texts': filtered_suggestions}, status=200)
 
         except Exception as e:
