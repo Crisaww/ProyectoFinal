@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from google.cloud import texttospeech
 import os
 
-def synthesize_text_to_speech(text, output_file='.mp3', voice_name="en-US-Journey-D", language_code="en-US", audio_format=texttospeech.AudioEncoding.LINEAR16, speaking_rate=1.0):
+def synthesize_text_to_speech(text, output_file='MenBye.wav', voice_name="en-US-Journey-D", language_code="en-US", audio_format=texttospeech.AudioEncoding.LINEAR16, speaking_rate=1.0):
     # Verificar si las credenciales están configuradas en las variables de entorno
     if not os.getenv('GOOGLE_APPLICATION_CREDENTIALS'):
         return JsonResponse({'error': 'Google Cloud credentials not configured'}, status=500)
